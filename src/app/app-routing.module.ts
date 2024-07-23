@@ -1,17 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './home/home.component';
-import { ProductsComponent } from './products/products.component';
-import { AboutComponent } from './about/about.component';
-import { ContactComponent } from './contact/contact.component';
-import { CartComponent } from './cart/cart.component';
+import { SheshineComponent } from './sheshine/sheshine.component';
+import { ShineComponent } from './shine/shine.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent },
-  { path: 'products', component: ProductsComponent },
-  { path: 'about', component: AboutComponent },
-  { path: 'contact', component: ContactComponent },
-  { path: 'cart', component: CartComponent },
+  { path: 'sheshine', component: SheshineComponent },
+  { path: 'shine', component: ShineComponent },
+  { path: '', redirectTo: '/sheshine', pathMatch: 'full' }, // Redirect to Sheshine by default
 ];
 
 @NgModule({
