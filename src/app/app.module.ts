@@ -8,6 +8,11 @@ import { SheshineComponent } from './sheshine/sheshine.component';
 import { ShineComponent } from './shine/shine.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavtabComponent } from './navtab/navtab.component';
+import { HomeComponent } from './home/home.component';
+import { CartComponent } from './cart/cart.component';
+import { ContactComponent } from './contact/contact.component';
+import { AboutComponent } from './about/about.component';
+import { ProductsComponent } from './products-component/products.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +21,11 @@ import { NavtabComponent } from './navtab/navtab.component';
     ShineComponent,
     NavbarComponent,
     NavtabComponent,
+    HomeComponent,
+    CartComponent,
+    ContactComponent,
+    AboutComponent,
+    ProductsComponent,
   ],
   imports: [
     BrowserModule,

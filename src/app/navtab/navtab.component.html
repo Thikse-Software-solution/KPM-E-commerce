@@ -1,24 +1,7 @@
 <nav>
   <ul>
-    <li>
-      <a
-        routerLink="/sheshine"
-        routerLinkActive="active"
-        [ngClass]="{ 'active-sheshine': isRouteActive('/sheshine') }"
-        [routerLinkActiveOptions]="{ exact: true }"
-        >Sheshine</a
-      >
-    </li>
-    <li>
-      <a
-        routerLink="/shine"
-        routerLinkActive="active"
-        [ngClass]="{ 'active-shine': isRouteActive('/shine') }"
-        [routerLinkActiveOptions]="{ exact: true }"
-        >Shine</a
-      >
-    </li>
+    <li><a routerLink="/sheshine" routerLinkActive="active">Sheshine</a></li>
+    <li><a routerLink="/shine" routerLinkActive="active">Shine</a></li>
   </ul>
 </nav>
-
 <router-outlet></router-outlet>
