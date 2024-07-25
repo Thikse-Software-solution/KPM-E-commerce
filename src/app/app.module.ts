@@ -14,6 +14,7 @@ import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { ProductsComponent } from './products-component/products.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,11 +26,14 @@ import { ProductsComponent } from './products-component/products.component';
     CartComponent,
     ContactComponent,
     AboutComponent,
-    ProductsComponent,
+    ProductsComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
+
+
   ],
   providers: [
     provideClientHydration(),
