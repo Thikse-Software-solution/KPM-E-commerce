@@ -13,6 +13,12 @@ import { CartComponent } from './cart/cart.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { ProductsComponent } from './products-component/products.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -26,12 +32,18 @@ import { ProductsComponent } from './products-component/products.component';
     CartComponent,
     ContactComponent,
     AboutComponent,
-    ProductsComponent
+    ProductsComponent,
+    LoginComponent,
+    SignupComponent
 
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule, // required animations module
+    ToastrModule.forRoot() // ToastrModule added
 
 
   ],
