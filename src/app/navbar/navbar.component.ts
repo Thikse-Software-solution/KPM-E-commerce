@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
+  menuActive = false;
 
+  toggleMenu() {
+    this.menuActive = !this.menuActive;
+    console.log('Menu active:', this.menuActive); // Debug log to check toggle functionality
+  }
 }

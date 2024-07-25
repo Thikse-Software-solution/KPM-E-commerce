@@ -1,0 +1,37 @@
+nav {
+  background-color: #f8f9fa;
+  padding: 1rem;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+li {
+  margin-right: 1rem;
+}
+
+a {
+  text-decoration: none;
+  color: #007bff;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+a.active {
+  background-color: #007bff;
+  color: white;
+}
+
+a.active-sheshine {
+  background-color: #ff6347; /* Example color for Sheshine */
+  color: white;
+}
+
+a.active-shine {
+  background-color: #32cd32; /* Example color for Shine */
+  color: white;
+}
