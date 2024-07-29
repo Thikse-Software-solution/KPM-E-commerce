@@ -1,0 +1,20 @@
+<!-- src/app/product-card/product-card.component.html -->
+<div class="container-fluid card-container">
+  <div class="d-flex" style="gap:20px;">
+    <div class="product-card" *ngFor="let product of products">
+      <img [src]="product.image" alt="{{ product.title }}" class="product-image"/>
+      <h3 class="product-title">{{ product.title }}</h3>
+      <p class="product-price">{{ product.price }}</p>
+      <div class="product-rating">
+        <i *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
+           [class]="getStarClass(i, product.rating)"
+           (click)="setRating(product, i + 1)"></i>
+        <!-- Rating: {{ product.rating }} / 5 -->
+      </div>
+
+        <i (click)="toggleFavorite(product)" class="favorite-button" [class]="product.favorited ? 'fas fa-heart' : 'far fa-heart'"></i>
+
+      <button (click)="shop(product)">Shop Now</button>
+    </div>
+  </div>
+</div>
