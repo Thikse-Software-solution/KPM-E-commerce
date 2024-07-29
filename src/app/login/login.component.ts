@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -26,6 +27,7 @@ export class LoginComponent {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value).subscribe(
         response => {
+      
           this.toastr.success('Login successful');
           // Handle successful login, e.g., store tokens, navigate to another page, etc.
         },
@@ -34,6 +36,8 @@ export class LoginComponent {
           // Handle login error
         }
       );
+    
+    
     }
   }
 }

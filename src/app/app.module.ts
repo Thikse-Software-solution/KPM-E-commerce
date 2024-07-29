@@ -8,7 +8,6 @@ import { ShineComponent } from './shine/shine.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NavtabComponent } from './navtab/navtab.component';
 import { HomeComponent } from './home/home.component';
-import { CartComponent } from './cart/cart.component';
 import { ContactComponent } from './contact/contact.component';
 import { AboutComponent } from './about/about.component';
 import { ProductsComponent } from './products-component/products.component';
@@ -18,29 +17,30 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { CartComponent } from './cart/cart.component';
+import { ProductOrderComponent } from './product-order/product-order.component';
 import { ProductCardComponent } from './product-card/product-card.component';
 
 
 
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     SheshineComponent,
     ShineComponent,
     NavbarComponent,
     NavtabComponent,
     HomeComponent,
-    CartComponent,
     ContactComponent,
     AboutComponent,
     ProductsComponent,
     LoginComponent,
     SignupComponent,
-    ProductCardComponent,
-
-
-  ],
+    CartComponent,
+    ProductOrderComponent,
+    ProductCardComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
