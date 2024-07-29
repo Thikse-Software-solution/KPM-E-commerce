@@ -3,6 +3,7 @@ import { Component, OnInit, AfterViewInit, OnDestroy, Inject, ElementRef, Render
 import { ProductService } from '../product.service';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
@@ -18,6 +19,7 @@ export class ProductCardComponent implements OnInit, AfterViewInit, OnDestroy {
     private productService: ProductService,
     private el: ElementRef,
     private renderer: Renderer2,
+    private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
@@ -28,6 +30,10 @@ export class ProductCardComponent implements OnInit, AfterViewInit, OnDestroy {
       this.products = data;
     });
   }
+  buyProduct(product: any): void {
+    this.router.navigate(['/product', product.id]);
+  }
+
 
   ngAfterViewInit(): void {
     if (this.isBrowser) {

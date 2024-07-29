@@ -1,23 +1,15 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
+import { ActivatedRoute } from '@angular/router';
+import { ProductService } from '../product.service';
 
 @Component({
   selector: 'app-product-order',
   templateUrl: './product-order.component.html',
   styleUrls: ['./product-order.component.scss']
 })
-export class ProductOrderComponent {
-  product = {
-    name: 'Blood Orange and Rosehip Lip Balm',
-    description: `Suitable for: Dry, chapped & pigmented lips`,
-    keybenfit: `Key benefit: Repair the natural barrier & boost collagen synthesis`,
-    size:'5g',
-
-    mrp: 1000,
-    discount: 20,
-    price: 800,
-    image: '../../assets/images/BloodOrange_RosehipLipBalm.webp'
-  };
+export class ProductOrderComponent implements OnInit {
+  product: any;
 
   isFavorite = false;
 
@@ -25,22 +17,26 @@ export class ProductOrderComponent {
     this.isFavorite = !this.isFavorite;
   }
 
-  // addToCart() {
-  //   // Implement add to cart functionality here
-  //   alert('Added to cart');
-  // }
+
 
   buyNow() {
-    // Implement buy now functionality here
+
     alert('Buy now');
   }
+  addToCart(product: any)
+    {
 
-   constructor(private cartService: CartService) {}
+      this.cartService.addToCart(product);
+    }
 
-  addToCart(product: any) {
-    setTimeout(function() { 
-  alert("$premium$");
-}, 1);
-    this.cartService.addToCart(product);
+  constructor(private cartService: CartService, private route: ActivatedRoute, private productService: ProductService) { }
+  ngOnInit(): void {
+    const id = +this.route.snapshot.paramMap.get('id')!;
+    this.productService.getProducts().subscribe(products => {
+      this.product = products.find(p => p.id === id);
+    });
+
+
+
   }
 }
