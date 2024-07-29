@@ -17,15 +17,15 @@ export class ProductOrderComponent implements OnInit {
     this.isFavorite = !this.isFavorite;
   }
 
- 
+
 
   buyNow() {
-   
+
     alert('Buy now');
   }
   addToCart(product: any)
     {
-  
+
       this.cartService.addToCart(product);
     }
 
@@ -36,7 +36,7 @@ export class ProductOrderComponent implements OnInit {
       this.product = products.find(p => p.id === id);
     });
 
-  
-    
+
+
   }
 }
