@@ -2,9 +2,15 @@
   <ul>
     <li><a routerLink="/sheshine" routerLinkActive="active">Sheshine</a></li>
     <li><a routerLink="/shine" routerLinkActive="active">Shine</a></li>
-    <div>
-      <a class=".login" routerLink="/login">login</a>
-    </div>
   </ul>
+ <div class="nav">
+  <div id="login">
+    <a class="login" routerLink="/login"><img height="30px" width="30px"
+        src="../../assets/images/navtab/person-circle.svg" alt=""></a>
+  </div>
+  <div id="cart">
+    <a routerLink="/cart"><img height="30px" width="30px" src="../../assets/images/navtab/cart.svg" alt=""></a>
+  </div>
+ </div>
 </nav>
 <router-outlet></router-outlet>

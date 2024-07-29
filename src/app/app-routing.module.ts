@@ -27,6 +27,7 @@ const routes: Routes = [
   { path: 'shine', component: ShineComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  { path: 'cart', component: CartComponent },
 
 
 ];
