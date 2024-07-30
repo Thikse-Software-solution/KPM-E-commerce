@@ -1,0 +1,27 @@
+<div class="container">
+    <h5 class="text-center mt-4">Payment Details</h5>
+    <div *ngIf="selectedAddress" class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ selectedAddress.name }} <span class="badge badge-secondary">{{
+                    selectedAddress.type }}</span></h5>
+            <p class="card-text">{{ selectedAddress.phone }}</p>
+            <p class="card-text">{{ selectedAddress.addressLine1 }}, {{ selectedAddress.addressLine2 }}</p>
+            <p class="card-text">{{ selectedAddress.city }}, {{ selectedAddress.state }} - {{ selectedAddress.zip }}</p>
+        </div>
+    </div>
+    <div *ngIf="product" class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">{{ product.name }}</h5>
+            <p class="card-text">{{ product.description }}</p>
+            <p class="card-text">₹{{ product.price }}</p>
+        </div>
+    </div>
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">Amount to be Paid</h5>
+            <p class="card-text">₹{{ productAmount }}</p>
+        </div>
+    </div>
+    <button class="btn btn-primary btn-block">Proceed to Pay</button>
+</div>
+

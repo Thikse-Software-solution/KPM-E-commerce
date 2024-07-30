@@ -11,7 +11,9 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProductOrderComponent } from './product-order/product-order.component';
 import { ProductCardComponent } from './product-card/product-card.component';
-
+import { AddressListComponent } from './address-list/address-list.component';
+import { AddAddressComponent } from './add-address/add-address.component';
+import { PaymentComponent } from './payment/payment.component';
 const routes: Routes = [
   {
     path: 'sheshine', component: SheshineComponent, children:
@@ -32,7 +34,13 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: '', component: ProductCardComponent },
   { path: 'product/:id', component: ProductOrderComponent },
+   { path: 'add-address', component: AddAddressComponent },
+  { path: 'address-list', component: AddressListComponent },
+  // { path: '', redirectTo: '/address-list', pathMatch: 'full' },
+  // { path: '**', redirectTo: '/address-list' },
+    { path: 'payment', component: PaymentComponent },
 
+  
 
 
 ];
