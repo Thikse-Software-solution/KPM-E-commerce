@@ -1,40 +1,117 @@
-nav {
-  background-color: #f8f9fa;
-  padding: 1rem;
+.navTab-block {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #fff;
+
+  .navTab-items {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+
+    .navTab-item {
+      color: #000;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 1rem;
+      padding: 15px;
+      border-radius: 4px;
+
+      &.active {
+        background-color: #99015B;
+        color: #fff;
+      }
+
+      img {
+        width: 125px;
+      }
+    }
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+
+    #login,
+    #cart {
+      // margin-left: 20px;
+
+      a {
+        text-decoration: none;
+        color: #007bff;
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+
+        &.active {
+          background-color: #007bff;
+          color: white;
+        }
+
+        &.active-sheshine {
+          background-color: #ff6347; /* Example color for Sheshine */
+          color: white;
+        }
+
+        &.active-shine {
+          background-color: #32cd32; /* Example color for Shine */
+          color: white;
+        }
+
+        img {
+          height: 30px;
+          width: 30px;
+        }
+      }
+    }
+  }
 }
 
+@media (max-width: 768px) {
+  .navTab-block {
+    flex-direction: column;
+    align-items: flex-start;
 
-ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-}
+    .navTab-items {
+      flex-direction: column;
+      width: 100%;
 
-li {
-  margin-right: 1rem;
-}
+      .navTab-item {
+        width: 100%;
+        justify-content: center;
+        padding-left: 1rem;
+        margin-right: 0;
+        margin-bottom: 10px;
 
-a {
-  text-decoration: none;
-  color: #007bff;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-}
+        img {
+          width: 125px;
+        }
+      }
+    }
 
-a.active {
-  background-color: #007bff;
-  color: white;
-}
+    .nav {
+      width: 100%;
+      justify-content: space-between;
+      margin-top: 10px;
 
-a.active-sheshine {
-  background-color: #ff6347; /* Example color for Sheshine */
-  color: white;
-}
+      #login,
+      #cart {
+        margin-left: 0;
+        // margin-right: 20px;
 
-a.active-shine {
-  background-color: #32cd32; /* Example color for Shine */
-  color: white;
+        a {
+          padding: 0.5rem;
+
+          img {
+            height: 30px;
+            width: 30px;
+          }
+        }
+      }
+    }
+  }
+
 }
