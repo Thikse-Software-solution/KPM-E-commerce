@@ -1,16 +1,27 @@
-<nav>
-  <ul>
-    <li><a routerLink="/sheshine" routerLinkActive="active">Sheshine</a></li>
-    <li><a routerLink="/shine" routerLinkActive="active">Shine</a></li>
+<nav class="navTab-block">
+  <ul class="navTab-items">
+    <li>
+      <a routerLink="/sheshine" routerLinkActive="active" class="navTab-item">
+        <img src="../../assets/images/sheshine-logo.svg" alt="SHESHINE">
+      </a>
+    </li>
+    <li>
+      <a routerLink="/shine" routerLinkActive="active" class="navTab-item">
+        <img src="../../assets/images/shine-logo.svg" alt="SHINE ORGANICS" style="width: 165px;">
+      </a>
+    </li>
   </ul>
- <div class="nav">
-  <div id="login">
-    <a class="login" routerLink="/login"><img height="30px" width="30px"
-        src="../../assets/images/navtab/person-circle.svg" alt=""></a>
+  <div class="nav">
+    <div id="login">
+      <a class="login" routerLink="/login">
+        <img height="30px" width="30px" src="../../assets/images/navtab/person-circle.svg" alt="Login">
+      </a>
+    </div>
+    <div id="cart">
+      <a routerLink="/cart" class="cart">
+        <img height="30px" width="30px" src="../../assets/images/navtab/cart.svg" alt="Cart">
+      </a>
+    </div>
   </div>
-  <div id="cart">
-    <a routerLink="/cart"><img height="30px" width="30px" src="../../assets/images/navtab/cart.svg" alt=""></a>
-  </div>
- </div>
 </nav>
 <router-outlet></router-outlet>
