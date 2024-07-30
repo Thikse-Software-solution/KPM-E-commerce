@@ -20,6 +20,11 @@ import { ToastrModule } from 'ngx-toastr';
 import { CartComponent } from './cart/cart.component';
 import { ProductOrderComponent } from './product-order/product-order.component';
 import { ProductCardComponent } from './product-card/product-card.component';
+import { AddressListComponent } from './address-list/address-list.component';
+import { AddAddressComponent } from './add-address/add-address.component';
+import { FormsModule } from '@angular/forms';
+import { PaymentComponent } from './payment/payment.component'; 
+
 
 
 
@@ -39,13 +44,18 @@ import { ProductCardComponent } from './product-card/product-card.component';
     SignupComponent,
     CartComponent,
     ProductOrderComponent,
-    ProductCardComponent
+    ProductCardComponent,
+    AddressListComponent,
+    AddAddressComponent,
+    PaymentComponent
+   
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    FormsModule,  
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot() // ToastrModule added
   ],

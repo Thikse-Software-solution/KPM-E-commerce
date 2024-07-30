@@ -2,8 +2,10 @@
 
    {
     "id": 1,
-    "image": "../../assets/images/nothing.jpeg",
-    "title": "Nothing",
+    "image": "../../assets/images/BloodOrange_RosehipLipBalm.webp",
+
+    "title": "LipBalm",
+    "name":"Blood Orange and Rosehip LipBalm",
     "description":"",
     "keybenefit":"",
     "size":"5g",

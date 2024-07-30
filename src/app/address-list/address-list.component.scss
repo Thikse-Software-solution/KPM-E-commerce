@@ -1,0 +1,45 @@
+.container {
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+    padding: 10px;
+}
+
+.address-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.address-card p {
+    margin: 5px 0;
+}
+
+.badge {
+    background-color: #007bff;
+    color: #fff;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+button {
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #e64a19;
+}
+
+@media (max-width: 600px) {
+    .address-card {
+        padding: 5px;
+    }
+
+    button {
+        width: 100%;
+    }
+}

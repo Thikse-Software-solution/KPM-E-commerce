@@ -2,6 +2,7 @@ import { Component,OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-order',
@@ -17,11 +18,12 @@ export class ProductOrderComponent implements OnInit {
     this.isFavorite = !this.isFavorite;
   }
 
-
+ constructor(private cartService: CartService,private router: Router, private route: ActivatedRoute, private productService: ProductService) { }
 
   buyNow() {
 
-    alert('Buy now');
+       this.router.navigate(['/address-list'], { queryParams: { productId: this.product.id } });
+  
   }
   addToCart(product: any)
     {
@@ -29,7 +31,7 @@ export class ProductOrderComponent implements OnInit {
       this.cartService.addToCart(product);
     }
 
-  constructor(private cartService: CartService, private route: ActivatedRoute, private productService: ProductService) { }
+ 
   ngOnInit(): void {
     const id = +this.route.snapshot.paramMap.get('id')!;
     this.productService.getProducts().subscribe(products => {
