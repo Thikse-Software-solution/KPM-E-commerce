@@ -23,14 +23,14 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { AddressListComponent } from './address-list/address-list.component';
 import { AddAddressComponent } from './add-address/add-address.component';
 import { FormsModule } from '@angular/forms';
-import { PaymentComponent } from './payment/payment.component'; 
+import { PaymentComponent } from './payment/payment.component';
 
 
 
 
 
 @NgModule({
-  declarations: [	
+  declarations: [
     AppComponent,
     SheshineComponent,
     ShineComponent,
@@ -48,14 +48,14 @@ import { PaymentComponent } from './payment/payment.component';
     AddressListComponent,
     AddAddressComponent,
     PaymentComponent
-   
+
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule,  
+    FormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot() // ToastrModule added
   ],

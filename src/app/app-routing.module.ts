@@ -14,6 +14,8 @@ import { ProductCardComponent } from './product-card/product-card.component';
 import { AddressListComponent } from './address-list/address-list.component';
 import { AddAddressComponent } from './add-address/add-address.component';
 import { PaymentComponent } from './payment/payment.component';
+
+
 const routes: Routes = [
   {
     path: 'sheshine', component: SheshineComponent, children:
@@ -40,7 +42,8 @@ const routes: Routes = [
   // { path: '**', redirectTo: '/address-list' },
     { path: 'payment', component: PaymentComponent },
 
-  
+
+    { path: 'login', component: LoginComponent },
 
 
 ];

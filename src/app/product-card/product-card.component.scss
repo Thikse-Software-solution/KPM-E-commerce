@@ -11,11 +11,10 @@
   display: inline-block;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 16px;
-  margin: 0 8px;
   text-align: center;
-  flex: 0 0 auto; /* Ensure cards don't shrink */
-  width: 200px; /* Fixed width for each card */
+  flex: 0 0 auto;
+  max-width: 325px;
+  row-gap: 20px;
 }
 
 .product-image {
@@ -25,8 +24,12 @@
 }
 
 .product-title {
-  font-size: 1.2em;
-  margin: 10px 0;
+  color: #000;
+    font-family: Lora, serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 115%;
 }
 
 .product-price {
@@ -83,3 +86,6 @@ button:hover {
 
 
 
+.c-gap-20{
+  column-gap: 20px;
+}

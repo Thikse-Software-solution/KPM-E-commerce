@@ -15,76 +15,12 @@
     "rating": 4.5,
     "favorited": false
   },
-   {
+  {
     "id": 2,
-    "image": "../../assets/images/iphone.jpeg",
-    "title": "apple",
-    "description":"",
-    "keybenefit":"",
-    "size":"5g",
-    "mrp":"500",
-     "price": "450",
-    "discount": "10",
-    "rating": 4.5,
-    "favorited": false
-  },
-   {
-    "id": 3,
-    "image": "../../assets/images/asus.jpeg",
-    "title": "asus",
-    "description":"",
-    "keybenefit":"",
-    "size":"5g",
-    "mrp":"500",
-     "price": "450",
-    "discount": "10",
-    "rating": 4.5,
-    "favorited": false
-  },
-   {
-    "id": 4,
-    "image": "../../assets/images/dell.jpeg",
-    "title": "Dell",
-    "description":"",
-    "keybenefit":"",
-    "size":"5g",
-    "mrp":"500",
-    "price": "450",
-    "discount": "10",
-    "rating": 4.5,
-    "favorited": false
-  },
-   {
-    "id": 5,
-    "image": "../../assets/images/hp.jpeg",
-    "title": "HP",
-    "description":"",
-    "keybenefit":"",
-    "size":"5g",
-    "mrp":"500",
-    "price": "450",
-    "discount": "10",
-    "rating": 4.5,
-    "favorited": false
-  },
-   {
-    "id": 6,
-    "image": "../../assets/images/mi.jpeg",
-    "title": "MI",
-    "description":"",
-    "keybenefit":"",
-    "size":"5g",
-    "mrp":"500",
-     "price": "450",
-    "discount": "10",
-    "rating": 4.5,
-    "favorited": false
-  },
+    "image": "../../assets/images/BloodOrange_RosehipLipBalm.webp",
 
-   {
-    "id": 7,
-    "image": "../../assets/images/poco.jpeg",
-    "title": "poco",
+    "title": "LipBalm",
+    "name":"Blood Orange and Rosehip LipBalm",
     "description":"",
     "keybenefit":"",
     "size":"5g",
@@ -94,10 +30,12 @@
     "rating": 4.5,
     "favorited": false
   },
-   {
-    "id": 8,
-    "image": "../../assets/images/vivo.jpeg",
-    "title": "vivo",
+  {
+    "id": 3,
+    "image": "../../assets/images/BloodOrange_RosehipLipBalm.webp",
+
+    "title": "LipBalm",
+    "name":"Blood Orange and Rosehip LipBalm",
     "description":"",
     "keybenefit":"",
     "size":"5g",
@@ -107,23 +45,12 @@
     "rating": 4.5,
     "favorited": false
   },
-   {
-    "id": 9,
-    "image": "../../assets/images/realme.jpeg",
-    "title": "realme",
-    "description":"",
-    "keybenefit":"",
-    "size":"5g",
-    "mrp":"500",
-   "price": "450",
-    "discount": "10",
-    "rating": 4.5,
-    "favorited": false
-  },
-   {
-    "id": 10,
-    "image": "../../assets/images/samsung.jpeg",
-    "title": "samsung",
+  {
+    "id": 4,
+    "image": "../../assets/images/BloodOrange_RosehipLipBalm.webp",
+
+    "title": "LipBalm",
+    "name":"Blood Orange and Rosehip LipBalm",
     "description":"",
     "keybenefit":"",
     "size":"5g",
@@ -133,36 +60,12 @@
     "rating": 4.5,
     "favorited": false
   },
-   {
-    "id": 11,
-    "image": "../../assets/images/mobile.jpeg",
-    "title": "mobile",
-    "description":"",
-    "keybenefit":"",
-    "size":"5g",
-    "mrp":"500",
-    "price": "450",
-    "discount": "10",
-    "rating": 4.5,
-    "favorited": false
-  },
-   {
-    "id": 12,
-    "image": "../../assets/images/laptop.jpeg",
-    "title": "laptop 1",
-    "description":"",
-    "keybenefit":"",
-    "size":"5g",
-    "mrp":"500",
-     "price": "450",
-    "discount": "10",
-    "rating": 4.5,
-    "favorited": false
-  },
-   {
-    "id": 13,
-    "image": "../../assets/images/car.jpg",
-    "title": "Car",
+  {
+    "id": 5,
+    "image": "../../assets/images/BloodOrange_RosehipLipBalm.webp",
+
+    "title": "LipBalm",
+    "name":"Blood Orange and Rosehip LipBalm",
     "description":"",
     "keybenefit":"",
     "size":"5g",

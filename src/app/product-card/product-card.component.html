@@ -1,9 +1,11 @@
 
 <div class="container-fluid card-container">
   <div class="product-list">
-  <div class="d-flex" style="gap:20px;">
+  <div class="d-flex c-gap-20">
     <div class="product-card" *ngFor="let product of products">
+     <div class="product-image-block">
       <img [src]="product.image" alt="{{ product.title }}" class="product-image"/>
+     </div>
       <h3 class="product-title">{{ product.title }}</h3>
       <p class="card-text">
         <small class="text-muted">MRP: <del>{{ product.mrp | currency: 'INR' }}</del></small>
@@ -11,7 +13,7 @@
       <p class="card-text">
         <small class="text-muted">Discount: {{ product.discount }}%</small>
       </p>
-      
+
       <p class="product-price">{{ product.price| currency: 'INR' }}</p>
       <div class="product-rating">
         <i *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
