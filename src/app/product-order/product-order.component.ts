@@ -18,7 +18,10 @@ export class ProductOrderComponent implements OnInit {
     this.isFavorite = !this.isFavorite;
   }
 
- constructor(private cartService: CartService,private router: Router, private route: ActivatedRoute, private productService: ProductService) { }
+  constructor(private cartService: CartService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private productService: ProductService) { }
 
   buyNow() {
 
