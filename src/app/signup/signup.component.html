@@ -1,33 +1,15 @@
-<div class="container mt-5">
-  <div class="row justify-content-center">
-    <div class="col-12 col-sm-8 col-md-6 col-lg-12">
-      <div class="card">
-        <div class="card-body">
-          <h4 class="card-title text-center">Signup</h4>
-          <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-            <div class="form-group">
-              <label for="name">Name:</label>
-              <input id="name" class="form-control" formControlName="name">
-            </div>
-            <div class="form-group">
-              <label for="number">Phone Number:</label>
-              <input id="number" class="form-control" formControlName="number">
-            </div>
-            <div class="form-group">
-              <label for="email">Email:</label>
-              <input id="email" class="form-control" formControlName="email">
-            </div>
-            <div class="form-group">
-              <label for="password">Password:</label>
-              <input id="password" class="form-control" formControlName="password" type="password">
-            </div>
-            <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
-            <div class="login mt-3 text-center">
-              <a routerLink="/login">Have an account&#8594;</a>
-            </div>
-          </form>
+<div class="form-container sign-up" [ngClass]="{'active': !isLogin}">
+    <form>
+        <h4>Create Account</h4>
+        <div class="social-icons">
+            <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
         </div>
-      </div>
-    </div>
-  </div>
+        <span>or use your email for registration</span>
+        <input type="text" placeholder="Name">
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <button type="submit">Sign Up</button>
+        <a  routerLink="/login" class="loginformobile">Already have an account &#8594;</a>
+    </form>
 </div>

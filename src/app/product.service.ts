@@ -5,11 +5,18 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 import { map } from 'rxjs/operators';
 export interface Product {
+
   id: number;
   name: string;
   description: string;
+  keybenefit: string;
+  size: string;
+  mrp: number;
+  discount: number;
   price: number;
+  image: string;
 }
+
 @Injectable({
   providedIn: 'root'
 })
@@ -41,4 +48,5 @@ export class ProductService {
   getProducts(): Observable<any[]> {
      return this.http.get<any[]>(this.apiUrl);
   }
+
 }

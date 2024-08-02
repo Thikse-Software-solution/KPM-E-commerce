@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {  Input } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
@@ -8,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
 
-   signupForm: FormGroup;
+  signupForm: FormGroup;
 
   constructor(private fb: FormBuilder) {
     this.signupForm = this.fb.group({
@@ -19,7 +20,7 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   onSubmit(): void {
     if (this.signupForm.valid) {
@@ -28,4 +29,5 @@ export class SignupComponent implements OnInit {
       console.log('Form is invalid');
     }
   }
+    @Input() isLogin!: boolean;
 }

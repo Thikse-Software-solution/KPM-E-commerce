@@ -24,6 +24,7 @@ import { AddressListComponent } from './address-list/address-list.component';
 import { AddAddressComponent } from './add-address/add-address.component';
 import { FormsModule } from '@angular/forms';
 import { PaymentComponent } from './payment/payment.component';
+import { TogglingComponent } from './toggling/toggling.component';
 
 
 
@@ -47,8 +48,8 @@ import { PaymentComponent } from './payment/payment.component';
     ProductCardComponent,
     AddressListComponent,
     AddAddressComponent,
-    PaymentComponent
-
+    PaymentComponent,
+    TogglingComponent
    ],
   imports: [
     BrowserModule,

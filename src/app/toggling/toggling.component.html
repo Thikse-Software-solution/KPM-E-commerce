@@ -1,0 +1,20 @@
+<div class="container" [ngClass]="{'active': !isLogin}">
+  <app-login style="width: 100%;" *ngIf="isLogin"></app-login>
+  <app-signup *ngIf="!isLogin"></app-signup>
+
+  <div class="toggle-container" [ngClass]="{'active': !isLogin}">
+    <div class="toggle">
+      <div class="toggle-panel fa-toggle-left" *ngIf="isLogin">
+        <h1>Welcome Back!</h1>
+        <p>Enter your personal details to use all site features</p>
+        <button (click)="toggle()">Sign Up</button>
+      </div>
+
+      <div class="toggle-panel fa-toggle-right" *ngIf="!isLogin">
+        <h1>Hello, Friend!</h1>
+        <p>Register with your personal details to use all site features</p>
+        <button (click)="toggle()">Login</button>
+      </div>
+    </div>
+  </div>
+</div>

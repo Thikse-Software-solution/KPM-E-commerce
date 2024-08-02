@@ -1,32 +1,15 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-md-6 col-lg-4">
-      <div class="card">
-        <div class="card-body">
-          <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-            <div class="form-group">
-              <label for="email">Email/Number</label>
-              <input id="email" class="form-control" formControlName="email" type="text" />
-              <div *ngIf="loginForm.controls['email'].invalid && loginForm.controls['email'].touched"
-                class="text-danger">
-                Invalid email address
-              </div>
-            </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input id="password" class="form-control" formControlName="password" type="password" />
-              <div *ngIf="loginForm.controls['password'].invalid && loginForm.controls['password'].touched"
-                class="text-danger">
-                Password must be at least 6 characters
-              </div>
-            </div>
-            <button  type="submit" id="login"  class="btn btn-primary btn-block" [disabled]="loginForm.invalid">Login</button>
-            <div id="signup" class="text-center mt-3">
-              <a routerLink="/signup">Don't have an account?</a>
-            </div>
-          </form>
+<div  class="form-container sign-in"  [ngClass]="{'active': isLogin}">
+    <form>
+        <h4>Login</h4>
+        <div class="social-icons">
+            <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
+            <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
         </div>
-      </div>
-    </div>
-  </div>
+        <span>or use your email and password</span>
+        <input type="email" placeholder="Email">
+        <input type="password" placeholder="Password">
+        <a href="#">Forget Your Password?</a>
+        <button type="submit">Login</button>
+        <!-- <a class="signupformobile"   routerLink="/signup">Signup &#8594;</a> -->
+    </form>
 </div>
