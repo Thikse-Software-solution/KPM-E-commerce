@@ -1,6 +1,6 @@
 // src/app/product-card/product-card.component.ts
 import { Component, OnInit, AfterViewInit, OnDestroy, Inject, ElementRef, Renderer2 } from '@angular/core';
-import { ProductService } from '../product.service';
+import { ProductService, Product } from '../product.service';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Router } from '@angular/router';
@@ -10,7 +10,8 @@ import { Router } from '@angular/router';
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss']
 })
-export class ProductCardComponent implements OnInit, AfterViewInit, OnDestroy {
+export class ProductCardComponent implements OnInit, AfterViewInit, OnDestroy
+{
   products: any[] = [];
   private scrollInterval: any;
   private isBrowser: boolean;
@@ -21,7 +22,9 @@ export class ProductCardComponent implements OnInit, AfterViewInit, OnDestroy {
     private renderer: Renderer2,
     private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object
-  ) {
+  )
+  
+  {
     this.isBrowser = isPlatformBrowser(this.platformId);
   }
 
@@ -29,9 +32,10 @@ export class ProductCardComponent implements OnInit, AfterViewInit, OnDestroy {
     this.productService.getProducts().subscribe(data => {
       this.products = data;
     });
+  
   }
   buyProduct(product: any): void {
-    this.router.navigate(['/product', product.id]);
+   this.router.navigate(['/sheshine/product', product.id]);
   }
 
 

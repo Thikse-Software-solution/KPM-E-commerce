@@ -171,6 +171,21 @@
     "discount": "10",
     "rating": 4.5,
     "favorited": false
+  },
+  {
+    "id": 1,
+    "image": "../../assets/images/hair.webp",
+
+    "title": "Hair",
+    "name":"Hair Strengthening Combo",
+    "description":"",
+    "keybenefit":"",
+    "size":"5g",
+    "mrp":"1330",
+    "price":"1199",
+    "discount":"10",
+    "rating": 4.5,
+    "favorited": false
   }
 
 ]
