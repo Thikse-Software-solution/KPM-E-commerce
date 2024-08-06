@@ -1,0 +1,54 @@
+.trending-block {
+  padding-bottom: 50px;
+  .trending-main {
+    .trending-title {
+      color: #000;
+      text-align: center;
+      font-size: 32px !important;
+      font-style: normal;
+      line-height: normal;
+      text-transform: capitalize !important;
+
+      h3 {
+        letter-spacing: initial;
+        text-transform: none !important;
+        font-family: Lora, serif !important;
+        margin-bottom: 0;
+      }
+
+      .header-3 {
+        padding-bottom: 30px;
+      }
+    }
+  }
+}
+
+/* card.component.scss */
+.card {
+  position: relative;
+  overflow: hidden;
+  border: unset;
+
+  .card-body {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.101);
+    color: white;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-bottom-left-radius: 22px;
+    border-bottom-right-radius: 22px;
+  }
+
+  &:hover .card-body {
+    opacity: 1;
+  }
+}
+
+.card-container {
+  .card {
+    margin-bottom: 20px;
+  }
+}

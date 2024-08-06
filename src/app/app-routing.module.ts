@@ -30,8 +30,8 @@ const routes: Routes = [
     { path: 'about', component: AboutComponent },
     { path: 'contact', component: ContactComponent },
     {path: 'cart', component: CartComponent },
-    
-    
+
+
 
   ]},
 
@@ -44,15 +44,12 @@ const routes: Routes = [
   { path: 'address-list', component: AddressListComponent },
    { path: 'product/:id', component: ProductOrderComponent },
   { path: 'add-address', component: AddAddressComponent },
-  { path: 'toggle', component: TogglingComponent },
-   { path: 'payment', component: PaymentComponent },
-
+  { path: 'payment', component: PaymentComponent },
+      { path: 'toggle', component: TogglingComponent },
     
-  
-  // { path: '', redirectTo: '/address-list', pathMatch: 'full' },
-  // { path: '**', redirectTo: '/address-list' },
-   
-  
+
+
+    { path: 'login', component: LoginComponent },
 
 
 ];

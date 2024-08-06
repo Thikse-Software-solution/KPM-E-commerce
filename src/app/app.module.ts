@@ -27,13 +27,17 @@ import { PaymentComponent } from './payment/payment.component';
 import { TogglingComponent } from './toggling/toggling.component';
 import { ProductViewDetailsComponent } from './product-view-details/product-view-details.component';
 import { SearchBarComponent } from './search-bar/search-bar.component';
+import { FeatureComponent } from './feature/feature.component';
+import { TrendingComponent } from './trending/trending.component';
+import { SpecialComponent } from './special/special.component';
+import { TestmonialComponent } from './testmonial/testmonial.component';
 
 
 
 
 
 @NgModule({
-  declarations: [				
+declarations: [
     AppComponent,
     SheshineComponent,
     ShineComponent,
@@ -54,13 +58,17 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
     TogglingComponent,
     ProductViewDetailsComponent,
     SearchBarComponent
+    FeatureComponent,
+    TrendingComponent,
+    SpecialComponent,
+    TestmonialComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FormsModule,  
+    FormsModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot() // ToastrModule added
   ],

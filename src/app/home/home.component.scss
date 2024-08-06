@@ -1,11 +1,6 @@
-.home{
-
-      background: rgb(153 1 91);
-      background: linear-gradient(111deg, rgb(153 1 91) 0%, rgb(0, 0, 0) 89%);
-    
+.bg-mainColor{
+  background-color: #fffef2;
 }
-
-
 section{
   &.hero {
     width: 100%;

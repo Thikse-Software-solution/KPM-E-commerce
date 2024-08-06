@@ -1,5 +1,4 @@
 [
-
    {
     "id": 1,
     "trend":true,
@@ -260,11 +259,7 @@
     "keybenefit":"",
     "size":"5g",
     "mrp":"500",
-    "price": "450",
-    "discount": "10",
-    "rating": 4.5,
-    "favorited": false
-  },
+   },
   {
     "id": 14,
     "mainimage": "../../assets/images/BloodOrange_RosehipLipBalm.webp",
@@ -306,5 +301,4 @@
     "rating": 4.5,
     "favorited": false
   }
-
 ]

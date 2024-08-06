@@ -33,7 +33,7 @@ export class ProductCardComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   buyProduct(product: any): void {
-    this.router.navigate(['/sheshine/view', product.id]);
+    this.router.navigate(['/sheshine/product', product.id]);
   }
 
   ngAfterViewInit(): void {

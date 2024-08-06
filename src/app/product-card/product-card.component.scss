@@ -1,57 +1,76 @@
-/* src/app/product-card/product-card.component.css */
-.card-container {
-  display: flex;
-  overflow-x: hidden;
-  /* Enable horizontal overflow for manual scrolling */
-  white-space: nowrap;
-  cursor: grab;
- 
+.cardBlock{
+  padding-bottom: 50px;
+  .product-head{
+    color: #000;
+    text-align: center;
+    font-size: 32px !important;
+    font-style: normal;
+    line-height: normal;
+    text-transform: capitalize !important;
+    h3{
+      letter-spacing: initial;
+      text-transform: none !important;
+      font-family: Lora, serif !important;
+      margin-bottom: 0;
+    }
+    .header-3{
+      padding: 50px 0 30px 0;
+
+    }
+  }
+  .card-container {
+    display: flex;
+    overflow-x: hidden;
+    /* Enable horizontal overflow for manual scrolling */
+    white-space: nowrap;
+    cursor: grab;
+    .active {
+      cursor: grabbing;
+    }
+
+  }
+  .product-card {
+    display: inline-block;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    text-align: center;
+    flex: 0 0 auto;
+    /* Ensure cards don't shrink */
+    width: 300px;
+    /* Fixed width for each card */
+    .product-image {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .product-title {
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+    .product-price {
+      color: #e53935;
+      font-size: 1.1em;
+      margin-bottom: 10px;
+    }
+    .product-rating {
+      color: #ffeb3b;
+      margin-bottom: 10px;
+    }
+    button {
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      padding: 0;
+    }
+  }
 }
 
-.card-container.active {
-  cursor: grabbing;
+.product-overview{
+  column-gap: 20px;
 }
 
-.product-card {
-  display: inline-block;
-  // border: 1px solid #ddd;
-  border-radius: 8px;
-  text-align: center;
-  flex: 0 0 auto;
-  /* Ensure cards don't shrink */
-  width: 300px;
-  /* Fixed width for each card */
-}
 
-.product-image {
-  width: 100%;
-  height: auto;
-  border-radius: 4px;
-}
-
-.product-title {
-  font-size: 1.2em;
-  margin: 10px 0;
-  color: white;
-}
-
-.product-price {
-  color: #e53935;
-  font-size: 1.1em;
-  margin-bottom: 10px;
-}
-
-.product-rating {
-  color: #ffeb3b;
-  margin-bottom: 10px;
-}
-
-button {
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
 
 button:hover {
   background-color: #0056b3;
