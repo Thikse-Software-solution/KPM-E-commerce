@@ -1,0 +1,19 @@
+
+[
+  {
+    "title": "Card 1",
+    "image": "../../assets/images/jellary/4a.jpg"
+  },
+  {
+    "title": "Card 2",
+    "image": "../../assets/images/jellary/3a.jpg"
+  },
+  {
+    "title": "Card 3",
+    "image": "../../assets/images/jellary/2a.jpg"
+  },
+  {
+    "title": "Card 4",
+    "image": "../../assets/images/jellary/1a.jpg"
+  }
+]
