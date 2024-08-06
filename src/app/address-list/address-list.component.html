@@ -9,9 +9,8 @@
             <p class="card-text">{{ address.city }}, {{ address.state }} - {{ address.zip }}</p>
         </div>
     </div>
-    <div class="d-flex justify-content-between mt-3">
-        <button class="btn btn-primary" (click)="deliverHere(products)"
-            [disabled]="!selectedAddress || !products.length">Deliver Here</button>
+    <div class="d-flex justify-content-between mt-3" *ngIf="product">
+        <button class="btn btn-primary" (click)="deliverHere()" [disabled]="!selectedAddress">Deliver Here</button>
         <button class="btn btn-success" routerLink="/add-address">Add New Address</button>
     </div>
 </div>

@@ -33,6 +33,7 @@ export class AddAddressComponent {
       state: '',
       zip: ''
     };
-    this.router.navigate(['/address-list']);
+     this.router.navigate(['/address-list']);
+        //  this.router.navigate(['sheshine/payment']);
   }
 }

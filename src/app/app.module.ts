@@ -25,6 +25,8 @@ import { AddAddressComponent } from './add-address/add-address.component';
 import { FormsModule } from '@angular/forms';
 import { PaymentComponent } from './payment/payment.component';
 import { TogglingComponent } from './toggling/toggling.component';
+import { ProductViewDetailsComponent } from './product-view-details/product-view-details.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 import { FeatureComponent } from './feature/feature.component';
 import { TrendingComponent } from './trending/trending.component';
 import { SpecialComponent } from './special/special.component';
@@ -35,7 +37,7 @@ import { TestmonialComponent } from './testmonial/testmonial.component';
 
 
 @NgModule({
-  declarations: [
+declarations: [
     AppComponent,
     SheshineComponent,
     ShineComponent,
@@ -54,6 +56,8 @@ import { TestmonialComponent } from './testmonial/testmonial.component';
     AddAddressComponent,
     PaymentComponent,
     TogglingComponent,
+    ProductViewDetailsComponent,
+    SearchBarComponent
     FeatureComponent,
     TrendingComponent,
     SpecialComponent,

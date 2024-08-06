@@ -15,6 +15,7 @@ import { AddressListComponent } from './address-list/address-list.component';
 import { AddAddressComponent } from './add-address/add-address.component';
 import { PaymentComponent } from './payment/payment.component';
 import { TogglingComponent } from './toggling/toggling.component';
+import { ProductViewDetailsComponent } from './product-view-details/product-view-details.component';
 
 const routes: Routes = [
   {
@@ -23,7 +24,9 @@ const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: '', redirectTo: '/sheshine/home', pathMatch: 'full' },
     {path: 'products', component: ProductsComponent},
-    {path: 'product/:id', component: ProductOrderComponent },
+   
+    { path: 'payment', component: PaymentComponent },
+    {path:'view/:id',component:ProductViewDetailsComponent},
     { path: 'about', component: AboutComponent },
     { path: 'contact', component: ContactComponent },
     {path: 'cart', component: CartComponent },
@@ -39,14 +42,11 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: '', component: ProductCardComponent },
   { path: 'address-list', component: AddressListComponent },
-  { path: 'payment/:id', component: PaymentComponent },
+   { path: 'product/:id', component: ProductOrderComponent },
   { path: 'add-address', component: AddAddressComponent },
-    {path:'toggle',component:TogglingComponent},
-
-
-  // { path: '', redirectTo: '/address-list', pathMatch: 'full' },
-  // { path: '**', redirectTo: '/address-list' },
-    { path: 'payment', component: PaymentComponent },
+  { path: 'payment', component: PaymentComponent },
+      { path: 'toggle', component: TogglingComponent },
+    
 
 
     { path: 'login', component: LoginComponent },
