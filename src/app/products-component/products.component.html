@@ -10,7 +10,7 @@
         <div class="card mb-3">
             <div class="row g-0">
                 <div class="col-12 col-md-4 position-relative">
-                    <img src="{{ product.image1 }}" class="img-fluid rounded-start w-100" alt="Product Image">
+                    <img src="{{ product.image1 }}" class="img-fluid rounded-start  w-100" alt="Product Image">
                     <i class="fa-heart position-absolute top-0 end-0 m-3"
                         [ngClass]="{'fas': isFavorite, 'far': !isFavorite}" [class.text-danger]="isFavorite"
                         (click)="toggleFavorite(product)"></i>
