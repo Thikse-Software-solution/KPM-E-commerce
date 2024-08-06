@@ -1,0 +1,156 @@
+.product-detail {
+  padding: 20px;
+}
+
+.main_image {
+  width: 100%;
+  position: fixed;
+}
+
+.option {
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 75px;
+    height: 75px;
+    padding: 10px;
+    cursor: pointer;
+  }
+}
+
+.product-details {
+  height: calc(100vh - 40px);
+  overflow-y: scroll;
+  scrollbar-width: none;
+  /* For Firefox */
+  -ms-overflow-style: none;
+  /* For Internet Explorer and Edge */
+}
+
+.product-details::-webkit-scrollbar {
+  display: none;
+  /* For Chrome, Safari, and Opera */
+}
+
+.details-content {
+  padding: 10px;
+}
+
+.color-circle {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.product-rating {
+  margin-top: 1em;
+  color: #40ca0e;
+  margin-bottom: 10px;
+}
+
+.quantity-btn {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #C1908B;
+  color: #C1908B;
+  cursor: pointer;
+}
+
+button {
+  margin-top: 20px;
+}
+
+.review-section {
+  margin-top: 20px;
+}
+
+.reviews-section {
+  margin-top: 20px;
+}
+
+.reviews-container {
+  height: 200px;
+  /* Set a fixed height */
+  overflow-y: scroll;
+  scrollbar-width: none;
+  /* For Firefox */
+  -ms-overflow-style: none;
+  /* For Internet Explorer and Edge */
+}
+
+.reviews-container::-webkit-scrollbar {
+  display: none;
+  /* For Chrome, Safari, and Opera */
+}
+
+.review {
+  background: #f8f8f8;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .main_image {
+    margin-bottom: 20px;
+  }
+
+  .product-details {
+    height: auto;
+    overflow-y: visible;
+  }
+}
+
+
+/* collapsible.component.css */
+.collapsible {
+  background-color: white;
+  color: rgb(15, 7, 7);
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  border-bottom: 1px solid black;
+}
+
+.active,
+.collapsible:hover {
+  background-color: #ffffff;
+}
+
+.content {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color:white;
+}
+
+/* collapsible.component.css */
+
+
+.collapsible:after {
+  content: '\02795';
+  /* Unicode character for "plus" sign (+) */
+  font-size: 13px;
+  color: white;
+  float: right;
+  margin-left: 5px;
+}
+
+
+
+.active:after {
+  content: "\2796";
+  /* Unicode character for "minus" sign (-) */
+}
+
+
+

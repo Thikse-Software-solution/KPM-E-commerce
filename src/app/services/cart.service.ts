@@ -1,4 +1,4 @@
-// cart.service.ts
+// src/app/services/cart.service.ts
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 
@@ -6,24 +6,26 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class CartService {
-  private cart = new BehaviorSubject<any[]>([]);
-  cart$ = this.cart.asObservable();
+  private cartSubject = new BehaviorSubject<any[]>([]);
+  cart$ = this.cartSubject.asObservable();
+
+  constructor() {}
+
+  getCartItems() {
+    return this.cartSubject.value;
+  }
 
   addToCart(item: any) {
-    const currentCart = this.cart.value;
-    this.cart.next([...currentCart, item]);
-  }
-    removeFromCart(item: any) {
-    const currentCart = this.cart.value.filter(cartItem => cartItem !== item);
-    this.cart.next(currentCart);
+    const cartItems = this.getCartItems();
+    this.cartSubject.next([...cartItems, item]);
   }
 
-
-  getCart() {
-    return this.cart.value;
+  removeFromCart(item: any) {
+    const cartItems = this.getCartItems().filter(cartItem => cartItem !== item);
+    this.cartSubject.next(cartItems);
   }
 
-  getTotalAmount() {
-    return this.cart.value.reduce((total, item) => total + item.price, 0);
+  getTotalAmount(): number {
+    return this.getCartItems().reduce((total, item) => total + item.price, 0);
   }
 }

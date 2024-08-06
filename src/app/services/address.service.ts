@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
+
 export interface Address {
   id?: number;
   name: string;
@@ -17,6 +18,10 @@ export interface Address {
   providedIn: 'root'
 })
 export class AddressService {
+
+   private addresses: Address[] = [
+    // Your address data here
+  ];
   private addressesSubject: BehaviorSubject<Address[]> = new BehaviorSubject<Address[]>([]);
   public addresses$: Observable<Address[]> = this.addressesSubject.asObservable();
   
@@ -49,4 +54,16 @@ export class AddressService {
   getSelectedAddress(): Observable<Address | null> {
     return this.selectedAddress$;
   }
+
+  //  getSelectedAddress(): Observable<Address | null> {
+  //   return of(this.addresses.find(address => address.isSelected) || null);
+  // }
+
+  // selectAddress(address: Address): void {
+  //   this.addresses.forEach(addr => addr.isSelected = addr.id === address.id);
+  // }
+
+  // getAddressById(id: number): Observable<Address> {
+  //   return of(this.addresses.find(address => address.id === id) as Address);
+  // }
 }
