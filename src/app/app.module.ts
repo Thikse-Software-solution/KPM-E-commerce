@@ -31,6 +31,8 @@ import { FeatureComponent } from './feature/feature.component';
 import { TrendingComponent } from './trending/trending.component';
 import { SpecialComponent } from './special/special.component';
 import { TestmonialComponent } from './testmonial/testmonial.component';
+import { CustomerComponent } from './customer/customer.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 
@@ -57,11 +59,13 @@ declarations: [
     PaymentComponent,
     TogglingComponent,
     ProductViewDetailsComponent,
-    SearchBarComponent
+    SearchBarComponent,
     FeatureComponent,
     TrendingComponent,
     SpecialComponent,
-    TestmonialComponent
+    TestmonialComponent,
+    CustomerComponent,
+    FooterComponent
    ],
   imports: [
     BrowserModule,

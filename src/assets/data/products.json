@@ -9,7 +9,7 @@
        "image4": "../../assets/images/BloodOrange_RosehipLipBalm.webp",
         "image5": "../../assets/images/BloodOrange_RosehipLipBalm.webp",
          "image6": "../../assets/images/BloodOrange_RosehipLipBalm.webp",
-   
+
 
     "title": "LipBalm",
     "name":"Blood Orange and Rosehip LipBalm",
@@ -33,7 +33,7 @@
        "image4": "../../assets/images/BloodOrange_RosehipLipBalm.webp",
         "image5": "../../assets/images/BloodOrange_RosehipLipBalm.webp",
          "image6": "../../assets/images/BloodOrange_RosehipLipBalm.webp",
-   
+
     "title": "apple",
    "Suitable ":"Dry, chapped & pigmented lips",
     "description":"",
@@ -48,7 +48,7 @@
    {
     "id": 3,
     "trend":true,
-   
+
      "mainimage": "../../assets/images/asus.jpeg",
     "image1": "../../assets/images/BloodOrange_RosehipLipBalm.webp",
      "image2": "../../assets/images/BloodOrange_RosehipLipBalm.webp",
@@ -56,7 +56,7 @@
        "image4": "../../assets/images/BloodOrange_RosehipLipBalm.webp",
         "image5": "../../assets/images/BloodOrange_RosehipLipBalm.webp",
          "image6": "../../assets/images/BloodOrange_RosehipLipBalm.webp",
-   
+
     "title": "asus",
      "Suitable ":"Dry, chapped & pigmented lips",
     "description":"",
@@ -258,7 +258,7 @@
     "description":"",
     "keybenefit":"",
     "size":"5g",
-    "mrp":"500",
+    "mrp":"500"
    },
   {
     "id": 14,
