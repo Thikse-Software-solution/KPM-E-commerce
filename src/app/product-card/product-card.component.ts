@@ -1,5 +1,4 @@
-// src/app/product-card/product-card.component.ts
-import { Component, OnInit, AfterViewInit, OnDestroy, Inject, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit, AfterViewInit, OnDestroy, Inject, ElementRef, Renderer2, HostListener } from '@angular/core';
 import { ProductService, Product } from '../product.service';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
@@ -10,11 +9,12 @@ import { Router } from '@angular/router';
   templateUrl: './product-card.component.html',
   styleUrls: ['./product-card.component.scss']
 })
-export class ProductCardComponent implements OnInit, AfterViewInit, OnDestroy
-{
+export class ProductCardComponent implements OnInit, AfterViewInit, OnDestroy {
   products: any[] = [];
-  private scrollInterval: any;
   private isBrowser: boolean;
+  private isDown = false;
+  private startX!: number; // Definite assignment assertion
+  private scrollLeft!: number; // Definite assignment assertion
 
   constructor(
     private productService: ProductService,
@@ -22,9 +22,7 @@ export class ProductCardComponent implements OnInit, AfterViewInit, OnDestroy
     private renderer: Renderer2,
     private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object
-  )
-  
-  {
+  ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
   }
 
@@ -32,23 +30,30 @@ export class ProductCardComponent implements OnInit, AfterViewInit, OnDestroy
     this.productService.getProducts().subscribe(data => {
       this.products = data;
     });
-  
-  }
-  buyProduct(product: any): void {
-   this.router.navigate(['/sheshine/product', product.id]);
   }
 
+  buyProduct(product: any): void {
+    this.router.navigate(['/sheshine/product', product.id]);
+  }
 
   ngAfterViewInit(): void {
     if (this.isBrowser) {
-      this.startScrolling();
+      const container = this.el.nativeElement.querySelector('.card-container');
+      if (container) {
+        this.renderer.listen(container, 'mousedown', (e: MouseEvent) => this.onMouseDown(e, container));
+        this.renderer.listen(container, 'mouseleave', () => this.onMouseLeave(container));
+        this.renderer.listen(container, 'mouseup', () => this.onMouseUp(container));
+        this.renderer.listen(container, 'mousemove', (e: MouseEvent) => this.onMouseMove(e, container));
+
+        this.renderer.listen(container, 'touchstart', (e: TouchEvent) => this.onTouchStart(e, container));
+        this.renderer.listen(container, 'touchend', () => this.onTouchEnd(container));
+        this.renderer.listen(container, 'touchmove', (e: TouchEvent) => this.onTouchMove(e, container));
+      }
     }
   }
 
   ngOnDestroy(): void {
-    if (this.scrollInterval) {
-      clearInterval(this.scrollInterval);
-    }
+    // Cleanup logic if needed
   }
 
   toggleFavorite(product: any): void {
@@ -73,19 +78,47 @@ export class ProductCardComponent implements OnInit, AfterViewInit, OnDestroy
     product.rating = rating;
   }
 
-  startScrolling(): void {
-    const container = this.el.nativeElement.querySelector('.card-container');
-    if (!container) return;
+  onMouseDown(e: MouseEvent, container: HTMLElement): void {
+    this.isDown = true;
+    container.classList.add('active');
+    this.startX = e.pageX - container.offsetLeft;
+    this.scrollLeft = container.scrollLeft;
+  }
 
-    const cardWidth = container.scrollWidth / this.products.length;
-    let scrollPosition = 0;
+  onMouseLeave(container: HTMLElement): void {
+    this.isDown = false;
+    container.classList.remove('active');
+  }
 
-    this.scrollInterval = setInterval(() => {
-      scrollPosition += cardWidth;
-      if (scrollPosition >= container.scrollWidth) {
-        scrollPosition = 0; // Reset scroll position
-      }
-      this.renderer.setProperty(container, 'scrollLeft', scrollPosition);
-    }, 2000); // Scrolls every 2 seconds, adjust as needed
+  onMouseUp(container: HTMLElement): void {
+    this.isDown = false;
+    container.classList.remove('active');
+  }
+
+  onMouseMove(e: MouseEvent, container: HTMLElement): void {
+    if (!this.isDown) return;
+    e.preventDefault();
+    const x = e.pageX - container.offsetLeft;
+    const walk = (x - this.startX) * 2; // Scroll-fast
+    container.scrollLeft = this.scrollLeft - walk;
+  }
+
+  onTouchStart(e: TouchEvent, container: HTMLElement): void {
+    this.isDown = true;
+    container.classList.add('active');
+    this.startX = e.touches[0].pageX - container.offsetLeft;
+    this.scrollLeft = container.scrollLeft;
+  }
+
+  onTouchEnd(container: HTMLElement): void {
+    this.isDown = false;
+    container.classList.remove('active');
+  }
+
+  onTouchMove(e: TouchEvent, container: HTMLElement): void {
+    if (!this.isDown) return;
+    const x = e.touches[0].pageX - container.offsetLeft;
+    const walk = (x - this.startX) * 2; // Scroll-fast
+    container.scrollLeft = this.scrollLeft - walk;
   }
 }

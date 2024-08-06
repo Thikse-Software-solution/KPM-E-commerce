@@ -1,0 +1,74 @@
+.special-block {
+  padding-bottom: 50px;
+  .special-main {
+    .special-title {
+      color: #000;
+      text-align: center;
+      font-size: 32px !important;
+      font-style: normal;
+      line-height: normal;
+      text-transform: capitalize !important;
+
+      h3 {
+        letter-spacing: initial;
+        text-transform: none !important;
+        font-family: Lora, serif !important;
+        margin-bottom: 0;
+      }
+
+      .header-3 {
+        padding-bottom: 30px;
+      }
+    }
+  }
+}
+
+.card-block {
+  position: relative;
+  .card-img {
+    img {
+      border-radius: 28px;
+      object-fit: cover;
+    }
+  }
+  .special-offers{
+    position: absolute;
+    background: #f2f3f6;
+    top: 0px;
+    right: 0px;
+    padding: 8px 15px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 10px;
+    p{
+      margin-bottom: 0;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .special-block {
+    .special-main {
+      .special-title {
+        font-size: 24px !important;
+
+        .header-3 {
+          padding-bottom: 20px;
+        }
+      }
+    }
+  }
+
+  .card-block {
+    .card-img {
+      img {
+        border-radius: 28px;
+      }
+    }
+  }
+}
+
+.special-left{
+  img{
+    border-radius: 48px;
+  }
+}

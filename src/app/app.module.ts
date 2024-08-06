@@ -25,6 +25,10 @@ import { AddAddressComponent } from './add-address/add-address.component';
 import { FormsModule } from '@angular/forms';
 import { PaymentComponent } from './payment/payment.component';
 import { TogglingComponent } from './toggling/toggling.component';
+import { FeatureComponent } from './feature/feature.component';
+import { TrendingComponent } from './trending/trending.component';
+import { SpecialComponent } from './special/special.component';
+import { TestmonialComponent } from './testmonial/testmonial.component';
 
 
 
@@ -49,7 +53,11 @@ import { TogglingComponent } from './toggling/toggling.component';
     AddressListComponent,
     AddAddressComponent,
     PaymentComponent,
-    TogglingComponent
+    TogglingComponent,
+    FeatureComponent,
+    TrendingComponent,
+    SpecialComponent,
+    TestmonialComponent
    ],
   imports: [
     BrowserModule,

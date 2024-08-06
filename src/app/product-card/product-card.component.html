@@ -1,30 +1,22 @@
-
+<div class="cardBlock">
+<div class="product-head">
+  <h3 class="header-3">Radiate Love and Elegance</h3>
+</div>
 <div class="container-fluid card-container">
   <div class="product-list">
-  <div class="d-flex c-gap-20">
-    <div class="product-card" *ngFor="let product of products">
-     <div class="product-image-block">
-      <img [src]="product.image" alt="{{ product.title }}" class="product-image"/>
-     </div>
-      <h3 class="product-title">{{ product.title }}</h3>
-      <p class="card-text">
-        <small class="text-muted">MRP: <del>{{ product.mrp | currency: 'INR' }}</del></small>
-      </p>
-      <p class="card-text">
-        <small class="text-muted">Discount: {{ product.discount }}%</small>
-      </p>
-
-      <p class="product-price">{{ product.price| currency: 'INR' }}</p>
-      <div class="product-rating">
-        <i *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
-           [class]="getStarClass(i, product.rating)"
-           (click)="setRating(product, i + 1)"></i>
-        <!-- Rating: {{ product.rating }} / 5 -->
+    <div class="d-flex product-overview">
+      <div class="product-card" *ngFor="let product of products">
+        <button (click)="buyProduct(product)">
+          <img
+            [src]="product.image1"
+            alt="{{ product.title }}"
+            class="product-image"
+          />
+        </button>
+        <div>
+          <h3 class="product-title">{{ product.title }}</h3>
+        </div>
       </div>
-
-        <i (click)="toggleFavorite(product)" class="favorite-button" [class]="product.favorited ? 'fas fa-heart' : 'far fa-heart'"></i>
-
-      <button  (click)="buyProduct(product)">Shop Now</button>
     </div>
   </div>
 </div>
