@@ -1,9 +1,17 @@
+.home{
+
+      background: rgb(153 1 91);
+      background: linear-gradient(111deg, rgb(153 1 91) 0%, rgb(0, 0, 0) 89%);
+    
+}
+
+
 section{
   &.hero {
     width: 100%;
     min-height: 45vh;
     position: relative;
-    padding:0;
+    
     display: flex;
     align-items: center;
     color: #fff !important;

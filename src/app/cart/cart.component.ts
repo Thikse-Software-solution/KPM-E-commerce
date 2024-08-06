@@ -27,6 +27,7 @@ export class CartComponent implements OnInit {
    removeFromCart(item: any) {
     this.cartService.removeFromCart(item);
   }
+  
 
   // buyNow() {
   //   // Navigate to checkout page or handle purchase logic

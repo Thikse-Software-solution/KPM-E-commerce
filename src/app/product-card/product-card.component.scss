@@ -1,21 +1,26 @@
 /* src/app/product-card/product-card.component.css */
 .card-container {
   display: flex;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  padding: 20px;
+  overflow-x: hidden;
+  /* Enable horizontal overflow for manual scrolling */
   white-space: nowrap;
+  cursor: grab;
+ 
+}
+
+.card-container.active {
+  cursor: grabbing;
 }
 
 .product-card {
   display: inline-block;
-  border: 1px solid #ddd;
+  // border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 16px;
-  margin: 0 8px;
   text-align: center;
-  flex: 0 0 auto; /* Ensure cards don't shrink */
-  width: 200px; /* Fixed width for each card */
+  flex: 0 0 auto;
+  /* Ensure cards don't shrink */
+  width: 300px;
+  /* Fixed width for each card */
 }
 
 .product-image {
@@ -27,6 +32,7 @@
 .product-title {
   font-size: 1.2em;
   margin: 10px 0;
+  color: white;
 }
 
 .product-price {
@@ -41,13 +47,10 @@
 }
 
 button {
-  background-color: #007bff;
   color: white;
   border: none;
   border-radius: 4px;
-  padding: 10px 20px;
   cursor: pointer;
-  margin: 5px;
 }
 
 button:hover {
@@ -63,11 +66,13 @@ button:hover {
 .favorite-button .fa-heart {
   color: red;
 }
+
 .fa-heart {
   font-size: 1.5rem;
   cursor: pointer;
-  justify-content: flex-end;
-  &.fas{
+  justify-content: flex-end;
+
+  &.fas {
     color: red !important;
   }
 }
@@ -80,6 +85,3 @@ button:hover {
 .product-rating i.fas {
   color: #ffeb3b;
 }
-
-
-

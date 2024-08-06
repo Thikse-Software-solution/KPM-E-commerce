@@ -25,13 +25,15 @@ import { AddAddressComponent } from './add-address/add-address.component';
 import { FormsModule } from '@angular/forms';
 import { PaymentComponent } from './payment/payment.component';
 import { TogglingComponent } from './toggling/toggling.component';
+import { ProductViewDetailsComponent } from './product-view-details/product-view-details.component';
+import { SearchBarComponent } from './search-bar/search-bar.component';
 
 
 
 
 
 @NgModule({
-  declarations: [			
+  declarations: [				
     AppComponent,
     SheshineComponent,
     ShineComponent,
@@ -49,7 +51,9 @@ import { TogglingComponent } from './toggling/toggling.component';
     AddressListComponent,
     AddAddressComponent,
     PaymentComponent,
-    TogglingComponent
+    TogglingComponent,
+    ProductViewDetailsComponent,
+    SearchBarComponent
    ],
   imports: [
     BrowserModule,

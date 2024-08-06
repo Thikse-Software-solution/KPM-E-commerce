@@ -1,11 +1,12 @@
 
 <div class="container-fluid card-container">
   <div class="product-list">
-  <div class="d-flex" style="gap:20px;">
+  <div class="d-flex" >
     <div class="product-card" *ngFor="let product of products">
-      <img [src]="product.image" alt="{{ product.title }}" class="product-image"/>
-      <h3 class="product-title">{{ product.title }}</h3>
-      <p class="card-text">
+
+    
+      
+      <!-- <p class="card-text">
         <small class="text-muted">MRP: <del>{{ product.mrp | currency: 'INR' }}</del></small>
       </p>
       <p class="card-text">
@@ -17,12 +18,13 @@
         <i *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
            [class]="getStarClass(i, product.rating)"
            (click)="setRating(product, i + 1)"></i>
-        <!-- Rating: {{ product.rating }} / 5 -->
-      </div>
+         Rating: {{ product.rating }} / 5 
+      </div>  -->
 
-        <i (click)="toggleFavorite(product)" class="favorite-button" [class]="product.favorited ? 'fas fa-heart' : 'far fa-heart'"></i>
+        <!-- <i (click)="toggleFavorite(product)" class="favorite-button" [class]="product.favorited ? 'fas fa-heart' : 'far fa-heart'"></i> -->
 
-      <button  (click)="buyProduct(product)">Shop Now</button>
+      <button  (click)="buyProduct(product)"><img [src]="product.image1" alt="{{ product.title }}" class="product-image" /></button>
+      <h3 class="product-title">{{ product.title }}</h3>
     </div>
   </div>
 </div>
