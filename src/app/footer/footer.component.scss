@@ -13,7 +13,7 @@
 
 .footer .footer-about .logo {
   line-height: 1;
-  margin-bottom: 25px;
+  // margin-bottom: 25px;
   width: 150px;
 }
 
@@ -107,14 +107,14 @@
   padding: 6px 8px;
   position: relative;
   border-radius: 50px;
-  border: 1px solid color-mix(in srgb, #388da8, transparent 70%);
+  border: 1px solid rgb(205, 204, 204,0.5);
   display: flex;
   background-color: var(--surface-color);
   transition: 0.3s;
 }
 
 .footer .footer-newsletter .newsletter-form:focus-within {
-  border-color: #388da8;
+  border-color: linear-gradient(111deg, rgb(244, 245, 247) 0%, rgb(217, 220, 228) 57%);
 }
 
 .footer .footer-newsletter .newsletter-form input[type=email] {
@@ -134,14 +134,16 @@
   font-size: 16px;
   padding: 0 20px;
   margin: -7px -9px -7px 0;
-  background: #388da8;
-  color: #ffffff;
+  background: rgb(244, 245, 247);
+    background: linear-gradient(111deg, rgb(244, 245, 247) 0%, rgb(217, 220, 228) 57%);
+  color: #000;
   transition: 0.3s;
   border-radius: 50px;
 }
 
 .footer .footer-newsletter .newsletter-form input[type=submit]:hover {
-  background: color-mix(in srgb, #388da8, transparent 20%);
+  background: rgb(244, 245, 247);
+    background: linear-gradient(111deg, rgb(244, 245, 247) 0%, rgb(217, 220, 228) 57%);
 }
 
 .footer .copyright {
