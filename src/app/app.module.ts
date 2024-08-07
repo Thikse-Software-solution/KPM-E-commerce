@@ -33,6 +33,8 @@ import { SpecialComponent } from './special/special.component';
 import { TestmonialComponent } from './testmonial/testmonial.component';
 import { CustomerComponent } from './customer/customer.component';
 import { FooterComponent } from './footer/footer.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
 
 
 
@@ -65,7 +67,9 @@ declarations: [
     SpecialComponent,
     TestmonialComponent,
     CustomerComponent,
-    FooterComponent
+    FooterComponent,
+    OrderHistoryComponent,
+    UserProfileComponent
    ],
   imports: [
     BrowserModule,

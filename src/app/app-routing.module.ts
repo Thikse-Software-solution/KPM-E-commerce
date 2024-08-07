@@ -16,6 +16,10 @@ import { AddAddressComponent } from './add-address/add-address.component';
 import { PaymentComponent } from './payment/payment.component';
 import { TogglingComponent } from './toggling/toggling.component';
 import { ProductViewDetailsComponent } from './product-view-details/product-view-details.component';
+import { Router, NavigationEnd } from '@angular/router';
+import { OrderHistoryComponent } from './order-history/order-history.component';
+import { UserProfileComponent } from './user-profile/user-profile.component';
+
 
 const routes: Routes = [
   {
@@ -44,8 +48,13 @@ const routes: Routes = [
   { path: 'address-list', component: AddressListComponent },
    { path: 'product/:id', component: ProductOrderComponent },
   { path: 'add-address', component: AddAddressComponent },
+  { path: 'toggle', component: TogglingComponent },
   { path: 'payment', component: PaymentComponent },
-      { path: 'toggle', component: TogglingComponent },
+  { path: 'order', component: OrderHistoryComponent },
+  { path: 'user', component: UserProfileComponent },
+   
+   
+
     
 
 
