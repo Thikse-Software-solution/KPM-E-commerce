@@ -10,8 +10,16 @@
     <div class="col-12 col-md-6 col-lg-3" *ngFor="let trend of trends">
       <div class="card">
         <img [src]="trend.image" class="card-img-top" alt="Card image">
-        <div class="card-body">
+        <!-- <div class="card-body">
           <h5 class="card-title">{{ trend.title }}</h5>
+        </div> -->
+        <div class="product-body">
+          <div class="product-body-title">
+              <p class="product-title">{{ trend.title }}</p>
+          </div>
+          <div class="product-prize">
+            <p class="product-prize-rate">₹{{ trend.prize }}</p>
+        </div>
         </div>
       </div>
     </div>

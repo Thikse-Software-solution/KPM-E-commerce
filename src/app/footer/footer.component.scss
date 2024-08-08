@@ -1,14 +1,14 @@
 
 .footer {
-  color: #3d4348;
-  background-color: var(--background-color);
+  color: #fff;
+  background: rgb(244, 245, 247);
+  background: #262525;
   font-size: 14px;
-  padding-bottom: 50px;
   position: relative;
 }
 
 .footer .footer-top {
-  padding-top: 50px;
+  padding-top: 30px;
 }
 
 .footer .footer-about .logo {
@@ -28,6 +28,9 @@
   letter-spacing: 1px;
   /* font-family: var(--heading-font); */
   color: #3e5055;
+}
+.footer .footer-about{
+  margin-top: 0;
 }
 
 .footer .footer-about p {
@@ -81,6 +84,9 @@
   padding: 10px 0;
   display: flex;
   align-items: center;
+  a{
+    color: #fff;
+  }
 }
 
 .footer .footer-links ul li:first-child {
