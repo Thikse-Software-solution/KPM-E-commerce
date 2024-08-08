@@ -52,3 +52,28 @@
     margin-bottom: 20px;
   }
 }
+
+.product-body{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  background: rgb(244, 245, 247);
+  background: linear-gradient(111deg, rgb(244, 245, 247) 0%, rgb(217, 220, 228) 57%);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  .product-body-title{
+    .product-title{
+      margin:0;
+      font-size: 16px;
+      font-family: Lora, serif !important;
+      text-transform: capitalize;
+    }
+  }
+  .product-prize{
+    .product-prize-rate{
+      margin-bottom: 0;
+      font-weight: 300;
+      font-size: 16px;
+    }
+  }
+}

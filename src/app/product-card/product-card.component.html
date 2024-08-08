@@ -13,8 +13,13 @@
             class="product-image"
           />
         </button>
-        <div>
-          <h3 class="product-title">{{ product.title }}</h3>
+        <div class="product-body">
+          <div class="product-body-title">
+              <p class="product-title">{{ product.title }}</p>
+          </div>
+          <div class="product-prize">
+            <p class="product-prize-rate">₹{{product.price}}</p>
+        </div>
         </div>
       </div>
     </div>
