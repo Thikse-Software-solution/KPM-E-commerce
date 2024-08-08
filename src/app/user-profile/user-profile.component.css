@@ -3,14 +3,14 @@ display: flex;
 justify-content: space-between;
 width: 100%;
 height: 100%;
-border: 1px solid black
+/* border: 1px solid black */
 }
 
 
 .user-profile {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  /* flex-direction: column; */
+  /* align-items: center; */
   padding: 20px;
   /* border: 1px solid #ccc; */
   border-radius: 10px;
@@ -28,7 +28,7 @@ border: 1px solid black
 }
 
 .user-details {
-  text-align: center;
+  /* text-align: center; */
 }
 
 .user-details button {

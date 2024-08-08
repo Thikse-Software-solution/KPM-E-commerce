@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { ProductService, Product } from '../product.service';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { Component, OnInit, Inject, ElementRef, Renderer2 } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit, Inject, ElementRef, Renderer2,Input } from '@angular/core';
 
 @Component({
   selector: 'app-address-list',
@@ -12,7 +13,7 @@ import { Component, OnInit, Inject, ElementRef, Renderer2 } from '@angular/core'
 })
 export class AddressListComponent implements OnInit {
   addresses: Address[] = [];
-  product: Product | null = null;
+  @Input() product: any;
   selectedAddress: Address | null = null;
   private isBrowser: boolean;
 
@@ -22,6 +23,7 @@ export class AddressListComponent implements OnInit {
     private productService: ProductService,
     private el: ElementRef,
     private renderer: Renderer2,
+    private route: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
@@ -34,8 +36,9 @@ export class AddressListComponent implements OnInit {
     this.addressService.getSelectedAddress().subscribe(address => {
       this.selectedAddress = address;
     });
-    this.productService.getProduct().subscribe(data => {
-      this.product = data;
+    const id = +this.route.snapshot.paramMap.get('id')!;
+    this.productService.getProducts().subscribe(products => {
+      this.product = products.find(p => p.id === id);
     });
   }
 
@@ -43,9 +46,8 @@ export class AddressListComponent implements OnInit {
     this.addressService.selectAddress(address);
   }
 
-  deliverHere() {
-    if (this.product) {
-      this.router.navigate(['/payment'], { queryParams: { productId: this.product.id } });
-    }
+  deliverHere(id:number):void {
+    
+    this.router.navigate(['/payment', id]);
   }
 }

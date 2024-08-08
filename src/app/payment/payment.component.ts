@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Address, AddressService } from '../services/address.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProductService, Product } from '../product.service';
@@ -10,7 +10,8 @@ import { ProductService, Product } from '../product.service';
 })
 export class PaymentComponent implements OnInit {
   selectedAddress: Address | null = null;
-  product: Product | null = null;
+  @Input() product:any;
+  //  products: any[] = [];
   productAmount: number = 0;
 
   constructor(
@@ -21,18 +22,24 @@ export class PaymentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      const productId = +params['productId'];
-      if (productId) {
-        this.productService.getProductById(productId).subscribe(product => {
-          this.product = product;
-          this.productAmount = product.price;
-        });
+    const id = +this.route.snapshot.paramMap.get('id')!;
+    this.productService.getProducts().subscribe(products => {
+      this.product = products.find(p => p.id === id);
+      if (this.product) {
+        this.calculateTotalAmount();
       }
     });
+        
+    
 
     this.addressService.getSelectedAddress().subscribe(address => {
       this.selectedAddress = address;
     });
+  }
+   calculateTotalAmount(): void {
+    if (this.product) {
+      
+      this.productAmount = this.product.price;
+    }
   }
 }

@@ -29,7 +29,7 @@ const routes: Routes = [
     { path: '', redirectTo: '/sheshine/home', pathMatch: 'full' },
     {path: 'products', component: ProductsComponent},
    
-    { path: 'payment', component: PaymentComponent },
+    // { path: 'payment', component: PaymentComponent },
     {path:'view/:id',component:ProductViewDetailsComponent},
     { path: 'about', component: AboutComponent },
     { path: 'contact', component: ContactComponent },
@@ -45,11 +45,11 @@ const routes: Routes = [
   { path: 'signup', component: SignupComponent },
   { path: 'cart', component: CartComponent },
   { path: '', component: ProductCardComponent },
-  { path: 'address-list', component: AddressListComponent },
+  { path: 'address-list/:id', component: AddressListComponent },
    { path: 'product/:id', component: ProductOrderComponent },
   { path: 'add-address', component: AddAddressComponent },
   { path: 'toggle', component: TogglingComponent },
-  { path: 'payment', component: PaymentComponent },
+  { path: 'payment/:id', component: PaymentComponent },
   { path: 'order', component: OrderHistoryComponent },
   { path: 'user', component: UserProfileComponent },
    

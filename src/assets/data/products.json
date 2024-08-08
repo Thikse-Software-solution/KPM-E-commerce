@@ -18,7 +18,7 @@
     "keybenefit":"Key Benefits: It reduces the appearance of dark lips It reduces the appearance of dark lips, increases lip suppleness and hydration, heals dry and chapped lips and protects from environmental factors such as wind & cold weather.",
     "size":"5g",
     "mrp":"500",
-    "price": "450",
+    "price": "300",
     "discount": "10",
     "rating": 4.5,
     "favorited": false
@@ -40,7 +40,7 @@
     "keybenefit":"",
     "size":"5g",
     "mrp":"500",
-     "price": "450",
+     "price": "400",
     "discount": "10",
     "rating": 4.5,
     "favorited": false
@@ -83,7 +83,7 @@
     "keybenefit":"",
     "size":"5g",
     "mrp":"600",
-    "price": "450",
+    "price": "1210",
     "discount": "10",
     "rating": 4.5,
     "favorited": false
@@ -103,7 +103,7 @@
     "keybenefit":"",
     "size":"5g",
     "mrp":"500",
-    "price": "450",
+    "price": "980",
     "discount": "10",
     "rating": 4.5,
     "favorited": false
@@ -123,7 +123,7 @@
     "keybenefit":"",
     "size":"5g",
     "mrp":"500",
-     "price": "450",
+     "price": "980",
     "discount": "10",
     "rating": 4.5,
     "favorited": false
@@ -144,7 +144,7 @@
     "keybenefit":"",
     "size":"5g",
     "mrp":"500",
-    "price": "450",
+    "price": "3000",
     "discount": "10",
     "rating": 4.5,
     "favorited": false
@@ -183,7 +183,7 @@
     "keybenefit":"",
     "size":"5g",
     "mrp":"500",
-   "price": "450",
+   "price": "7600",
     "discount": "10",
     "rating": 4.5,
     "favorited": false
@@ -202,7 +202,7 @@
     "keybenefit":"",
     "size":"5g",
     "mrp":"500",
-    "price": "450",
+    "price": "9000",
     "discount": "10",
     "rating": 4.5,
     "favorited": false
@@ -221,7 +221,7 @@
     "keybenefit":"",
     "size":"5g",
     "mrp":"500",
-    "price": "450",
+    "price": "9760",
     "discount": "10",
     "rating": 4.5,
     "favorited": false
@@ -240,7 +240,7 @@
     "keybenefit":"",
     "size":"5g",
     "mrp":"500",
-     "price": "450",
+     "price": "4560",
     "discount": "10",
     "rating": 4.5,
     "favorited": false
@@ -258,8 +258,12 @@
     "description":"",
     "keybenefit":"",
     "size":"5g",
-    "mrp":"500"
-   },
+    "mrp":"500",
+    "price": "8770",
+    "discount": "10",
+    "rating": 4.5,
+    "favorited": false
+  },
   {
     "id": 14,
     "mainimage": "../../assets/images/jellary/2a.jpg",

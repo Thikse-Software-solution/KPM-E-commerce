@@ -69,9 +69,10 @@ export class ProductViewDetailsComponent implements OnInit {
    
   ) {}
 
-  buyNow() {
-    this.router.navigate(['/address-list'], { queryParams: { productId: this.product.id } });
-    //  this.router.navigate(['sheshine/payment'], { state: { product: this.product } });
+  buyNow(id:number):void {
+    this.router.navigate(['/address-list', id]);
+    //   { queryParams: { productId: this.product.id } });
+    // //  this.router.navigate(['sheshine/payment'], { state: { product: this.product } });
   }
 
   addToCart(product: any) {

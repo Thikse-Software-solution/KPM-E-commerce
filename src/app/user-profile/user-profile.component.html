@@ -1,62 +1,60 @@
-<div class="profile" *ngIf="user">
-    <!-- <div class="user-profile" > -->
-        
-       <div>
-        <div class="user-details" *ngIf="!editMode">
-            <div class="user-avatar">
-                <img [src]="user.avatarUrl" alt="{{ user.name }}">
+<div class="container" *ngIf="user">
+    <div class="row">
+        <div class="col-md-6 offset-md-3 col-sm-12">
+            <div class="user-profile card mt-4">
+                <div *ngIf="!editMode">
+                    <div class="card-body text-center">
+                        <div class="user-avatar mb-3">
+                            <img [src]="user.avatarUrl" alt="{{ user.name }}" class="rounded-circle img-fluid">
+                        </div>
+                        <h2>{{ user.name }}</h2>
+                        <p>Email: {{ user.email }}</p>
+                        <p>Phone: {{ user.phone }}</p>
+                        <p>Address: {{ user.address }}</p>
+                        <button class="btn btn-primary" (click)="enableEdit()">Edit Profile</button>
+                        <!-- <button class="btn btn-secondary mt-2" (click)="signOut()">Sign Out</button> -->
+                    </div>
+                </div>
+
+                <div *ngIf="editMode">
+                    <form [formGroup]="profileForm" (ngSubmit)="saveProfile()" class="card-body">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name:</label>
+                            <input id="name" formControlName="name" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email:</label>
+                            <input id="email" formControlName="email" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Phone:</label>
+                            <input id="phone" formControlName="phone" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Address:</label>
+                            <input id="address" formControlName="address" class="form-control">
+                        </div>
+                        <div class="mb-3">
+                            <label for="avatarUrl" class="form-label">Avatar URL:</label>
+                            <input id="avatarUrl" formControlName="avatarUrl" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-success">Save</button>
+                        <button type="button" class="btn btn-danger ms-2" (click)="editMode = false">Cancel</button>
+                    </form>
+                </div>
+
+                <div class="card-footer">
+                    <h3>Order History</h3>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item" *ngFor="let order of user.orderHistory">
+                            <p>Order ID: {{ order.orderId }}</p>
+                            <p>Product: {{ order.product }}</p>
+                            <p>Date: {{ order.date }}</p>
+                            <p>Amount: ${{ order.amount }}</p>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <h2>{{ user.name }}</h2>
-            <p>Email: {{ user.email }}</p>
-            <p>Phone: {{ user.phone }}</p>
-            <p>Address: {{ user.address }}</p>
-            <button (click)="enableEdit()">Edit Profile</button>
-        
-        
         </div>
-        <div class="user-details" *ngIf="!editMode">
-            <button (click)="signOut()">Sign Out</button>
-        </div>
-       </div>
-       
-        
-        <div class="user-details" *ngIf="editMode">
-            <form [formGroup]="profileForm" (ngSubmit)="saveProfile()">
-                <div>
-                    <label for="name">Name:</label>
-                    <input id="name" formControlName="name">
-                </div>
-                <div>
-                    <label for="email">Email:</label>
-                    <input id="email" formControlName="email">
-                </div>
-                <div>
-                    <label for="phone">Phone:</label>
-                    <input id="phone" formControlName="phone">
-                </div>
-                <div>
-                    <label for="address">Address:</label>
-                    <input id="address" formControlName="address">
-                </div>
-                <div>
-                    <label for="avatarUrl">Avatar URL:</label>
-                    <input id="avatarUrl" formControlName="avatarUrl">
-                </div>
-                <button type="submit">Save</button>
-                <button type="button" (click)="editMode = false">Cancel</button>
-            </form>
-        </div>
-       
-    <!-- </div> -->
-    <div>
-        <h3>Order History</h3>
-        <ul>
-            <li *ngFor="let order of user.orderHistory">
-                <p>Order ID: {{ order.orderId }}</p>
-                <p>Product: {{ order.product }}</p>
-                <p>Date: {{ order.date }}</p>
-                <p>Amount: ${{ order.amount }}</p>
-            </li>
-        </ul>
     </div>
 </div>
