@@ -12,7 +12,7 @@ export class ProductsComponent implements OnInit {
   products: any[] = [];
   filteredProducts: any[] = [];
   isFavorite = false;
-  
+
   searchQuery: string = '';
 
   constructor(
@@ -56,7 +56,7 @@ export class ProductsComponent implements OnInit {
   }
 
   buyNow(product: any) {
-    this.router.navigate(['/address-list'], { queryParams: { productId: product.id } });
+    this.router.navigate(['/view-list',product.id]);
   }
 
   addToCart(product: any) {
