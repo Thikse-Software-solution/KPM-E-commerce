@@ -1,28 +1,34 @@
 <div class="cardBlock">
-<div class="product-head">
-  <h3 class="header-3">Radiate Love and Elegance</h3>
-</div>
-<div class="container-fluid card-container">
-  <div class="product-list">
-    <div class="d-flex product-overview">
-      <div class="product-card" *ngFor="let product of products">
-        <button (click)="buyProduct(product)">
-          <img
-            [src]="product.image1"
-            alt="{{ product.title }}"
-            class="product-image"
-          />
-        </button>
-        <div class="product-body">
-          <div class="product-body-title">
-              <p class="product-title">{{ product.title }}</p>
+  <div class="product-head">
+    <h3 class="header-3">Radiate Love and Elegance</h3>
+  </div>
+  <div class="container-wrapper">
+    <button class="prev-btn" (click)="movePrev()">
+      <img src="../../assets/images/icon/next.svg" alt="" width="32px" height="32px">
+    </button>
+    <div class="container card-container">
+      <div class="product-list">
+        <div class="product-overview">
+          <div class="product-card" *ngFor="let product of products">
+            <button (click)="buyProduct(product)">
+              <img
+                [src]="product.image1"
+                alt="{{ product.title }}"
+                class="product-image"
+              />
+            </button>
+            <div class="product-body">
+              <div class="product-body-title">
+                <p class="product-title">{{ product.title }}</p>
+              </div>
+            </div>
           </div>
-          <div class="product-prize">
-            <p class="product-prize-rate">₹{{product.price}}</p>
-        </div>
         </div>
       </div>
     </div>
+    <button class="next-btn" (click)="moveNext()"><img src="../../assets/images/icon/previous.svg" alt="" width="32px" height="32px"></button>
   </div>
 </div>
-</div>
+
+
+
