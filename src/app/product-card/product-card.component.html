@@ -10,16 +10,19 @@
       <div class="product-list">
         <div class="product-overview">
           <div class="product-card" *ngFor="let product of products">
-            <button (click)="buyProduct(product)">
+            <button >
               <img
                 [src]="product.image1"
                 alt="{{ product.title }}"
                 class="product-image"
               />
             </button>
-            <div class="product-body">
+            <div (click)="buyProduct(product)" class="product-body">
               <div class="product-body-title">
-                <p class="product-title">{{ product.title }}</p>
+               
+                        <p  class="product-title">{{ product.title }}</p>
+                
+                
               </div>
             </div>
           </div>

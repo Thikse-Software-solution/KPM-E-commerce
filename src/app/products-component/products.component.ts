@@ -56,7 +56,7 @@ export class ProductsComponent implements OnInit {
   }
 
   buyNow(product: any) {
-    this.router.navigate(['/address-list'], { queryParams: { productId: product.id } });
+   this.router.navigate(['/sheshine/view', product.id]);
   }
 
   addToCart(product: any) {
