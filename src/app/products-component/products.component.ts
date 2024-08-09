@@ -33,6 +33,20 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+  getStarClass(index: number, rating: number): string {
+    if (index < rating) {
+      return 'fas fa-star';
+    } else if (index < Math.ceil(rating) && rating % 1 !== 0) {
+      return 'fas fa-star-half-alt';
+    } else {
+      return 'far fa-star';
+    }
+  }
+
+  setRating(product: any, rating: number): void {
+    product.rating = rating;
+  }
+
   applyFilters(): void {
     const query = this.searchQuery.toLowerCase().trim();
     const price = parseFloat(query);
