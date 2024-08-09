@@ -12,7 +12,7 @@ export class ProductsComponent implements OnInit {
   products: any[] = [];
   filteredProducts: any[] = [];
   isFavorite = false;
-  
+
   searchQuery: string = '';
 
   constructor(
@@ -31,6 +31,20 @@ export class ProductsComponent implements OnInit {
       this.products = products;
       this.applyFilters();
     });
+  }
+
+  getStarClass(index: number, rating: number): string {
+    if (index < rating) {
+      return 'fas fa-star';
+    } else if (index < Math.ceil(rating) && rating % 1 !== 0) {
+      return 'fas fa-star-half-alt';
+    } else {
+      return 'far fa-star';
+    }
+  }
+
+  setRating(product: any, rating: number): void {
+    product.rating = rating;
   }
 
   applyFilters(): void {

@@ -1,5 +1,6 @@
 .cardBlock {
   padding-bottom: 50px;
+
   .product-head {
     color: #000;
     text-align: center;
@@ -7,18 +8,23 @@
     font-style: normal;
     line-height: normal;
     text-transform: capitalize !important;
+
     h3 {
       letter-spacing: initial;
       text-transform: none !important;
       font-family: Lora, serif !important;
       margin-bottom: 0;
     }
+
     .header-3 {
       padding: 50px 0 30px 0;
     }
   }
+
   .container-wrapper {
     position: relative;
+    margin: 0 20px;
+
     .prev-btn, .next-btn {
       position: absolute;
       top: 50%;
@@ -31,71 +37,66 @@
       z-index: 1;
       border-radius: 50px;
     }
+
     .prev-btn {
       left: 10px;
     }
+
     .next-btn {
       right: 10px;
     }
   }
+
   .card-container {
     display: flex;
-    overflow-x: hidden;
+    overflow: hidden;
+    cursor: grab;
+  }
+
+  .product-list {
+    display: flex;
+    flex: 1;
     white-space: nowrap;
-  }
-  .product-card {
-    display: inline-block;
-    border-radius: 8px;
-    text-align: center;
-    flex: 0 0 auto;
-    width: 300px;
-    .product-image {
-      width: 100%;
-      height: auto;
-      border-radius: 4px;
+    animation: scroll-left 40s linear infinite;
+
+    &:hover {
+      animation-play-state: paused;
     }
-    .product-title {
-      font-size: 1.2em;
-      margin: 10px 0;
-    }
-    .product-price {
-      color: #e53935;
-      font-size: 1.1em;
-      margin-bottom: 10px;
-    }
-    button {
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      padding: 0;
-    }
-  }
-  .product-overview {
-    column-gap: 20px;
-    display: flex;
-  }
-  .product-body {
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    background: rgb(244, 245, 247);
-    background: linear-gradient(111deg, rgb(244, 245, 247) 0%, rgb(217, 220, 228) 57%);
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    .product-body-title {
+
+    .product-card {
+      display: inline-block;
+      border-radius: 8px;
+      text-align: center;
+      flex: 0 0 auto;
+      width: 300px;
+      margin: 0 10px;
+
+      .product-image {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+      }
+
       .product-title {
-        margin: 0;
-        font-size: 16px;
-        font-family: Lora, serif !important;
-        text-transform: capitalize;
+        font-size: 1.2em;
+        margin: 10px 0;
+      }
+
+      button {
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        padding: 0;
       }
     }
-    .product-prize {
-      .product-prize-rate {
-        margin-bottom: 0;
-        font-weight: 300;
-        font-size: 16px;
-      }
+  }
+
+  @keyframes scroll-left {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
     }
   }
 }
