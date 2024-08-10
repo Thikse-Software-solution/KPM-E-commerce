@@ -12,8 +12,8 @@ export class ProductsComponent implements OnInit {
   products: any[] = [];
   filteredProducts: any[] = [];
   isFavorite = false;
-
-  searchQuery: string = '';
+   searchQuery: string = '';
+  selectedCategory: string = '';
 
   constructor(
     private cartService: CartService,
@@ -24,6 +24,10 @@ export class ProductsComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadProducts();
+     this.route.queryParams.subscribe(params => {
+      this.selectedCategory = params['category'] || '';
+      this.loadProducts();
+    });
   }
 
   loadProducts(): void {
@@ -53,18 +57,20 @@ export class ProductsComponent implements OnInit {
 
     if (!query) {
       // If searchQuery is empty, show all products
-      this.filteredProducts = this.products;
+      this.filteredProducts = this.selectedCategory ? 
+        this.products.filter(product => product.category === this.selectedCategory) : 
+        this.products;
     } else {
       // Filter products by name or price
       this.filteredProducts = this.products.filter(product => {
         const matchesName = product.name.toLowerCase().includes(query);
         const matchesPrice = !isNaN(price) && product.price <= price;
+        const matchesCategory = !this.selectedCategory || product.category === this.selectedCategory;
 
-        return matchesName || matchesPrice;
+        return (matchesName || matchesPrice) && matchesCategory;
       });
     }
   }
-
   toggleFavorite(product: any) {
     this.isFavorite = !this.isFavorite;
   }
@@ -75,5 +81,12 @@ export class ProductsComponent implements OnInit {
 
   addToCart(product: any) {
     this.cartService.addToCart(product);
+  }
+  showCategoryProducts(category: string): void {
+      this.router.navigate(['products'], { queryParams: { category: category } });
+     this.selectedCategory = category;
+     
+     this.applyFilters();
+      // this.router.navigate(['/products']);
   }
 }

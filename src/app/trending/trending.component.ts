@@ -1,6 +1,10 @@
-import { TrendingService } from './../services/trending.service';
-// src/app/card/card.component.ts
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { ProductService, Product } from '../product.service';
+
 
 @Component({
   selector: 'app-trending',
@@ -8,14 +12,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./trending.component.scss']
 })
 export class TrendingComponent implements OnInit {
-  trends: any[] = [];
+  products: any[] = [];
+  trendingProducts: any[] = [];
 
-  constructor(private TrendingService: TrendingService) {}
+  constructor(private http: HttpClient, private router: Router,private productService: ProductService) { }
 
-  ngOnInit(): void {
-    this.TrendingService.getCards().subscribe(data => {
-      this.trends = data;
-
+  ngOnInit() {
+    this.fetchProducts().subscribe(products => {
+      this.products = products;
+      this.trendingProducts = this.products.filter(product => product.trend === true);
     });
+  }
+
+  fetchProducts(): Observable<any[]> {
+    return this.http.get<any[]>('assets/data/products.json');
+  }
+  buyProduct(product: any): void {
+   this.router.navigate(['/sheshine/view',product.id]);
   }
 }

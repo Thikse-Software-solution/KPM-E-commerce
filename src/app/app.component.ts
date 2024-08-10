@@ -10,9 +10,11 @@ import { Location } from '@angular/common';
 export class AppComponent {
   title = 'Thikse-E-commerce';
   constructor(private location: Location) { }
-    @HostListener('document:keydown', ['$event'])
+ @HostListener('document:keydown', ['$event'])
   handleKeyboardEvent(event: KeyboardEvent) {
-    if (event.key === 'Backspace') {
+    const targetElement = event.target as HTMLElement;
+
+    if (event.key === 'Backspace' && targetElement.tagName !== 'INPUT' && targetElement.tagName !== 'TEXTAREA' && !(targetElement.isContentEditable)) {
       this.location.back();
     }
   }

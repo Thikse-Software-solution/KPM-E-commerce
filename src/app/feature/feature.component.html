@@ -6,39 +6,51 @@
   </div>
   <div class="container">
     <div class="row gy-4">
+      <!-- Main Product Image -->
       <div class="col-lg-6 col-md-12">
         <div class="feature-left main">
-          <img src="../../assets/images/jellary/1a.jpg" class="img-fluid" alt="Feature Image" width="100%" height="100%">
+          <!-- Display the main image of the first featured product -->
+          <img [src]="featureProducts[0]?.mainimage" (click)="buyProduct(featureProducts[0])" class="img-fluid"
+            alt="Feature Image" width="100%" height="100%">
         </div>
       </div>
+
+      <!-- Thumbnail Images -->
       <div class="col-lg-6 col-md-12">
         <div class="row gy-4">
           <div class="col-md-6 col-sm-12">
             <div class="card-block">
               <div class="card-img">
-                <img src="../../assets/images/jellary/2a.jpg" class="img-fluid" alt="Card Image 1" width="100%" height="100%">
+                <!-- Display the second product thumbnail image -->
+                <img [src]="featureProducts[1]?.mainimage" (click)="buyProduct(featureProducts[1])" class="img-fluid"
+                  alt="Card Image" width="100%" height="100%">
               </div>
             </div>
           </div>
           <div class="col-md-6 col-sm-12">
             <div class="card-block">
               <div class="card-img">
-                <img src="../../assets/images/jellary/3a.jpg" class="img-fluid" alt="Card Image 2" width="100%" height="100%">
+                <!-- Display the third product thumbnail image -->
+                <img [src]="featureProducts[2]?.mainimage" (click)="buyProduct(featureProducts[2])" class="img-fluid"
+                  alt="Card Image" width="100%" height="100%">
               </div>
             </div>
           </div>
           <div class="col-md-6 col-sm-12">
             <div class="card-block">
               <div class="card-img">
-                <img src="../../assets/images/jellary/4a.jpg" class="img-fluid" alt="Card Image 3" width="100%" height="100%">
+                <!-- Display the fourth product thumbnail image -->
+                <img [src]="featureProducts[3]?.mainimage" (click)="buyProduct(featureProducts[3])" class="img-fluid"
+                  alt="Card Image" width="100%" height="100%">
               </div>
-
             </div>
           </div>
           <div class="col-md-6 col-sm-12">
             <div class="card-block">
               <div class="card-img">
-                <img src="../../assets/images/jellary/2a.jpg" class="img-fluid" alt="Card Image 4" width="100%" height="100%">
+                <!-- Display the fifth product thumbnail image -->
+                <img [src]="featureProducts[4]?.mainimage" (click)="buyProduct(featureProducts[4])" class="img-fluid"
+                  alt="Card Image" width="100%" height="100%">
               </div>
             </div>
           </div>

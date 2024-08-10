@@ -35,13 +35,14 @@ import { CustomerComponent } from './customer/customer.component';
 import { FooterComponent } from './footer/footer.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ShineNavComponent } from './shine-nav/shine-nav.component';
 
 
 
 
 
 @NgModule({
-declarations: [
+declarations: [	
     AppComponent,
     SheshineComponent,
     ShineComponent,
@@ -69,7 +70,8 @@ declarations: [
     CustomerComponent,
     FooterComponent,
     OrderHistoryComponent,
-    UserProfileComponent
+    UserProfileComponent,
+      ShineNavComponent
    ],
   imports: [
     BrowserModule,

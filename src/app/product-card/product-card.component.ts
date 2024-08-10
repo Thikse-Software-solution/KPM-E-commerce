@@ -20,6 +20,7 @@ import { Router } from '@angular/router';
 })
 export class ProductCardComponent implements OnInit, AfterViewInit, OnDestroy {
   products: any[] = [];
+  filteredProducts: any[] = [];
   private isBrowser: boolean;
   private container!: HTMLElement;
   private productList!: HTMLElement;
@@ -27,6 +28,8 @@ export class ProductCardComponent implements OnInit, AfterViewInit, OnDestroy {
   private isDragging = false;
   private startX = 0;
   private scrollLeft = 0;
+   selectedCategory: string = '';
+   searchQuery: string = '';
 
   constructor(
     private productService: ProductService,
@@ -41,11 +44,47 @@ export class ProductCardComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
     this.productService.getProducts().subscribe(data => {
       this.products = data;
+      this.filterProductsByCategory();
+    });
+   
+  }
+  loadProducts(): void {
+    this.productService.getProducts().subscribe(products => {
+      this.products = products;
+      this.applyFilters();
     });
   }
 
-  buyProduct(product: any): void {
-    this.router.navigate(['/sheshine/view', product.id]);
+   applyFilters(): void {
+    const query = this.searchQuery.toLowerCase().trim();
+    const price = parseFloat(query);
+
+    if (!query) {
+      // If searchQuery is empty, show all products
+      this.filteredProducts = this.selectedCategory ? 
+        this.products.filter(product => product.category === this.selectedCategory) : 
+        this.products;
+    } else {
+      // Filter products by name or price
+      this.filteredProducts = this.products.filter(product => {
+        const matchesName = product.name.toLowerCase().includes(query);
+        const matchesPrice = !isNaN(price) && product.price <= price;
+        const matchesCategory = !this.selectedCategory || product.category === this.selectedCategory;
+
+        return (matchesName || matchesPrice) && matchesCategory;
+      });
+    }
+  }
+
+  filterProductsByCategory(): void {
+    const uniqueCategories = new Set(this.products.map(product => product.category));
+    this.filteredProducts = Array.from(uniqueCategories).map(category => 
+      this.products.find(product => product.category === category)
+    );
+  }
+
+  buyProduct(category: string): void {
+     this.router.navigate(['products'], { queryParams: { category: category } });
   }
 
   ngAfterViewInit(): void {
