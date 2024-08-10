@@ -14,6 +14,7 @@ export interface Product {
   price: number;
   image: string;
   image1: string;
+  category?: string;
 }
 
 @Injectable({

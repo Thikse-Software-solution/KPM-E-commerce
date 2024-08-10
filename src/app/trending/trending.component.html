@@ -5,20 +5,20 @@
     </div>
   </div>
    <!-- src/app/card/card.component.html -->
-<div class="container">
-  <div class="card-container row">
-    <div class="col-12 col-md-6 col-lg-3" *ngFor="let trend of trends">
-      <div class="card">
-        <img [src]="trend.image" class="card-img-top" alt="Card image">
+<div class="container" >
+  <div class="card-container row" >
+    <div class="col-12 col-md-6 col-lg-3" (click)="buyProduct(trendingproduct)" *ngFor="let trendingproduct of trendingProducts">
+      <div class="card"  >
+        <img [src]="trendingproduct.mainimage" class="card-img-top" alt="Card image">
         <!-- <div class="card-body">
           <h5 class="card-title">{{ trend.title }}</h5>
         </div> -->
         <div class="product-body">
           <div class="product-body-title">
-              <p class="product-title">{{ trend.title }}</p>
+            <p class="product-title">{{ trendingproduct.title }}</p>
           </div>
           <div class="product-prize">
-            <p class="product-prize-rate">₹{{ trend.prize }}</p>
+          <p class="product-title">{{ trendingproduct.price }}</p>
         </div>
         </div>
       </div>

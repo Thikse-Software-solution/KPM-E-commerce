@@ -1,7 +1,10 @@
 [
   {
    "id": 1,
-   "trend":true,
+   "category": "ring",
+    "trend":true,
+    "feature":true,
+    "special":true,
    "mainimage": "../../assets/images/jellary/1a.jpg",
    "image1": "../../assets/images/jellary/1a.jpg",
     "image2": "../../assets/images/jellary/1a.jpg",
@@ -26,7 +29,10 @@
  },
   {
    "id": 2,
-   "trend":true,
+   "category": "ring",
+    "trend":true,
+    "feature":true,
+    "special":true,
     "mainimage": "../../assets/images/jellary/2a.jpg",
    "image1": "../../assets/images/jellary/2a.jpg",
     "image2": "../../assets/images/jellary/2a.jpg",
@@ -50,7 +56,10 @@
  },
   {
    "id": 3,
-   "trend":true,
+   "category": "ring",
+    "trend":true,
+    "feature":true,
+    "special":true,
 
     "mainimage": "../../assets/images/jellary/3a.jpg",
    "image1": "../../assets/images/jellary/3a.jpg",
@@ -75,6 +84,10 @@
  },
   {
    "id": 4,
+   "category": "ring",
+    "trend":true,
+    "feature":true,
+    "special":true,
     "mainimage": "../../assets/images/jellary/4a.jpg",
    "image1": "../../assets/images/jellary/4a.jpg",
     "image2": "../../assets/images/jellary/4a.jpg",
@@ -97,6 +110,10 @@
  },
   {
    "id": 5,
+   "category": "ring",
+    "trend":true,
+    "feature":true,
+    "special":true,
     "mainimage": "../../assets/images/jellary/2a.jpg",
    "image1": "../../assets/images/jellary/2a.jpg",
     "image2": "../../assets/images/jellary/2a.jpg",
