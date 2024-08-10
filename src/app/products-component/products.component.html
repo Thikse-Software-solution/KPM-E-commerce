@@ -15,10 +15,14 @@
             <div class="product-rating">
               <i *ngFor="let star of [1, 2, 3, 4, 5]; let i = index" [class]="getStarClass(i, product.rating)"
                 (click)="setRating(product, i + 1)"></i>
-              <!-- Rating: {{ product.rating}} / 5 -->
+                <span>( {{ product.rating}}/5 Reviews) </span>
             </div>
-            <p class="card-text">{{ product.keybenfit }}</p>
-            <p class="card-text">{{ product.size }}</p>
+            <p class="card-benefit benefit-reg" style="height: 36px;">{{ product.benefit }}</p>
+            <!-- <p class="card-size">{{ product.size }}</p> -->
+            <p class="card-text">
+              <small class="text-muted"><b>MRP: </b> <del>{{ product.mrp | currency:'INR' }}</del></small>
+            </p>
+            <p class="card-price">₹{{ product.price }}</p>
             <div>
               <button class="card-btn" routerLink="/cart" (click)="addToCart(product)">
                 Add to Cart
