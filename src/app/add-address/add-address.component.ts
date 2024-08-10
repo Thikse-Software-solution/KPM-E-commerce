@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { Address, AddressService } from '.././services/address.service';
+import { Address, AddressService } from '../services/address.service';
 
 @Component({
   selector: 'app-add-address',
