@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Address, AddressService } from '../services/address.service';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ProductService, Product } from '../product.service';
+import { ProductService, Product } from '../sheshine/services/product.service';
 
 @Component({
   selector: 'app-payment',

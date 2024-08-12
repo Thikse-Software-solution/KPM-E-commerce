@@ -1,6 +1,6 @@
 import { Address, AddressService } from '../services/address.service';
 import { Router } from '@angular/router';
-import { ProductService, Product } from '../product.service';
+import { ProductService, Product } from '../sheshine/services/product.service';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
