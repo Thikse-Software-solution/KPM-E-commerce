@@ -24,6 +24,7 @@
       background: linear-gradient(111deg, rgb(244, 245, 247) 0%, rgb(217, 220, 228) 57%);
       border: unset;
       padding: 10px;
+      transition:all 0.2s;
       &:hover{
         background: #99015B;
         color: #fff;
