@@ -46,11 +46,11 @@ products: any[] = [];
 
   addToCart(product: any): void {
     this.cartService.addToCart(product);
-    alert(`${product.name} added to cart!`);
+    // alert(`${product.name} added to cart!`);
   }
 
-  buyNow(product: any): void {
-    this.router.navigate(['/sheshine/view', product.id]);
+ buyNow(product: any): void {
+     this.router.navigate(['/shine/view', product.id]);
     // Navigate to checkout or perform a quick buy action
   }
 }

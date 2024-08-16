@@ -36,8 +36,9 @@ const routes: Routes = [
   [
     { path: 'home', component: HomeComponent },
     { path: '', redirectTo: '/sheshine/home', pathMatch: 'full' },
-    {path: 'products', component: ProductsComponent},
-
+      { path: 'products', component: ProductsComponent },
+     { path: 'products/:category', component: ProductsComponent },
+   
     // { path: 'payment', component: PaymentComponent },
     {path:'view/:id',component:ProductViewDetailsComponent},
     { path: 'about', component: AboutComponent },
@@ -58,11 +59,8 @@ const routes: Routes = [
      { path: 'haircare', component: HairCareComponent },
      { path: 'skincare', component: SkinCareComponent },
      {path: 'shineproducts', component: ShineproductsComponent },
-     { path: 'newlaunches', component: NewLaunchesComponent }
-
-
-
-
+     { path: 'newlaunches', component: NewLaunchesComponent },
+     {path:'view/:id',component:ProductViewDetailsComponent}
 
    ] },
 
@@ -75,21 +73,15 @@ const routes: Routes = [
   { path: 'cart', component: CartComponent },
   { path: '', component: ProductCardComponent },
   { path: 'address-list/:id', component: AddressListComponent },
+  { path: 'address-list', component: AddressListComponent },
    { path: 'product/:id', component: ProductOrderComponent },
   { path: 'add-address', component: AddAddressComponent },
   { path: 'toggle', component: TogglingComponent },
   { path: 'payment/:id', component: PaymentComponent },
+  { path: 'payment', component: PaymentComponent },
   { path: 'order', component: OrderHistoryComponent },
   { path: 'user', component: UserProfileComponent },
-
-
-
-
-
-
-
-    { path: 'login', component: LoginComponent },
-
+ 
 
 ];
 

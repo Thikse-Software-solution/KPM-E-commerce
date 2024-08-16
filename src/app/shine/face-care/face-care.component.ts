@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ShineProductService } from '../services/shine-product.service';
 import { CartService } from '../../services/cart.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-face-care',
@@ -13,7 +14,9 @@ products: any[] = [];
 
   constructor(
     private productService: ShineProductService,
-    private cartService: CartService
+    private cartService: CartService,
+     private router: Router,
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
@@ -42,11 +45,11 @@ products: any[] = [];
 
   addToCart(product: any): void {
     this.cartService.addToCart(product);
-    alert(`${product.name} added to cart!`);
+    // alert(`${product.name} added to cart!`);
   }
 
-  buyNow(product: any): void {
-    this.addToCart(product);
+ buyNow(product: any): void {
+     this.router.navigate(['/shine/view', product.id]);
     // Navigate to checkout or perform a quick buy action
   }
 }

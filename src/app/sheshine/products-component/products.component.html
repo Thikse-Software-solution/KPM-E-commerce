@@ -1,67 +1,33 @@
 <div class="container mt-5 product-overview-Block">
-    <div class="row mb-3">
-        <div class="col-3">
-            <input type="text" class="form-control" placeholder="Search by name or price" [(ngModel)]="searchQuery"
-                (input)="applyFilters()">
-        </div>
+  <div class="row mb-3">
+    <div class="col-3">
+      <input type="text" class="form-control" placeholder="Search by name or price" [(ngModel)]="searchQuery"
+        (input)="applyFilters()">
     </div>
-    <div class="row">
-      <div class="col-lg-3 col-sm-6 col-md-6 mb-4" *ngFor="let product of filteredProducts" >
-        <div class="card" >
-          <img src="{{ product.image1 }}" class="card-img-top" alt="Product Image" (click)="buyNow(product)">
-          <div class="card-body">
-            <p class="card-title">{{ product.name }}</p>
-            <!-- <p class="card-text">{{ product.description }}</p> -->
-            <div class="product-rating">
-              <i *ngFor="let star of [1, 2, 3, 4, 5]; let i = index" [class]="getStarClass(i, product.rating)"
-                (click)="setRating(product, i + 1)"></i>
-                <span>( {{ product.rating}}/5 Reviews) </span>
-            </div>
-            <p class="card-benefit benefit-reg" style="height: 36px;">{{ product.benefit }}</p>
-            <!-- <p class="card-size">{{ product.size }}</p> -->
-            <p class="card-text">
-              <small class="text-muted"><b>MRP: </b> <del>{{ product.mrp | currency:'INR' }}</del></small>
-            </p>
-            <p class="card-price">₹{{ product.price }}</p>
-            <div>
-              <button class="card-btn" routerLink="/cart" (click)="addToCart(product)">
-                Add to Cart
-              </button>
-            </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-3 col-sm-6 col-md-6 mb-4" *ngFor="let product of filteredProducts">
+      <div class="card">
+        <img src="{{ product.image1 }}" class="card-img-top" alt="Product Image" (click)="buyNow(product)">
+        <div class="card-body">
+          <p class="card-title">{{ product.name }}</p>
+          <!-- <div class="product-rating">
+            <i *ngFor="let star of [1, 2, 3, 4, 5]; let i = index" [class]="getStarClass(i, product.rating)"
+              (click)="setRating(product, i + 1)"></i>
+            <span>( {{ product.rating }}/5 Reviews) </span>
+          </div> -->
+          <p class="card-benefit benefit-reg" style="height: 36px;">{{ product.benefit }}</p>
+          <p class="card-text">
+            <small class="text-muted"><b>MRP: </b> <del>{{ product.mrp | currency:'INR' }}</del></small>
+          </p>
+          <p class="card-price">₹{{ product.price }}</p>
+          <div>
+            <button class="card-btn" (click)="addToCart(product)">
+              Add to Cart
+            </button>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-    <!-- <div *ngFor="let product of filteredProducts" class="product-detail">
-        <div class="card mb-3">
-            <div class="row g-0">
-                <div class="col-12 col-md-4 position-relative">
-                    <img src="{{ product.image1 }}" class="img-fluid rounded-start  w-100" alt="Product Image">
-                    <i class="fa-heart position-absolute top-0 end-0 m-3"
-                        [ngClass]="{'fas': isFavorite, 'far': !isFavorite}" [class.text-danger]="isFavorite"
-                        (click)="toggleFavorite(product)"></i>
-                </div>
-                <div class="col-12 col-md-8">
-                    <div class="card-body">
-                        <h5 class="card-title">{{ product.name }}</h5>
-                        <p class="card-text">{{ product.description }}</p>
-                        <p class="card-text">{{ product.keybenfit }}</p>
-                        <p class="card-text">{{ product.size }}</p>
-                        <p class="card-text">
-                            <small class="text-muted">MRP: <del>{{ product.mrp | currency:'INR' }}</del></small>
-                        </p>
-                        <p class="card-text">
-                            <small class="text-muted">Discount: {{ product.discount }}%</small>
-                        </p>
-                        <h5 class="card-text">Price: {{ product.price | currency:'INR' }}</h5>
-                        <button routerLink="/cart" class="btn btn-primary me-2" (click)="addToCart(product)">Add to
-                            Cart</button>
-                        <button class="btn btn-success" (click)="buyNow(product)">Buy Now</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
+</div>

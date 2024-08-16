@@ -6,6 +6,14 @@
     "feature":true,
     "special":true,
    "mainimage": "../../assets/images/jellary/1a.jpg",
+   "images": [
+    "../../assets/images/asus.jpeg",
+   "../../assets/images/bangle.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg"
+  ],
    "image1": "../../assets/images/jellary/1a.jpg",
     "image2": "../../assets/images/jellary/1a.jpg",
      "image3": "../../assets/images/jellary/1a.jpg",
@@ -23,7 +31,7 @@
    "specialLine":"The price of the item will vary depending on the quantity and demand of the product.",
    "size":"5g",
    "mrp":"500",
-   "price": "300",
+   "price": 300,
    "discount": "10",
    "rating": 3,
    "favorited": false
@@ -35,6 +43,14 @@
     "feature":true,
     "special":true,
     "mainimage": "../../assets/images/jellary/2a.jpg",
+    "images": [
+    "../../assets/images/asus.jpeg",
+   "../../assets/images/bangle.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg"
+  ],
    "image1": "../../assets/images/jellary/2a.jpg",
     "image2": "../../assets/images/jellary/2a.jpg",
      "image3": "../../assets/images/jellary/2a.jpg",
@@ -51,7 +67,7 @@
    "specialLine":"The price of the item will vary depending on the quantity and demand of the product.",
    "size":"5g",
    "mrp":"500",
-    "price": "400",
+    "price": 400,
    "discount": "10",
    "rating": 4.5,
    "favorited": false
@@ -64,6 +80,14 @@
     "special":true,
 
     "mainimage": "../../assets/images/jellary/3a.jpg",
+    "images": [
+    "../../assets/images/asus.jpeg",
+   "../../assets/images/bangle.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg"
+  ],
    "image1": "../../assets/images/jellary/3a.jpg",
     "image2": "../../assets/images/jellary/3a.jpg",
      "image3": "../../assets/images/jellary/3a.jpg",
@@ -80,7 +104,7 @@
    "specialLine":"The price of the item will vary depending on the quantity and demand of the product.",
    "size":"5g",
    "mrp":"5000",
-    "price": "4500",
+    "price": 4500,
    "discount": "10",
    "rating": 4.5,
    "favorited": false
@@ -92,6 +116,14 @@
     "feature":true,
     "special":true,
     "mainimage": "../../assets/images/jellary/4a.jpg",
+    "images": [
+    "../../assets/images/asus.jpeg",
+   "../../assets/images/bangle.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg"
+  ],
    "image1": "../../assets/images/jellary/4a.jpg",
     "image2": "../../assets/images/jellary/4a.jpg",
      "image3": "../../assets/images/jellary/4a.jpg",
@@ -107,7 +139,7 @@
    "specialLine":"The price of the item will vary depending on the quantity and demand of the product.",
    "size":"5g",
    "mrp":"600",
-   "price": "1210",
+   "price": 1210,
    "discount": "10",
    "rating": 4.5,
    "favorited": false
@@ -119,6 +151,14 @@
     "feature":true,
     "special":true,
     "mainimage": "../../assets/images/jellary/2a.jpg",
+    "images": [
+    "../../assets/images/asus.jpeg",
+   "../../assets/images/bangle.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg"
+  ],
    "image1": "../../assets/images/jellary/2a.jpg",
     "image2": "../../assets/images/jellary/2a.jpg",
      "image3": "../../assets/images/jellary/2a.jpg",
@@ -134,7 +174,7 @@
    "specialLine":"The price of the item will vary depending on the quantity and demand of the product.",
    "size":"5g",
    "mrp":"500",
-   "price": "980",
+   "price": 980,
    "discount": "10",
    "rating": 4.5,
    "favorited": false
@@ -144,6 +184,14 @@
      "category": "Pendant",
    "id": 6,
    "mainimage": "../../assets/images/jellary/3a.jpg",
+   "images": [
+    "../../assets/images/asus.jpeg",
+   "../../assets/images/bangle.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg"
+  ],
    "image1": "../../assets/images/jellary/3a.jpg",
     "image2": "../../assets/images/jellary/3a.jpg",
      "image3": "../../assets/images/jellary/3a.jpg",
@@ -159,7 +207,7 @@
    "specialLine":"The price of the item will vary depending on the quantity and demand of the product.",
    "size":"5g",
    "mrp":"500",
-    "price": "980",
+    "price": 980,
    "discount": "10",
    "rating": 4.5,
    "favorited": false
@@ -170,6 +218,14 @@
      "category": "Brooch",
    "id": 7,
     "mainimage": "../../assets/images/jellary/4a.jpg",
+    "images": [
+    "../../assets/images/asus.jpeg",
+   "../../assets/images/bangle.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg"
+  ],
    "image1": "../../assets/images/jellary/4a.jpg",
     "image2": "../../assets/images/jellary/4a.jpg",
      "image3": "../../assets/images/jellary/4a.jpg",
@@ -185,7 +241,7 @@
    "specialLine":"The price of the item will vary depending on the quantity and demand of the product.",
    "size":"5g",
    "mrp":"500",
-   "price": "3000",
+   "price": 3000,
    "discount": "10",
    "rating": 4.5,
    "favorited": false
@@ -201,6 +257,14 @@
       "image4": "../../assets/images/jellary/1a.jpg",
        "image5": "../../assets/images/jellary/1a.jpg",
         "image6": "../../assets/images/jellary/1a.jpg",
+        "images": [
+    "../../assets/images/asus.jpeg",
+   "../../assets/images/bangle.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg"
+  ],
    "title": "Anklet",
    "name": "Anklet",
     "suitable ":"Suitable for casual and beachwear, adding a playful touch to your look.",
@@ -210,7 +274,7 @@
    "specialLine":"The price of the item will vary depending on the quantity and demand of the product.",
    "size":"5g",
    "mrp":"500",
-   "price": "450",
+   "price": 450,
    "discount": "10",
    "rating": 4.5,
    "favorited": false
@@ -219,6 +283,14 @@
      "category": "Cufflinks",
    "id": 9,
    "mainimage": "../../assets/images/jellary/2a.jpg",
+   "images": [
+    "../../assets/images/asus.jpeg",
+   "../../assets/images/bangle.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg"
+  ],
    "image1": "../../assets/images/jellary/2a.jpg",
     "image2": "../../assets/images/jellary/2a.jpg",
      "image3": "../../assets/images/jellary/2a.jpg",
@@ -243,6 +315,14 @@
      "category": "Tiara",
    "id": 10,
    "mainimage": "../../assets/images/jellary/4a.jpg",
+   "images": [
+    "../../assets/images/asus.jpeg",
+   "../../assets/images/bangle.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg"
+  ],
    "image1": "../../assets/images/jellary/4a.jpg",
     "image2": "../../assets/images/jellary/4a.jpg",
      "image3": "../../assets/images/jellary/4a.jpg",
@@ -267,6 +347,14 @@
      "category": "Choker",
    "id": 11,
    "mainimage": "../../assets/images/jellary/2a.jpg",
+   "images": [
+    "../../assets/images/asus.jpeg",
+   "../../assets/images/bangle.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg"
+  ],
    "image1": "../../assets/images/jellary/2a.jpg",
     "image2": "../../assets/images/jellary/2a.jpg",
      "image3": "../../assets/images/jellary/2a.jpg",
@@ -291,6 +379,14 @@
      "category": "Charm Bracelet",
    "id": 12,
    "mainimage": "../../assets/images/jellary/3a.jpg",
+   "images": [
+    "../../assets/images/asus.jpeg",
+   "../../assets/images/bangle.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg"
+  ],
    "image1": "../../assets/images/jellary/3a.jpg",
     "image2": "../../assets/images/jellary/3a.jpg",
      "image3": "../../assets/images/jellary/3a.jpg",
@@ -315,6 +411,14 @@
      "category": "Cameo",
    "id": 13,
     "mainimage": "../../assets/images/jellary/1a.jpg",
+    "images": [
+    "../../assets/images/asus.jpeg",
+   "../../assets/images/bangle.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg"
+  ],
    "image1": "../../assets/images/jellary/1a.jpg",
     "image2": "../../assets/images/jellary/1a.jpg",
      "image3": "../../assets/images/jellary/1a.jpg",
@@ -339,6 +443,14 @@
    "category": "Locket",
    "id": 14,
    "mainimage": "../../assets/images/jellary/2a.jpg",
+   "images": [
+    "../../assets/images/asus.jpeg",
+   "../../assets/images/bangle.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg"
+  ],
    "image1": "../../assets/images/jellary/2a.jpg",
     "image2": "../../assets/images/jellary/2a.jpg",
      "image3": "../../assets/images/jellary/2a.jpg",
@@ -364,6 +476,14 @@
      "category": "Toe Ring",
    "id": 15,
    "mainimage": "../../assets/images/jellary/4a.jpg",
+   "images": [
+    "../../assets/images/asus.jpeg",
+   "../../assets/images/bangle.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg"
+  ],
    "image1": "../../assets/images/jellary/4a.jpg",
     "image2": "../../assets/images/jellary/4a.jpg",
      "image3": "../../assets/images/jellary/4a.jpg",
@@ -388,6 +508,14 @@
   "category": "Toe Ring",
    "id": 15,
    "mainimage": "../../assets/images/jellary/4a.jpg",
+   "images": [
+    "../../assets/images/asus.jpeg",
+   "../../assets/images/bangle.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg"
+  ],
    "image1": "../../assets/images/jellary/4a.jpg",
     "image2": "../../assets/images/jellary/4a.jpg",
      "image3": "../../assets/images/jellary/4a.jpg",
@@ -410,6 +538,14 @@
   "category": "Toe Ring",
    "id": 16,
    "mainimage": "../../assets/images/jellary/4a.jpg",
+   "images": [
+    "../../assets/images/asus.jpeg",
+   "../../assets/images/bangle.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg"
+  ],
    "image1": "../../assets/images/jellary/4a.jpg",
     "image2": "../../assets/images/jellary/4a.jpg",
      "image3": "../../assets/images/jellary/4a.jpg",
@@ -432,6 +568,14 @@
   "category": "Toe Ring",
    "id": 17,
    "mainimage": "../../assets/images/jellary/4a.jpg",
+   "images": [
+    "../../assets/images/asus.jpeg",
+   "../../assets/images/bangle.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg",
+   "../../assets/images/jellary/1a.jpg"
+  ],
    "image1": "../../assets/images/jellary/4a.jpg",
     "image2": "../../assets/images/jellary/4a.jpg",
      "image3": "../../assets/images/jellary/4a.jpg",
@@ -450,4 +594,5 @@
    "rating": 4.5,
    "favorited": false
  }
+ 
 ]

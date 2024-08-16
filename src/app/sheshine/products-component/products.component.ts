@@ -11,9 +11,8 @@ import { ProductService } from '../services/product.service';
 export class ProductsComponent implements OnInit {
   products: any[] = [];
   filteredProducts: any[] = [];
-  isFavorite = false;
+  category: string | null = null;
   searchQuery: string = '';
-  selectedCategory: string = '';
 
   constructor(
     private cartService: CartService,
@@ -23,74 +22,58 @@ export class ProductsComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.selectedCategory = params['category'] || '';
-      const productId = params['productId'] || null;
+    this.loadProducts();
 
-      this.loadProducts(() => {
-        if (productId) {
-          // Optionally scroll to the product or highlight it
-          const selectedProduct = this.products.find(product => product.id === productId);
-          if (selectedProduct) {
-            // Implement scroll or highlight logic here
-          }
-        }
-      });
+    // Subscribing to route parameters to handle category filtering
+    this.route.paramMap.subscribe(params => {
+      this.category = params.get('category');
+      console.log('Received category:', this.category); // Debug log
+      this.applyFilters();
     });
   }
 
-  loadProducts(callback?: () => void): void {
+  // Fetch products from service
+  loadProducts(): void {
     this.productService.getProducts().subscribe(products => {
       this.products = products;
       this.applyFilters();
-      if (callback) {
-        callback();
-      }
     });
   }
 
-  getStarClass(index: number, rating: number): string {
-    if (index < rating) {
-      return 'fas fa-star';
-    } else if (index < Math.ceil(rating) && rating % 1 !== 0) {
-      return 'fas fa-star-half-alt';
-    } else {
-      return 'far fa-star';
-    }
-  }
-
-  setRating(product: any, rating: number): void {
-    product.rating = rating;
-  }
-
+  // Apply search and category filters
   applyFilters(): void {
     const query = this.searchQuery.toLowerCase().trim();
     const price = parseFloat(query);
 
     this.filteredProducts = this.products.filter(product => {
+      const matchesCategory = this.category ? product.category === this.category : true;
       const matchesName = product.name.toLowerCase().includes(query);
       const matchesPrice = !isNaN(price) && product.price <= price;
-      const matchesCategory = !this.selectedCategory || product.category === this.selectedCategory;
 
-      return (matchesName || matchesPrice) && matchesCategory;
+      return matchesCategory && (matchesName || matchesPrice);
     });
+
+    console.log('Filtered products:', this.filteredProducts); // Debug log
   }
 
+  // Toggle favorite status for the specific product
   toggleFavorite(product: any) {
-    this.isFavorite = !this.isFavorite;
+    product.isFavorite = !product.isFavorite;
   }
 
+  // Navigate to product details for buying
   buyNow(product: any) {
     this.router.navigate(['/sheshine/view', product.id]);
   }
 
+  // Add the product to the cart
   addToCart(product: any) {
     this.cartService.addToCart(product);
   }
 
-  showCategoryProducts(category: string): void {
-    this.router.navigate(['products'], { queryParams: { category: category } });
-    this.selectedCategory = category;
+  // Method to trigger filtering when the search query changes
+  onSearchQueryChange(query: string): void {
+    this.searchQuery = query;
     this.applyFilters();
   }
 }

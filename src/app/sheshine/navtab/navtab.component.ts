@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 // import { Router } from '@angular/router';
 import { Router, NavigationEnd } from '@angular/router';
+import { CartService } from '../../services/cart.service';
 
 @Component({
   selector: 'app-navtab',
@@ -8,7 +9,9 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrl: './navtab.component.scss'
 })
 export class NavtabComponent {
-  constructor(private router: Router) { }
+
+  cartItemCount: number = 0;
+  constructor(private router: Router,private cartService: CartService) { }
   
 
   showNavbar: boolean = true;
@@ -27,9 +30,12 @@ export class NavtabComponent {
    ngOnInit(): void {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        const hiddenRoutes = ['/address', '/payment','/cart'];
+        const hiddenRoutes = ['/address', '/payment','/cart','/login','/signup','/toggle'];
         this.showNavbar = !hiddenRoutes.some(route => event.url.includes(route));
       }
+    });
+     this.cartService.cartItems$.subscribe((items) => {
+      this.cartItemCount = items.length;
     });
   }
 }

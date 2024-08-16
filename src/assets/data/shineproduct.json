@@ -21,7 +21,7 @@
    "description":"Description: A deep nourishing Ecocert Certified organic lip balm that is the ultimate care for your delicate lips. Just one swipe of this conditioning, non-sticky lip balm gives your lips a long-lasting moisture surge.It is formulated with certified organic ingredients like rosehip seed oil, castor oil, and cocoa butter rich in Pro-Vitamin A, C & E, and Omega-3, -6 and -9 fatty acids & ceramides. This unique formula penetrates the skin's deep layers to regenerate cells, repair the natural barrier and boost collagen synthesis.This formula delivers the ultimate remedy for dehydrated, sore & sensitive lips, dark pigmented lips due to smoking, sun exposure, increased caffeine intake, habitual subconscious lip licking or wearing harsh long-wearing lipstick.",
    "keybenefit":"Key Benefits: It reduces the appearance of dark lips It reduces the appearance of dark lips, increases lip suppleness and hydration, heals dry and chapped lips and protects from environmental factors such as wind & cold weather.",
    "size":"5g",
-   "mrp":"500",
+   "mrp":500,
    "price": "300",
    "discount": "10",
    "rating": 3,
@@ -48,8 +48,8 @@
    "description":"",
    "keybenefit":"",
    "size":"5g",
-   "mrp":"500",
-    "price": "400",
+   "mrp":500,
+    "price": 400,
    "discount": "10",
    "rating": 4.5,
    "favorited": false
@@ -76,8 +76,8 @@
    "description":"",
    "keybenefit":"",
    "size":"5g",
-   "mrp":"5000",
-    "price": "4500",
+   "mrp":5000,
+    "price": 4500,
    "discount": "10",
    "rating": 4.5,
    "favorited": false
@@ -102,8 +102,8 @@
    "description":"",
    "keybenefit":"",
    "size":"5g",
-   "mrp":"600",
-   "price": "1210",
+   "mrp":600,
+   "price": 1210,
    "discount": "10",
    "rating": 4.5,
    "favorited": false
@@ -129,7 +129,7 @@
    "keybenefit":"",
    "size":"5g",
    "mrp":"500",
-   "price": "980",
+   "price": 980,
    "discount": "10",
    "rating": 4.5,
    "favorited": false
@@ -153,7 +153,7 @@
    "keybenefit":"",
    "size":"5g",
    "mrp":"500",
-    "price": "980",
+    "price": 980,
    "discount": "10",
    "rating": 4.5,
    "favorited": false
@@ -178,7 +178,7 @@
    "keybenefit":"",
    "size":"5g",
    "mrp":"500",
-   "price": "3000",
+   "price": 3000,
    "discount": "10",
    "rating": 4.5,
    "favorited": false
@@ -202,7 +202,7 @@
    "keybenefit":"",
    "size":"5g",
    "mrp":"500",
-   "price": "450",
+   "price": 450,
    "discount": "10",
    "rating": 4.5,
    "favorited": false
@@ -225,7 +225,7 @@
    "keybenefit":"",
    "size":"5g",
    "mrp":"500",
-  "price": "7600",
+  "price": 7600,
    "discount": "10",
    "rating": 4.5,
    "favorited": false
@@ -248,7 +248,7 @@
    "keybenefit":"",
    "size":"5g",
    "mrp":"500",
-   "price": "9000",
+   "price": 9000,
    "discount": "10",
    "rating": 4.5,
    "favorited": false
@@ -270,7 +270,7 @@
    "keybenefit":"",
    "size":"5g",
    "mrp":"500",
-   "price": "9760",
+   "price": 9760,
    "discount": "10",
    "rating": 4.5,
    "favorited": false
@@ -292,7 +292,7 @@
    "keybenefit":"",
    "size":"5g",
    "mrp":"500",
-    "price": "4560",
+    "price": 4560,
    "discount": "10",
    "rating": 4.5,
    "favorited": false
@@ -314,7 +314,7 @@
    "keybenefit":"",
    "size":"5g",
    "mrp":"500",
-   "price": "8770",
+   "price": 8770,
    "discount": "10",
    "rating": 4.5,
    "favorited": false
@@ -337,7 +337,7 @@
    "keybenefit":"",
    "size":"5g",
    "mrp":"1330",
-   "price":"1199",
+   "price":1199,
    "discount":"10",
    "rating": 4.5,
    "favorited": false
@@ -359,7 +359,7 @@
    "keybenefit":"",
    "size":"5g",
    "mrp":"1330",
-   "price":"1199",
+   "price":1199,
    "discount":"10",
    "rating": 4.5,
    "favorited": false
@@ -381,7 +381,7 @@
    "keybenefit":"",
    "size":"5g",
    "mrp":"1330",
-   "price":"1199",
+   "price":1199,
    "discount":"10",
    "rating": 4.5,
    "favorited": false
@@ -403,7 +403,7 @@
    "keybenefit":"",
    "size":"5g",
    "mrp":"1330",
-   "price":"1199",
+   "price":1199,
    "discount":"10",
    "rating": 4.5,
    "favorited": false
@@ -424,8 +424,8 @@
    "description":"",
    "keybenefit":"",
    "size":"5g",
-   "mrp":"1330",
-   "price":"1199",
+   "mrp":1330,
+   "price":1199,
    "discount":"10",
    "rating": 4.5,
    "favorited": false

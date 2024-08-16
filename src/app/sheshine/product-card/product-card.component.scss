@@ -100,3 +100,28 @@
     }
   }
 }
+@media (max-width: 767px) {
+  .card-container {
+    display: flex;
+    overflow: hidden;
+    /* Hide the overflow to prevent scrolling */
+    position: relative;
+  }
+
+  .product-list {
+    display: flex;
+    flex-wrap: nowrap;
+    transition: transform 0.3s ease-in-out;
+    /* Smooth transition */
+    touch-action: pan-x;
+    /* Allow horizontal panning */
+  }
+
+  .product-card {
+    flex: 0 0 100%;
+    /* Each card takes up 100% of the screen width */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

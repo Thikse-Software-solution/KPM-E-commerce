@@ -1,10 +1,14 @@
 export interface Order {
   id: string;
-  date: string;
+  date: Date;
   total: number;
-  items: {
-    productId: string;
-    quantity: number;
-    price: number;
-  }[];
+  price: number;
+  products: OrderProduct[];
+}
+
+export interface OrderProduct {
+  name: string;
+  quantity: number;
+  price: number;
+  imageUrl?: string; // Optional field for a product image
 }

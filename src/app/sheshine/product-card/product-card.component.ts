@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewInit, OnDestroy, Inject, ElementRef, Render
 import { ProductService } from '../services/product.service';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-card',
@@ -18,12 +18,16 @@ export class ProductCardComponent implements OnInit, AfterViewInit, OnDestroy {
   private startX = 0;
   private scrollLeft = 0;
   private isBrowser: boolean;
+   private currentIndex = 0; // Track the current card index
+  private intervalId: any;
+
 
   constructor(
     private productService: ProductService,
     private router: Router,
     private el: ElementRef,
     private renderer: Renderer2,
+    private route: ActivatedRoute,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
@@ -32,7 +36,7 @@ export class ProductCardComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit(): void {
     this.productService.getProducts().subscribe(data => {
       this.products = data;
-      this.filteredProducts = this.products; // Initially show all products
+      this.filteredProducts = this.getUniqueProductsByCategory(this.products); // Show only one product per category initially
     });
   }
 
@@ -40,6 +44,12 @@ export class ProductCardComponent implements OnInit, AfterViewInit, OnDestroy {
     if (this.isBrowser) {
       this.container = this.el.nativeElement.querySelector('.card-container');
       this.productList = this.el.nativeElement.querySelector('.product-list');
+
+       
+      // Add touch event listeners
+      this.renderer.listen(this.container, 'touchstart', (event) => this.onDragStart(event as TouchEvent));
+      this.renderer.listen(this.container, 'touchend', () => this.onDragEnd());
+      this.renderer.listen(this.container, 'touchmove', (event) => this.onDragMove(event as TouchEvent));
     }
   }
 
@@ -47,9 +57,21 @@ export class ProductCardComponent implements OnInit, AfterViewInit, OnDestroy {
     // Cleanup logic if needed
   }
 
-  onDragStart(event: MouseEvent): void {
+  getUniqueProductsByCategory(products: any[]): any[] {
+    const categoryMap = new Map<string, any>();
+
+    products.forEach(product => {
+      if (!categoryMap.has(product.category)) {
+        categoryMap.set(product.category, product);
+      }
+    });
+
+    return Array.from(categoryMap.values());
+  }
+
+  onDragStart(event: MouseEvent | TouchEvent): void {
     this.isDragging = true;
-    this.startX = event.pageX - this.container.offsetLeft;
+    this.startX = this.getEventX(event) - this.container.offsetLeft;
     this.scrollLeft = this.container.scrollLeft;
   }
 
@@ -57,15 +79,47 @@ export class ProductCardComponent implements OnInit, AfterViewInit, OnDestroy {
     this.isDragging = false;
   }
 
-  onDragMove(event: MouseEvent): void {
+  onDragMove(event: MouseEvent | TouchEvent): void {
     if (!this.isDragging) return;
     event.preventDefault();
-    const x = event.pageX - this.container.offsetLeft;
+    const x = this.getEventX(event) - this.container.offsetLeft;
     const walk = (x - this.startX) * 2; // Adjust scroll speed
     this.container.scrollLeft = this.scrollLeft - walk;
   }
 
-  showCategoryProducts(category: string, productId: number): void {
-    this.router.navigate(['/products'], { queryParams: { category: category, productId: productId } });
+  private getEventX(event: MouseEvent | TouchEvent): number {
+    return event instanceof MouseEvent ? event.pageX : event.touches[0].pageX;
   }
+
+  showCategoryProducts(category: string): void {
+    const filteredProductIds = this.products
+      .filter(product => product.category === category)
+      .map(product => product.id);
+
+    this.router.navigate(['/sheshine/products', category], {
+      queryParams: { ids: filteredProductIds.join(',') }
+    }).then(success => {
+      console.log('Navigation Success:', success);
+    }).catch(err => {
+      console.error('Navigation Error:', err);
+    });
+  }
+
+ private moveToCard(index: number): void {
+    const width = this.container.offsetWidth;
+    this.renderer.setStyle(this.productList, 'transform', `translateX(-${width * index}px)`);
+  }
+
+  private startAutoSlide(): void {
+    this.intervalId = setInterval(() => {
+      this.currentIndex = (this.currentIndex + 1) % this.filteredProducts.length;
+      this.moveToCard(this.currentIndex);
+    }, 3000); // Change card every 3 seconds
+  }
+
+
+
+
+
+
 }

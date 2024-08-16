@@ -22,13 +22,14 @@
     </div>
     <div id="login">
       <a class="login" routerLink="/toggle">
-        <img height="30px" width="30px" src="../../assets/images/navtab/person-circle.svg" alt="Login">
+        <img height="30px" width="30px" src="../../../assets/images/navtab/person-circle.svg" alt="Login">
       </a>
     </div>
-    <div id="cart">
+    <div id="cart"  routerLink="/cart" class="cart-container">
       <a routerLink="/cart" class="cart">
-        <img height="30px" width="30px" src="../../assets/images/navtab/cart.svg" alt="Cart">
+        <img height="30px" width="30px" src="../../../assets/images/navtab/cart.svg" alt="Cart">
       </a>
+      <span class="cart-count">{{ cartItemCount }}</span>
     </div>
   </div>
 </nav>

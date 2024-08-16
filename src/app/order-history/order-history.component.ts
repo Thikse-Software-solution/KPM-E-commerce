@@ -8,20 +8,37 @@ import { Order } from '../services/order.model';
   styleUrls: ['./order-history.component.scss']
 })
 export class OrderHistoryComponent implements OnInit {
+  orders: any[] = [];
 
-  orders: Order[] = [];
-  userId: string = '123'; // Replace with the actual user ID or get it from a user service
-
-  constructor(private orderService: OrderService) { }
+  constructor(private orderService: OrderService) {}
 
   ngOnInit(): void {
-    this.loadOrderHistory();
+    // Subscribe to the orders observable from the service
+    this.orderService.orders$.subscribe(orders => {
+      this.orders = orders;
+    });
+
+    // Check if any orders are beyond the cancellation period
+    this.orderService.checkCancellationAvailability();
   }
 
-  loadOrderHistory(): void {
-    this.orderService.getOrderHistory(this.userId).subscribe({
-      next: (orders) => this.orders = orders,
-      error: (err) => console.error('Error fetching order history', err)
-    });
+  // Cancel the order by updating its status
+  cancelOrder(orderId: number): void {
+    this.orderService.cancelOrder(orderId);
+  }
+
+  // Mark the order as received by updating its status
+  markAsReceived(orderId: number): void {
+    this.orderService.markAsReceived(orderId);
+  }
+
+  // Return the order by updating its status
+  returnOrder(orderId: number): void {
+    this.orderService.returnOrder(orderId);
+  }
+
+  // Check if the order status should trigger the support message
+  shouldShowSupportMessage(status: string): boolean {
+    return status === 'Cancelled' || status === 'Returned';
   }
 }
