@@ -201,3 +201,42 @@ button {
     font-family: Lora, serif;
   }
 }
+
+.product-mrpPrize{
+  .card-text{
+    margin:5px 0;
+
+  }
+  .prize{
+    font-weight: 700 !important;
+    // margin-left: 5px;
+    font-size: 20px;
+    color: #202020;
+
+  }
+  .prize-detail{
+    .spec-prize{
+      color: #0caf12;
+      font-weight: 700;
+      font-family: lora;
+      font-size: 14px;
+    }
+    del{
+      margin-left: 5px;
+    }
+  }
+  .card-text-off{
+    margin: 0;
+
+    small{
+      color: #0caf12 !important;
+      font-weight: 700;
+    }
+  }
+}
+
+.product-buy-add{
+  button{
+    margin-top: 10px;
+  }
+}

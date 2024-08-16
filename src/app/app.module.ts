@@ -44,6 +44,8 @@ import { HairCareComponent } from './shine/Hair-care/Hair-care.component';
 import { NewLaunchesComponent } from './shine/New-Launches/New-Launches.component';
 import { SkinCareComponent } from './shine/Skin-care/Skin-care.component';
 import { ShineHomeComponent } from './shine/shine-home/shine-home.component';
+import { ShineproductsComponent } from './shine/shineproducts/shineproducts.component';
+import { PickProductComponent } from './shine/pick-product/pick-product.component';
 
 
 
@@ -51,7 +53,7 @@ import { ShineHomeComponent } from './shine/shine-home/shine-home.component';
 
 
 @NgModule({
-declarations: [	
+declarations: [
     AppComponent,
     SheshineComponent,
     NavbarComponent,
@@ -87,8 +89,9 @@ declarations: [
     HairCareComponent,
     NewLaunchesComponent,
     SkinCareComponent,
-    ShineHomeComponent
-    
+    ShineHomeComponent,
+    ShineproductsComponent,
+    PickProductComponent
    ],
   imports: [
     BrowserModule,
