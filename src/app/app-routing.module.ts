@@ -27,6 +27,7 @@ import { HairCareComponent } from './shine/Hair-care/Hair-care.component';
 import { SkinCareComponent } from './shine/Skin-care/Skin-care.component';
 import { NewLaunchesComponent } from './shine/New-Launches/New-Launches.component';
 import { ShineproductsComponent } from './shine/shineproducts/shineproducts.component';
+import { ShineProductViewComponent } from './shine/shine-product-view/shine-product-view.component';
 
 
 
@@ -60,14 +61,14 @@ const routes: Routes = [
      { path: 'skincare', component: SkinCareComponent },
      {path: 'shineproducts', component: ShineproductsComponent },
      { path: 'newlaunches', component: NewLaunchesComponent },
-     {path:'view/:id',component:ProductViewDetailsComponent}
+      { path: 'view/:id', component: ShineProductViewComponent }
 
    ] },
 
 
 
 
-  { path: '', redirectTo: '/sheshine', pathMatch: 'full' },
+  { path: '', redirectTo: '/shine', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
   { path: 'cart', component: CartComponent },

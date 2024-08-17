@@ -26,4 +26,15 @@ export class ShineProductService {
       });
     });
   }
+
+  // Fetch a product by its ID
+  getProductById(id: number): Observable<any> {
+    return new Observable(observer => {
+      this.getAllProducts().subscribe(products => {
+        const product = products.find(p => p.id === id);
+        observer.next(product);
+        observer.complete();
+      });
+    });
+  }
 }

@@ -48,6 +48,7 @@ import { ShineproductsComponent } from './shine/shineproducts/shineproducts.comp
 import { PickProductComponent } from './shine/pick-product/pick-product.component';
 import { ShineFooterComponent } from './shine/shine-footer/shine-footer.component';
 import { ProductExplainComponent } from './shine/productExplain/productExplain.component';
+import { ShineProductViewComponent } from './shine/shine-product-view/shine-product-view.component';
 
 
 
@@ -94,6 +95,7 @@ declarations: [
     ShineHomeComponent,
     ShineproductsComponent,
     PickProductComponent,
+    ShineProductViewComponent,
     ShineFooterComponent,
     ProductExplainComponent
    ],

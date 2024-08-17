@@ -52,4 +52,7 @@ products: any[] = [];
      this.router.navigate(['/shine/view', product.id]);
     // Navigate to checkout or perform a quick buy action
   }
+  //  changeColor(product, color) {
+  //   product.selectedImage = color.imageUrl;
+  // }
 }

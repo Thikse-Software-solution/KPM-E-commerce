@@ -70,7 +70,7 @@ export class PickProductComponent implements OnInit {
 
   // Example methods for product interactions
   buyNow(product: any) {
-    this.router.navigate(['/sheshine/view', product.id]);
+    this.router.navigate(['/shine/view', product.id]);
   }
 
   addToCart(product: any) {
