@@ -47,6 +47,7 @@ import { ShineHomeComponent } from './shine/shine-home/shine-home.component';
 import { ShineproductsComponent } from './shine/shineproducts/shineproducts.component';
 import { PickProductComponent } from './shine/pick-product/pick-product.component';
 import { ShineFooterComponent } from './shine/shine-footer/shine-footer.component';
+import { ProductExplainComponent } from './shine/productExplain/productExplain.component';
 
 
 
@@ -93,7 +94,8 @@ declarations: [
     ShineHomeComponent,
     ShineproductsComponent,
     PickProductComponent,
-    ShineFooterComponent
+    ShineFooterComponent,
+    ProductExplainComponent
    ],
   imports: [
     BrowserModule,
