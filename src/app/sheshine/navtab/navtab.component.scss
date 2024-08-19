@@ -63,8 +63,8 @@
         }
 
         img {
-          height: 40px;
-          width: 40px;
+          height: 25px;
+          width: 25px;
         }
       }
     }
@@ -82,13 +82,19 @@
 
 .cart-count {
   position: absolute;
-  top: 5px;
-  right: 23px;
-  // background-color:rgb(222, 169, 10);
-  color: rgb(0, 0, 0);
-  border-radius: 200%;
-  padding: 2px 6px;
-  font-size: 20px;
+  top: -6px;
+  right: 7px;
+  color: #000;
+  padding: 5px;
+  font-size: 10px;
+  border: 1px solid;
+  background: #ccc;
+  border-radius: 50px;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 @media (max-width: 769px) {
