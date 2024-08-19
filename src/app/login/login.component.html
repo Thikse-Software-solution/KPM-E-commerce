@@ -1,15 +1,31 @@
-<div  class="form-container sign-in"  [ngClass]="{'active': isLogin}">
-    <form>
+<!-- login.component.html -->
+<div class="form-container sign-in" [ngClass]="{'active': isLogin}">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
         <h4>Login</h4>
         <div class="social-icons">
             <a href="#" class="icon"><i class="fa-brands fa-google-plus-g"></i></a>
             <a href="#" class="icon"><i class="fa-brands fa-facebook-f"></i></a>
         </div>
         <span>or use your email and password</span>
-        <input type="email" placeholder="Email">
-        <input type="password" placeholder="Password">
+        <div class="form-group">
+            <input type="email" placeholder="Email" formControlName="email" class="form-control" />
+            <div *ngIf="loginForm.get('email')?.invalid && (loginForm.get('email')?.touched || loginForm.get('email')?.dirty)"
+                class="invalid-feedback">
+                <div *ngIf="loginForm.get('email')?.errors?.['required']">Email is required.</div>
+                <div *ngIf="loginForm.get('email')?.errors?.['email']">Enter a valid email.</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <input type="password" placeholder="Password" formControlName="password" class="form-control" />
+            <div *ngIf="loginForm.get('password')?.invalid && (loginForm.get('password')?.touched || loginForm.get('password')?.dirty)"
+                class="invalid-feedback">
+                <div *ngIf="loginForm.get('password')?.errors?.['required']">Password is required.</div>
+                <div *ngIf="loginForm.get('password')?.errors?.['minlength']">Password must be at least 6 characters
+                    long.</div>
+            </div>
+        </div>
         <a href="#">Forget Your Password?</a>
-        <button type="submit">Login</button>
-        <a class="signupformobile"   routerLink="/signup">Signup &#8594;</a>
+        <button type="submit" class="btn btn-primary" [disabled]="loginForm.invalid">Login</button>
+        <a class="signupformobile" routerLink="/signup">Signup &#8594;</a>
     </form>
 </div>

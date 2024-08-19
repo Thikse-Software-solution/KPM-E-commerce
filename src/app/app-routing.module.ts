@@ -28,6 +28,7 @@ import { SkinCareComponent } from './shine/Skin-care/Skin-care.component';
 import { NewLaunchesComponent } from './shine/New-Launches/New-Launches.component';
 import { ShineproductsComponent } from './shine/shineproducts/shineproducts.component';
 import { ShineProductViewComponent } from './shine/shine-product-view/shine-product-view.component';
+import { Image360ViewComponent } from './image-360-view/image-360-view.component';
 
 
 
@@ -44,7 +45,9 @@ const routes: Routes = [
     {path:'view/:id',component:ProductViewDetailsComponent},
     { path: 'about', component: AboutComponent },
     { path: 'contact', component: ContactComponent },
-    {path: 'cart', component: CartComponent },
+        { path: 'cart', component: CartComponent },
+        
+    
 
 
 
@@ -82,6 +85,7 @@ const routes: Routes = [
   { path: 'payment', component: PaymentComponent },
   { path: 'order', component: OrderHistoryComponent },
   { path: 'user', component: UserProfileComponent },
+  { path: 'image360', component: Image360ViewComponent }
  
 
 ];

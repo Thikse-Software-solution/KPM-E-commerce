@@ -119,6 +119,18 @@
             >
               <p class="card-text">{{ product.keybenefit }}</p>
             </div>
+            <button type="button" [class]="getClass(3)" class="collapsible" (click)="toggleContent(3)">
+              know our ingredients
+            </button>
+            <div class="content" [style.display]="isActive(3) ? 'block' : 'none'">
+              <p class="card-text">{{ product.ingredients }}</p>
+            </div>
+            <button type="button" [class]="getClass(4)" class="collapsible" (click)="toggleContent(4)">
+              How to Use
+            </button>
+            <div class="content" [style.display]="isActive(4) ? 'block' : 'none'">
+              <p class="card-text">{{ product.howtouse }}</p>
+            </div>
 
             <!-- <p class="card-text"><b>Size: </b>{{ product.size }}</p> -->
 

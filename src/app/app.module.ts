@@ -49,6 +49,9 @@ import { PickProductComponent } from './shine/pick-product/pick-product.componen
 import { ShineFooterComponent } from './shine/shine-footer/shine-footer.component';
 import { ProductExplainComponent } from './shine/productExplain/productExplain.component';
 import { ShineProductViewComponent } from './shine/shine-product-view/shine-product-view.component';
+import { AuthService } from './services/auth.service';
+import { Image360ViewComponent } from './image-360-view/image-360-view.component';
+
 
 
 
@@ -56,7 +59,7 @@ import { ShineProductViewComponent } from './shine/shine-product-view/shine-prod
 
 
 @NgModule({
-declarations: [
+declarations: [	
     AppComponent,
     SheshineComponent,
     NavbarComponent,
@@ -97,7 +100,8 @@ declarations: [
     PickProductComponent,
     ShineProductViewComponent,
     ShineFooterComponent,
-    ProductExplainComponent
+    ProductExplainComponent,
+    Image360ViewComponent
    ],
   imports: [
     BrowserModule,
@@ -112,8 +116,11 @@ declarations: [
   providers: [
     provideClientHydration(),
     provideAnimationsAsync(),
+    AuthService,
+
     provideHttpClient(withFetch())
   ],
+  
   bootstrap: [AppComponent]
 })
 export class AppModule { }

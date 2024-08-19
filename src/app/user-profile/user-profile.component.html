@@ -1,7 +1,20 @@
+
+<div class="modal fade" id="userProfileModal" tabindex="-1" aria-labelledby="userProfileModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <!-- <div class="modal-header"> -->
+                <!-- <h5 class="modal-title" id="userProfileModalLabel">User Profile</h5> -->
+                
+            <!-- </div> -->
+            <div class="modal-body">
 <div class="container" *ngIf="user">
+   
     <div class="row">
         <div class="col-md-6 offset-md-3 col-sm-12">
             <div class="user-profile card mt-4">
+                <div data-bs-dismiss="modal" class="buttonclose">
+                    <button type="button" class="btn-close"  aria-label="Close"></button>
+                </div>
                 <div *ngIf="!editMode">
                     <div class="card-body text-center">
                         <div class="user-avatar mb-3">
@@ -43,7 +56,7 @@
                     </form>
                 </div>
 
-                <div class="card-footer">
+                <!-- <div class="card-footer">
                     <h3>Order History</h3>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item" *ngFor="let order of user.orderHistory">
@@ -53,8 +66,12 @@
                             <p>Amount: ${{ order.amount }}</p>
                         </li>
                     </ul>
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
+</div>
+</div>
+</div>
+</div>
 </div>

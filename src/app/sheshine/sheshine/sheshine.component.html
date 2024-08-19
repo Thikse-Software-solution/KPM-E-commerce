@@ -18,11 +18,18 @@
 
       </li>
       <li class="nav-item">
-    <a class="nav-link" routerLink="/user" routerLinkActive="active" (click)="closeNavbar()">user</a>
+    <a class="nav-link" routerLink="/image360" routerLinkActive="active" (click)="closeNavbar()">image360</a>
 
+      </li>
+      <li class="nav-item">
+    <!-- <a class="nav-link" routerLink="/user" routerLinkActive="active" (click)="closeNavbar()">user</a> -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#userProfileModal">
+  Open Profile
+</button>
       </li>
     </ul>
   </div>
 </nav>
 
 <router-outlet></router-outlet>
+<app-user-profile></app-user-profile>

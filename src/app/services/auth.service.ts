@@ -1,44 +1,27 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Router } from '@angular/router';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-//  private readonly demoUsername = 'demo';
-//   private readonly demoPassword = 'demo';
-//   private loggedIn = false;
 
-//   constructor(private router: Router) { }
+private apiUrl = 'http://localhost:8080/api/auth';
 
-//   login(username: string, password: string): boolean {
-//     if (username === this.demoUsername && password === this.demoPassword) {
-//       this.loggedIn = true;
-//       return true;
-//     } else {
-//       return false;
-//     }
-//   }
+  constructor(private http: HttpClient) { }
 
-//   isLoggedIn(): boolean {
-//     return this.loggedIn;
-//   }
-
-//   logout() {
-//     this.loggedIn = false;
-//     this.router.navigate(['/login']);
-//   }
-
-
-
-
-  private apiUrl = 'https://your-backend-api.com/api';
-
-  constructor(private http: HttpClient) {}
-
-  login(credentials: { email: string; password: string }): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/login`, credentials);
+ login(email: string, password: string): Observable<any> {
+    return this.http.post<any>(`${this.apiUrl}/login`, { email, password }).pipe(
+      tap(response => {
+        localStorage.setItem('token', response.token); // Store the JWT token
+      })
+    );
   }
+
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('token');
+  }
+
 }

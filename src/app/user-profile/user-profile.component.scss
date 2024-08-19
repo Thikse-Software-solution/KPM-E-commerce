@@ -61,6 +61,34 @@ height: 100%;
 
 .user-details form input {
   padding: 5px;
-  border: 1px solid #ccc;
+  // border: 1px solid #ccc;
   border-radius: 5px;
+}
+.modal-content {
+  background: transparent;
+  // background: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  border-radius: 10px;
+  border: none;
+}
+
+.modal-backdrop.show {
+  opacity: 0.5; /* Transparent background overlay */
+}
+
+.modal-dialog {
+  max-width: 100%;
+  margin: 1.75rem auto;
+  border: none;
+}
+
+.modal.fade .modal-dialog {
+  transform: translate(0, 0);
+}
+
+.modal-body {
+  padding: 1.5rem;
+}
+.buttonclose{
+  display: flex;
+    justify-content: flex-end;
 }
