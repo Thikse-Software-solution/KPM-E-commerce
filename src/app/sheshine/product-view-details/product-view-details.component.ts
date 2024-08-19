@@ -14,7 +14,7 @@ export class ProductViewDetailsComponent implements OnInit {
   @Input() product: any;
   isFavorite: boolean = false;
   productDetails: any;
-  quantity: number = 1;
+  // quantity: number = 1;
   reviewText: string = '';
   reviews: string[] = [];
   colors: string[] = ['#000', '#EDEDED', '#D5D6D8', '#EFE0DE', '#AB8ED1', '#F04D44'];
@@ -37,13 +37,17 @@ export class ProductViewDetailsComponent implements OnInit {
     product.rating = rating;
   }
 
+  // Method to increase product quantity
   increaseQuantity() {
-    this.quantity++;
+    if (this.product) {
+      this.product.quantity++;
+    }
   }
 
+  // Method to decrease product quantity
   decreaseQuantity() {
-    if (this.quantity > 1) {
-      this.quantity--;
+    if (this.product && this.product.quantity > 1) {
+      this.product.quantity--;
     }
   }
 
@@ -79,14 +83,19 @@ export class ProductViewDetailsComponent implements OnInit {
     this.cartService.addToCart(product);
   }
 
-  ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id')!;
-    this.productService.getProducts().subscribe(products => {
-      this.product = products.find(p => p.id === id);
-    });
-        
+ ngOnInit(): void {
+  const id = +this.route.snapshot.paramMap.get('id')!;
+  
+  // Fetch the products and find the one with the matching ID
+  this.productService.getProducts().subscribe(products => {
+    this.product = products.find(p => p.id === id);
 
-  }
+    // Ensure the quantity is initialized to 1 if not already set
+    if (this.product && (typeof this.product.quantity !== 'number' || isNaN(this.product.quantity))) {
+      this.product.quantity = 1;
+    }
+  });
+}
 
 
   activeSections: boolean[] = [false, false, false, false];

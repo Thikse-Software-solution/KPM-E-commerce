@@ -16,6 +16,9 @@ export class ShineProductViewComponent implements OnInit {
   quantity: number = 1;
   reviewText: string = '';
   reviews: string[] = [];
+  subcategoryProducts: any[] = [];
+  
+  
   colors: string[] = ['#000', '#EDEDED', '#D5D6D8', '#EFE0DE', '#AB8ED1', '#F04D44'];
 
   constructor(
@@ -25,12 +28,26 @@ export class ShineProductViewComponent implements OnInit {
     private shineProductService: ShineProductService
   ) {}
 
- ngOnInit(): void {
+ngOnInit(): void {
   const id = +this.route.snapshot.paramMap.get('id')!;
   this.shineProductService.getProductById(id).subscribe(product => {
     this.product = product;
+
+    // Ensure the quantity is initialized to 1 if not already set
+     if (this.product && (typeof this.product.quantity !== 'number' || isNaN(this.product.quantity))) {
+      this.product.quantity = 1;
+    }
+    if (this.product?.subcategory) {
+        this.fetchSubcategoryProducts(this.product.subcategory);
+      }
   });
-}
+  }
+ 
+  fetchSubcategoryProducts(subcategory: string) {
+    this.shineProductService.getProductsBySubcategory(subcategory).subscribe(products => {
+      this.subcategoryProducts = products.filter(p => p.id !== this.product?.id); // Exclude the current product
+    });
+  }
 
   changeImage(image: string) {
     this.product.mainimage = image;
@@ -51,12 +68,15 @@ export class ShineProductViewComponent implements OnInit {
   }
 
   increaseQuantity() {
-    this.quantity++;
+    if (this.product) {
+      this.product.quantity++;
+    }
   }
 
+  // Method to decrease product quantity
   decreaseQuantity() {
-    if (this.quantity > 1) {
-      this.quantity--;
+    if (this.product && this.product.quantity > 1) {
+      this.product.quantity--;
     }
   }
 
@@ -95,5 +115,17 @@ export class ShineProductViewComponent implements OnInit {
   getClass(index: number): string {
     return this.isActive(index) ? 'collapsible active' : 'collapsible';
   }
+
+
+
+
+
+
+
+
+
+  viewProduct(product: any):void {
+  this.router.navigate(['/shine/view', product.id]);
+}
 
 }

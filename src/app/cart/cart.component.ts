@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../sheshine/services/product.service';
@@ -27,7 +27,6 @@ export class CartComponent implements OnInit {
       this.cartItems = items;
       this.calculateTotalAmount();
     });
-    
 
     // Subscribe to cart item count
     this.cartService.cartItems$.subscribe(items => {
@@ -42,62 +41,36 @@ export class CartComponent implements OnInit {
     });
   }
 
-  // Method to calculate total amount in the cart
- calculateTotalAmount() {
-  this.totalAmount = this.cartItems.reduce((acc, item) => acc + parseFloat(item.price), 0);
-}
+  // Method to calculate the total amount in the cart based on quantity
+  calculateTotalAmount() {
+    this.totalAmount = this.cartItems.reduce((acc, item) => 
+      acc + parseFloat(item.price) * (item.quantity || 1), 0);
+  }
 
-  // Method to remove item from the cart
+  // Method to remove an item from the cart
   removeFromCart(item: any) {
     this.cartItems = this.cartItems.filter(i => i.id !== item.id);
     this.calculateTotalAmount();
     console.log('Item removed from cart:', item);
   }
 
-  // Method to handle the "Buy Now" action
-  // buyNow(id: number) {
-  //   console.log('Navigating to address-list with id:', id);
-  //   this.router.navigate(['/address-list', id])
-  //     .then(success => {
-  //       if (success) {
-  //         console.log('Navigation successful!');
-  //       } else {
-  //         console.error('Navigation failed!');
-  //       }
-  //     });
-  // }
-
-//  buyNow(id: number) {
-//    if (id) {
-//       console.log('Navigating to address-list with id:', id);
-//       this.router.navigate(['/address-list', id])
-//          .then(success => {
-//             if (success) {
-//                console.log('Navigation successful!');
-//             } else {
-//                console.error('Navigation failed!');
-//             }
-//          });
-//    } else {
-//       console.error('Product ID is undefined');
-//    }
-  // }
+  // Method to handle the "Buy Now" action for all items
   buyAll() {
-   if (this.cartItems.length > 0) {
+    if (this.cartItems.length > 0) {
       const productIds = this.cartItems.map(item => item.id);
       console.log('Navigating to address-list with product IDs:', productIds);
 
       // Pass the array of IDs to the next route
       this.router.navigate(['/address-list'], { queryParams: { ids: productIds.join(',') } })
-         .then(success => {
-            if (success) {
-               console.log('Navigation successful!');
-            } else {
-               console.error('Navigation failed!');
-            }
-         });
-   } else {
+        .then(success => {
+          if (success) {
+            console.log('Navigation successful!');
+          } else {
+            console.error('Navigation failed!');
+          }
+        });
+    } else {
       console.error('No items in the cart to buy.');
-   }
-}
+    }
+  }
 }

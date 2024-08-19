@@ -57,11 +57,11 @@
               </p>
             </div>
             <div class="num-item">
-              <div class="add d-flex align-items-center">
-                <span class="quantity-btn" (click)="decreaseQuantity()">-</span>
-                <label class="mx-2">{{ product.quantity }}</label>
-                <span class="quantity-btn" (click)="increaseQuantity()">+</span>
-              </div>
+            <div class="add d-flex align-items-center">
+              <span class="quantity-btn" (click)="decreaseQuantity()">-</span>
+              <label class="mx-2">{{ product.quantity }}</label>
+              <span class="quantity-btn" (click)="increaseQuantity()">+</span>
+            </div>
               <div class="d-flex">
                 <div class="product-buy-add">
                   <button routerLink="/cart" class="btn btn-primary me-2" (click)="addToCart(product)">
@@ -88,6 +88,18 @@
             <div class="content" [style.display]="isActive(2) ? 'block' : 'none'">
               <p class="card-text">{{ product.keybenefit }}</p>
             </div>
+              <button type="button" [class]="getClass(3)" class="collapsible" (click)="toggleContent(2)">
+                know our ingredients
+              </button>
+              <div class="content" [style.display]="isActive(3) ? 'block' : 'none'">
+                <p class="card-text">{{ product.ingredients }}</p>
+              </div>
+                <button type="button" [class]="getClass(4)" class="collapsible" (click)="toggleContent(2)">
+                  How to Use
+                </button>
+                <div class="content" [style.display]="isActive(4) ? 'block' : 'none'">
+                  <p class="card-text">{{ product.howtouse }}</p>
+                </div>
 
             <!-- <p class="card-text"><b>Size: </b>{{ product.size }}</p> -->
 
@@ -117,5 +129,38 @@
         </div>
       </div>
     </div>
-  </div>
+
+    </div>
+
+     
+  
 </section>
+<div class="container mt-5 product-overview-Block">
+  <div class="row">
+<div class="col-lg-3 col-sm-6 col-md-6 mb-4" *ngFor="let subcategoryProduct of subcategoryProducts">
+  <div class="card">
+    <img src="{{ subcategoryProduct.thumbnail }}" class="card-img-top" alt="Product Image" (click)=" viewProduct(product)">
+    <div class="card-body">
+      <p class="card-title">{{ subcategoryProduct.name }}</p>
+      <!-- <p class="card-text">{{ product.description }}</p> -->
+      <div class="product-rating">
+        <i *ngFor="let star of [1, 2, 3, 4, 5]; let i = index" [class]="getStarClass(i, subcategoryProduct.rating)"
+          (click)="setRating(product, i + 1)"></i>
+        <span>( {{ product.rating}}/5 Reviews) </span>
+      </div>
+      <p class="card-benefit benefit-reg" style="height: 36px;">{{ subcategoryProduct.benefit }}</p>
+      <!-- <p class="card-size">{{ product.size }}</p> -->
+      <p class="card-text">
+        <small class="text-muted"><b>MRP: </b> <del>{{ subcategoryProduct.mrp | currency:'INR' }}</del></small>
+      </p>
+      <p class="card-price">₹{{ subcategoryProduct.price }}</p>
+      <div>
+        <button class="card-btn" (click)="addToCart(product)">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
