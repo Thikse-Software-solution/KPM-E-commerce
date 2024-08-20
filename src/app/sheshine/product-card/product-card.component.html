@@ -10,7 +10,7 @@
         <!-- Angular directive for dynamic cards -->
         <div class="product-card" *ngFor="let product of filteredProducts" (click)="showCategoryProducts(product.category)">
           <button>
-            <img [src]="product.image1" alt="{{ product.title }}" class="product-image" />
+            <img [src]="product.thumbnail" alt="{{ product.title }}" class="product-image" />
           </button>
           <div (click)="showCategoryProducts(product.category)" class="product-body">
             <div class="product-body-title">
@@ -21,7 +21,7 @@
         <!-- Duplicate the cards for continuous scroll -->
         <div class="product-card" *ngFor="let product of filteredProducts" (click)="showCategoryProducts(product.category)">
           <button>
-            <img [src]="product.image1" alt="{{ product.title }}" class="product-image" />
+            <img [src]="product.thumbnail" alt="{{ product.title }}" class="product-image" />
           </button>
           <div (click)="showCategoryProducts(product.category)" class="product-body">
             <div class="product-body-title">
