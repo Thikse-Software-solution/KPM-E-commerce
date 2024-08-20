@@ -13,6 +13,7 @@ export interface Product {
   discount: number;
   price: number;
   image: string;
+  thumbnail:string;
   image1: string;
   category?: string;
   subcategory?: string;
