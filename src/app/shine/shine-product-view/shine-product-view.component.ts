@@ -1,8 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CartService } from '../../services/cart.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ShineProductService } from '../services/shine-product.service';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-shine-product-view',
@@ -10,16 +9,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./shine-product-view.component.scss']
 })
 export class ShineProductViewComponent implements OnInit {
- @Input() product: any;
+  @Input() product: any;
   isFavorite: boolean = false;
   productDetails: any;
   quantity: number = 1;
   reviewText: string = '';
   reviews: string[] = [];
   subcategoryProducts: any[] = [];
-  
-  
   colors: string[] = ['#000', '#EDEDED', '#D5D6D8', '#EFE0DE', '#AB8ED1', '#F04D44'];
+  activeSections: boolean[] = [false, false, false, false];
 
   constructor(
     private cartService: CartService,
@@ -28,21 +26,25 @@ export class ShineProductViewComponent implements OnInit {
     private shineProductService: ShineProductService
   ) {}
 
-ngOnInit(): void {
-  const id = +this.route.snapshot.paramMap.get('id')!;
-  this.shineProductService.getProductById(id).subscribe(product => {
-    this.product = product;
-
-    // Ensure the quantity is initialized to 1 if not already set
-     if (this.product && (typeof this.product.quantity !== 'number' || isNaN(this.product.quantity))) {
-      this.product.quantity = 1;
-    }
-    if (this.product?.subcategory) {
-        this.fetchSubcategoryProducts(this.product.subcategory);
+  ngOnInit(): void {
+    this.route.params.subscribe(params => {
+      const id = +params['id'];
+      if (id) {
+        this.shineProductService.getProductById(id).subscribe(product => {
+          this.product = product;
+          if (this.product) {
+            if (typeof this.product.quantity !== 'number' || isNaN(this.product.quantity)) {
+              this.product.quantity = 1;
+            }
+            if (this.product.subcategory) {
+              this.fetchSubcategoryProducts(this.product.subcategory);
+            }
+          }
+        });
       }
-  });
+    });
   }
- 
+
   fetchSubcategoryProducts(subcategory: string) {
     this.shineProductService.getProductsBySubcategory(subcategory).subscribe(products => {
       this.subcategoryProducts = products.filter(p => p.id !== this.product?.id); // Exclude the current product
@@ -50,7 +52,9 @@ ngOnInit(): void {
   }
 
   changeImage(image: string) {
-    this.product.mainimage = image;
+    if (this.product) {
+      this.product.mainimage = image;
+    }
   }
 
   getStarClass(index: number, rating: number): string {
@@ -64,7 +68,9 @@ ngOnInit(): void {
   }
 
   setRating(product: any, rating: number): void {
-    product.rating = rating;
+    if (product) {
+      product.rating = rating;
+    }
   }
 
   increaseQuantity() {
@@ -73,7 +79,6 @@ ngOnInit(): void {
     }
   }
 
-  // Method to decrease product quantity
   decreaseQuantity() {
     if (this.product && this.product.quantity > 1) {
       this.product.quantity--;
@@ -95,14 +100,31 @@ ngOnInit(): void {
   }
 
   buyNow(id: number): void {
-    this.router.navigate(['/address-list', id]);
+    if (this.product) {
+      this.product.quantity = 1; // Ensure quantity is set to 1 before navigating
+      console.log('Navigating to address-list with product ID:', this.product.id);
+      console.log('Product quantity:', this.product.quantity);
+
+      this.router.navigate(['/address-list'], {
+        queryParams: {
+          ids: this.product.id,
+          quantities: this.product.quantity
+        }
+      }).then(success => {
+        if (success) {
+          console.log('Navigation successful!');
+        } else {
+          console.error('Navigation failed!');
+        }
+      });
+    }
   }
 
   addToCart(product: any) {
-    this.cartService.addToCart(product);
+    if (this.product) {
+      this.cartService.addToCart(this.product);
+    }
   }
-
-  activeSections: boolean[] = [false, false, false, false];
 
   toggleContent(index: number): void {
     this.activeSections[index] = !this.activeSections[index];
@@ -116,16 +138,10 @@ ngOnInit(): void {
     return this.isActive(index) ? 'collapsible active' : 'collapsible';
   }
 
-
-
-
-
-
-
-
-
-  viewProduct(product: any):void {
-  this.router.navigate(['/shine/view', product.id]);
-}
-
+  viewProduct(subcategoryProduct: any): void {
+    console.log('Product:', subcategoryProduct);
+    console.log('Product ID:', subcategoryProduct.id);
+    console.log('Navigating to product with ID:', subcategoryProduct.id);
+    this.router.navigate(['/shine/view', subcategoryProduct.id]);
+  }
 }

@@ -30,8 +30,10 @@ export class LoginComponent {
 
   onSubmit() {
     if (this.loginForm.valid) {
+        this.router.navigate(['/profile']);
       this.http.post('http://localhost:8080/api/auth/login', this.loginForm.value)
         .subscribe({
+          
           next: response => {
             // Handle successful response
           },

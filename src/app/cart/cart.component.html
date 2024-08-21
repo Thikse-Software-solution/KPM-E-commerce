@@ -2,7 +2,7 @@
     <div class="card mb-3" *ngFor="let item of cartItems">
         <div class="row g-0">
             <div class="col-12 col-md-4 position-relative">
-                <img [src]="item.mainimage" class="img-fluid rounded-start w-100" alt="Product Image">
+                <img [src]="item.thumbnail" class="img-fluid rounded-start w-100" alt="Product Image">
                 <i class="fa-heart position-absolute top-0 end-0 m-3"
                     [ngClass]="{'fas': item.isFavorite, 'far': !item.isFavorite}"
                     [class.text-danger]="item.isFavorite"></i>
@@ -18,6 +18,8 @@
                         <small class="text-muted">Discount: {{ item.discount }}%</small>
                     </p>
                     <h5 class="card-text">Price: {{ item.price | currency:'INR' }}</h5>
+                    <!-- <h5 class="card-text">Price: {{ (item.price * item.quantity) | currency:'INR' }}</h5> -->
+
                     <p class="card-text">
                         <small class="text-muted">Quantity: {{ item.quantity }}</small>
                     </p>

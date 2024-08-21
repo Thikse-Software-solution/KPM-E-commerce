@@ -17,27 +17,38 @@ export class CartService {
   getCartItems() {
     return this.cartSubject.value;
   }
-  
 
   addToCart(item: any) {
     const cartItems = this.getCartItems();
-     const currentItems = this.cartItems.value;
-    this.cartSubject.next([...cartItems, item]);
-     this.cartItems.next([...currentItems, item]);
+    const currentItems = this.cartItems.value;
+
+    // Check if the item already exists in the cart
+    const existingItemIndex = cartItems.findIndex(cartItem => cartItem.id === item.id);
     
+    if (existingItemIndex === -1) {
+      // If the item does not exist, add it to the cart
+      this.cartSubject.next([...cartItems, item]);
+      this.cartItems.next([...currentItems, item]);
+    } else {
+      // If the item already exists, update its quantity or any other property
+      cartItems[existingItemIndex].quantity += item.quantity; // Example: incrementing quantity
+      this.cartSubject.next([...cartItems]);
+      this.cartItems.next([...currentItems]);
+    }
   }
-   getCartItemCount() {
+
+  getCartItemCount() {
     return this.cartItems.value.length;
   }
 
   removeFromCart(item: any) {
-    const cartItems = this.getCartItems().filter(cartItem => cartItem !== item);
+    const cartItems = this.getCartItems().filter(cartItem => cartItem.id !== item.id);
     this.cartSubject.next(cartItems);
-     const currentItems = this.cartItems.value;
-      this.cartItems.next(cartItems);
+    const currentItems = this.cartItems.value;
+    this.cartItems.next(cartItems);
   }
 
   getTotalAmount(): number {
-    return this.getCartItems().reduce((total, item) => total + item.price, 0);
+    return this.getCartItems().reduce((total, item) => total + (item.price * (item.quantity || 1)), 0);
   }
 }

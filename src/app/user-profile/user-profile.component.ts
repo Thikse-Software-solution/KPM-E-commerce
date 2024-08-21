@@ -32,6 +32,8 @@ export class UserProfileComponent implements OnInit {
 
   signOut(): void {
     this.userService.signOut();
+     localStorage.removeItem('token');
+  
     // Navigate to login or home page after sign out
   }
 
