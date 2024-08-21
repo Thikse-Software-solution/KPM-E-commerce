@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 export interface Product {
@@ -17,8 +17,8 @@ export interface Product {
   image1: string;
   category?: string;
   subcategory?: string;
-
-  // quantity: number;
+  quantity?: number; 
+  thumbnail: string;
 }
 
 @Injectable({
@@ -27,16 +27,17 @@ export interface Product {
 export class ProductService {
   private productSubject: BehaviorSubject<Product | null> = new BehaviorSubject<Product | null>(null);
   public product$: Observable<Product | null> = this.productSubject.asObservable();
-  private apiUrl = 'assets/data/products.json';
+  
+  private productsUrl ='/assets/data/products.json';
+  private shineProductsUrl = '/assets/data/shineproduct.json';
 
   constructor(private http: HttpClient) {
     this.loadProduct();
   }
 
   private loadProduct() {
-    this.http.get<Product[]>(this.apiUrl).pipe(
+    this.http.get<Product[]>(this.productsUrl).pipe(
       map((data: Product[]) => {
-        // Assuming the API returns an array of products
         return data[0]; // Get the first product for now
       })
     ).subscribe(product => {
@@ -53,17 +54,28 @@ export class ProductService {
   }
 
   getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl);
+    return this.http.get<Product[]>(this.productsUrl);
+  }
+
+  getShineProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.shineProductsUrl);
+  }
+
+  // Method to get products from both sources combined
+  getProductsFromBothSources(): Observable<Product[]> {
+    return forkJoin([this.getProducts(), this.getShineProducts()]).pipe(
+      map(([products, shineProducts]) => [...products, ...shineProducts])
+    );
   }
 
   getProductById(id: number): Observable<Product> {
-    return this.getProducts().pipe(
+    return this.getProductsFromBothSources().pipe(
       map(products => products.find(product => product.id === id)!)
     );
   }
 
   searchProducts(query: string): Observable<Product[]> {
-    return this.getProducts().pipe(
+    return this.getProductsFromBothSources().pipe(
       map(products => products.filter(product => product.name.toLowerCase().includes(query.toLowerCase())))
     );
   }

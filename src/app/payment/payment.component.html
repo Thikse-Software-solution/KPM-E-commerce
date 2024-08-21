@@ -17,6 +17,9 @@
                     <p class="card-text">
                         <small class="text-muted">Discount: {{ product.discount }}%</small>
                     </p>
+                    <p class="card-text">
+                        <strong>Quantity:</strong> {{ product.quantity }}
+                    </p>
                     <h5 class="card-text">Price: {{ product.price | currency:'INR' }}</h5>
                 </div>
             </div>
@@ -36,12 +39,12 @@
     </div>
 
     <!-- Display the total amount to be paid -->
-<div class="card mb-3">
-    <div class="card-body">
-        <h5 class="card-title">Amount to be Paid</h5>
-        <p class="card-text">₹{{ totalAmount | number:'1.2-2' }}</p>
+    <div class="card mb-3">
+        <div class="card-body">
+            <h5 class="card-title">Amount to be Paid</h5>
+            <p class="card-text">₹{{ totalAmount | number:'1.2-2' }}</p>
+        </div>
     </div>
-</div>
 
     <button class="btn btn-primary btn-block" (click)="onProceedToPay()">Proceed to Pay</button>
 </div>

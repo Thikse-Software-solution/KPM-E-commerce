@@ -1,4 +1,6 @@
 import { NgModule } from '@angular/core';
+import { AuthGuard } from './services/auth.guard';
+
 import { RouterModule, Routes } from '@angular/router';
 import { SheshineComponent } from './sheshine/sheshine/sheshine.component';
 import { HomeComponent } from './sheshine/home/home.component';
@@ -84,7 +86,7 @@ const routes: Routes = [
   { path: 'payment/:id', component: PaymentComponent },
   { path: 'payment', component: PaymentComponent },
   { path: 'order', component: OrderHistoryComponent },
-  { path: 'user', component: UserProfileComponent },
+  { path: 'user', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'image360', component: Image360ViewComponent }
  
 

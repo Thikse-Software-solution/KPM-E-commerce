@@ -51,6 +51,7 @@ import { ProductExplainComponent } from './shine/productExplain/productExplain.c
 import { ShineProductViewComponent } from './shine/shine-product-view/shine-product-view.component';
 import { AuthService } from './services/auth.service';
 import { Image360ViewComponent } from './image-360-view/image-360-view.component';
+import { ProductIngredientsComponent } from './shine/product-ingredients/product-ingredients.component';
 
 
 
@@ -101,7 +102,8 @@ declarations: [
     ShineProductViewComponent,
     ShineFooterComponent,
     ProductExplainComponent,
-    Image360ViewComponent
+    Image360ViewComponent,
+    ProductIngredientsComponent
    ],
   imports: [
     BrowserModule,

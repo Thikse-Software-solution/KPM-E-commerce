@@ -17,6 +17,7 @@ export class AddressListComponent implements OnInit {
   selectedAddress: Address | null = null;
   private isBrowser: boolean;
   productIds: number[] = [];
+  productQuantities: number[] = [];
 
   constructor(
     private addressService: AddressService,
@@ -31,7 +32,6 @@ export class AddressListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // Fetch addresses and selected address
     this.addressService.getAddresses().subscribe(addresses => {
       this.addresses = addresses;
     });
@@ -39,16 +39,24 @@ export class AddressListComponent implements OnInit {
       this.selectedAddress = address;
     });
 
-    // Fetch the current product and product IDs
-    const id = +this.route.snapshot.paramMap.get('id')!;
-    this.productService.getProducts().subscribe(products => {
-      this.product = products.find(p => p.id === id);
-    });
     this.route.queryParams.subscribe(params => {
       const ids = params['ids'];
-      if (ids) {
+      const quantities = params['quantities'];
+
+      if (ids && quantities) {
         this.productIds = ids.split(',').map((id: string) => +id);
+        this.productQuantities = quantities.split(',').map((qty: string) => +qty);
+
         console.log('Received product IDs:', this.productIds);
+        console.log('Received product quantities:', this.productQuantities);
+
+        // Fetch products from both products.json and shineproduct.json
+        this.productService.getProductsFromBothSources().subscribe(products => {
+          this.product = products.filter(p => this.productIds.includes(p.id));
+          this.product.forEach((product: any, index: number) => {
+            product.quantity = this.productQuantities[index];
+          });
+        });
       }
     });
   }
@@ -57,17 +65,20 @@ export class AddressListComponent implements OnInit {
     this.addressService.selectAddress(address);
   }
 
-  // Unified method to handle delivery for single or multiple products
   deliver(): void {
     if (this.selectedAddress) {
       if (this.productIds.length > 0) {
-        // Navigate with multiple product IDs
+        const quantities = this.product.map((p: Product) => p.quantity).join(',');
+
         console.log('Proceeding to payment with product IDs:', this.productIds);
-        this.router.navigate(['/payment'], { queryParams: { ids: this.productIds.join(',') } });
-      } else if (this.product) {
-        // Navigate with a single product ID
-        console.log('Proceeding to payment with single product ID:', this.product.id);
-        this.router.navigate(['/payment', this.product.id]);
+        console.log('Proceeding to payment with quantities:', quantities);
+
+        this.router.navigate(['/payment'], { 
+          queryParams: { 
+            ids: this.productIds.join(','), 
+            quantities: quantities 
+          }
+        });
       } else {
         console.error('No products selected.');
       }

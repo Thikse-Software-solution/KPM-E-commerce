@@ -73,11 +73,30 @@ export class ProductViewDetailsComponent implements OnInit {
    
   ) {}
 
-  buyNow(id:number):void {
-    this.router.navigate(['/address-list', id]);
-    //   { queryParams: { productId: this.product.id } });
-    // //  this.router.navigate(['sheshine/payment'], { state: { product: this.product } });
+buyNow(id: number): void {
+  // Ensure the product quantity is set to 1 before navigating
+  if (this.product) {
+    this.product.quantity = 1;
   }
+
+  // Log ID and quantity for verification
+  console.log('Navigating to address-list with product ID:', id);
+  console.log('Product quantity:', this.product.quantity);
+
+  // Navigate to the address list page with product ID and quantity as query parameters
+  this.router.navigate(['/address-list'], {
+    queryParams: { 
+      ids: id,  // Pass single product ID as a string
+      quantities: this.product.quantity // Pass single product quantity
+    }
+  }).then(success => {
+    if (success) {
+      console.log('Navigation successful!');
+    } else {
+      console.error('Navigation failed!');
+    }
+  });
+}
 
   addToCart(product: any) {
     this.cartService.addToCart(product);

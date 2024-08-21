@@ -55,22 +55,30 @@ export class CartComponent implements OnInit {
   }
 
   // Method to handle the "Buy Now" action for all items
-  buyAll() {
-    if (this.cartItems.length > 0) {
-      const productIds = this.cartItems.map(item => item.id);
-      console.log('Navigating to address-list with product IDs:', productIds);
+ buyAll() {
+  if (this.cartItems.length > 0) {
+    const productIds = this.cartItems.map(item => item.id);
+    const quantities = this.cartItems.map(item => item.quantity || 1);
 
-      // Pass the array of IDs to the next route
-      this.router.navigate(['/address-list'], { queryParams: { ids: productIds.join(',') } })
-        .then(success => {
-          if (success) {
-            console.log('Navigation successful!');
-          } else {
-            console.error('Navigation failed!');
-          }
-        });
-    } else {
-      console.error('No items in the cart to buy.');
-    }
+    // Log IDs and quantities for verification
+    console.log('Navigating to address-list with product IDs:', productIds);
+    console.log('Product quantities:', quantities);
+
+    // Pass the array of IDs and quantities to the next route
+    this.router.navigate(['/address-list'], { 
+      queryParams: { 
+        ids: productIds.join(','), 
+        quantities: quantities.join(',') 
+      } 
+    }).then(success => {
+      if (success) {
+        console.log('Navigation successful!');
+      } else {
+        console.error('Navigation failed!');
+      }
+    });
+  } else {
+    console.error('No items in the cart to buy.');
   }
+}
 }

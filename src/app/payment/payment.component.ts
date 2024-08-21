@@ -23,35 +23,78 @@ export class PaymentComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id')!;
-    const ids = this.route.snapshot.queryParamMap.get('ids');
+    this.route.queryParams.subscribe(params => {
+      const id = +params['id'];
+      const ids = params['ids'];
+      const quantities = params['quantities'];
 
-    if (ids) {
-      const productIds = ids.split(',').map((id: string) => +id);
-      this.productService.getProducts().subscribe(products => {
-        this.products = products.filter(p => productIds.includes(p.id));
-        this.calculateTotalAmount();
-      });
-    } else {
-      this.productService.getProducts().subscribe(products => {
-        const product = products.find(p => p.id === id);
-        if (product) {
-          this.products = [product]; // Convert to array for consistent handling
-          this.calculateTotalAmount();
-        }
-      });
-    }
+      if (ids && quantities) {
+        const productIds = ids.split(',').map((id: string) => +id);
+        const productQuantities = quantities.split(',').map((qty: string) => +qty);
+
+        // Fetch products from both sources
+        this.loadProducts(productIds, productQuantities);
+      } else if (id && params['quantity']) {
+        const quantity = +params['quantity'];
+
+        this.loadSingleProduct(id, quantity);
+      }
+    });
 
     this.addressService.getSelectedAddress().subscribe(address => {
       this.selectedAddress = address;
     });
   }
 
-calculateTotalAmount(): void {
-  console.log('Products:', this.products); // Log products to verify
-  this.totalAmount = this.products.reduce((acc, product) => acc + product.price, 0);
-  console.log('Total Amount:', this.totalAmount); // Log total amount to verify
-}
+  private loadProducts(productIds: number[], productQuantities: number[]): void {
+    const combinedProducts: Product[] = [];
+
+    this.productService.getProducts().subscribe(products => {
+      const filteredProducts = products.filter(p => productIds.includes(p.id));
+      combinedProducts.push(...filteredProducts);
+      this.updateQuantities(combinedProducts, productIds, productQuantities);
+
+      this.productService.getShineProducts().subscribe(shineProducts => {
+        const filteredShineProducts = shineProducts.filter(p => productIds.includes(p.id));
+        combinedProducts.push(...filteredShineProducts);
+        this.updateQuantities(combinedProducts, productIds, productQuantities);
+        this.products = combinedProducts;
+        this.calculateTotalAmount();
+      });
+    });
+  }
+
+  private loadSingleProduct(id: number, quantity: number): void {
+    this.productService.getProducts().subscribe(products => {
+      const product = products.find(p => p.id === id);
+      if (product) {
+        product.quantity = quantity;
+        this.products.push(product);
+        this.calculateTotalAmount();
+      }
+
+      this.productService.getShineProducts().subscribe(shineProducts => {
+        const shineProduct = shineProducts.find(p => p.id === id);
+        if (shineProduct) {
+          shineProduct.quantity = quantity;
+          this.products.push(shineProduct);
+          this.calculateTotalAmount();
+        }
+      });
+    });
+  }
+
+  private updateQuantities(products: Product[], productIds: number[], productQuantities: number[]): void {
+    products.forEach((product, index) => {
+      product.quantity = productQuantities[productIds.indexOf(product.id)];
+    });
+  }
+
+  calculateTotalAmount(): void {
+    console.log('Products:', this.products); // Log products to verify
+    this.totalAmount = this.products.reduce((acc, product) => acc + (product.price * (product.quantity || 1)), 0);
+    console.log('Total Amount:', this.totalAmount); // Log total amount to verify
+  }
 
   onProceedToPay(): void {
     if (this.selectedAddress && this.products.length > 0) {
