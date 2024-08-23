@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../services/product.service';
+import { SharedService } from '../../services/shared.service';  
 
 @Component({
   selector: 'app-products',
@@ -18,7 +19,8 @@ export class ProductsComponent implements OnInit {
     private cartService: CartService,
     private router: Router,
     private route: ActivatedRoute,
-    private productService: ProductService
+    private productService: ProductService,
+     private sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
@@ -28,6 +30,12 @@ export class ProductsComponent implements OnInit {
     this.route.paramMap.subscribe(params => {
       this.category = params.get('category');
       console.log('Received category:', this.category); // Debug log
+      this.applyFilters();
+    });
+
+     // Subscribe to the search query changes from the shared service
+    this.sharedService.currentSearchQuery.subscribe(query => {
+      this.searchQuery = query;
       this.applyFilters();
     });
   }
@@ -71,9 +79,9 @@ export class ProductsComponent implements OnInit {
     this.cartService.addToCart(product);
   }
 
-  // Method to trigger filtering when the search query changes
-  onSearchQueryChange(query: string): void {
-    this.searchQuery = query;
-    this.applyFilters();
-  }
+  // // Method to trigger filtering when the search query changes
+  // onSearchQueryChange(query: string): void {
+  //   this.searchQuery = query;
+  //   this.applyFilters();
+  // }
 }

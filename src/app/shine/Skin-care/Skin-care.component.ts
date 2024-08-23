@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShineProductService } from '../services/shine-product.service';
 import { CartService } from '../../services/cart.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SharedService } from '../../services/shared.service';
 @Component({
   selector: 'app-Skin-care',
   templateUrl: './Skin-care.component.html',
@@ -11,23 +12,46 @@ export class SkinCareComponent implements OnInit {
 
   products: any[] = [];
   category: string = 'skin care';
+  filteredProducts: any[] = [];
 
   constructor(
     private productService: ShineProductService,
     private cartService: CartService,
      private router: Router,
-    private route: ActivatedRoute,
+    private route: ActivatedRoute, private sharedService: SharedService
   ) {}
 
   ngOnInit(): void {
     this.getProducts();
+
+
+         // Subscribe to search query changes
+    this.sharedService.currentSearchQuery.subscribe(query => {
+      this.applyFilters(query);
+    });
   }
 
   getProducts(): void {
     this.productService.getProductsByCategory(this.category).subscribe((data: any[]) => {
       this.products = data;
+       this.filteredProducts = this.products; 
     });
   }
+
+
+ applyFilters(query: string) {
+    const searchQuery = query.toLowerCase().trim();
+
+    if (searchQuery) {
+      this.filteredProducts = this.products.filter(product =>
+        product.name.toLowerCase().includes(searchQuery) ||
+        product.price.toString().includes(searchQuery)
+      );
+    } else {
+      this.filteredProducts = this.products;
+    }
+  }
+
 
   getStarClass(index: number, rating: number): string {
     if (index < rating) {

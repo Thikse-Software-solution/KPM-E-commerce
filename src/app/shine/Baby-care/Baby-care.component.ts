@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShineProductService } from '../services/shine-product.service';
 import { CartService } from '../../services/cart.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { SharedService } from '../../services/shared.service';
 @Component({
   selector: 'app-baby-care',
   templateUrl: './baby-care.component.html',
@@ -11,21 +11,43 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class BabyCareComponent implements OnInit {
   products: any[] = [];
   category: string = 'Baby Care';
+   filteredProducts: any[] = [];
 
   constructor(
     private productService: ShineProductService,
     private cartService: CartService,
     private router: Router,
     private route: ActivatedRoute,
+    private sharedService: SharedService
   ) {}
 
   ngOnInit(): void {
     this.getProducts();
+
+         // Subscribe to search query changes
+    this.sharedService.currentSearchQuery.subscribe(query => {
+      this.applyFilters(query);
+    });
+  }
+
+
+  applyFilters(query: string) {
+    const searchQuery = query.toLowerCase().trim();
+
+    if (searchQuery) {
+      this.filteredProducts = this.products.filter(product =>
+        product.name.toLowerCase().includes(searchQuery) ||
+        product.price.toString().includes(searchQuery)
+      );
+    } else {
+      this.filteredProducts = this.products;
+    }
   }
 
   getProducts(): void {
     this.productService.getProductsByCategory(this.category).subscribe((data: any[]) => {
       this.products = data;
+        this.filteredProducts = this.products; 
     });
   }
 

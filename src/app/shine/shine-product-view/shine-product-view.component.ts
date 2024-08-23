@@ -1,32 +1,65 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Inject, PLATFORM_ID, OnInit,OnDestroy,Input } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { isPlatformBrowser } from '@angular/common';
+import { HttpClient } from '@angular/common/http';
 import { ShineProductService } from '../services/shine-product.service';
-
+import { ProductService, Product} from '../../sheshine/services/product.service';
 @Component({
   selector: 'app-shine-product-view',
   templateUrl: './shine-product-view.component.html',
   styleUrls: ['./shine-product-view.component.scss']
 })
-export class ShineProductViewComponent implements OnInit {
+export class ShineProductViewComponent implements OnInit, OnDestroy {
   @Input() product: any;
   isFavorite: boolean = false;
   productDetails: any;
   quantity: number = 1;
   reviewText: string = '';
   reviews: string[] = [];
+    private isBrowser: boolean;
   subcategoryProducts: any[] = [];
   colors: string[] = ['#000', '#EDEDED', '#D5D6D8', '#EFE0DE', '#AB8ED1', '#F04D44'];
   activeSections: boolean[] = [false, false, false, false];
+  cards: Array<{ image: string; title: string; text: string }> = [];
+  
+
+  
+ currentIndex = 0;
+  interval!: ReturnType<typeof setInterval>; 
+
 
   constructor(
     private cartService: CartService,
+    @Inject(PLATFORM_ID) private platformId: Object,
     private router: Router,
     private route: ActivatedRoute,
-    private shineProductService: ShineProductService
-  ) {}
+    private shineProductService: ShineProductService,
+    private productService: ProductService
+  ) {  this.isBrowser = isPlatformBrowser(platformId);
+  }
 
   ngOnInit(): void {
+
+     if (this.isBrowser) {
+      this.startCarousel();
+    }
+    this.route.params.subscribe(params => {
+    const id = +params['id']; // Get the ID from the route
+    this.productService.getShineProducts().subscribe((products: Product[]) => {
+      const product = products.find(p => p.id === id);
+      if (product && product.cards) {
+        this.cards = product.cards;
+      }
+    });
+  });
+
+
+
+
+
+
+
     this.route.params.subscribe(params => {
       const id = +params['id'];
       if (id) {
@@ -51,9 +84,29 @@ export class ShineProductViewComponent implements OnInit {
     });
   }
 
+   startCarousel() {
+    this.interval = setInterval(() => {
+      this.currentIndex = (this.currentIndex + 1) % this.cards.length;
+      const carouselWrapper = document.querySelector('.carousel-wrapper') as HTMLElement;
+      if (carouselWrapper) {
+        const percentage = -(this.currentIndex * 100);
+        carouselWrapper.style.transform = `translateX(${percentage}%)`;
+      }
+    }, 3000);
+  }
+
+  ngOnDestroy() {
+    if (this.interval) {
+      clearInterval(this.interval);
+    }
+  }
+
+
+
+
   changeImage(image: string) {
     if (this.product) {
-      this.product.mainimage = image;
+      this.product.thumbnail = image;
     }
   }
 

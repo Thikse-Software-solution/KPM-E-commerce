@@ -20,7 +20,7 @@ export class ProductViewDetailsComponent implements OnInit {
   colors: string[] = ['#000', '#EDEDED', '#D5D6D8', '#EFE0DE', '#AB8ED1', '#F04D44'];
 
   changeImage(image: string) {
-    this.product.mainimage = image;
+    this.product.thumbnail = image;
   }
 
   getStarClass(index: number, rating: number): string {

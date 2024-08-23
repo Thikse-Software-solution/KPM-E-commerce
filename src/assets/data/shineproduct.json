@@ -15,6 +15,37 @@
 "../../assets/images/shine/baby care/face-body-wash-2.webp",
 "../../assets/images/shine/baby care/face-body-wash-2.webp"
   ],
+  
+  "cards": [
+    {
+      "image": "../../assets/images/shine/ingredients/Ingredients_1_small.webp",
+      "title": "Why this source?",
+      "text": "Our Blood Orange Essential Oil comes from Sicily (Italy) because it grows extremely well in and around the volcanic environmental conditions created by Mount Etna. Our Rosehip Oil comes from Lesotho because the cold weather and high altitude of its unique terrain is traditionally well-suited to this plant."
+    },
+    {
+      "image": "../../assets/images/shine/ingredients/Formulation_1_small.webp",
+      "title": "Why this formulation?",
+      "text": "This lip balm for pigmented lips delivers super nutrients like: Antioxidants, Flavonoids, and Phenols help reduce the impact of free radical damage. Essential Fatty Acids deeply moisturise and nourish the skin. Terpenes, specifically monoterpenes help soothe the skin while stimulating blood circulation. Plant Vitamins like vitamin E nourish and deeply moisturise the skin, while vitamin C evens out pigmentation."
+    },
+    {
+      "image": "../../assets/images/shine/ingredients/Source_1_small.avif",
+      "title": "Why try this?",
+      "text": "This 100% natural lip balm is Clinically Tested and proven safe by dermatologists. Certified Organic Lip Balm. Reduces lip pigmentation by 16.98% in 28 days."
+    },
+    {
+      "image": "../../assets/images/shine/ingredients/Effec_1_small.webp",
+      "title": "Why try this?",
+      "text": "This 100% natural lip balm is Clinically Tested and proven safe by dermatologists. Certified Organic Lip Balm. Reduces lip pigmentation by 16.98% in 28 days."
+    }
+  ],
+
+
+
+
+
+
+
+
    "thumbnail": "../../assets/images/shine/baby care/face-body-wash-2.webp",
    
 
@@ -473,8 +504,8 @@
 "../../assets/images/shine/baby care/face-body-wash-2.webp"
   ],
   
-   "title": "Toe Ring",
-   "name":"Toe Ring",
+   "title": "face oil",
+   "name":"face oil",
    "benefit":"A small ring worn on one of the toes, often seen in bohemian or beach fashion.",
    "description":"",
    "keybenefit":"",
@@ -500,8 +531,8 @@
   ],
    "thumbnail": "../../assets/images/shine/face care/beetroot face wash.avif",
    
-   "title": "Toe Ring",
-   "name":"Toe Ring",
+   "title": "face cream",
+   "name":"face cream",
    "benefit":"A small ring worn on one of the toes, often seen in bohemian or beach fashion.",
    "description":"",
    "keybenefit":"",

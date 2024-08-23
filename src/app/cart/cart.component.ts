@@ -22,18 +22,15 @@ export class CartComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    // Subscribe to cart items and update total amount
     this.cartService.cart$.subscribe(items => {
       this.cartItems = items;
       this.calculateTotalAmount();
     });
 
-    // Subscribe to cart item count
     this.cartService.cartItems$.subscribe(items => {
       this.cartItemCount = items.length;
     });
 
-    // Fetch product details based on the route parameter
     const id = +this.route.snapshot.paramMap.get('id')!;
     this.productService.getProducts().subscribe(products => {
       this.product = products.find(p => p.id === id);
@@ -49,36 +46,50 @@ export class CartComponent implements OnInit {
 
   // Method to remove an item from the cart
   removeFromCart(item: any) {
-    this.cartItems = this.cartItems.filter(i => i.id !== item.id);
+    this.cartService.removeFromCart(item);
     this.calculateTotalAmount();
     console.log('Item removed from cart:', item);
   }
 
   // Method to handle the "Buy Now" action for all items
- buyAll() {
-  if (this.cartItems.length > 0) {
-    const productIds = this.cartItems.map(item => item.id);
-    const quantities = this.cartItems.map(item => item.quantity || 1);
+  buyAll() {
+    if (this.cartItems.length > 0) {
+      const productIds = this.cartItems.map(item => item.id);
+      const quantities = this.cartItems.map(item => item.quantity || 1);
 
-    // Log IDs and quantities for verification
-    console.log('Navigating to address-list with product IDs:', productIds);
-    console.log('Product quantities:', quantities);
+      console.log('Navigating to address-list with product IDs:', productIds);
+      console.log('Product quantities:', quantities);
 
-    // Pass the array of IDs and quantities to the next route
-    this.router.navigate(['/address-list'], { 
-      queryParams: { 
-        ids: productIds.join(','), 
-        quantities: quantities.join(',') 
-      } 
-    }).then(success => {
-      if (success) {
-        console.log('Navigation successful!');
-      } else {
-        console.error('Navigation failed!');
-      }
-    });
-  } else {
-    console.error('No items in the cart to buy.');
+      this.router.navigate(['/address-list'], { 
+        queryParams: { 
+          ids: productIds.join(','), 
+          quantities: quantities.join(',') 
+        } 
+      }).then(success => {
+        if (success) {
+          console.log('Navigation successful!');
+        } else {
+          console.error('Navigation failed!');
+        }
+      });
+    } else {
+      console.error('No items in the cart to buy.');
+    }
   }
-}
+
+  // Method to increase the quantity of a product
+  increaseQuantity(item: any) {
+    item.quantity++;
+    this.cartService.addToCart(item); // Automatically updates the cart
+    this.calculateTotalAmount();
+  }
+
+  // Method to decrease the quantity of a product
+  decreaseQuantity(item: any) {
+    if (item.quantity > 1) {
+      item.quantity--;
+      this.cartService.addToCart(item); // Automatically updates the cart
+      this.calculateTotalAmount();
+    }
+  }
 }

@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 // import { Router } from '@angular/router';
 import { Router, NavigationEnd } from '@angular/router';
 import { CartService } from '../../services/cart.service';
+import { SharedService } from '../../services/shared.service';
+import {ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-navtab',
@@ -9,9 +11,10 @@ import { CartService } from '../../services/cart.service';
   styleUrl: './navtab.component.scss'
 })
 export class NavtabComponent {
-
+searchQuery: string = '';
   cartItemCount: number = 0;
-  constructor(private router: Router,private cartService: CartService) { }
+  
+  constructor(private router: Router, private route: ActivatedRoute,private cartService: CartService,private sharedService: SharedService) { }
   
 
   showNavbar: boolean = true;
@@ -24,6 +27,32 @@ export class NavtabComponent {
     return this.router.url === route;
   }
 
+   onproduct(): void {
+  const currentRoute = this.router.url.split('?')[0];  // Strip query parameters
+
+  console.log('Current route:', currentRoute);  // Debug log to verify current route
+
+  if (currentRoute === '/shine/shinehome') {
+    console.log('Navigating to products page with search:', this.searchQuery);  // Debug log
+    this.router.navigate(['/shine/shineproducts'], { queryParams: { search: this.searchQuery } });
+  }
+     else if (currentRoute === '/sheshine/home') {
+    console.log('Navigating to products page with search:', this.searchQuery);  // Debug log
+    this.router.navigate(['/sheshine/products'], { queryParams: { search: this.searchQuery } });
+  }
+  else {
+    console.log('Applying search within the current page:', this.searchQuery);  // Debug log
+    this.router.navigate([], {
+      queryParams: { search: this.searchQuery },
+      relativeTo: this.route
+    });
+  }
+}
+
+
+   onSearchChange() {
+    this.sharedService.changeSearchQuery(this.searchQuery);
+  }
 
 
 

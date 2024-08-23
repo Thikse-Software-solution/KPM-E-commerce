@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ShineProductService } from '../services/shine-product.service';
 import { CartService } from '../../services/cart.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { SharedService } from '../../services/shared.service';
 
 @Component({
   selector: 'app-shineproducts',
@@ -12,15 +13,25 @@ export class ShineproductsComponent implements OnInit {
 
   products: any[] = [];  // Array to hold all products
   filteredProducts: any[] = [];  // Array to hold the filtered products
-  searchQuery: string = '';  // Search query for filtering
+   // Search query for filtering
 
   constructor(private productService: ShineProductService,  private cartService: CartService,
     private router: Router,
-    private route: ActivatedRoute,) { }
+    private route: ActivatedRoute, private sharedService: SharedService) { }
 
   ngOnInit() {
-    this.getAllProducts();  // Fetch all products on component initialization
+    this.getAllProducts();
+    
+        // Subscribe to search query changes
+    this.sharedService.currentSearchQuery.subscribe(query => {
+      this.applyFilters(query);
+    });
+// Fetch all products on component initialization
   }
+
+
+  
+  
 
   // Method to fetch all products
   getAllProducts() {
@@ -36,16 +47,16 @@ export class ShineproductsComponent implements OnInit {
   }
 
   // Method to apply filters based on search query
-  applyFilters() {
-    const query = this.searchQuery.toLowerCase().trim();
+  applyFilters(query: string) {
+    const searchQuery = query.toLowerCase().trim();
 
-    if (query) {
+    if (searchQuery) {
       this.filteredProducts = this.products.filter(product =>
-        product.name.toLowerCase().includes(query) ||
-        product.price.toString().includes(query)
+        product.name.toLowerCase().includes(searchQuery) ||
+        product.price.toString().includes(searchQuery)
       );
     } else {
-      this.filteredProducts = this.products;  // If no query, show all products
+      this.filteredProducts = this.products;
     }
   }
 
