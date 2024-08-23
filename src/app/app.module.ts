@@ -52,6 +52,7 @@ import { ShineProductViewComponent } from './shine/shine-product-view/shine-prod
 import { AuthService } from './services/auth.service';
 import { Image360ViewComponent } from './image-360-view/image-360-view.component';
 import { ProductIngredientsComponent } from './shine/product-ingredients/product-ingredients.component';
+import { KpnrunnerComponent } from './kpnrunner/kpnrunner.component';
 
 
 
@@ -60,7 +61,7 @@ import { ProductIngredientsComponent } from './shine/product-ingredients/product
 
 
 @NgModule({
-declarations: [	
+declarations: [		
     AppComponent,
     SheshineComponent,
     NavbarComponent,
@@ -103,7 +104,8 @@ declarations: [
     ShineFooterComponent,
     ProductExplainComponent,
     Image360ViewComponent,
-    ProductIngredientsComponent
+    ProductIngredientsComponent,
+      KpnrunnerComponent
    ],
   imports: [
     BrowserModule,

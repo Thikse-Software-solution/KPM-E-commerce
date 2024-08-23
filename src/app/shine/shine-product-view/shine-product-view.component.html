@@ -117,19 +117,10 @@
                 Submit Review
               </button>
             </div>
-            <div class="reviews-section">
-              <h6>Reviews:</h6>
-              <div class="reviews-container">
-                <div *ngFor="let review of reviews | slice : 0 : 10" class="review">
-                  <p>{{ review }}</p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
     </div>
-
     </div>
 
 
@@ -168,4 +159,15 @@
   </div>
 </div>
 </div>
+</div>
+
+<div class="over-allreview-update">
+  <div class="reviews-section">
+    <h6>Reviews:</h6>
+    <div class="reviews-container">
+      <div *ngFor="let review of reviews | slice : 0 : 10" class="review">
+        <p>{{ review }}</p>
+      </div>
+    </div>
+  </div>
 </div>
