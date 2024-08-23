@@ -42,14 +42,14 @@ const routes: Routes = [
     { path: '', redirectTo: '/sheshine/home', pathMatch: 'full' },
       { path: 'products', component: ProductsComponent },
      { path: 'products/:category', component: ProductsComponent },
-   
+
     // { path: 'payment', component: PaymentComponent },
     {path:'view/:id',component:ProductViewDetailsComponent},
-    { path: 'about', component: AboutComponent },
+
     { path: 'contact', component: ContactComponent },
         { path: 'cart', component: CartComponent },
-        
-    
+
+
 
 
 
@@ -87,8 +87,9 @@ const routes: Routes = [
   { path: 'payment', component: PaymentComponent },
   { path: 'order', component: OrderHistoryComponent },
   { path: 'user', component: UserProfileComponent, canActivate: [AuthGuard] },
-  { path: 'image360', component: Image360ViewComponent }
- 
+  { path: 'image360', component: Image360ViewComponent },
+  { path: 'about', component: AboutComponent }
+
 
 ];
 

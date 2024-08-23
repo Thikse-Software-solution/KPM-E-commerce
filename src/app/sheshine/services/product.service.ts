@@ -18,7 +18,6 @@ export interface Product {
   category?: string;
   subcategory?: string;
   quantity?: number; 
-  thumbnail: string;
 }
 
 @Injectable({
@@ -27,7 +26,7 @@ export interface Product {
 export class ProductService {
   private productSubject: BehaviorSubject<Product | null> = new BehaviorSubject<Product | null>(null);
   public product$: Observable<Product | null> = this.productSubject.asObservable();
-  
+
   private productsUrl ='/assets/data/products.json';
   private shineProductsUrl = '/assets/data/shineproduct.json';
 
