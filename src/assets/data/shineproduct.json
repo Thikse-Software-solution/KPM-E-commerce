@@ -15,7 +15,7 @@
 "../../assets/images/shine/baby care/face-body-wash-2.webp",
 "../../assets/images/shine/baby care/face-body-wash-2.webp"
   ],
-  
+
   "cards": [
     {
       "image": "../../assets/images/shine/ingredients/Ingredients_1_small.webp",
@@ -38,21 +38,9 @@
       "text": "This 100% natural lip balm is Clinically Tested and proven safe by dermatologists. Certified Organic Lip Balm. Reduces lip pigmentation by 16.98% in 28 days."
     }
   ],
-
-
-
-
-
-
-
-
    "thumbnail": "../../assets/images/shine/baby care/face-body-wash-2.webp",
-   
-
-
-   "title": "BABY WASH",
-   
-   "name":"BABY WASH",
+   "title": "Baby Wash",
+   "name":"Baby Wash",
    "suitable":"Dry, chapped & pigmented lips",
    "benefit" :"A piece of jewelry worn around the neck, often featuring a pendant or gemstones.",
    "description":"Description: A deep nourishing Ecocert Certified organic lip balm that is the ultimate care for your delicate lips. Just one swipe of this conditioning, non-sticky lip balm gives your lips a long-lasting moisture surge.It is formulated with certified organic ingredients like rosehip seed oil, castor oil, and cocoa butter rich in Pro-Vitamin A, C & E, and Omega-3, -6 and -9 fatty acids & ceramides. This unique formula penetrates the skin's deep layers to regenerate cells, repair the natural barrier and boost collagen synthesis.This formula delivers the ultimate remedy for dehydrated, sore & sensitive lips, dark pigmented lips due to smoking, sun exposure, increased caffeine intake, habitual subconscious lip licking or wearing harsh long-wearing lipstick.",
@@ -81,10 +69,8 @@
 "../../assets/images/shine/baby care/face-body-wash-2.webp"
   ],
    "thumbnail": "../../assets/images/shine/baby care/face-body-wash-2.webp",
-
-
-   "title": "BABY WASH",
-   "name": "BABY WASH",
+   "title": "Baby Wash",
+   "name": "Baby Wash",
   "suitable":"Dry, chapped & pigmented lips",
   "benefit" :"Adornments worn on the ears, ranging from simple studs to elaborate dangling designs.",
    "description":"",
@@ -113,8 +99,6 @@
 "../../assets/images/shine/baby care/face-body-wash-2.webp"
   ],
    "thumbnail": "../../assets/images/shine/body care/BodyLotion.webp",
-
-
    "title": "Bracelet",
    "name": "Bracelet",
     "suitable":"Dry, chapped & pigmented lips",
@@ -144,7 +128,7 @@
 "../../assets/images/shine/baby care/face-body-wash-2.webp"
   ],
    "thumbnail": "../../assets/images/shine/body care/Hibiscus Oil Ingredients for hand and body.webp",
-  
+
    "title": "Ring",
    "name": "Ring",
     "suitable":"Dry, chapped & pigmented lips",
@@ -174,7 +158,7 @@
 "../../assets/images/shine/baby care/face-body-wash-2.webp"
   ],
    "thumbnail": "../../assets/images/shine/face care/beetroot face wash.avif",
-   
+
    "title": "face care",
    "name": "face care",
     "suitable":"Dry, chapped & pigmented lips",
@@ -231,7 +215,7 @@
 "../../assets/images/shine/baby care/face-body-wash-2.webp"
   ],
    "thumbnail": "../../assets/images/shine/hair care/hair_onion-oil.avif",
-    
+
    "title": "hair care",
    "name": "hair care",
     "suitable":"Dry, chapped & pigmented lips",
@@ -367,7 +351,7 @@
 "../../assets/images/shine/baby care/face-body-wash-2.webp"
   ],
    "thumbnail": "../../assets/images/jellary/3a.jpg",
-  
+
    "title": "Charm Bracelet",
    "name": "Charm Bracelet",
    "benefit":"A bracelet featuring small trinkets or charms that represent personal memories or interests.",
@@ -421,7 +405,7 @@
 "../../assets/images/shine/baby care/face-body-wash-2.webp"
   ],
    "thumbnail": "../../assets/images/shine/face care/beetroot face wash.avif",
-  
+
 
    "title": "beetroot",
    "name": "beetroot",
@@ -449,7 +433,7 @@
 "../../assets/images/shine/baby care/face-body-wash-2.webp"
   ],
    "thumbnail": "../../assets/images/shine/body care/Hibiscus Oil Ingredients for hand and body.webp",
-  
+
    "title": "Body care",
    "name":"Toe Ring",
    "benefit":"A small ring worn on one of the toes, often seen in bohemian or beach fashion.",
@@ -503,7 +487,7 @@
 "../../assets/images/shine/baby care/face-body-wash-2.webp",
 "../../assets/images/shine/baby care/face-body-wash-2.webp"
   ],
-  
+
    "title": "face oil",
    "name":"face oil",
    "benefit":"A small ring worn on one of the toes, often seen in bohemian or beach fashion.",
@@ -530,7 +514,7 @@
 "../../assets/images/shine/baby care/face-body-wash-2.webp"
   ],
    "thumbnail": "../../assets/images/shine/face care/beetroot face wash.avif",
-   
+
    "title": "face cream",
    "name":"face cream",
    "benefit":"A small ring worn on one of the toes, often seen in bohemian or beach fashion.",
@@ -641,7 +625,7 @@
 "../../assets/images/shine/baby care/face-body-wash-2.webp"
   ],
    "thumbnail": "../../assets/images/shine/face care/lipstick/red.jpg",
- 
+
    "title": "Toe Ring",
    "name":"Lipstick",
    "benefit":"A small ring worn on one of the toes, often seen in bohemian or beach fashion.",
@@ -696,7 +680,7 @@
 "../../assets/images/shine/baby care/face-body-wash-2.webp"
   ],
    "thumbnail": "../../assets/images/shine/face care/lipstick/skin colour.jpg",
- 
+
    "title": "Toe Ring",
    "name":"Lipstick",
    "benefit":"A small ring worn on one of the toes, often seen in bohemian or beach fashion.",

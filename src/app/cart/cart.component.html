@@ -1,39 +1,99 @@
-<div class="container mt-5">
-    <div class="card mb-3" *ngFor="let item of cartItems">
-        <div class="row g-0">
-            <div class="col-12 col-md-4 position-relative">
-                <img [src]="item.thumbnail" class="img-fluid rounded-start w-100" alt="Product Image">
-                <i class="fa-heart position-absolute top-0 end-0 m-3"
-                    [ngClass]="{'fas': item.isFavorite, 'far': !item.isFavorite}"
-                    [class.text-danger]="item.isFavorite"></i>
-            </div>
-            <div class="col-12 col-md-8">
-                <div class="card-body">
-                    <h5 class="card-title">{{ item.name }}</h5>
-                    <p class="card-text">{{ item.description }}</p>
-                    <p class="card-text">
-                        <small class="text-muted">MRP: <del>{{ item.mrp | currency:'INR' }}</del></small>
-                    </p>
-                    <p class="card-text">
-                        <small class="text-muted">Discount: {{ item.discount }}%</small>
-                    </p>
-                    <h5 class="card-text">Price: {{ item.price | currency:'INR' }}</h5>
-                    <!-- <h5 class="card-text">Price: {{ (item.price * item.quantity) | currency:'INR' }}</h5> -->
+<div class="container-fluid">
+   <div class="container">
+    <div class="card-block">
+      <div class="card-title">
+        <p class="header-1">Cart of KPM Super Shopee</p>
+      </div>
+      <div class="row" *ngFor="let item of cartItems">
+        <div class="col-lg-6">
+          <div class="">
 
-                    <p class="card-text">
-                        <small class="text-muted">Quantity: {{ item.quantity }}</small>
-                    </p>
-                    <button class="btn btn-danger me-2" (click)="removeFromCart(item)">Remove</button>
+            <div class="card-Overall">
+              <div class="card-cart">
+                <div class="card-split">
+                  <div class="card-left">
+                    <div class="catdProduct-img">
+                      <img [src]="item.thumbnail" class="img-fluid rounded-start w-100" alt="Product Image">
+                    </div>
+                  </div>
+                  <div class="card-right">
+                    <div class="card-productBlock">
+                      <div class="card-product">
+                        <p class="card-title">{{ item.name }}</p>
+                        <p class="card-text"><span>Suitable for : </span>{{ item.suitable }}</p>
+                      </div>
+                      <div class="overall-desc">
+                        <div class="spc-quality">
+                          <p><span>Qulity : </span> {{ item.quantity }}</p>
+                        </div>
+                        <div class="Block">
+                          <span class="home-badge">
+                            Home Delivery
+                          </span>
+                        </div>
+                        <div class="mrp-block">
+                          <p class="mrp-style">MRP : <span> {{ item.mrp| currency:'INR' }} </span></p>
+                        </div>
+                      </div>
+                      <div class="card-border-down">
+                        <div class="text-center">
+                          <p class="card-text"><span>Special Price : </span> {{ item.price | currency:'INR' }}</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
+                 <div class>
+                    <button class="btn btn-danger me-2 close-btn" (click)="removeFromCart(item)">x</button>
+                 </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
+        <div class="col-lg-6">
 
-    <div>
-        <strong>Total Amount: {{ totalAmount | currency:'INR' }}</strong>
-    </div>
+        </div>
 
-    <div class="mt-3">
-        <button class="btn btn-success" (click)="buyAll()">Buy Now</button>
-    </div>
+      </div>
+   </div>
 </div>
+
+
+<!-- <div class="card mb-3" *ngFor="let item of cartItems">
+  <div class="row g-0">
+      <div class="col-12 col-md-4 position-relative">
+          <img [src]="item.thumbnail" class="img-fluid rounded-start w-100" alt="Product Image">
+          <i class="fa-heart position-absolute top-0 end-0 m-3"
+              [ngClass]="{'fas': item.isFavorite, 'far': !item.isFavorite}"
+              [class.text-danger]="item.isFavorite"></i>
+      </div>
+      <div class="col-12 col-md-8">
+          <div class="card-body">
+              <h5 class="card-title">{{ item.name }}</h5>
+              <p class="card-text">{{ item.description }}</p>
+              <p class="card-text">
+                  <small class="text-muted">MRP: <del>{{ item.mrp | currency:'INR' }}</del></small>
+              </p>
+              <p class="card-text">
+                  <small class="text-muted">Discount: {{ item.discount }}%</small>
+              </p>
+              <h5 class="card-text">Price: {{ item.price | currency:'INR' }}</h5>
+              <h5 class="card-text">Price: {{ (item.price * item.quantity) | currency:'INR' }}</h5>
+
+              <p class="card-text">
+                  <small class="text-muted">Quantity: {{ item.quantity }}</small>
+              </p>
+              <button class="btn btn-danger me-2 close-btn" (click)="removeFromCart(item)">x</button>
+          </div>
+      </div>
+  </div>
+</div> -->
+
+
+<!-- <div>
+  <strong>Total Amount: {{ totalAmount | currency:'INR' }}</strong>
+</div>
+
+<div class="mt-3">
+  <button class="btn btn-success" (click)="buyAll()">Buy Now</button>
+</div> -->
