@@ -62,10 +62,22 @@ export class NewLaunchesComponent implements OnInit {
     product.rating = rating;
   }
 
-  addToCart(product: any): void {
-    this.cartService.addToCart(product);
-    // alert(`${product.name} added to cart!`);
-  }
+ addToCart(product: any): void {
+ 
+  product.quantity = 1;
+
+  this.cartService.addToCart(product);
+
+  // Navigate to the desired route with the quantity in the URL
+  this.router.navigate(['/your-route-path'], {
+    queryParams: { 
+      id: product.id, 
+      quantity: product.quantity 
+    }
+  });
+
+ 
+}
 
  buyNow(product: any): void {
      this.router.navigate(['/shine/view', product.id]);

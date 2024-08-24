@@ -54,6 +54,8 @@ searchQuery: string = '';
     this.sharedService.changeSearchQuery(this.searchQuery);
   }
 
+  
+
 
 
    ngOnInit(): void {

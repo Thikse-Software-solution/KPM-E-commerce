@@ -10,7 +10,14 @@
               [class.text-danger]="isFavorite" (click)="toggleFavorite(product)">
             </i>
           </div>
-          <div class="option d-flex justify-content-center mt-3">
+        <div class="image-container" (mousedown)="startRotation($event)" (mousemove)="rotateImage($event)"
+  (mouseup)="stopRotation()" (mouseleave)="stopRotation()" (touchstart)="startRotation($event)"
+  (touchmove)="rotateImage($event)" (touchend)="stopRotation()">
+        
+          <img [src]="threeDImages[imageIndex]" alt="360 view image" id="product-image" >
+        </div>
+
+          <div class="option d-flex justify-content-center mt-3" [ngClass]="{'mobile-scroll': isMobileView()}">
             <img *ngFor="let image of product.images.slice(0, 6)" [src]="image" alt="" class="img-thumbnail"
               (click)="changeImage(image)" />
           </div>
@@ -138,22 +145,31 @@
     </div>
   </div>
 
+
   <div class="carousel-container">
-    <div class="carousel-wrapper">
-      <div class="carousel-item" *ngFor="let card of cards">
-        <div class="card h-100">
-          <div class="card-body">
-            <img [src]="card.image" alt="" class="icon mb-3">
-            <h6 class="card-title">{{ card.title }}</h6>
-            <small class="card-text">{{ card.text }}</small>
-            
-          </div>
-          
-        </div>
+    <div class="carousel-wrapper" [style.transform]="'translateX(' + (-currentIndex * cardWidth) + 'px)'">
+      <div *ngFor="let card of duplicatedCards" class="carousel-card">
+        <img [src]="card.image" alt="Card Image">
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.text }}</p>
       </div>
     </div>
   </div>
+
   
+
+
+
+  <!-- <div *ngIf="cards.length > 0" class="ingredient-cards">
+    <div *ngFor="let card of cards" class="card">
+      <img [src]="card.image" alt="{{card.title}}">
+      <div class="card-content">
+        <h3>{{ card.title }}</h3>
+        <p>{{ card.text }}</p>
+      </div>
+    </div>
+  </div>
+   -->
 </div>
 
 

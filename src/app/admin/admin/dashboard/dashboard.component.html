@@ -1,0 +1,24 @@
+<div class="d-flex">
+  <div class="maindiv d-flex h-100 bg-light">
+    <!-- Sidebar -->
+    <aside class="bg-white shadow p-4" style="width: 16rem;">
+      <ul class="list-unstyled">
+        <li><a routerLink="overview" class="text-dark d-block py-2 px-3 rounded hover:bg-light">Overview</a></li>
+        <li><a routerLink="product" class="text-dark d-block py-2 px-3 rounded hover:bg-light">Product Management</a>
+        </li>
+        <li><a routerLink="discounts" class="text-dark d-block py-2 px-3 rounded hover:bg-light">Discounts & Offers</a>
+        </li>
+        <li><a routerLink="order" class="text-dark d-block py-2 px-3 rounded hover:bg-light">Order Management</a></li>
+        <li><a routerLink="customer" class="text-dark d-block py-2 px-3 rounded hover:bg-light">Customer Management</a>
+        </li>
+        <li><a routerLink="report" class="text-dark d-block py-2 px-3 rounded hover:bg-light">Analytics & Reports</a>
+        </li>
+        <li><a routerLink="logout" (click)="logout()" class="text-dark d-block py-2 px-3 rounded hover:bg-light">Logout</a></li>
+      </ul>
+    </aside>
+  </div>
+
+  <div class="flex-grow-1">
+    <router-outlet></router-outlet>
+  </div>
+</div>

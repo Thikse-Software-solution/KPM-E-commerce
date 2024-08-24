@@ -53,6 +53,14 @@ import { AuthService } from './services/auth.service';
 import { Image360ViewComponent } from './image-360-view/image-360-view.component';
 import { ProductIngredientsComponent } from './shine/product-ingredients/product-ingredients.component';
 import { KpnrunnerComponent } from './kpnrunner/kpnrunner.component';
+import { AdminLoginComponent } from './admin/admin/admin-login/admin-login.component';
+import { CustomerManagementComponent } from './admin/admin/customer-management/customer-management.component';
+import { DashboardComponent } from './admin/admin/dashboard/dashboard.component';
+import { DiscountsOffersComponent } from './admin/admin/discounts-offers/discounts-offers.component';
+import { OrderManagementComponent } from './admin/admin/order-management/order-management.component';
+import { OverviewComponent } from './admin/admin/overview/overview.component';
+import { ProductManagementComponent } from './admin/admin/product-management/product-management.component';
+import { ReportsAnalyticsComponent } from './admin/admin/reports-analytics/reports-analytics.component';
 
 
 
@@ -105,7 +113,15 @@ declarations: [
     ProductExplainComponent,
     Image360ViewComponent,
     ProductIngredientsComponent,
-      KpnrunnerComponent
+    KpnrunnerComponent,
+    AdminLoginComponent,
+    CustomerManagementComponent,
+    DashboardComponent,
+    DiscountsOffersComponent,
+    OrderManagementComponent,
+    OverviewComponent,
+    ProductManagementComponent,
+    ReportsAnalyticsComponent
    ],
   imports: [
     BrowserModule,

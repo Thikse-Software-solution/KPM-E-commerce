@@ -408,3 +408,224 @@ button {
 {
   
 }
+
+
+
+
+
+
+// product ingredients
+.container-fluid{
+background-color: red;
+.row {
+    display: flex;
+    justify-content: center;
+    margin: 0; // Optional: Reset any default margins
+
+    .col-7 {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      text-align: center; // Center-align text within the column
+      padding: 15px; // Optional: Add some padding around the content
+
+      h2 {
+        font-size: 2.5rem; // Adjust the size of the display-4 class
+        font-weight: 700; // Adjust font weight for h2
+        margin-bottom: 1rem; // Space below the heading
+        color: #efebeb; // Optional: Set a color for the heading
+      }
+
+      p {
+        font-size: 1.25rem; // Adjust the size of the lead paragraph
+        color: white; // Set a softer color for the paragraph text
+        margin-bottom: 1.5rem; // Space below the paragraph
+      }
+    }
+  }
+
+  // Responsive adjustments
+  @media (max-width: 768px) {
+    .col-7 {
+      padding: 10px; // Reduce padding on smaller screens
+
+      h2 {
+        font-size: 2rem; // Smaller heading size on mobile
+      }
+
+      p {
+        font-size: 1rem; // Smaller paragraph size on mobile
+      }
+    }
+  }
+
+
+}
+.carousel-container {
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+ 
+}
+
+.carousel-wrapper {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+ 
+}
+
+.carousel-card {
+  width: 300px;
+  /* Set card width similar to the example */
+  height: 400px;
+  /* Set card height similar to the example */
+  box-sizing: border-box;
+  padding: 20px;
+  margin: 10px;
+  text-align: left;
+  flex-shrink: 0;
+
+  /* Card Shape Styles */
+  background-color: #fcf8f3;
+  /* Light cream background color similar to your design */
+  border: 1px solid #ddd;
+  /* Light border */
+  border-radius: 10px;
+  /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  /* Subtle shadow for depth */
+
+  /* Flexbox to ensure content alignment */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* Align content to the top */
+}
+
+.carousel-card img {
+  width: 50px;
+  /* Smaller image size */
+  height: auto;
+  margin-bottom: 15px;
+  /* Space between image and text */
+}
+
+.carousel-card h3 {
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: #333;
+  /* Darker color for better contrast */
+  font-weight: bold;
+  /* Make the heading bold */
+}
+
+.carousel-card p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.8;
+  /* Adjusted line height for better spacing */
+  margin: 0 0 10px 0;
+  white-space: normal;
+  word-wrap: break-word;
+
+  /* Styling for similar text appearance */
+  font-weight: normal;
+  /* Standard weight */
+  font-size: 1.1rem;
+  /* Slightly larger font size for better readability */
+  color: #333;
+  /* Darker color for text to improve contrast */
+}
+
+.carousel-card p strong {
+  font-weight: bold;
+  /* Bold text within paragraphs for emphasis */
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .carousel-card {
+    min-width: 48%;
+    /* 2 cards visible on tablet view */
+  }
+}
+
+@media (min-width: 1025px) {
+  .carousel-card {
+    min-width: 33%;
+    /* 3 cards visible on laptop view */
+  }
+}
+
+
+/* Hide scrollbar but allow touch scrolling */
+.mobile-scroll {
+  overflow-x: auto;
+  white-space: nowrap;
+  /* Ensure images are in a single line */
+  -webkit-overflow-scrolling: touch;
+  /* Enable smooth scrolling on iOS */
+  scrollbar-width: none;
+  /* Hide scrollbar on Firefox */
+}
+
+.mobile-scroll::-webkit-scrollbar {
+  display: none;
+  /* Hide scrollbar on Chrome, Safari, and Edge */
+}
+
+.mobile-scroll img {
+  display: inline-block;
+  max-width: 100px;
+  /* Adjust the width as needed */
+  margin-right: 10px;
+  /* Space between images */
+}
+
+@media (max-width: 768px) {
+  .mobile-scroll {
+    width: 100%;
+    /* Ensure full width on mobile */
+  }
+}
+
+
+
+
+
+
+
+
+//3d image
+.image-container {
+  width: 300px;
+  height: 500px;
+  overflow: hidden;
+  position: relative;
+  cursor: grab;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  position: absolute;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

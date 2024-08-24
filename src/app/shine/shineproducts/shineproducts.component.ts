@@ -65,10 +65,22 @@ export class ShineproductsComponent implements OnInit {
      this.router.navigate(['/shine/view', product.id]);
   }
 
-  addToCart(product: any) {
-    console.log('Add to Cart clicked for:', product);
-      this.cartService.addToCart(product);
-  }
+ addToCart(product: any): void {
+ 
+  product.quantity = 1;
+
+  this.cartService.addToCart(product);
+
+  // Navigate to the desired route with the quantity in the URL
+  this.router.navigate(['/your-route-path'], {
+    queryParams: { 
+      id: product.id, 
+      quantity: product.quantity 
+    }
+  });
+
+ 
+}
 
   getStarClass(index: number, rating: number): string {
     return index < rating ? 'fa fa-star fas' : 'fa fa-star far';

@@ -17,7 +17,9 @@ export interface Product {
   subcategory?: string;
   quantity?: number;
   thumbnail: string;
-   cards?: Array<{ image: string; title: string; text: string }>;
+  cards?: Array<{ image: string; title: string; text: string }>;
+  images?: string[]; 
+  threeDImages?: string[]; // Array for storing 360° images
 }
 
 @Injectable({
@@ -53,6 +55,7 @@ export class ShineProductService {
       });
     });
   }
+  
 
   // Fetch a product by its ID
   getProductById(id: number): Observable<Product> {
@@ -64,4 +67,6 @@ export class ShineProductService {
       });
     });
   }
+
+  
 }

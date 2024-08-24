@@ -1,0 +1,71 @@
+<div class="container my-4">
+  <!-- Add/Edit Product Form -->
+  <div class="mb-5">
+    <h2 class="h4 font-weight-bold mb-3">Add/Edit Product</h2>
+    <form (ngSubmit)="onSubmit()" #productForm="ngForm">
+      <div class="form-group mb-3">
+        <label for="name" class="form-label">Product Name:</label>
+        <input type="text" id="name" [(ngModel)]="product.name" name="name" required class="form-control" />
+      </div>
+      <div class="form-group mb-3">
+        <label for="description" class="form-label">Description:</label>
+        <textarea id="description" [(ngModel)]="product.description" name="description" required
+          class="form-control"></textarea>
+      </div>
+      <div class="form-group mb-3">
+        <label for="price" class="form-label">Price:</label>
+        <input type="number" id="price" [(ngModel)]="product.price" name="price" required class="form-control" />
+      </div>
+      <div class="form-group mb-3">
+        <label for="category" class="form-label">Category:</label>
+        <input type="text" id="category" [(ngModel)]="product.category" name="category" required class="form-control" />
+      </div>
+      <div class="form-group mb-3">
+        <label for="stockQuantity" class="form-label">Stock Quantity:</label>
+        <input type="number" id="stockQuantity" [(ngModel)]="product.stockQuantity" name="stockQuantity" required
+          class="form-control" />
+      </div>
+      <div class="form-group mb-3">
+        <label for="imageUrl" class="form-label">Image URL:</label>
+        <input type="text" id="imageUrl" [(ngModel)]="product.imageUrl" name="imageUrl" class="form-control" />
+      </div>
+      <button type="submit" class="btn btn-primary">Save Product</button>
+      <button type="button" (click)="clearForm()" class="btn btn-secondary ml-2">Clear</button>
+    </form>
+  </div>
+
+  <!-- Inventory Management -->
+  <div class="mb-5">
+    <h2 class="h4 font-weight-bold mb-3">Inventory Management</h2>
+    <table class="table table-bordered">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Stock Quantity</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.id }}</td>
+          <td>{{ product.name }}</td>
+          <td>{{ product.stockQuantity }}</td>
+          <td>
+            <button (click)="editProduct(product)" class="btn btn-warning btn-sm">Edit</button>
+            <button (click)="deleteProduct(product.id)" class="btn btn-danger btn-sm ml-2">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Bulk Upload -->
+  <div>
+    <h2 class="h4 font-weight-bold mb-3">Bulk Upload</h2>
+    <div class="form-group">
+      <input type="file" (change)="onFileChange($event)" class="form-control-file mb-3" />
+      <button (click)="uploadFile()" class="btn btn-success">Upload</button>
+    </div>
+  </div>
+</div>

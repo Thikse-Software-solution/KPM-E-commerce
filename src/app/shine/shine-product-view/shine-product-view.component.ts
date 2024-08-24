@@ -1,4 +1,4 @@
-import { Component, Inject, PLATFORM_ID, OnInit,OnDestroy,Input } from '@angular/core';
+import { Component,HostListener , Inject, PLATFORM_ID, OnInit,OnDestroy,Input } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { isPlatformBrowser } from '@angular/common';
@@ -17,17 +17,21 @@ export class ShineProductViewComponent implements OnInit, OnDestroy {
   quantity: number = 1;
   reviewText: string = '';
   reviews: string[] = [];
-    private isBrowser: boolean;
+  private isBrowser: boolean;
   subcategoryProducts: any[] = [];
   colors: string[] = ['#000', '#EDEDED', '#D5D6D8', '#EFE0DE', '#AB8ED1', '#F04D44'];
   activeSections: boolean[] = [false, false, false, false];
   cards: Array<{ image: string; title: string; text: string }> = [];
-  
-
-  
- currentIndex = 0;
-  interval!: ReturnType<typeof setInterval>; 
-
+  duplicatedCards: Array<{ image: string; title: string; text: string }> = [];
+  cardWidth = 0;
+  currentIndex = 0;
+  interval!: ReturnType<typeof setInterval>;
+  //3d image
+ threeDImages:string[] = [];
+  isDragging = false;
+   imageIndex = 0;
+  startX: number = 0;
+    isMobile = false;
 
   constructor(
     private cartService: CartService,
@@ -36,24 +40,63 @@ export class ShineProductViewComponent implements OnInit, OnDestroy {
     private route: ActivatedRoute,
     private shineProductService: ShineProductService,
     private productService: ProductService
-  ) {  this.isBrowser = isPlatformBrowser(platformId);
+  ) {
+    this.isBrowser = isPlatformBrowser(platformId);
+  }
+
+
+   @HostListener('window:resize', ['$event'])
+  onResize(event: UIEvent) {
+    this.isMobile = window.innerWidth <= 768;
+  }
+   isMobileView() {
+    return this.isMobile;
   }
 
   ngOnInit(): void {
+    this.isMobile = window.innerWidth <= 768;
 
-     if (this.isBrowser) {
+    this.cardWidth = this.calculateCardWidth();
+    if (this.isBrowser) {
       this.startCarousel();
     }
+
+    // this.route.params.subscribe(params => {
+    //   const id = +params['id']; // Get the ID from the route
+    //   this.productService.getShineProducts().subscribe((products: Product[]) => {
+    //     const product = products.find(p => p.id === id);
+    //     if (product && product.cards) {
+    //       this.cards = product.cards;
+    //     }
+    //   });
+    // });
+    
+
+
     this.route.params.subscribe(params => {
-    const id = +params['id']; // Get the ID from the route
-    this.productService.getShineProducts().subscribe((products: Product[]) => {
-      const product = products.find(p => p.id === id);
-      if (product && product.cards) {
-        this.cards = product.cards;
+      const id = +params['id']; // Get the ID from the route
+      this.productService.getShineProducts().subscribe((products: Product[]) => {
+        const product = products.find(p => p.id === id);
+        if (product && product.cards) {
+          this.cards = product.cards;
+          this.duplicateCards();
+        }
+      });
+    });
+
+
+     this.route.params.subscribe(params => {
+      const id = +params['id'];
+      if (id) {
+        this.productService.getProductById(id).subscribe(product => {
+          if (product) {
+            this.product = product;
+            this.threeDImages = product.threeDImages || [];
+          }
+        });
       }
     });
-  });
-
+    
 
 
 
@@ -84,14 +127,32 @@ export class ShineProductViewComponent implements OnInit, OnDestroy {
     });
   }
 
-   startCarousel() {
+  calculateCardWidth(): number {
+     if (typeof window === 'undefined') {
+    // Return a default value or handle the case where window is not available
+    console.warn("Window object is not available.");
+    return 0; // Default value
+  }
+    
+    const screenWidth = window.innerWidth;
+
+    if (screenWidth > 1024) {
+      return screenWidth / 3; // 3 cards in view for laptop
+    } else if (screenWidth >= 768) {
+      return screenWidth / 2; // 2 cards in view for tablet
+    } else {
+      return screenWidth; // 1 card in view for mobile
+    }
+  }
+  duplicateCards() {
+    // Duplicate the cards to allow seamless scrolling
+    this.duplicatedCards = [...this.cards, ...this.cards];
+  }
+
+
+  startCarousel() {
     this.interval = setInterval(() => {
       this.currentIndex = (this.currentIndex + 1) % this.cards.length;
-      const carouselWrapper = document.querySelector('.carousel-wrapper') as HTMLElement;
-      if (carouselWrapper) {
-        const percentage = -(this.currentIndex * 100);
-        carouselWrapper.style.transform = `translateX(${percentage}%)`;
-      }
     }, 3000);
   }
 
@@ -197,4 +258,52 @@ export class ShineProductViewComponent implements OnInit, OnDestroy {
     console.log('Navigating to product with ID:', subcategoryProduct.id);
     this.router.navigate(['/shine/view', subcategoryProduct.id]);
   }
+
+
+  //3D image
+  
+  startRotation(event: MouseEvent | TouchEvent) {
+    this.isDragging = true;
+    this.startX = this.isTouchEvent(event) ? event.touches[0].clientX : (event as MouseEvent).clientX;
+  }
+  
+  rotateImage(event: MouseEvent | TouchEvent) {
+    if (!this.isDragging) return;
+
+    const currentX = this.isTouchEvent(event) ? event.touches[0].clientX : (event as MouseEvent).clientX;
+    const deltaX = this.startX - currentX;
+    
+    if (Math.abs(deltaX) > 10) {  // Adjust sensitivity
+      if (deltaX > 0) {
+        this.nextImage();
+      } else {
+        this.prevImage();
+      }
+      this.startX = currentX;
+    }
+  }
+  
+  stopRotation() {
+    this.isDragging = false;
+  }
+  
+  prevImage() {
+    this.imageIndex = (this.imageIndex > 0) ? this.imageIndex - 1 : this.threeDImages.length - 1;
+  }
+
+  nextImage() {
+    this.imageIndex = (this.imageIndex < this.threeDImages.length - 1) ? this.imageIndex + 1 : 0;
+  }
+
+  private isTouchEvent(event: MouseEvent | TouchEvent): event is TouchEvent {
+    return 'touches' in event;
+  }
+
+
+ 
 }
+
+
+
+
+

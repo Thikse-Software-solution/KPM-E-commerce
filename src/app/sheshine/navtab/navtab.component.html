@@ -18,9 +18,13 @@
 
 
   <div class="nav">
-    <div class="search">
-
-    </div>
+  <div class="input-group">
+    <input type="text" class="form-control" placeholder="Search by name or price" [(ngModel)]="searchQuery" (input)="onSearchChange()"
+      (click)="onproduct()">
+    <span class="input-group-text">
+      <i class="bi bi-search"></i> <!-- Search icon -->
+    </span>
+  </div>
   
     <div id="login">
       <a class="login" routerLink="/user">

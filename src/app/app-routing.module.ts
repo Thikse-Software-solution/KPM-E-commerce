@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { AuthGuard } from './services/auth.guard';
+import { AdminauthGuard } from './admin/services/adminauth.guard';
 
 import { RouterModule, Routes } from '@angular/router';
 import { SheshineComponent } from './sheshine/sheshine/sheshine.component';
@@ -31,6 +32,14 @@ import { NewLaunchesComponent } from './shine/New-Launches/New-Launches.componen
 import { ShineproductsComponent } from './shine/shineproducts/shineproducts.component';
 import { ShineProductViewComponent } from './shine/shine-product-view/shine-product-view.component';
 import { Image360ViewComponent } from './image-360-view/image-360-view.component';
+import { AdminLoginComponent } from './admin/admin/admin-login/admin-login.component';
+import { DashboardComponent } from './admin/admin/dashboard/dashboard.component';
+import { OverviewComponent } from './admin/admin/overview/overview.component';
+import { ProductManagementComponent } from './admin/admin/product-management/product-management.component';
+import { DiscountsOffersComponent } from './admin/admin/discounts-offers/discounts-offers.component';
+import { OrderManagementComponent } from './admin/admin/order-management/order-management.component';
+import { CustomerManagementComponent } from './admin/admin/customer-management/customer-management.component';
+import { ReportsAnalyticsComponent } from './admin/admin/reports-analytics/reports-analytics.component';
 
 
 
@@ -68,7 +77,27 @@ const routes: Routes = [
      { path: 'newlaunches', component: NewLaunchesComponent },
       { path: 'view/:id', component: ShineProductViewComponent }
 
-   ] },
+    ]
+  },
+   
+
+
+
+
+  { path: 'admin', component: AdminLoginComponent },
+   
+  {path: 'dashboard',component: DashboardComponent,  canActivate: [AdminauthGuard],  children: [
+    
+    
+  { path: '', redirectTo: 'overview', pathMatch: 'full' },
+  { path: 'overview', component: OverviewComponent },
+  { path: 'product', component: ProductManagementComponent },
+  { path: 'discounts', component: DiscountsOffersComponent },
+  { path: 'order', component: OrderManagementComponent },
+  { path: 'customer', component: CustomerManagementComponent },
+  { path: 'report', component: ReportsAnalyticsComponent }
+  ]
+  },
 
 
 

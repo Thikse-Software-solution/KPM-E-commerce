@@ -1,0 +1,40 @@
+<div class="container mt-4">
+  <h4 class="h3 font-weight-bold mb-4">Order Management Dashboard</h4>
+
+  <div class="table-responsive">
+    <table class="table table-bordered bg-white rounded shadow-sm">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col" class="text-left font-weight-bold">Order ID</th>
+          <th scope="col" class="text-left font-weight-bold">Customer</th>
+          <th scope="col" class="text-left font-weight-bold">Order Date</th>
+          <th scope="col" class="text-left font-weight-bold">Status</th>
+          <th scope="col" class="text-left font-weight-bold">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of orders">
+          <td class="align-middle">{{ order.id }}</td>
+          <td class="align-middle">{{ order.customerName }}</td>
+          <td class="align-middle">{{ order.orderDate | date:'shortDate' }}</td>
+          <td class="align-middle">
+            <span [ngClass]="{
+              'text-success': order.status === 'Delivered',
+              'text-warning': order.status === 'Shipped',
+              'text-danger': order.status === 'Returned',
+              'text-muted': order.status === 'Pending'
+            }">
+              {{ order.status }}
+            </span>
+          </td>
+          <td class="align-middle">
+            <button (click)="updateStatus(order.id, 'Shipped')" class="btn btn-primary btn-sm">Ship</button>
+            <button (click)="updateStatus(order.id, 'Delivered')" class="btn btn-success btn-sm">Deliver</button>
+            <button (click)="handleReturn(order.id)" class="btn btn-warning btn-sm">Return</button>
+            <button (click)="handleRefund(order.id)" class="btn btn-danger btn-sm">Refund</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -17,8 +17,10 @@ export interface Product {
   image1: string;
   category?: string;
   subcategory?: string;
-  quantity?: number;
+  quantity?: number; 
   cards?: Array<{ image: string; title: string; text: string }>;
+  images?: string[]; 
+  threeDImages?: string[]; // Array for storing 360° images
 }
 
 @Injectable({
@@ -79,4 +81,6 @@ export class ProductService {
       map(products => products.filter(product => product.name.toLowerCase().includes(query.toLowerCase())))
     );
   }
+  
+  
 }

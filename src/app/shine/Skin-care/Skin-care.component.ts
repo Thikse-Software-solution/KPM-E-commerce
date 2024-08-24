@@ -68,10 +68,21 @@ export class SkinCareComponent implements OnInit {
   }
 
   addToCart(product: any): void {
-    this.cartService.addToCart(product);
-    // alert(`${product.name} added to cart!`);
-  }
+ 
+  product.quantity = 1;
 
+  this.cartService.addToCart(product);
+
+  // Navigate to the desired route with the quantity in the URL
+  this.router.navigate(['/your-route-path'], {
+    queryParams: { 
+      id: product.id, 
+      quantity: product.quantity 
+    }
+  });
+
+ 
+}
  buyNow(product: any): void {
      this.router.navigate(['/shine/view', product.id]);
     // Navigate to checkout or perform a quick buy action

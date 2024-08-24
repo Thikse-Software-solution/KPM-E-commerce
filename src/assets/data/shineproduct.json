@@ -15,7 +15,17 @@
 "../../assets/images/shine/baby care/face-body-wash-2.webp",
 "../../assets/images/shine/baby care/face-body-wash-2.webp"
   ],
+    "threeDImages": [
+    "../../assets/images/shine/3d images/product id18/1.png", 
+    "../../assets/images/shine/3d images/product id18/2.png",
+     "../../assets/images/shine/3d images/product id18/3.png",
+  "../../assets/images/shine/3d images/product id18/4.png",
+  "../../assets/images/shine/3d images/product id18/5.png",
+  "../../assets/images/shine/3d images/product id18/6.png"
 
+   
+  ],
+  
   "cards": [
     {
       "image": "../../assets/images/shine/ingredients/Ingredients_1_small.webp",
@@ -31,12 +41,8 @@
       "image": "../../assets/images/shine/ingredients/Source_1_small.avif",
       "title": "Why try this?",
       "text": "This 100% natural lip balm is Clinically Tested and proven safe by dermatologists. Certified Organic Lip Balm. Reduces lip pigmentation by 16.98% in 28 days."
-    },
-    {
-      "image": "../../assets/images/shine/ingredients/Effec_1_small.webp",
-      "title": "Why try this?",
-      "text": "This 100% natural lip balm is Clinically Tested and proven safe by dermatologists. Certified Organic Lip Balm. Reduces lip pigmentation by 16.98% in 28 days."
     }
+    
   ],
    "thumbnail": "../../assets/images/shine/baby care/face-body-wash-2.webp",
    "title": "Baby Wash",

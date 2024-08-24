@@ -44,19 +44,21 @@
       &.active {
         transform: translateX(50%);
       }
-        button {
-          background-color: #9e5104;
-          color: #fff;
-          font-size: 12px;
-          padding: 10px 45px;
-          border: 1px solid transparent;
-          border-radius: 8px;
-          font-weight: 600;
-          letter-spacing: 0.5px;
-          text-transform: uppercase;
-          margin-top: 10px;
-          cursor: pointer;
-        }
+
+      button {
+        background-color: #9e5104;
+        color: #fff;
+        font-size: 12px;
+        padding: 10px 45px;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+        margin-top: 10px;
+        cursor: pointer;
+      }
+
       .toggle-panel {
         position: absolute;
         width: 50%;
@@ -86,67 +88,69 @@
 // Media Queries for Tablet and Laptop
 @media (max-width: 768px) {
   .container {
-  width: 683px;
-  min-height: 409px;
+    width: 683px;
+    min-height: 409px;
   }
+
+  .signupformobile {
+    display: none;
+  }
+
+  .loginformobile {
+    display: none;
+  }
+
+  @media (min-width: 992px) {
+    .container {
+      width: 1024px;
+      min-height: 600px;
+    }
+
     .signupformobile {
-     display: none;
-   }
+      display: none;
+    }
 
     .loginformobile {
-     display: none;
-   }
-
-@media (min-width: 992px) {
-  .container {
-    width: 1024px;
-    min-height: 600px;
+      display: none;
+    }
   }
 
-    .signupformobile {
-    display: none;
-   }
+  // Media Query for Mobile
+  @media (max-width: 767px) {
+    .container {
+      flex-direction: column;
+      width: 85%;
+      // min-height: 100vh;
+      justify-content: center;
 
-   .loginformobile {
-    display: none;
+      .toggle-container {
+        display: none;
+      }
+    }
+
+    .form-container {
+      position: relative;
+      height: auto;
+      transition: none;
+      align-items: center;
+      justify-content: center;
+
+      form {
+
+        width: 100%;
+        padding: 20px;
+
+        h4 {
+          font-size: 24px;
+        }
+
+
+        input,
+        button {
+          font-size: 16px;
+          padding: 10px 15px;
+        }
+      }
+    }
   }
 }
-
-// Media Query for Mobile
-@media (max-width: 767px) {
-  .container {
-    flex-direction: column;
-    width: 85%;
-    // min-height: 100vh;
-    justify-content: center;
-
-    .toggle-container {
-      display: none ;
-    }
-  }
-
-  .form-container {
-    position: relative;
-    height: auto;
-    transition: none;
-    align-items: center;
-    justify-content: center;
-
-    form {
-
-      width: 100%;
-      padding: 20px;
-
-      h4 {
-        font-size: 24px;
-      }
-
-
-      input,
-      button {
-        font-size: 16px;
-        padding: 10px 15px;
-      }
-    }
-  }
-}}
