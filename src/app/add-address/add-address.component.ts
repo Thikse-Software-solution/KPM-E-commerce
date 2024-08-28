@@ -10,7 +10,7 @@ import { Address, AddressService } from '../services/address.service';
 export class AddAddressComponent {
   newAddress: Address = {
     name: '',
-    type: 'HOME',
+    type: 'Home',
     phone: '',
     addressLine1: '',
     addressLine2: '',

@@ -13,7 +13,7 @@
         <div class="image-container" (mousedown)="startRotation($event)" (mousemove)="rotateImage($event)"
   (mouseup)="stopRotation()" (mouseleave)="stopRotation()" (touchstart)="startRotation($event)"
   (touchmove)="rotateImage($event)" (touchend)="stopRotation()">
-        
+
           <img [src]="threeDImages[imageIndex]" alt="360 view image" id="product-image" >
         </div>
 
@@ -43,7 +43,7 @@
             </div>
             <div>
               <p class="card-text-special">
-                *{{ product.specialLine}}
+                {{ product.specialLine}}
               </p>
             </div>
             <div class="product-mrpPrize">
@@ -156,7 +156,7 @@
     </div>
   </div>
 
-  
+
 
 
 
