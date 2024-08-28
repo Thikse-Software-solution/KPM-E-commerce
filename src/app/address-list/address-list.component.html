@@ -1,24 +1,38 @@
-<div class="container">
-    <h4 class="text-center mt-4">Delivery Address</h4>
+<div class="address-block">
+  <div class="container">
 
-    <!-- Loop through the addresses and display them -->
-    <div *ngFor="let address of addresses" class="card mb-3" (click)="selectAddress(address)"
+<div class="address-cover">
+  <div class="address-title">
+    <p class="">Delivery Address</p>
+  </div>
+  <!-- Loop through the addresses and display them -->
+  <div *ngFor="let address of addresses" class="card  mb-3" (click)="selectAddress(address)"
         [class.border-primary]="address === selectedAddress">
-        <div class="card-body">
-            <h6 class="card-title">{{ address.name }}
-                <span class="badge badge-secondary">{{ address.type }}</span>
-            </h6>
-            <p class="card-text">{{ address.phone }}</p>
-            <p class="card-text">{{ address.addressLine1 }}, {{ address.addressLine2 }}</p>
-            <p class="card-text">{{ address.city }}, {{ address.state }} - {{ address.zip }}</p>
+        <div class="">
+          <div class="card-body">
+            <div class="home-badge">{{ address.type }} Delivery</div>
+            <div class="imform">
+              <p class="card-title mb-0"><span class="dark">Name :</span> {{ address.name }}
+              </p>
+              <p class="card-text mb-0"><span class="dark">Phone :</span> {{ address.phone }}</p>
+              <p class="card-text mb-0"><span class="dark">Address : </span>{{ address.addressLine1 }}, {{ address.addressLine2 }}</p>
+              <p class="card-text mb-0"><span class="dark">City :</span> {{ address.city }}</p>
+              <p class="card-text mb-0"><span class="dark">State :</span> {{ address.state }}</p>
+              <p class="card-text mb-0"><span class="dark">Post Code :</span> {{ address.zip }}</p>
+            </div>
+        </div>
         </div>
     </div>
 
     <!-- Single button to handle delivery -->
     <div class="d-flex justify-content-between mt-3" *ngIf="product || productIds.length > 0">
-        <button class="btn btn-primary" (click)="deliver()" [disabled]="!selectedAddress">
-            Deliver Here
-        </button>
-        <button class="btn btn-success" routerLink="/add-address">Add Address</button>
-    </div>
+      <button class="btn btn-primary" (click)="deliver()" [disabled]="!selectedAddress">
+          Deliver Here
+      </button>
+      <button class="btn btn-success" routerLink="/add-address">Add Address</button>
+  </div>
+</div>
+
+
+  </div>
 </div>

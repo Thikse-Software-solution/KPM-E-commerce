@@ -4,8 +4,8 @@
       <div class="card-title">
         <p class="header-1">Cart of KPM Super Shopee</p>
       </div>
-      <div class="row" *ngFor="let item of cartItems">
-        <div class="col-lg-6">
+      <div class="row" >
+        <div class="col-lg-8" *ngFor="let item of cartItems">
           <div class="">
 
             <div class="card-Overall">
@@ -43,17 +43,58 @@
                     </div>
                   </div>
                 </div>
-                 <div class>
+                 <div class="closeBlock">
                     <button class="btn btn-danger me-2 close-btn" (click)="removeFromCart(item)">x</button>
                  </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="col-lg-6">
-
+        <div class="col-lg-4">
+          <div class="card-split-right">
+            <div class="card-Overall">
+              <div class="card-cart">
+                <div class="final-checkout">
+                  <div class="home-block">
+                    Home Delivery
+                  </div>
+                  <hr>
+                  <div class="prize-total-block">
+                    <div class="subtotal-block">
+                      <div class="subtotal">
+                        <p>Subtotal :</p>
+                      </div>
+                      <div class="total-prize">
+                        <p>{{ totalAmount | currency:'INR' }}</p>
+                      </div>
+                    </div>
+                    <div class="delivery-block">
+                      <div class="delivery">
+                        <p>Delivery</p>
+                      </div>
+                      <div class="total-prize">
+                        <p>₹20</p>
+                      </div>
+                    </div>
+                    <hr class="hr-1">
+                    <div class="final-block">
+                     <div>
+                      <p class="final-total">Total : </p>
+                     </div>
+                     <div>
+                      <p class="total-inr">{{ totalAmount | currency:'INR' }}</p>
+                     </div>
+                    </div>
+                    <hr class="hr-2">
+                  </div>
+                  <div class="checkout-btn">
+                    <button class="btn" (click)="buyAll()">Checkout</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
       </div>
    </div>
 </div>
