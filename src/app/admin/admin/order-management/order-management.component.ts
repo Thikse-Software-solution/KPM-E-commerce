@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { OrderService } from '../../services/order.service';
+import { Order } from '../../services/order';
 
 @Component({
   selector: 'app-order-management',
   templateUrl: './order-management.component.html',
-  styleUrls: ['./order-management.component.css']
+  styleUrls: ['./order-management.component.scss']
 })
 export class OrderManagementComponent implements OnInit {
-  orders: any[] = [];
+  orders: Order[] = [];
 
   constructor(private orderService: OrderService) {}
 
@@ -16,26 +17,13 @@ export class OrderManagementComponent implements OnInit {
   }
 
   loadOrders(): void {
-    this.orderService['getOrders']().subscribe((data: any[]) => {
+    this.orderService.getOrders().subscribe((data) => {
       this.orders = data;
     });
   }
 
-  updateStatus(orderId: number, status: string): void {
-    this.orderService['updateOrderStatus'](orderId, status).subscribe(() => {
-      this.loadOrders();
-    });
-  }
-
-  handleReturn(orderId: number): void {
-    this.orderService['handleReturn'](orderId).subscribe(() => {
-      this.loadOrders();
-    });
-  }
-
-  handleRefund(orderId: number): void {
-    this.orderService['handleRefund'](orderId).subscribe(() => {
-      this.loadOrders();
-    });
+  updateStatus(order: Order, status: string): void {
+    order.status = status;
+    this.orderService.updateOrder(order.id, order).subscribe();
   }
 }

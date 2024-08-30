@@ -40,6 +40,13 @@ import { DiscountsOffersComponent } from './admin/admin/discounts-offers/discoun
 import { OrderManagementComponent } from './admin/admin/order-management/order-management.component';
 import { CustomerManagementComponent } from './admin/admin/customer-management/customer-management.component';
 import { ReportsAnalyticsComponent } from './admin/admin/reports-analytics/reports-analytics.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { CustomerBehaviorComponent } from './admin/admin/customer-behavior/customer-behavior.component';
+import { OutOfStockProductComponent } from './admin/admin/out-of-stock-product/out-of-stock-product.component';
+import { PendingOrderComponent } from './admin/admin/pending-order/pending-order.component';
+import { ProductListComponent } from './admin/admin/product-list/product-list.component';
+import { ShippingDetailComponent } from './admin/admin/shipping-detail/shipping-detail.component';
+import { SummaryCardComponent } from './admin/admin/summary-card/summary-card.component';
 
 
 
@@ -95,7 +102,16 @@ const routes: Routes = [
   { path: 'discounts', component: DiscountsOffersComponent },
   { path: 'order', component: OrderManagementComponent },
   { path: 'customer', component: CustomerManagementComponent },
-  { path: 'report', component: ReportsAnalyticsComponent }
+    { path: 'report', component: ReportsAnalyticsComponent },
+    { path: 'behavior', component: CustomerBehaviorComponent },
+    { path: 'outofstock', component: OutOfStockProductComponent },
+    { path: 'pendingorder', component: PendingOrderComponent },
+    { path: 'productlist', component: ProductListComponent },
+    { path: 'shippingdetail', component: ShippingDetailComponent },
+    { path: 'summarycard', component: SummaryCardComponent },
+    
+
+  
   ]
   },
 
@@ -117,7 +133,8 @@ const routes: Routes = [
   { path: 'order', component: OrderHistoryComponent },
   { path: 'user', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'image360', component: Image360ViewComponent },
-  { path: 'about', component: AboutComponent }
+  { path: 'about', component: AboutComponent },
+  { path: 'forgotpassword', component: ForgotPasswordComponent }
 
 
 ];

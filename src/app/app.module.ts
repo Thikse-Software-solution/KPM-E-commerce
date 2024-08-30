@@ -61,6 +61,13 @@ import { OrderManagementComponent } from './admin/admin/order-management/order-m
 import { OverviewComponent } from './admin/admin/overview/overview.component';
 import { ProductManagementComponent } from './admin/admin/product-management/product-management.component';
 import { ReportsAnalyticsComponent } from './admin/admin/reports-analytics/reports-analytics.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { CustomerBehaviorComponent } from './admin/admin/customer-behavior/customer-behavior.component';
+import { OutOfStockProductComponent } from './admin/admin/out-of-stock-product/out-of-stock-product.component';
+import { PendingOrderComponent } from './admin/admin/pending-order/pending-order.component';
+import { ProductListComponent } from './admin/admin/product-list/product-list.component';
+import { ShippingDetailComponent } from './admin/admin/shipping-detail/shipping-detail.component';
+import { SummaryCardComponent } from './admin/admin/summary-card/summary-card.component';
 
 
 
@@ -69,7 +76,7 @@ import { ReportsAnalyticsComponent } from './admin/admin/reports-analytics/repor
 
 
 @NgModule({
-declarations: [		
+declarations: [			
     AppComponent,
     SheshineComponent,
     NavbarComponent,
@@ -121,7 +128,14 @@ declarations: [
     OrderManagementComponent,
     OverviewComponent,
     ProductManagementComponent,
-    ReportsAnalyticsComponent
+    ReportsAnalyticsComponent,
+    ForgotPasswordComponent,
+    CustomerBehaviorComponent,
+    OutOfStockProductComponent,
+    PendingOrderComponent,
+    ProductListComponent,
+    ShippingDetailComponent,
+    SummaryCardComponent
    ],
   imports: [
     BrowserModule,

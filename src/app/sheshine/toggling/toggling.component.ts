@@ -17,4 +17,7 @@ export class TogglingComponent implements OnInit {
   toggle() {
     this.isLogin = !this.isLogin;
   }
+   onToggleLogin(event: boolean) {
+    this.isLogin = event;
+  }
 }

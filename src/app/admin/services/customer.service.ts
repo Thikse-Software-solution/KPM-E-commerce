@@ -2,40 +2,48 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
-  private apiUrl = `http://localhost:8080/api/customers`;
 
-  constructor(private http: HttpClient) {}
+  private apiUrl = `http://localhost:4200/api/admin/customers`;
 
-  getCustomers(): Observable<Customer[]> {
-    return this.http.get<Customer[]>(this.apiUrl);
+  constructor(private http: HttpClient) { }
+
+  sendOfferEmail(request: { customerId: number; offerMessage: string }): Observable<string> {
+    return this.http.post<string>(`${this.apiUrl}/send-offer-email`, request).pipe(
+    );
+    }
+
+  sendCartReminder(request: CartReminderRequest): Observable<string> {
+    return this.http.post<string>(`${this.apiUrl}/send-cart-reminder`, request);
   }
 
-  getCustomer(id: number): Observable<Customer> {
-    return this.http.get<Customer>(`${this.apiUrl}/${id}`);
+  getPendingReviews(): Observable<Review[]> {
+    return this.http.get<Review[]>(`${this.apiUrl}/reviews/pending`);
   }
 
-  deleteCustomer(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/${id}`);
-  }
-
-  updateCustomer(customer: Customer): Observable<Customer> {
-    return this.http.put<Customer>(`${this.apiUrl}/${customer.id}`, customer);
-  }
-
-  sendEmail(customerId: number, message: string): Observable<void> {
-    return this.http.post<void>(`${this.apiUrl}/${customerId}/send-email`, { message });
+  approveReview(id: number): Observable<string> {
+    return this.http.post<string>(`${this.apiUrl}/reviews/${id}/approve`, {});
   }
 }
 
-export interface Customer {
+export interface OfferEmailRequest {
+  subject: string;
+  body: string;
+  recipientEmails: string[];
+  customerId: number;
+  offerMessage: string;
+}
+
+export interface CartReminderRequest {
+  reminderMessage: string;
+  recipientEmails: string[];
+}
+
+export interface Review {
   id: number;
-  name: string;
-  email: string;
-  phone: string;
-  address: string;
+  content: string;
+  approved: boolean;
 }

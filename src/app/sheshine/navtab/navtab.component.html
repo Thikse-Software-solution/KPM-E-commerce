@@ -3,12 +3,12 @@
 
     <li>
       <a routerLink="/shine" routerLinkActive="active" class="navTab-item">
-        <img src="../../assets/images/shine-logo.svg" alt="SHINE ORGANICS" style="width: 165px;">
+        <img src="assets/images/shine-logo.svg" alt="SHINE ORGANICS" style="width: 165px;">
       </a>
     </li>
       <li>
         <a routerLink="/sheshine" routerLinkActive="active" class="navTab-item">
-          <img src="../../assets/images/sheshine-logo.svg" alt="SHESHINE">
+          <img src="assets/images/sheshine-logo.svg" alt="SHESHINE">
         </a>
       </li>
     <li>
@@ -26,20 +26,33 @@
     </span>
   </div>
   
-    <div id="login">
-      <a class="login" routerLink="/user">
-        <img height="30px" width="30px" src="../../../assets/images/navtab/person-circle.svg" alt="Login">
+  <div id="login">
+    <ng-container *ngIf="isLoggedIn(); else loginLink">
+      <!-- Show Profile Button if User is Logged In -->
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#userProfileModal">
+        <img height="30px" width="30px" src="assets/images/navtab/person-circle.svg" alt="Login">
+      </button>
+    </ng-container>
+    <!-- Login Link if User is Not Logged In -->
+    <ng-template #loginLink>
+      <a class="login" routerLink="/toggle">
+        <img height="30px" width="30px" src="assets/images/navtab/person-circle.svg" alt="Login">
       </a>
-    </div>
+    </ng-template>
+  </div>
+
     <div id="cart"  routerLink="/cart" class="cart-container">
       <a routerLink="/cart" class="cart">
-        <img height="30px" width="30px" src="../../../assets/images/navtab/cart.svg" alt="Cart">
+        <img height="30px" width="30px" src="assets/images/navtab/cart.svg" alt="Cart">
       </a>
       <span class="cart-count">{{ cartItemCount }}</span>
 
     </div>
   </div>
 </nav>
+<div *ngIf="showKpnRunner">
+  <app-kpnrunner></app-kpnrunner>
+</div>
 
-<app-kpnrunner> </app-kpnrunner>
 <router-outlet></router-outlet>
+<app-user-profile *ngIf="isLoggedIn()"></app-user-profile>

@@ -1,71 +1,217 @@
-<div class="container my-4">
-  <!-- Add/Edit Product Form -->
-  <div class="mb-5">
-    <h2 class="h4 font-weight-bold mb-3">Add/Edit Product</h2>
-    <form (ngSubmit)="onSubmit()" #productForm="ngForm">
-      <div class="form-group mb-3">
-        <label for="name" class="form-label">Product Name:</label>
-        <input type="text" id="name" [(ngModel)]="product.name" name="name" required class="form-control" />
-      </div>
-      <div class="form-group mb-3">
-        <label for="description" class="form-label">Description:</label>
-        <textarea id="description" [(ngModel)]="product.description" name="description" required
-          class="form-control"></textarea>
-      </div>
-      <div class="form-group mb-3">
-        <label for="price" class="form-label">Price:</label>
-        <input type="number" id="price" [(ngModel)]="product.price" name="price" required class="form-control" />
-      </div>
-      <div class="form-group mb-3">
-        <label for="category" class="form-label">Category:</label>
-        <input type="text" id="category" [(ngModel)]="product.category" name="category" required class="form-control" />
-      </div>
-      <div class="form-group mb-3">
-        <label for="stockQuantity" class="form-label">Stock Quantity:</label>
-        <input type="number" id="stockQuantity" [(ngModel)]="product.stockQuantity" name="stockQuantity" required
-          class="form-control" />
-      </div>
-      <div class="form-group mb-3">
-        <label for="imageUrl" class="form-label">Image URL:</label>
-        <input type="text" id="imageUrl" [(ngModel)]="product.imageUrl" name="imageUrl" class="form-control" />
-      </div>
-      <button type="submit" class="btn btn-primary">Save Product</button>
-      <button type="button" (click)="clearForm()" class="btn btn-secondary ml-2">Clear</button>
-    </form>
-  </div>
-
-  <!-- Inventory Management -->
-  <div class="mb-5">
-    <h2 class="h4 font-weight-bold mb-3">Inventory Management</h2>
-    <table class="table table-bordered">
-      <thead class="thead-light">
-        <tr>
-          <th scope="col">ID</th>
-          <th scope="col">Name</th>
-          <th scope="col">Stock Quantity</th>
-          <th scope="col">Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let product of products">
-          <td>{{ product.id }}</td>
-          <td>{{ product.name }}</td>
-          <td>{{ product.stockQuantity }}</td>
-          <td>
-            <button (click)="editProduct(product)" class="btn btn-warning btn-sm">Edit</button>
-            <button (click)="deleteProduct(product.id)" class="btn btn-danger btn-sm ml-2">Delete</button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-
-  <!-- Bulk Upload -->
-  <div>
-    <h2 class="h4 font-weight-bold mb-3">Bulk Upload</h2>
+<div class="container">
+  <h1>Product Form</h1>
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <!-- Title -->
     <div class="form-group">
-      <input type="file" (change)="onFileChange($event)" class="form-control-file mb-3" />
-      <button (click)="uploadFile()" class="btn btn-success">Upload</button>
+      <label for="title">Title</label>
+      <input type="text" id="title" formControlName="title" class="form-control" />
     </div>
+
+    <!-- Shine -->
+    <div class="form-group">
+      <label for="shine">Shine</label>
+      <input type="checkbox" id="shine" formControlName="shine" (change)="onCheckboxChange('shine')" />
+    </div>
+
+    <!-- SheShine -->
+    <div class="form-group">
+      <label for="sheShine">SheShine</label>
+      <input type="checkbox" id="sheShine" formControlName="sheShine" (change)="onCheckboxChange('sheShine')" />
+    </div>
+
+    <!-- Name -->
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" formControlName="name" class="form-control" />
+    </div>
+
+    <!-- Category -->
+    <div class="form-group" *ngIf="showCategory">
+      <label for="category">Category</label>
+      <select id="category" formControlName="category" class="form-control"
+        (change)="onCategoryChange($event)">
+        <option *ngFor="let option of categoryOptions" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+
+    <!-- SubCategory -->
+  <div class="form-group" *ngIf="showSubCategory">
+    <label for="subCategory">SubCategory</label>
+    <select id="subCategory" formControlName="subCategory" class="form-control">
+      <option *ngFor="let subOption of subCategoryOptions" [value]="subOption">{{ subOption }}</option>
+    </select>
+  </div>
+
+    <!-- Main Image -->
+    <div class="form-group">
+      <label for="mainImage">Main Image URL</label>
+      <input type="text" id="mainImage" formControlName="mainImage" class="form-control" />
+    </div>
+
+    <!-- Card Image -->
+    <div class="form-group">
+      <label for="cardImage">Card Image URL</label>
+      <input type="text" id="cardImage" formControlName="cardImage" class="form-control" />
+    </div>
+
+    <!-- Card Text -->
+    <div class="form-group">
+      <label for="cardText">Card Text</label>
+      <input type="text" id="cardText" formControlName="cardText" class="form-control" />
+    </div>
+
+    <!-- Card Title -->
+    <div class="form-group">
+      <label for="cardTitle">Card Title</label>
+      <input type="text" id="cardTitle" formControlName="cardTitle" class="form-control" />
+    </div>
+
+    <!-- Additional Images -->
+    <div class="form-group">
+      <label for="additionalImages">Additional Images (comma-separated URLs)</label>
+      <input type="text" id="additionalImages" formControlName="additionalImages" class="form-control" />
+    </div>
+
+    <!-- Thumbnail Image -->
+    <div class="form-group">
+      <label for="thumbnailImage">Thumbnail Image URL</label>
+      <input type="text" id="thumbnailImage" formControlName="thumbnailImage" class="form-control" />
+    </div>
+
+    <!-- Benefits -->
+    <div class="form-group">
+      <label for="benefits">Benefits</label>
+      <input type="text" id="benefits" formControlName="benefits" class="form-control" />
+    </div>
+
+    <!-- Suitable For -->
+    <div class="form-group">
+      <label for="suitableFor">Suitable For</label>
+      <input type="text" id="suitableFor" formControlName="suitableFor" class="form-control" />
+    </div>
+
+    <!-- Description -->
+    <div class="form-group">
+      <label for="description">Description</label>
+      <textarea id="description" formControlName="description" class="form-control"></textarea>
+    </div>
+
+    <!-- Key Benefits -->
+    <div class="form-group">
+      <label for="keyBenefits">Key Benefits</label>
+      <input type="text" id="keyBenefits" formControlName="keyBenefits" class="form-control" />
+    </div>
+
+    <!-- How To Use -->
+    <div class="form-group">
+      <label for="howToUse">How To Use</label>
+      <input type="text" id="howToUse" formControlName="howToUse" class="form-control" />
+    </div>
+
+    <!-- Ingredients -->
+    <div class="form-group">
+      <label for="ingredients">Ingredients</label>
+      <input type="text" id="ingredients" formControlName="ingredients" class="form-control" />
+    </div>
+
+    <!-- Product Size -->
+    <div class="form-group">
+      <label for="productSize">Product Size</label>
+      <input type="text" id="productSize" formControlName="productSize" class="form-control" />
+    </div>
+
+    <!-- MRP -->
+    <div class="form-group">
+      <label for="mrp">MRP</label>
+      <input type="number" id="mrp" formControlName="mrp" class="form-control" />
+    </div>
+
+    <!-- Price -->
+    <div class="form-group">
+      <label for="price">Price</label>
+      <input type="number" id="price" formControlName="price" class="form-control" />
+    </div>
+
+    <!-- Stock Quantity -->
+    <div class="form-group">
+      <label for="stockQuantity">Stock Quantity</label>
+      <input type="number" id="stockQuantity" formControlName="stockQuantity" class="form-control" />
+    </div>
+
+    <!-- Discount -->
+    <div class="form-group">
+      <label for="discount">Discount</label>
+      <input type="number" id="discount" formControlName="discount" class="form-control" />
+    </div>
+
+    <!-- 3D Images -->
+    <div class="form-group">
+      <label for="threeDImages">3D Images (comma-separated URLs)</label>
+      <input type="text" id="threeDImages" formControlName="threeDImages" class="form-control" />
+    </div>
+
+    <!-- Feature -->
+    <div class="form-group">
+      <label for="feature">Feature</label>
+      <input type="checkbox" id="feature" formControlName="feature" />
+    </div>
+
+    <!-- Trending -->
+    <div class="form-group">
+      <label for="trending">Trending</label>
+      <input type="checkbox" id="trending" formControlName="trending" />
+    </div>
+
+    <!-- Special -->
+    <div class="form-group">
+      <label for="special">Special</label>
+      <input type="checkbox" id="special" formControlName="special" />
+    </div>
+
+    <!-- Submit Button -->
+    <div class="form-group">
+      <button type="submit" [disabled]="productForm.invalid" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
+
+<div class="admin-products-container">
+  <!-- Table to display product details -->
+  <table class="admin-products-table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Name</th>
+        <th>Category</th>
+        <th>Price</th>
+        <th>Stock Quantity</th>
+        <th>MRP</th>
+        <th>Discount</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Loop through each product and display its details -->
+      <tr *ngFor="let product of products">
+        <td>
+          <img [src]="product.mainImage" alt="{{ product.name }}" class="product-table-image">
+        </td>
+        <td>{{ product.name }}</td>
+        <td>{{ product.category }}</td>
+        <td>{{ product.price | currency: 'INR':'symbol':'1.2-2' }}</td>
+        <td>{{ product.stockQuantity }}</td>
+        <td>{{ product.mrp | currency: 'INR':'symbol':'1.2-2' }}</td>
+        <td>{{ product.discount }}%</td>
+        <td>
+          <button class="edit-button" (click)="editProduct(product)">Edit</button>
+          <button class="delete-button" (click)="deleteProduct(product.id)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Fallback template when no products are available -->
+  <div class="no-products-message" *ngIf="products.length === 0">
+    <p>No products available to display.</p>
   </div>
 </div>

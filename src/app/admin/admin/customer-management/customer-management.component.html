@@ -1,39 +1,24 @@
-<div class="container mt-4">
-  <h1 class="h2 font-weight-bold mb-4">Customer Management</h1>
+<div>
+  <h2>Send Offer Email</h2>
+  <form (ngSubmit)="sendOfferEmail()">
+    <input type="text" [(ngModel)]="offerEmailRequest.subject" name="subject" placeholder="Subject" required>
+    <textarea [(ngModel)]="offerEmailRequest.body" name="body" placeholder="Body" required></textarea>
+    <input type="text" [(ngModel)]="offerEmailRequest.recipientEmails" name="recipientEmails" placeholder="Recipient Emails (comma separated)" required>
+    <button type="submit">Send Offer Email</button>
+  </form>
 
-  <!-- Customer List -->
-  <div *ngIf="customers.length">
-    <h2 class="h4 font-weight-semibold mb-3">Customer List</h2>
-    <ul class="list-group">
-      <li *ngFor="let customer of customers" class="list-group-item d-flex justify-content-between align-items-center">
-        <span>{{ customer.name }} ({{ customer.email }})</span>
-        <div>
-          <button (click)="viewCustomer(customer)" class="btn btn-primary btn-sm mr-2">View</button>
-          <button (click)="deleteCustomer(customer)" class="btn btn-danger btn-sm">Delete</button>
-        </div>
-      </li>
-    </ul>
-  </div>
+  <h2>Send Cart Reminder</h2>
+  <form (ngSubmit)="sendCartReminder()">
+    <textarea [(ngModel)]="cartReminderRequest.reminderMessage" name="reminderMessage" placeholder="Reminder Message" required></textarea>
+    <input type="text" [(ngModel)]="cartReminderRequest.recipientEmails" name="recipientEmails" placeholder="Recipient Emails (comma separated)" required>
+    <button type="submit">Send Cart Reminder</button>
+  </form>
 
-  <!-- Customer Details -->
-  <div *ngIf="selectedCustomer" class="mt-4">
-    <h2 class="h4 font-weight-semibold mb-3">Customer Details</h2>
-    <div>
-      <p><strong>Name:</strong> {{ selectedCustomer.name }}</p>
-      <p><strong>Email:</strong> {{ selectedCustomer.email }}</p>
-      <p><strong>Phone:</strong> {{ selectedCustomer.phone }}</p>
-      <p><strong>Address:</strong> {{ selectedCustomer.address }}</p>
-    </div>
-    <button (click)="updateCustomer(selectedCustomer)" class="btn btn-success mt-3">Update</button>
-  </div>
-
-  <!-- Send Email -->
-  <div class="mt-4">
-    <h2 class="h4 font-weight-semibold mb-3">Send Email</h2>
-    <div class="form-group">
-      <textarea [(ngModel)]="emailMessage" rows="4" class="form-control"></textarea>
-    </div>
-    <button (click)="sendEmail(selectedCustomer!)" class="btn btn-primary mt-3"
-      [disabled]="!selectedCustomer">Send</button>
-  </div>
+  <h2>Pending Reviews</h2>
+  <ul>
+    <li *ngFor="let review of pendingReviews">
+      {{ review.content }}
+      <button (click)="approveReview(review.id)">Approve</button>
+    </li>
+  </ul>
 </div>

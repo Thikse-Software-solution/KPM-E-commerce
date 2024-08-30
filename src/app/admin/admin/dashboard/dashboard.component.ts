@@ -6,16 +6,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent {
-
-  constructor(private router: Router) { }
-  
-   logout() {
+  constructor(private router: Router) {}
+  logout() {
     // Remove the authentication token or flag from localStorage or wherever you store it
     localStorage.removeItem('adminToken');
 
     // Redirect to the admin login page
     this.router.navigate(['/admin']);
-  }
-  
-  // Add any logic you need for your dashboard here
+  }
 }

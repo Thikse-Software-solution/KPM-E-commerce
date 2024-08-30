@@ -8,6 +8,7 @@ export interface Product {
   name: string;
   description: string;
   keybenefit: string;
+  color:string,
   size: string;
   mrp: number;
   discount: number;
@@ -30,15 +31,16 @@ export class ProductService {
   private productSubject: BehaviorSubject<Product | null> = new BehaviorSubject<Product | null>(null);
   public product$: Observable<Product | null> = this.productSubject.asObservable();
 
-  private productsUrl ='/assets/data/products.json';
-  private shineProductsUrl = '/assets/data/shineproduct.json';
+  private productsUrl ='assets/data/products.json';
+  private shineProductsUrl = 'assets/data/shineproduct.json';
 
   constructor(private http: HttpClient) {
     this.loadProduct();
   }
 
   private loadProduct() {
-    this.http.get<Product[]>(this.productsUrl).pipe(
+     this.http.get<Product[]>(this.productsUrl).pipe(
+   
       map((data: Product[]) => {
         return data[0]; // Get the first product for now
       })
@@ -58,10 +60,12 @@ export class ProductService {
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.productsUrl);
   }
+  
 
   getShineProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.shineProductsUrl);
   }
+  
 
   // Method to get products from both sources combined
   getProductsFromBothSources(): Observable<Product[]> {

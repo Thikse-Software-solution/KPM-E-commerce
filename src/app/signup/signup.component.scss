@@ -165,3 +165,18 @@
     }
         
 }
+
+
+/* signup.component.css */
+.form-container.sign-up {
+    /* Existing styles */
+
+    input[formControlName="verificationCode"] {
+            margin-top: 20px;
+        }
+    
+        button {
+            margin-top: 20px;
+        }
+}
+

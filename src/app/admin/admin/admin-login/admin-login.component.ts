@@ -40,19 +40,28 @@ export class AdminLoginComponent implements OnInit {
     this.authService.adminlogin(email, password).subscribe(
       (res) => {
             localStorage.setItem('adminToken', 'your-token-here');
-        this.toastr.success('Login successful', 'Success', { timeOut: 50000 });
+        this.toastr.success('Login successful', 'Success', );
         this.router.navigate(['/dashboard']);  // Redirect to dashboard or any other route after successful login
       },
       (error) => {
-        this.toastr.error('Invalid credentials', 'Error', { timeOut: 50000 });
+        this.toastr.error('Invalid credentials', 'Error', );
       }
     );
   }
-
-
-  
-
-
-
-
 }
+// import { Component, OnInit } from '@angular/core';
+// import { IdleService } from './idle.service';
+
+// @Component({
+//   selector: 'app-admin',
+//   templateUrl: './admin.component.html',
+//   styleUrls: ['./admin.component.scss']
+// })
+// export class AdminComponent implements OnInit {
+
+//   constructor(private idleService: IdleService) { }
+
+//   ngOnInit(): void {
+//     // IdleService handles its own initialization
+//   }
+// }
