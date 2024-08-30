@@ -5,12 +5,21 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class AnalyticsReportService {
-  private baseUrl = 'http://localhost:8080/api/analytics/report';
+export class ReportsService {
+
+  private baseUrl = 'http://localhost:8080/api/reports'
 
   constructor(private http: HttpClient) { }
 
-  getAnalyticsReport(): Observable<any> {
-    return this.http.get<any>(this.baseUrl);
+  getSalesReports(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/sales-reports`);
+  }
+
+  getCustomerBehavior(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/customer-behavior`);
+  }
+
+  getInventoryReports(): Observable<any[]> {
+    return this.http.get<any[]>(`${this.baseUrl}/inventory-reports`);
   }
 }

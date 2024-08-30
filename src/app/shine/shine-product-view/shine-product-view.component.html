@@ -10,12 +10,12 @@
               [class.text-danger]="isFavorite" (click)="toggleFavorite(product)">
             </i>
           </div>
-        <div class="image-container" (mousedown)="startRotation($event)" (mousemove)="rotateImage($event)"
+        <!-- <div class="image-container" (mousedown)="startRotation($event)" (mousemove)="rotateImage($event)"
   (mouseup)="stopRotation()" (mouseleave)="stopRotation()" (touchstart)="startRotation($event)"
   (touchmove)="rotateImage($event)" (touchend)="stopRotation()">
 
           <img [src]="threeDImages[imageIndex]" alt="360 view image" id="product-image" >
-        </div>
+        </div> -->
 
           <div class="option d-flex justify-content-center mt-3" [ngClass]="{'mobile-scroll': isMobileView()}">
             <img *ngFor="let image of product.images.slice(0, 6)" [src]="image" alt="" class="img-thumbnail"
