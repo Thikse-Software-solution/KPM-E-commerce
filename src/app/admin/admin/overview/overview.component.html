@@ -1,33 +1,14 @@
-<!-- overview.component.html -->
-<div class="container my-4">
-  <h1 class="display-4 text-center mb-5">Dashboard Overview</h1>
+<div class="overview-container">
+  <div class="statistics-row">
+    <app-summary-card title="Total Income" [value]="totalIncome | currency"></app-summary-card>
+    <app-summary-card title="Total Products" [value]="totalProducts"></app-summary-card>
+    <app-summary-card title="New Customers" [value]="newCustomers"></app-summary-card>
+    <app-summary-card title="Trending Products" [value]="trendingProducts"></app-summary-card>
+  </div>
 
-  <div class="row text-center">
-    <div class="col-md-4 mb-4">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h2 class="card-title">Total Products</h2>
-          <p class="card-text h3">{{ overviewData?.totalProducts }}</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-4">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h2 class="card-title">Total Orders</h2>
-          <p class="card-text h3">{{ overviewData?.totalOrders }}</p>
-        </div>
-      </div>
-    </div>
-
-    <div class="col-md-4 mb-4">
-      <div class="card shadow-sm">
-        <div class="card-body">
-          <h2 class="card-title">Total Customers</h2>
-          <p class="card-text h3">{{ overviewData?.totalCustomers }}</p>
-        </div>
-      </div>
-    </div>
+  <div class="product-sections">
+    <app-product-list title="Low Stock Products" [products]="lowStockProducts"></app-product-list>
+    <app-product-list title="Offer Products" [products]="offerProducts"></app-product-list>
+    <app-product-list title="Trending Products This Week" [products]="trendingProductsThisWeek"></app-product-list>
   </div>
 </div>

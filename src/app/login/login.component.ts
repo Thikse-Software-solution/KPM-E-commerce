@@ -11,7 +11,8 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
-
+email: string = '';
+  password: string = '';
   loginForm: FormGroup;
   @Input() isLogin!: boolean;
 
@@ -28,21 +29,49 @@ export class LoginComponent {
     });
   }
 
-  onSubmit() {
+  onSubmit(): void {
     if (this.loginForm.valid) {
-        this.router.navigate(['/profile']);
-      this.http.post('http://localhost:8080/api/auth/login', this.loginForm.value)
-        .subscribe({
-          
-          next: response => {
-            // Handle successful response
-          },
-          error: error => {
-            console.error('Login error:', error);
-          }
-        });
+      const { email, password } = this.loginForm.value;
+      this.authService.login(email, password).subscribe({
+        next: (user) => {
+          console.log('Login successful:', user);
+          // Handle successful login (e.g., redirect to dashboard)
+          localStorage.setItem('user', JSON.stringify(user));
+          this.router.navigate(['/shine/shinehome']);
+        },
+        error: (error) => {
+          console.error('Login error:', error);
+          // Handle error (e.g., show an error message to the user)
+        }
+      });
     }
+    
+
+    
+    
+//  const credentials = { email: this.email, password: this.password };
+
+//     this.authService.login(credentials).subscribe(
+//       (userDetails) => {
+//         // Store user details in localStorage
+//         localStorage.setItem('user', JSON.stringify(userDetails));
+//         // Navigate to the profile page or dashboard
+//         this.router.navigate(['/profile']);
+//       },
+//       error => {
+//         console.error('Login error:', error);
+//         // Handle login error (show error message, etc.)
+//       }
+//     );
   }
+
+
+
+
+
+
+
+  
 
 //   const { email, password } = this.loginForm.value;
 //   console.log('Form Values:', { email, password }); // Debug line

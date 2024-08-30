@@ -27,7 +27,7 @@ export interface Product {
 })
 export class ShineProductService {
 
-  private baseUrl: string = '/assets/data/shineproduct.json'; // Path to your JSON file
+  private baseUrl: string = 'assets/data/shineproduct.json'; // Path to your JSON file
 
   constructor(private http: HttpClient) {}
 

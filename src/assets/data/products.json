@@ -5,16 +5,16 @@
     "trend":true,
     "feature":true,
     "special":true,
-   "mainimage": "../../assets/images/sheshineproduct/jewellary/ring.jpg",
+   "mainimage": "assets/images/sheshineproduct/jewellary/ring.jpg",
    "images": [
-    "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg"
+    "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg"
   ],
-   "thumbnail": "../../assets/images/sheshineproduct/jewellary/ring.jpg",
+   "thumbnail": "assets/images/sheshineproduct/jewellary/ring.jpg",
 
 
    "title": "Necklace",
@@ -37,16 +37,16 @@
     "trend":true,
     "feature":true,
     "special":true,
-    "mainimage": "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
+    "mainimage": "assets/images/sheshineproduct/jewellary/necklace.jpg",
     "images": [
-    "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg"
+    "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg"
   ],
-   "thumbnail": "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "thumbnail": "assets/images/sheshineproduct/jewellary/necklace.jpg",
    "title": "Earrings",
    "name": "Earrings",
   "suitable ":"Perfect for all occasions, from casual outings to formal events, depending on the design.",
@@ -68,16 +68,16 @@
     "feature":true,
     "special":true,
 
-    "mainimage": "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
+    "mainimage": "assets/images/sheshineproduct/jewellary/necklace1.jpg",
     "images": [
-    "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg"
+    "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg"
   ],
-   "thumbnail": "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "thumbnail": "assets/images/sheshineproduct/jewellary/necklace1.jpg",
    "title": "Bracelet",
    "name": "Bracelet",
     "suitable ":"Ideal for adding elegance to both casual and formal outfits.",
@@ -98,16 +98,16 @@
     "trend":true,
     "feature":true,
     "special":true,
-    "mainimage": "../../assets/images/sheshineproduct/jewellary/ring.jpg",
+    "mainimage": "assets/images/sheshineproduct/jewellary/ring.jpg",
     "images": [
-    "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg"
+    "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg"
   ],
-   "thumbnail": "../../assets/images/sheshineproduct/jewellary/ring.jpg",
+   "thumbnail": "assets/images/sheshineproduct/jewellary/ring.jpg",
    "title": "Ring",
    "name": "Ring",
     "suitable ":"Suitable for daily wear, engagements, weddings, or as a fashion statement.",
@@ -128,16 +128,16 @@
     "trend":false,
     "feature":true,
     "special":true,
-    "mainimage": "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
+    "mainimage": "assets/images/sheshineproduct/jewellary/necklace.jpg",
     "images": [
-    "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg"
+    "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg"
   ],
-   "thumbnail": "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "thumbnail": "assets/images/sheshineproduct/jewellary/necklace.jpg",
    "title": "Bangle",
    "name": "Bangle",
     "suitable ":"Best for traditional outfits, festive occasions, or stacking for a trendy look.",
@@ -156,16 +156,16 @@
 
      "category": "Pendant",
    "id": 6,
-   "mainimage": "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "mainimage": "assets/images/sheshineproduct/jewellary/necklace1.jpg",
    "images": [
-    "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg"
+    "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg"
   ],
-   "thumbnail": "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "thumbnail": "assets/images/sheshineproduct/jewellary/necklace1.jpg",
    "title": "Pendant",
    "name": "Pendant",
     "suitable ":"Suitable for personalizing your necklace, making it great for everyday wear or gifts.",
@@ -185,16 +185,16 @@
 
      "category": "Brooch",
    "id": 7,
-    "mainimage": "../../assets/images/sheshineproduct/jewellary/ring.jpg",
+    "mainimage": "assets/images/sheshineproduct/jewellary/ring.jpg",
     "images": [
-    "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg"
+    "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg"
   ],
-   "thumbnail": "../../assets/images/sheshineproduct/jewellary/ring.jpg",
+   "thumbnail": "assets/images/sheshineproduct/jewellary/ring.jpg",
    "title": "Brooch",
    "name": "Brooch",
     "suitable ":"Perfect for adding a touch of sophistication to formal attire or securing a scarf or shawl.",
@@ -213,16 +213,16 @@
 
    "category": "Anklet",
    "id": 8,
-   "mainimage": "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "mainimage": "assets/images/sheshineproduct/jewellary/necklace.jpg",
    "images": [
-    "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg"
+    "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg"
   ],
-  "thumbnail": "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
+  "thumbnail": "assets/images/sheshineproduct/jewellary/necklace.jpg",
    "title": "Anklet",
    "name": "Anklet",
     "suitable ":"Suitable for casual and beachwear, adding a playful touch to your look.",
@@ -240,16 +240,16 @@
   {
      "category": "Cufflinks",
    "id": 9,
-   "mainimage": "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "mainimage": "assets/images/sheshineproduct/jewellary/necklace1.jpg",
    "images": [
-    "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg"
+    "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg"
   ],
-   "thumbnail": "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "thumbnail": "assets/images/sheshineproduct/jewellary/necklace1.jpg",
    "title": "Cufflinks",
    "name": "Cufflinks",
    "suitable ":"Ideal for formal occasions, business meetings, or any event requiring a dress shirt.",
@@ -267,16 +267,16 @@
   {
      "category": "Tiara",
    "id": 10,
-   "mainimage": "../../assets/images/sheshineproduct/jewellary/ring.jpg",
+   "mainimage": "assets/images/sheshineproduct/jewellary/ring.jpg",
    "images": [
-    "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg"
+    "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg"
   ],
-   "thumbnail": "../../assets/images/sheshineproduct/jewellary/ring.jpg",
+   "thumbnail": "assets/images/sheshineproduct/jewellary/ring.jpg",
    "title": "Tiara",
    "name": "Tiara",
    "suitable ":"Dry, chapped & pigmented lips",
@@ -294,16 +294,16 @@
   {
      "category": "Choker",
    "id": 11,
-   "mainimage": "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "mainimage": "assets/images/sheshineproduct/jewellary/necklace.jpg",
    "images": [
-    "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg"
+    "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg"
   ],
-   "thumbnail": "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "thumbnail": "assets/images/sheshineproduct/jewellary/necklace.jpg",
    "title": "Choker",
    "name": "Choker",
    "benefit":"A close-fitting necklace worn around the neck, often made of fabric, metal, or leather.",
@@ -321,16 +321,16 @@
   {
      "category": "Charm Bracelet",
    "id": 12,
-   "mainimage": "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "mainimage": "assets/images/sheshineproduct/jewellary/necklace1.jpg",
    "images": [
-    "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg"
+    "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg"
   ],
-   "thumbnail": "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "thumbnail": "assets/images/sheshineproduct/jewellary/necklace1.jpg",
    "title": "Charm Bracelet",
    "name": "Charm Bracelet",
    "benefit":"A bracelet featuring small trinkets or charms that represent personal memories or interests.",
@@ -348,16 +348,16 @@
   {
      "category": "Cameo",
    "id": 13,
-    "mainimage": "../../assets/images/sheshineproduct/jewellary/ring.jpg",
+    "mainimage": "assets/images/sheshineproduct/jewellary/ring.jpg",
     "images": [
-    "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg"
+    "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg"
   ],
-   "thumbnail": "../../assets/images/sheshineproduct/jewellary/ring.jpg",
+   "thumbnail": "assets/images/sheshineproduct/jewellary/ring.jpg",
    "title": "Cameo",
    "name": "Cameo",
    "benefit":"A piece of jewelry featuring a raised relief image, typically carved from materials like shell or stone.",
@@ -375,16 +375,16 @@
  {
    "category": "Locket",
    "id": 14,
-   "mainimage": "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "mainimage": "assets/images/sheshineproduct/jewellary/necklace.jpg",
    "images": [
-    "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg"
+    "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg"
   ],
-   "thumbnail": "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "thumbnail": "assets/images/sheshineproduct/jewellary/necklace.jpg",
 
    "title": "Locket",
    "name": "Locket",
@@ -403,16 +403,16 @@
   {
      "category": "Toe Ring",
    "id": 15,
-   "mainimage": "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "mainimage": "assets/images/sheshineproduct/jewellary/necklace1.jpg",
    "images": [
-    "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg"
+    "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg"
   ],
-   "thumbnail": "../../assets/images/jellary/4a.jpg",
+   "thumbnail": "assets/images/jellary/4a.jpg",
 
    "title": "Toe Ring",
    "name":"Toe Ring",
@@ -431,16 +431,16 @@
  {
   "category": "Toe Ring",
    "id": 15,
-   "mainimage": "../../assets/images/sheshineproduct/jewellary/ring.jpg",
+   "mainimage": "assets/images/sheshineproduct/jewellary/ring.jpg",
    "images": [
-    "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg",
-   "../../assets/images/sheshineproduct/jewellary/ring.jpg"
+    "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg",
+   "assets/images/sheshineproduct/jewellary/ring.jpg"
   ],
-   "thumbnail": "../../assets/images/sheshineproduct/jewellary/ring.jpg",
+   "thumbnail": "assets/images/sheshineproduct/jewellary/ring.jpg",
    "title": "Toe Ring",
    "name":"Toe Ring",
    "benefit":"A small ring worn on one of the toes, often seen in bohemian or beach fashion.",
@@ -456,16 +456,16 @@
  {
   "category": "Toe Ring",
    "id": 16,
-   "mainimage": "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "mainimage": "assets/images/sheshineproduct/jewellary/necklace.jpg",
    "images": [
-    "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace.jpg"
+    "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace.jpg"
   ],
-   "thumbnail": "../../assets/images/sheshineproduct/jewellary/necklace.jpg",
+   "thumbnail": "assets/images/sheshineproduct/jewellary/necklace.jpg",
    "title": "Toe Ring",
    "name":"Toe Ring",
    "benefit":"A small ring worn on one of the toes, often seen in bohemian or beach fashion.",
@@ -481,16 +481,16 @@
  {
   "category": "Toe Ring",
    "id": 17,
-   "mainimage": "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "mainimage": "assets/images/sheshineproduct/jewellary/necklace1.jpg",
    "images": [
-    "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
-   "../../assets/images/sheshineproduct/jewellary/necklace1.jpg"
+    "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "assets/images/sheshineproduct/jewellary/necklace1.jpg"
   ],
-   "thumbnail": "../../assets/images/sheshineproduct/jewellary/necklace1.jpg",
+   "thumbnail": "assets/images/sheshineproduct/jewellary/necklace1.jpg",
    "title": "Toe Ring",
    "name":"Toe Ring",
    "benefit":"A small ring worn on one of the toes, often seen in bohemian or beach fashion.",

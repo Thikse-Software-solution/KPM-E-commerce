@@ -1,42 +1,31 @@
-<div class="container my-4 p-4 bg-light rounded shadow-md">
-  <h1 class="h2 font-weight-bold text-dark mb-4">Reports and Analytics</h1>
+<div *ngIf="report">
+  <h2>Analytics Report</h2>
 
-  <section class="mb-4 p-4 bg-white rounded shadow-sm">
-    <h2 class="h5 font-weight-semibold text-secondary mb-3">Sales Reports</h2>
-    <ul class="list-unstyled pl-3">
-      <li *ngFor="let report of salesReports" class="mb-2 text-muted">
-        <strong>Date:</strong> {{ report.date }} -
-        <strong>Total Sales:</strong> {{ report.totalSales }}
-      </li>
-    </ul>
-    <button class="btn btn-primary">
-      View More
-    </button>
-  </section>
+  <div class="section">
+    <h3>Customer Behavior</h3>
+    <p><strong>Name:</strong> {{ report.customerBehavior.name }}</p>
+    <p><strong>Email:</strong> {{ report.customerBehavior.email }}</p>
+    <!-- Display other fields as needed -->
+  </div>
 
-  <section class="mb-4 p-4 bg-white rounded shadow-sm">
-    <h2 class="h5 font-weight-semibold text-secondary mb-3">Customer Behavior Analytics</h2>
-    <ul class="list-unstyled pl-3">
-      <li *ngFor="let behavior of customerBehavior" class="mb-2 text-muted">
-        <strong>Customer ID:</strong> {{ behavior.customerId }} -
-        <strong>Behavior:</strong> {{ behavior.behavior }}
-      </li>
-    </ul>
-    <button class="btn btn-primary">
-      View More
-    </button>
-  </section>
+  <div class="section">
+    <h3>Shipping Details</h3>
+    <p><strong>Shipping Address:</strong> {{ report.shippingDetail.shippingAddress }}</p>
+    <p><strong>Shipping Method:</strong> {{ report.shippingDetail.shippingMethod }}</p>
+    <!-- Display other fields as needed -->
+  </div>
 
-  <section class="p-4 bg-white rounded shadow-sm">
-    <h2 class="h5 font-weight-semibold text-secondary mb-3">Inventory Reports</h2>
-    <ul class="list-unstyled pl-3">
-      <li *ngFor="let report of inventoryReports" class="mb-2 text-muted">
-        <strong>Product ID:</strong> {{ report.productId }} -
-        <strong>Stock Quantity:</strong> {{ report.stockQuantity }}
-      </li>
-    </ul>
-    <button class="btn btn-primary">
-      View More
-    </button>
-  </section>
+  <div class="section">
+    <h3>Pending Orders</h3>
+    <p><strong>Order Date:</strong> {{ report.pendingOrder.orderDate }}</p>
+    <p><strong>Total Amount:</strong> {{ report.pendingOrder.totalAmount }}</p>
+    <!-- Display other fields as needed -->
+  </div>
+
+  <div class="section">
+    <h3>Out of Stock Products</h3>
+    <p><strong>Product Name:</strong> {{ report.outOfStockProduct.productName }}</p>
+    <p><strong>Category:</strong> {{ report.outOfStockProduct.category }}</p>
+    <!-- Display other fields as needed -->
+  </div>
 </div>

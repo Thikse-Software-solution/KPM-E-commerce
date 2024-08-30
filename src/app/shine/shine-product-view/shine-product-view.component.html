@@ -21,6 +21,17 @@
             <img *ngFor="let image of product.images.slice(0, 6)" [src]="image" alt="" class="img-thumbnail"
               (click)="changeImage(image)" />
           </div>
+
+
+          <div *ngIf="threeDImages?.length" class="image-container" (mousedown)="startRotation($event)"
+            (mousemove)="rotateImage($event)" (mouseup)="stopRotation()" (mouseleave)="stopRotation()"
+            (touchstart)="startRotation($event)" (touchmove)="rotateImage($event)" (touchend)="stopRotation()">
+          
+            <img [src]="threeDImages[imageIndex]" alt="360 view image" id="product-image">
+          </div>
+
+
+
         </div>
         <div class="col-md-6 product-details">
           <div class="details-content">
@@ -40,6 +51,9 @@
               <p class="card-text">
                 <span>Suitable for : </span>{{ product.suitable }}
               </p>
+<p *ngIf="product.subcategory === 'Lipstick'" class="card-text">
+  <span>Color: </span>{{ product.color }}
+</p>
             </div>
             <div>
               <p class="card-text-special">
@@ -135,7 +149,7 @@
 </section>
 
 <!-- product ingredients -->
-<div class="container-fluid py-5 text-center">
+<div *ngIf="duplicatedCards && duplicatedCards.length > 0" class="container-fluid py-5 text-center">
   <div class="row justify-content-center">
     <div class="col-7 justify-content-center position-relative">
       <h2 class="display-4">Our go-to starting point? Asking Why!</h2>
@@ -156,7 +170,7 @@
     </div>
   </div>
 
-
+  
 
 
 

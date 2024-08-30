@@ -11,13 +11,15 @@ import {ActivatedRoute } from '@angular/router';
   styleUrl: './navtab.component.scss'
 })
 export class NavtabComponent {
-searchQuery: string = '';
+  searchQuery: string = '';
   cartItemCount: number = 0;
-  
-  constructor(private router: Router, private route: ActivatedRoute,private cartService: CartService,private sharedService: SharedService) { }
+  showNavbar: boolean = true;
+  showKpnRunner: boolean = true;
+
+  constructor(private router: Router, private route: ActivatedRoute, private cartService: CartService, private sharedService: SharedService) {
+  }
   
 
-  showNavbar: boolean = true;
 
 
 
@@ -58,15 +60,35 @@ searchQuery: string = '';
 
 
 
-   ngOnInit(): void {
+    ngOnInit(): void {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        const hiddenRoutes = ['/address', '/payment','/cart','/login','/signup','/toggle'];
+        // Toggle visibility of navbar and kpnrunner based on route
+        const hiddenRoutes = ['/address', '/payment', '/cart', '/login', '/signup', '/toggle'];
         this.showNavbar = !hiddenRoutes.some(route => event.url.includes(route));
+        this.showKpnRunner = !event.url.includes('/toggle');
       }
     });
-     this.cartService.cartItems$.subscribe((items) => {
+
+    this.cartService.cartItems$.subscribe((items) => {
       this.cartItemCount = items.length;
     });
   }
+
+
+  // closeNavbar() {
+  //   const navbarCollapse = document.getElementById('navbarNav');
+  //   if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+  //     navbarCollapse.classList.remove('show');
+  //   }
+  // }
+  
+  
+
+  isLoggedIn(): boolean {
+    const user = localStorage.getItem('user');
+    return !!user; // Returns true if user data exists in localStorage, otherwise false
+  }
+ 
+
 }

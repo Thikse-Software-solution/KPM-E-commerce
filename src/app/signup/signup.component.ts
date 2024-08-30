@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import {  Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -8,26 +9,46 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
+  @Input() isLogin!: boolean;
+  @Output() toggleLogin = new EventEmitter<boolean>(); // Event to notify parent component
+  signupForm!: FormGroup;
+  isEmailVerificationStep: boolean = false;
 
-  signupForm: FormGroup;
+  constructor(
+    private fb: FormBuilder,
+    private signupService: AuthService,
+    private router: Router
+  ) {}
 
-  constructor(private fb: FormBuilder) {
+  ngOnInit(): void {
     this.signupForm = this.fb.group({
       name: ['', Validators.required],
-      number: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      verificationCode: ['']  // Field for OTP verification
     });
   }
 
-  ngOnInit(): void { }
-
-  onSubmit(): void {
+  onSubmit() {
     if (this.signupForm.valid) {
-      console.log('Form Submitted', this.signupForm.value);
-    } else {
-      console.log('Form is invalid');
+      this.signupService.signup(this.signupForm.value).subscribe(
+        response => {
+          console.log('Signup successful', response);
+          this.isEmailVerificationStep = true; // Move to email verification step
+        },
+        error => {
+          console.error('Signup failed', error);
+          // Handle error response
+        }
+      );
     }
   }
-    @Input() isLogin!: boolean;
+
+  verifyEmail() {
+    if (this.signupForm.get('verificationCode')?.valid) {
+      // Add logic to verify email with OTP
+      alert('Email verified successfully');
+      this.toggleLogin.emit(true); // Emit the event to switch to login
+    }
+  }
 }
