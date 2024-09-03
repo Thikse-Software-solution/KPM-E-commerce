@@ -48,6 +48,33 @@
       font-size: 16px;
     }
 }
+@media (max-width: 500px){
+
+    .testmonial-block{
+      .testmonial-sub{
+        .testmonial-main{
+          row-gap: 5px;
+          margin-bottom: 10px;
+          padding-bottom: 10px;
+          .testmonial-title{
+            row-gap: 5px;
+            .testmonial-head{
+              font-size: 16px;
+            }
+            .testmonial-desc{
+              font-size: 14px !important;
+              }
+            }
+          }
+      }
+      .testmonial-round{
+        img{
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+  }
 
 @media (max-width: 769px){
   .testmonial-sub{

@@ -11,7 +11,7 @@
     .explain-header{
       letter-spacing: 0;
       text-transform: none;
-      font-family: Lora-Regular;
+      font-family: Lora, serif !important;
       font-size: 45px;
       line-height: 55px;
       text-align: center;
@@ -78,6 +78,46 @@
     }
   }
 }
+
+
+@media (max-width:500px){
+  .explain-block{
+    .explain-main{
+      padding: 20px 0;
+      .explain-wrap{
+        p{
+          font-size: 16px;
+          letter-spacing: 1;
+        }
+        .explain-header{
+          font-size: 20px;
+          line-height: 1.5;
+          margin-bottom: 10px;
+        }
+      }
+    }
+    .explain-formBlock{
+      .explain-position{
+        .explain-card{
+          .explain-head{
+            .header{
+              font-size: 18px;
+              margin-bottom: 5px;
+            }
+          }
+          .explain-desc{
+            font-size: 14px;
+          }
+        }
+      }
+      .explain-img{
+        width:80px;
+        height:80px;
+      }
+    }
+
+    }
+  }
 
 
 @media (min-width: 1400px)

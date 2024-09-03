@@ -105,7 +105,58 @@
     outline: unset;
     border: 1px solid;
 }
-
+@media (max-width:500px){
+  .product-overview-Block{
+    .col-sm-6{
+      flex: 0 0 auto;
+      width: 50%;
+    }
+    .card{
+      .product-rating{
+        span{
+            font-size: 14px;
+          }
+        }
+    //     .benefit-reg{
+    //       display: none;
+    //     }
+    //     .card-text{
+    //       display: none;
+    //     }
+    //     .card-price{
+    //       display: none;
+    //     }
+    //     .pick-btn{
+    //       display: none;
+    //     }
+    }
+  }
+}
+@media (max-width:400px){
+  .product-overview-Block{
+    .col-sm-6{
+      flex: 0 0 auto;
+      width: 50%;
+    }
+    .card{
+      .product-rating{
+        display: none;
+        }
+        .benefit-reg{
+          display: none;
+        }
+        .card-text{
+          display: none;
+        }
+        .card-price{
+          display: none;
+        }
+        .pick-btn{
+          display: none;
+        }
+    }
+  }
+}
 
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {

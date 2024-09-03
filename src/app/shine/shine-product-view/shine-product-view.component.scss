@@ -406,7 +406,7 @@ button {
 
 .over-allreview-update
 {
-  
+
 }
 
 
@@ -466,13 +466,13 @@ background-color: red;
   overflow: hidden;
   width: 100%;
   position: relative;
- 
+
 }
 
 .carousel-wrapper {
   display: flex;
   transition: transform 0.5s ease-in-out;
- 
+
 }
 
 .carousel-card {
@@ -615,7 +615,19 @@ background-color: red;
 
 
 
-
+.similar-head{
+  p{
+    letter-spacing: 0;
+    text-transform: none;
+    font-family: Lora, serif !important;
+    font-size: 40px;
+    line-height: 55px;
+    text-align: center;
+    font-weight: 400;
+    color: #000;
+    margin-bottom: 20px;
+  }
+}
 
 
 

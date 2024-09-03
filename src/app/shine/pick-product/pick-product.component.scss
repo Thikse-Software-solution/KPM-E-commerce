@@ -1,5 +1,5 @@
 .pick-product{
-  background-color:#f4eee6;
+  background-color:#f4eee652;
   padding: 20px 0;
 }
 .pickProduct-overview-Block {
@@ -186,6 +186,86 @@
       }
   }
 }
+
+@media (max-width:500px){
+  .pick-product{
+    .container-fluid{
+      padding: 0;
+    }
+  }
+  .pickProduct-overview-Block{
+    .trending-main{
+      .header-3{
+        font-size: 20px;
+        padding: 10px;
+      }
+    }
+    .card{
+      .product-rating{
+      span{
+        font-size: 14px;
+      }
+      }
+      // .benefit-reg{
+      //   display: none;
+      // }
+      // .card-text{
+      //   display: none;
+      // }
+      // .card-price{
+      //   display: none;
+      // }
+      // .pick-btn{
+      //   display: none;
+      // }
+    }
+  }
+  .col-sm-6 {
+    flex: 0 0 auto;
+    width: 50%;
+}
+
+}
+
+@media (max-width:400px){
+  .pick-product{
+    .container-fluid{
+      padding: 0;
+    }
+  }
+  .pickProduct-overview-Block{
+    .trending-main{
+      .header-3{
+        font-size: 20px;
+        padding: 10px;
+      }
+    }
+    .card{
+      .product-rating{
+      display: none;
+      }
+      .benefit-reg{
+        display: none;
+      }
+      .card-text{
+        display: none;
+      }
+      .card-price{
+        display: none;
+      }
+      .pick-btn{
+        display: none;
+      }
+    }
+  }
+  .col-sm-6 {
+    flex: 0 0 auto;
+    width: 50%;
+}
+
+}
+
+
 
 .pickView-btn{
   background: rgb(244, 245, 247);
