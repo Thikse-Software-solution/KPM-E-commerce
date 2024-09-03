@@ -96,6 +96,13 @@
   border: 1px solid;
 }
 
+@media (max-width:500px){
+  .col-sm-6 {
+    flex: 0 0 auto;
+    width: 50%;
+}
+}
+
 
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {

@@ -26,7 +26,7 @@
           <div *ngIf="threeDImages?.length" class="image-container" (mousedown)="startRotation($event)"
             (mousemove)="rotateImage($event)" (mouseup)="stopRotation()" (mouseleave)="stopRotation()"
             (touchstart)="startRotation($event)" (touchmove)="rotateImage($event)" (touchend)="stopRotation()">
-          
+
             <img [src]="threeDImages[imageIndex]" alt="360 view image" id="product-image">
           </div>
 
@@ -170,7 +170,7 @@
     </div>
   </div>
 
-  
+
 
 
 
@@ -190,6 +190,9 @@
 
 <!-- similier product  -->
 <div class="container mt-5 product-overview-Block">
+  <div class="similar-head">
+    <p>Similar Products</p>
+  </div>
   <div class="row">
 <div class="col-lg-3 col-sm-6 col-md-6 mb-4" *ngFor="let subcategoryProduct of subcategoryProducts">
   <div class="card">
