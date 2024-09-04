@@ -1,51 +1,65 @@
 <div class="container-fluid">
-   <div class="container">
+  <div class="container">
     <div class="card-block">
       <div class="card-title">
         <p class="header-1">Cart of KPM Super Shopee</p>
       </div>
-      <div class="row" >
+      <div class="row">
         <div class="col-lg-8" *ngFor="let item of cartItems">
           <div class="">
-
             <div class="card-Overall">
               <div class="card-cart">
                 <div class="card-split">
                   <div class="card-left">
                     <div class="catdProduct-img">
-                      <img [src]="item.thumbnail" class="img-fluid rounded-start w-100" alt="Product Image">
+                      <img
+                        [src]="item.thumbnail"
+                        class="img-fluid rounded-start w-100"
+                        alt="Product Image"
+                      />
                     </div>
                   </div>
                   <div class="card-right">
                     <div class="card-productBlock">
                       <div class="card-product">
                         <p class="card-title">{{ item.name }}</p>
-                        <p class="card-text"><span>Suitable for : </span>{{ item.suitable }}</p>
+                        <p class="card-text">
+                          <span>Suitable for : </span>{{ item.suitable }}
+                        </p>
                       </div>
                       <div class="overall-desc">
                         <div class="spc-quality">
                           <p><span>Qulity : </span> {{ item.quantity }}</p>
                         </div>
                         <div class="Block">
-                          <span class="home-badge">
-                            Home Delivery
-                          </span>
+                          <span class="home-badge"> Home Delivery </span>
                         </div>
                         <div class="mrp-block">
-                          <p class="mrp-style">MRP : <span> {{ item.mrp| currency:'INR' }} </span></p>
+                          <p class="mrp-style">
+                            MRP :
+                            <span> {{ item.mrp | currency : "INR" }} </span>
+                          </p>
                         </div>
                       </div>
                       <div class="card-border-down">
                         <div class="text-center">
-                          <p class="card-text"><span>Special Price : </span> {{ item.price | currency:'INR' }}</p>
+                          <p class="card-text">
+                            <span>Special Price : </span>
+                            {{ item.price | currency : "INR" }}
+                          </p>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                 <div class="closeBlock">
-                    <button class="btn btn-danger me-2 close-btn" (click)="removeFromCart(item)">x</button>
-                 </div>
+                <div class="closeBlock">
+                  <button
+                    class="btn btn-danger me-2 close-btn"
+                    (click)="removeFromCart(item)"
+                  >
+                    x
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -55,17 +69,15 @@
             <div class="card-Overall">
               <div class="card-cart">
                 <div class="final-checkout">
-                  <div class="home-block">
-                    Home Delivery
-                  </div>
-                  <hr>
+                  <div class="home-block">Home Delivery</div>
+                  <hr />
                   <div class="prize-total-block">
                     <div class="subtotal-block">
                       <div class="subtotal">
                         <p>Subtotal :</p>
                       </div>
                       <div class="total-prize">
-                        <p>{{ totalAmount | currency:'INR' }}</p>
+                        <p>{{ totalAmount | currency : "INR" }}</p>
                       </div>
                     </div>
                     <div class="delivery-block">
@@ -76,16 +88,18 @@
                         <p>₹20</p>
                       </div>
                     </div>
-                    <hr class="hr-1">
+                    <hr class="hr-1" />
                     <div class="final-block">
-                     <div>
-                      <p class="final-total">Total : </p>
-                     </div>
-                     <div>
-                      <p class="total-inr">{{ totalAmount | currency:'INR' }}</p>
-                     </div>
+                      <div>
+                        <p class="final-total">Total :</p>
+                      </div>
+                      <div>
+                        <p class="total-inr">
+                          {{ totalAmount | currency : "INR" }}
+                        </p>
+                      </div>
                     </div>
-                    <hr class="hr-2">
+                    <hr class="hr-2" />
                   </div>
                   <div class="checkout-btn">
                     <button class="btn" (click)="buyAll()">Checkout</button>
@@ -96,9 +110,9 @@
           </div>
         </div>
       </div>
-   </div>
+    </div>
+  </div>
 </div>
-
 
 <!-- <div class="card mb-3" *ngFor="let item of cartItems">
   <div class="row g-0">
@@ -129,7 +143,6 @@
       </div>
   </div>
 </div> -->
-
 
 <!-- <div>
   <strong>Total Amount: {{ totalAmount | currency:'INR' }}</strong>

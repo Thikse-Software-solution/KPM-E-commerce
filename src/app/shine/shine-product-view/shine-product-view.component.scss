@@ -287,6 +287,7 @@ button {
       background: linear-gradient(111deg, rgb(244, 245, 247) 0%, rgb(217, 220, 228) 57%);
       border: unset;
       padding: 10px;
+      margin-top: 0;
 
       &:hover {
         background: #99015B;
@@ -599,19 +600,23 @@ background-color: red;
 //3d image
 .image-container {
   width: 300px;
-  height: 500px;
+  height: 450px;
   overflow: hidden;
-  position: relative;
   cursor: grab;
+  display: flex;
+  justify-content: center;
 }
 
 .image-container img {
-  width: 100%;
   height: auto;
-  position: absolute;
+  // position: absolute;
+  object-fit:contain;
 }
 
-
+.overAll-view{
+  background: rgb(153, 1, 91);
+  background: linear-gradient(111deg, rgb(153, 1, 91) 0%, rgb(0, 0, 0) 89%);
+}
 
 
 
@@ -632,7 +637,12 @@ background-color: red;
 
 
 
-
+@media (max-width:500px){
+  .col-sm-6 {
+    flex: 0 0 auto;
+    width: 50%;
+}
+}
 
 
 

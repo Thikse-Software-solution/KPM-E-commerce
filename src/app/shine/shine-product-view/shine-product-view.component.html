@@ -4,18 +4,18 @@
       <div class="row">
         <div class="col-md-6">
 
-          <div class="main_image position-relative">
+          <!-- <div class="main_image position-relative">
             <img [src]="product.thumbnail" alt="" class="img-fluid slide" />
             <i class="fa-heart position-absolute top-0 right-0 m-3" [ngClass]="{ fas: isFavorite, far: !isFavorite }"
               [class.text-danger]="isFavorite" (click)="toggleFavorite(product)">
             </i>
           </div>
-        <!-- <div class="image-container" (mousedown)="startRotation($event)" (mousemove)="rotateImage($event)"
+        <div class="image-container" (mousedown)="startRotation($event)" (mousemove)="rotateImage($event)"
   (mouseup)="stopRotation()" (mouseleave)="stopRotation()" (touchstart)="startRotation($event)"
   (touchmove)="rotateImage($event)" (touchend)="stopRotation()">
 
           <img [src]="threeDImages[imageIndex]" alt="360 view image" id="product-image" >
-        </div> -->
+        </div>
 
           <div class="option d-flex justify-content-center mt-3" [ngClass]="{'mobile-scroll': isMobileView()}">
             <img *ngFor="let image of product.images.slice(0, 6)" [src]="image" alt="" class="img-thumbnail"
@@ -28,9 +28,33 @@
             (touchstart)="startRotation($event)" (touchmove)="rotateImage($event)" (touchend)="stopRotation()">
 
             <img [src]="threeDImages[imageIndex]" alt="360 view image" id="product-image">
-          </div>
+          </div> -->
 
+  <!-- Main Product Image -->
+  <div class="main_image position-relative">
+    <img [src]="product.thumbnail" alt="Main product image" class="img-fluid slide" />
+  </div>
 
+  <!-- 360-Degree Rotational Image Container -->
+  <div class="image-container"
+       (mousedown)="startRotation($event)"
+       (mousemove)="rotateImage($event)"
+       (mouseup)="stopRotation()"
+       (mouseleave)="stopRotation()"
+       (touchstart)="startRotation($event)"
+       (touchmove)="rotateImage($event)"
+       (touchend)="stopRotation()">
+    <img [src]="threeDImages[imageIndex]" alt="360 view image" id="product-image" class="img-fluid">
+  </div>
+
+  <!-- Thumbnail Images -->
+  <div class="option d-flex justify-content-center mt-3" [ngClass]="{'mobile-scroll': isMobileView()}">
+    <img *ngFor="let image of product.images.slice(0, 6)"
+         [src]="image"
+         alt="Thumbnail image"
+         class="img-thumbnail"
+         (click)="changeImage(image)" />
+  </div>
 
         </div>
         <div class="col-md-6 product-details">
@@ -149,7 +173,7 @@
 </section>
 
 <!-- product ingredients -->
-<div *ngIf="duplicatedCards && duplicatedCards.length > 0" class="container-fluid py-5 text-center">
+<div *ngIf="duplicatedCards && duplicatedCards.length > 0" class="container-fluid py-5 text-center overAll-view">
   <div class="row justify-content-center">
     <div class="col-7 justify-content-center position-relative">
       <h2 class="display-4">Our go-to starting point? Asking Why!</h2>
