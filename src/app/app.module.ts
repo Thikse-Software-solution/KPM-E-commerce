@@ -68,6 +68,7 @@ import { PendingOrderComponent } from './admin/admin/pending-order/pending-order
 import { ProductListComponent } from './admin/admin/product-list/product-list.component';
 import { ShippingDetailComponent } from './admin/admin/shipping-detail/shipping-detail.component';
 import { SummaryCardComponent } from './admin/admin/summary-card/summary-card.component';
+import { BestSelleerComponent } from './shine/best-selleer/best-selleer.component';
 
 
 
@@ -76,7 +77,7 @@ import { SummaryCardComponent } from './admin/admin/summary-card/summary-card.co
 
 
 @NgModule({
-declarations: [			
+declarations: [
     AppComponent,
     SheshineComponent,
     NavbarComponent,
@@ -135,7 +136,8 @@ declarations: [
     PendingOrderComponent,
     ProductListComponent,
     ShippingDetailComponent,
-    SummaryCardComponent
+    SummaryCardComponent,
+    BestSelleerComponent
    ],
   imports: [
     BrowserModule,
@@ -154,7 +156,7 @@ declarations: [
 
     provideHttpClient(withFetch())
   ],
-  
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }
