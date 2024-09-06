@@ -16,6 +16,7 @@ export class AddressListComponent implements OnInit {
   @Input() product: any;
   selectedAddress: Address | null = null;
   private isBrowser: boolean;
+  
   productIds: number[] = [];
   productQuantities: number[] = [];
 
@@ -29,7 +30,9 @@ export class AddressListComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: Object
   ) {
     this.isBrowser = isPlatformBrowser(this.platformId);
+
   }
+
 
   ngOnInit(): void {
     this.addressService.getAddresses().subscribe(addresses => {
@@ -73,10 +76,10 @@ export class AddressListComponent implements OnInit {
         console.log('Proceeding to payment with product IDs:', this.productIds);
         console.log('Proceeding to payment with quantities:', quantities);
 
-        this.router.navigate(['/payment'], { 
-          queryParams: { 
-            ids: this.productIds.join(','), 
-            quantities: quantities 
+        this.router.navigate(['/payment'], {
+          queryParams: {
+            ids: this.productIds.join(','),
+            quantities: quantities
           }
         });
       } else {
