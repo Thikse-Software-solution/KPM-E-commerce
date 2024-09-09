@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contact',
@@ -21,9 +22,25 @@ export class ContactComponent {
       };
 
       console.log('Form Submitted!', contactData);
-      // You can implement further actions like sending the form data to a server here
+
+      // Show success popup
+      Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: 'Your message has been sent successfully!',
+        confirmButtonText: 'OK'
+      }).then(() => {
+        // Reset the form after the popup is closed
+        form.reset();
+      });
     } else {
-      console.log('Form is not valid');
+      // Show error popup if form is invalid
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Please fill out the form correctly.',
+        confirmButtonText: 'OK'
+      });
     }
   }
 }

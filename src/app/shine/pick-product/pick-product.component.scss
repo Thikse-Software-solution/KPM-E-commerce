@@ -206,18 +206,20 @@
         font-size: 14px;
       }
       }
-      // .benefit-reg{
-      //   display: none;
-      // }
-      // .card-text{
-      //   display: none;
-      // }
-      // .card-price{
-      //   display: none;
-      // }
-      // .pick-btn{
-      //   display: none;
-      // }
+      .card-body{
+        .card-title{
+          font-size: 14px;
+        }
+        .card-benefit{
+          font-size: 13px;
+        }
+        .text-muted{
+          font-size: 13px;
+        }
+        .card-price{
+          font-size: 13px;
+        }
+      }
     }
   }
   .col-sm-6 {

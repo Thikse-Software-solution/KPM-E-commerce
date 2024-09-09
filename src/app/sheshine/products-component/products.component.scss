@@ -101,6 +101,22 @@
     flex: 0 0 auto;
     width: 50%;
 }
+.card{
+  .card-body{
+    .card-title{
+      font-size: 13px;
+    }
+    .card-benefit{
+      font-size: 13px;
+    }
+    .text-muted{
+      font-size: 13px;
+    }
+    .card-price{
+      font-size: 13px;
+    }
+  }
+}
 }
 
 

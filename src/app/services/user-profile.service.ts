@@ -12,7 +12,7 @@
 //   //   email: 'johndoe@example.com',
 //   //   phone: '123-456-7890',
 //   //   address: '123 Main St, Anytown, USA',
-//   //   avatarUrl: '../../assets/images/profile/user-image.jpeg',
+//   //   avatarUrl: '../..assets/images/profile/user-image.jpeg',
 //   //   orderHistory: [
 //   //     { orderId: 101, product: 'Laptop', date: '2024-01-15', amount: 1200 },
 //   //     { orderId: 102, product: 'Headphones', date: '2024-02-10', amount: 200 },
