@@ -43,12 +43,25 @@ nav {
   .navbar-toggler {
     border: none;
     outline: none;
+    box-shadow: none;
   }
 
   // Removing !important from this rule
   .collapse {
     // Allow Bootstrap's default behavior to handle collapsibility
   }
+}
+
+.close-icon {
+  font-size: 1.5rem;
+  color: #000;
+  line-height: 1;
+}
+
+.close-icon {
+  font-size: 1.5rem;
+  color: #000;
+  line-height: 1;
 }
 
 // Adjustments for smaller screens
