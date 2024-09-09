@@ -228,6 +228,23 @@ li{
 }
 }
 
+.social-block{
+  .social-group{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    a{
+      color: #fff;
+      .bi{
+        font-size:25px;
+      }
+      &:hover{
+        color:#99015B !important;
+      }
+    }
+  }
+}
+
 @media (max-width: 500px) {
 .col-md-6 {
     flex: 0 0 auto;
