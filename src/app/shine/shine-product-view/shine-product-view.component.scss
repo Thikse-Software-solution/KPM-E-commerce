@@ -186,6 +186,7 @@ button {
         font-size: 28px;
         font-family: lora;
         font-weight: 500;
+        text-transform: capitalize;
       }
       .card-text{
         font-family: lora;
@@ -248,6 +249,9 @@ button {
 }
 
 .product-buy-add{
+  display: flex;
+  gap: 10px;
+  margin: 10px 0 0 0;
   button{
     margin-top: 10px;
   }
@@ -418,12 +422,12 @@ button {
 // product ingredients
 .container-fluid{
 background-color: red;
-.row {
-    display: flex;
-    justify-content: center;
-    margin: 0; // Optional: Reset any default margins
+.ingredient-block {
+  max-width: 850px;
+  margin: 0 auto;
+  position: relative;
 
-    .col-7 {
+    .col-lg-12 {
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -432,16 +436,23 @@ background-color: red;
       padding: 15px; // Optional: Add some padding around the content
 
       h2 {
-        font-size: 2.5rem; // Adjust the size of the display-4 class
-        font-weight: 700; // Adjust font weight for h2
-        margin-bottom: 1rem; // Space below the heading
-        color: #efebeb; // Optional: Set a color for the heading
+        letter-spacing: initial;
+        text-transform: none !important;
+        font-family: Lora, serif !important;
+        text-align: center;
+        font-size: 36px;
+        color: #fff;
+        margin-bottom: 15px;
+        line-height: 1.2;
       }
 
       p {
-        font-size: 1.25rem; // Adjust the size of the lead paragraph
-        color: white; // Set a softer color for the paragraph text
-        margin-bottom: 1.5rem; // Space below the paragraph
+        letter-spacing: 0;
+        text-transform: none;
+        font-size: 16px;
+        text-align: center;
+        padding: 0 30px;
+        color: #fff;
       }
     }
   }
@@ -634,13 +645,137 @@ background-color: red;
   }
 }
 
-
+.btn-cart{
+    background: rgb(244, 245, 247);
+    background: linear-gradient(111deg, rgb(244, 245, 247) 0%, rgb(217, 220, 228) 57%);
+    border: unset;
+    &:hover{
+      background: #99015B;
+      color: #fff;
+    }
+}
 
 
 @media (max-width:500px){
+  .container-fluid{
+    &.overAll-view{
+      padding: 20px 10px !important;
+    }
+    .ingredient-block{
+      .col-lg-12{
+        padding: 0;
+      }
+      h2{
+        font-size: 20px !important;
+      }
+      p{
+        padding: 0 !important;
+        font-size: 14px !important;
+        letter-spacing: 0.7px !important;
+      }
+    }
+  }
   .col-sm-6 {
     flex: 0 0 auto;
     width: 50%;
+    padding: 0 5px 0px 8px;
+}
+.product-overview-Block{
+  margin-top: 20px !important;
+  .similar-head{
+    p{
+    font-family: Lora, serif !important;
+    text-align: center;
+    font-size: 20px !important;
+    margin-bottom: 15px;
+    }
+  }
+  .card{
+    .card-body{
+      .card-title{
+        font-size: 14px;
+      }
+      .card-benefit{
+        font-size: 13px;
+      }
+      .text-muted{
+        font-size: 13px;
+      }
+      .card-price{
+        font-size: 13px;
+      }
+    }
+  }
+}
+.product-detail{
+  .product-details{
+    .details-content{
+      padding: 0;
+      margin-top: 10px;
+      .card-title{
+        font-size: 20px;
+      }
+      .product-rating{
+        font-size: 9px;
+        line-height: 1.5;
+        span{
+          font-size: 12px;
+          display: flex;
+          gap: 3px;
+        }
+        .txt-rate{
+          font-size: 12px;
+        }
+      }
+    }
+    .card-text{
+      font-size: 15px;
+    }
+    .product-mrpPrize{
+      .prize-detail{
+        .card-text{
+          // margin: 0;
+          .text-muted{
+            .prize{
+              font-size: 18px;
+            }
+          }
+        }
+
+      }
+    }
+  }
+}
+}
+
+@media (max-width:400px){
+
+.product-overview-Block{
+  margin-top: 20px !important;
+  .similar-head{
+    p{
+    font-family: Lora, serif !important;
+    text-align: center;
+    font-size: 20px !important;
+    margin-bottom: 15px;
+    }
+  }
+  .card{
+    .card-body{
+      .product-rating{
+        display: none !important;
+      }
+      .card-benefit{
+        display: none !important;
+      }
+      .card-text{
+        display: none !important;
+      }
+      .card-price{
+        display: none !important;
+      }
+    }
+  }
 }
 }
 

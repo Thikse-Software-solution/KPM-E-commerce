@@ -110,6 +110,15 @@ button {
   border-radius: 5px;
   margin-bottom: 10px;
 }
+.btn-cart{
+  background: rgb(244, 245, 247);
+  background: linear-gradient(111deg, rgb(244, 245, 247) 0%, rgb(217, 220, 228) 57%);
+  border: unset;
+  &:hover{
+    background: #99015B;
+    color: #fff;
+  }
+}
 
 @media (max-width: 768px) {
   .main_image {
@@ -248,6 +257,9 @@ button {
 }
 
 .product-buy-add{
+  display: flex;
+  gap: 10px;
+  margin: 10px 0 0 0;
   button{
     margin-top: 10px;
   }

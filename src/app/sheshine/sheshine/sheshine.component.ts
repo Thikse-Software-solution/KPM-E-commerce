@@ -4,24 +4,28 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-sheshine',
   templateUrl: './sheshine.component.html',
-  styleUrl: './sheshine.component.scss'
+  styleUrls: ['./sheshine.component.scss']
 })
-
 export class SheshineComponent {
+  navbarOpen = false;
+
   constructor(private router: Router) {}
 
+  toggleNavbar() {
+    this.navbarOpen = !this.navbarOpen;
+    const navbarCollapse = document.getElementById('navbarNav');
+    if (navbarCollapse && navbarCollapse.classList.contains('show')) {
+      navbarCollapse.classList.remove('show');
+    } else {
+      navbarCollapse?.classList.add('show');
+    }
+  }
+
   closeNavbar() {
+    this.navbarOpen = false;  // Reset icon state
     const navbarCollapse = document.getElementById('navbarNav');
     if (navbarCollapse && navbarCollapse.classList.contains('show')) {
       navbarCollapse.classList.remove('show');
     }
   }
 }
-// export class SheshineComponent {
-//   menuActive = false;
-
-//   toggleMenu() {
-//     this.menuActive = !this.menuActive;
-//     console.log('Menu active:', this.menuActive); // Debug log to check toggle functionality
-//   }
-// }

@@ -43,6 +43,7 @@ nav {
   .navbar-toggler {
     border: none;
     outline: none;
+    box-shadow: none;
   }
 
   // Removing !important from this rule
@@ -70,4 +71,11 @@ nav {
       }
     }
   }
+}
+
+
+.close-icon {
+  font-size: 1.5rem;
+  color: #000;
+  line-height: 1;
 }
