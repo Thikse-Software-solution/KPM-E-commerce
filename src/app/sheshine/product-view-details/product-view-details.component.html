@@ -1,21 +1,17 @@
 <section>
   <div class="product-detail" *ngIf="product">
+    <!-- Ensure product properties are correctly bound -->
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-
           <div class="main_image position-relative">
-            <img [src]="product.thumbnail" alt="" class="img-fluid slide" />
-            <i
-              class="fa-heart position-absolute top-0 right-0 m-3"
-              [ngClass]="{ fas: isFavorite, far: !isFavorite }"
-              [class.text-danger]="isFavorite"
-              (click)="toggleFavorite(product)"
-            >
+            <img [src]="product.thumbnail || product.mainImage" alt="" class="img-fluid slide" />
+            <i class="fa-heart position-absolute top-0 right-0 m-3" [ngClass]="{ fas: isFavorite, far: !isFavorite }"
+              [class.text-danger]="isFavorite" (click)="toggleFavorite(product)">
             </i>
           </div>
           <div class="option d-flex justify-content-center mt-3">
-            <img *ngFor="let image of product.images.slice(0, 6)" [src]="image" alt="" class="img-thumbnail"
+            <img *ngFor="let image of product.images" [src]="image" alt="" class="img-thumbnail"
               (click)="changeImage(image)" />
           </div>
         </div>
@@ -23,50 +19,38 @@
           <div class="details-content">
             <div class="d-flex justify-content-between align-items-center">
               <div>
-                <h5 class="card-title">{{ product.name }}</h5>
+                <h5 class="card-title"> {{ product.name }}</h5>
               </div>
-                <div class="product-rating d-flex flex-column">
-                  <span>
-                    <i
-                    *ngFor="let star of [1, 2, 3, 4, 5]; let i = index"
-                    [class]="getStarClass(i, product.rating)"
-                    (click)="setRating(product, i + 1)"
-                  ></i>
-                  </span>
-                  <span class="txt-rate">(Rating: {{ product.rating }} / 5)</span>
-                </div>
+              <div class="product-rating d-flex flex-column">
+                <span>
+                  <i *ngFor="let star of [1, 2, 3, 4, 5]; let i = index" [class]="getStarClass(i, product.rating)"
+                    (click)="setRating(product, i + 1)"></i>
+                </span>
+                <span class="txt-rate">(Rating: {{ product.rating || 'N/A' }} / 5)</span>
+              </div>
             </div>
             <div>
               <p class="card-text">
                 <span>Suitable for : </span>{{ product.suitable }}
               </p>
-
             </div>
-
             <div>
               <p class="card-text-special">
-                *{{ product.specialLine}}
+                {{ product.special }}
               </p>
             </div>
             <div class="product-mrpPrize">
               <div class="prize-detail">
                 <p class="spec-prize mb-0">Special Prize</p>
                 <p class="card-text">
-                  <small class="text-muted"
-                    >
+                  <small class="text-muted">
                     <span class="prize">{{ product.price | currency : "INR" }}</span>
-                    <del>{{ product.mrp | currency : "INR" }}</del>  </small
-                  >
+                    <del>{{ product.mrp | currency : "INR" }}</del>
+                  </small>
                 </p>
               </div>
-
               <p class="card-text-off">
-                <small class="text-muted"
-                  >{{ product.discount }}% Off</small
-                >
-              </p>
-              <p class="card-text">
-
+                <small class="text-muted">{{ product.discount }}% Off</small>
               </p>
             </div>
             <div class="num-item">
@@ -77,52 +61,30 @@
               </div>
               <div class="d-flex">
                 <div class="product-buy-add">
-                  <button
-                  routerLink="/cart"
-                  class="btn btn-cart mt-0"
-                  (click)="addToCart(product)"
-                >
-                  Add to Cart
-                </button>
-                <button class="btn btn-success mt-0" (click)="buyNow(product.id)">
-                  Buy Now
-                </button>
+                  <button routerLink="/cart" class="btn btn-primary me-2" (click)="addToCart(product)">
+                    Add to Cart
+                  </button>
+                  <button class="btn btn-success" (click)="buyNow(product.id)">
+                    Buy Now
+                  </button>
                 </div>
               </div>
-
             </div>
-
-
-            <button
-              type="button"
-              [class]="getClass(1)"
-              class="collapsible"
-              (click)="toggleContent(1)"
-            >
+            <!-- Collapsible sections -->
+            <button type="button" [class]="getClass(1)" class="collapsible" (click)="toggleContent(1)">
               Description
             </button>
-            <div
-              class="content"
-              [style.display]="isActive(1) ? 'block' : 'none'"
-            >
+            <div class="content" [style.display]="isActive(1) ? 'block' : 'none'">
               <p class="card-text">{{ product.description }}</p>
             </div>
-            <button
-              type="button"
-              [class]="getClass(2)"
-              class="collapsible"
-              (click)="toggleContent(2)"
-            >
+            <button type="button" [class]="getClass(2)" class="collapsible" (click)="toggleContent(2)">
               Key Benefits
             </button>
-            <div
-              class="content"
-              [style.display]="isActive(2) ? 'block' : 'none'"
-            >
-              <p class="card-text">{{ product.keybenefit }}</p>
+            <div class="content" [style.display]="isActive(2) ? 'block' : 'none'">
+              <p class="card-text">{{ product.keybenefits }}</p>
             </div>
             <button type="button" [class]="getClass(3)" class="collapsible" (click)="toggleContent(3)">
-              know our ingredients
+              Ingredients
             </button>
             <div class="content" [style.display]="isActive(3) ? 'block' : 'none'">
               <p class="card-text">{{ product.ingredients }}</p>
@@ -131,25 +93,13 @@
               How to Use
             </button>
             <div class="content" [style.display]="isActive(4) ? 'block' : 'none'">
-              <p class="card-text">{{ product.howtouse }}</p>
+              <p class="card-text">{{ product.howToUse }}</p>
             </div>
-
-            <!-- <p class="card-text"><b>Size: </b>{{ product.size }}</p> -->
-
-
-            <!-- <div class="color d-flex mt-3">
-              <span *ngFor="let color of colors" [style.background]="color" class="color-circle"></span>
-            </div> -->
-
-
+            <!-- Reviews section -->
             <div class="review-section">
               <h6>Write a review</h6>
-              <textarea
-                [(ngModel)]="reviewText"
-                class="form-control"
-                rows="3"
-                placeholder="Write your review here..."
-              ></textarea>
+              <textarea [(ngModel)]="reviewText" class="form-control" rows="3"
+                placeholder="Write your review here..."></textarea>
               <button class="btn btn-primary mt-2" (click)="submitReview()">
                 Submit Review
               </button>
@@ -157,10 +107,7 @@
             <div class="reviews-section">
               <h6>Reviews:</h6>
               <div class="reviews-container">
-                <div
-                  *ngFor="let review of reviews | slice : 0 : 10"
-                  class="review"
-                >
+                <div *ngFor="let review of reviews | slice : 0 : 10" class="review">
                   <p>{{ review }}</p>
                 </div>
               </div>

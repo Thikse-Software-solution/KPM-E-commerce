@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, of, catchError } from 'rxjs';
 import { Order } from '../services/order.model'; 
 
 @Injectable({
@@ -9,29 +8,20 @@ import { Order } from '../services/order.model';
 })
 export class OrderService {
 
-  private apiUrl = 'https://api.yourdomain.com/orders'; // Update with your API URL
+  private apiUrl = 'http://localhost:8080/api/orders'; // Update with your API URL
 
   constructor(private http: HttpClient) { }
+
+  private ordersSubject = new BehaviorSubject<Order[]>([]);
+  orders$ = this.ordersSubject.asObservable();
 
   getOrderHistory(userId: string): Observable<Order[]> {
     return this.http.get<Order[]>(`${this.apiUrl}?userId=${userId}`);
   }
 
-    private ordersSubject = new BehaviorSubject<any[]>([]);
-  orders$ = this.ordersSubject.asObservable();
-
-
-
-  // Add a new order
-  addOrder(order: any): void {
-    const currentOrders = this.ordersSubject.value;
-    this.ordersSubject.next([...currentOrders, { ...order, status: 'Processing', canCancel: this.canCancel(order.date) }]);
-  }
-
-  // Cancel an order
   cancelOrder(orderId: number): void {
     const updatedOrders = this.ordersSubject.value.map(order => {
-      if (order.product.id === orderId) {
+      if (order.id === orderId) {
         return { ...order, status: 'Cancelled', canCancel: false };
       }
       return order;
@@ -39,10 +29,9 @@ export class OrderService {
     this.ordersSubject.next(updatedOrders);
   }
 
-  // Mark an order as received
   markAsReceived(orderId: number): void {
     const updatedOrders = this.ordersSubject.value.map(order => {
-      if (order.product.id === orderId) {
+      if (order.id === orderId) {
         return { ...order, status: 'Received', canCancel: false };
       }
       return order;
@@ -50,10 +39,9 @@ export class OrderService {
     this.ordersSubject.next(updatedOrders);
   }
 
-  // Return an order
   returnOrder(orderId: number): void {
     const updatedOrders = this.ordersSubject.value.map(order => {
-      if (order.product.id === orderId) {
+      if (order.id === orderId) {
         return { ...order, status: 'Returned' };
       }
       return order;
@@ -61,7 +49,6 @@ export class OrderService {
     this.ordersSubject.next(updatedOrders);
   }
 
-  // Check if an order is still within the cancellation period
   private canCancel(orderDate: string): boolean {
     const orderDateObj = new Date(orderDate);
     const currentDate = new Date();
@@ -70,11 +57,50 @@ export class OrderService {
     return daysDiff <= 10;
   }
 
-  // Update cancellation availability based on the 10-day window
   checkCancellationAvailability(): void {
-    const updatedOrders = this.ordersSubject.value.map(order => {
-      return { ...order, canCancel: this.canCancel(order.date) };
-    });
+    const updatedOrders = this.ordersSubject.value.map(order => ({
+      ...order,
+      canCancel: this.canCancel(order.date)
+    }));
     this.ordersSubject.next(updatedOrders);
+  }
+
+  getOrders(): Observable<Order[]> {
+    return this.http.get<Order[]>(`${this.apiUrl}`);
+  }
+
+  getOrderById(id: number): Observable<Order> {
+    return this.http.get<Order>(`${this.apiUrl}/${id}`);
+  }
+
+  createOrder(order: Order): Observable<Order> {
+  return this.http.post<Order>(`${this.apiUrl}/place`, order).pipe(
+    catchError(this.handleError<Order>('createOrder'))
+  );
+}
+
+  private handleError<T>(operation = 'operation', result?: T) {
+  return (error: any): Observable<T> => {
+    console.error(`${operation} failed: ${error.message}`);
+    return of(result as T);
+  };
+}
+
+  updateOrder(id: number, order: Order): Observable<Order> {
+    return this.http.put<Order>(`${this.apiUrl}/update/${id}`, order);
+  }
+
+  deleteOrder(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
+  }
+
+  verifyPayment(paymentId: string, orderId: string, signature: string): Observable<any> {
+    const verifyPayload = {
+      paymentId,
+      orderId,
+      signature
+    };
+
+    return this.http.post<any>(`${this.apiUrl}/verify`, verifyPayload);
   }
 }

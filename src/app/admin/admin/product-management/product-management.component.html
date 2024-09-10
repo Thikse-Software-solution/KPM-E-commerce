@@ -12,12 +12,13 @@
       <label for="shine">Shine</label>
       <input type="checkbox" id="shine" formControlName="shine" (change)="onCheckboxChange('shine')" />
     </div>
-
+    
     <!-- SheShine -->
     <div class="form-group">
       <label for="sheShine">SheShine</label>
       <input type="checkbox" id="sheShine" formControlName="sheShine" (change)="onCheckboxChange('sheShine')" />
     </div>
+
 
     <!-- Name -->
     <div class="form-group">
@@ -25,69 +26,61 @@
       <input type="text" id="name" formControlName="name" class="form-control" />
     </div>
 
-    <!-- Category -->
-    <div class="form-group" *ngIf="showCategory">
-      <label for="category">Category</label>
-      <select id="category" formControlName="category" class="form-control"
-        (change)="onCategoryChange($event)">
-        <option *ngFor="let option of categoryOptions" [value]="option">{{ option }}</option>
-      </select>
-    </div>
-
-    <!-- SubCategory -->
+  <!-- Category -->
+  <div class="form-group" *ngIf="showCategory">
+    <label for="category">Category</label>
+    <select id="category" formControlName="category" class="form-control" (change)="onCategoryChange($event)">
+      <option *ngFor="let option of categoryOptions" [value]="option">{{ option }}</option>
+    </select>
+  </div>
+  
+  <!-- SubCategory -->
   <div class="form-group" *ngIf="showSubCategory">
     <label for="subCategory">SubCategory</label>
     <select id="subCategory" formControlName="subCategory" class="form-control">
       <option *ngFor="let subOption of subCategoryOptions" [value]="subOption">{{ subOption }}</option>
     </select>
+      
   </div>
 
     <!-- Main Image -->
     <div class="form-group">
       <label for="mainImage">Main Image URL</label>
-      <input type="text" id="mainImage" formControlName="mainImage" class="form-control" />
+      <input type="file" id="mainImage" formControlName="mainimage" class="form-control" />
     </div>
 
-    <!-- Card Image -->
-    <div class="form-group">
-      <label for="cardImage">Card Image URL</label>
-      <input type="text" id="cardImage" formControlName="cardImage" class="form-control" />
-    </div>
+    <!-- Cards (Assuming it's an array of card objects) -->
 
-    <!-- Card Text -->
-    <div class="form-group">
-      <label for="cardText">Card Text</label>
-      <input type="text" id="cardText" formControlName="cardText" class="form-control" />
-    </div>
 
-    <!-- Card Title -->
-    <div class="form-group">
-      <label for="cardTitle">Card Title</label>
-      <input type="text" id="cardTitle" formControlName="cardTitle" class="form-control" />
-    </div>
 
     <!-- Additional Images -->
     <div class="form-group">
-      <label for="additionalImages">Additional Images (comma-separated URLs)</label>
-      <input type="text" id="additionalImages" formControlName="additionalImages" class="form-control" />
+      <label for="images">Additional Images</label>
+      <input type="file" id="images" formControlName="images" class="form-control" multiple />
     </div>
 
-    <!-- Thumbnail Image -->
+    <!-- 3D Images -->
     <div class="form-group">
-      <label for="thumbnailImage">Thumbnail Image URL</label>
-      <input type="text" id="thumbnailImage" formControlName="thumbnailImage" class="form-control" />
+      <label for="threeDImages">3D Images</label>
+      <input type="file" id="threeDImages" formControlName="threeDImages" class="form-control" multiple />
+    </div>
+
+    <!-- Thumbnail -->
+    <div class="form-group">
+      <label for="thumbnail">Thumbnail Image URL</label>
+      <input type="file" id="thumbnail" formControlName="thumbnail" class="form-control" />
     </div>
 
     <!-- Benefits -->
     <div class="form-group">
-      <label for="benefits">Benefits</label>
-      <input type="text" id="benefits" formControlName="benefits" class="form-control" />
+      <label for="benefit">Benefits</label>
+      <input type="text" id="benefit" formControlName="benefit" class="form-control" />
     </div>
 
     <!-- Suitable For -->
     <div class="form-group">
-      <label for="suitableFor">Suitable For</label>
-      <input type="text" id="suitableFor" formControlName="suitableFor" class="form-control" />
+      <label for="suitable">Suitable For</label>
+      <input type="text" id="suitable" formControlName="suitable" class="form-control" />
     </div>
 
     <!-- Description -->
@@ -98,8 +91,8 @@
 
     <!-- Key Benefits -->
     <div class="form-group">
-      <label for="keyBenefits">Key Benefits</label>
-      <input type="text" id="keyBenefits" formControlName="keyBenefits" class="form-control" />
+      <label for="keyBenefit">Key Benefits</label>
+      <input type="text" id="keyBenefit" formControlName="keyBenefit" class="form-control" />
     </div>
 
     <!-- How To Use -->
@@ -116,8 +109,8 @@
 
     <!-- Product Size -->
     <div class="form-group">
-      <label for="productSize">Product Size</label>
-      <input type="text" id="productSize" formControlName="productSize" class="form-control" />
+      <label for="size">Product Size</label>
+      <input type="text" id="size" formControlName="size" class="form-control" />
     </div>
 
     <!-- MRP -->
@@ -144,12 +137,6 @@
       <input type="number" id="discount" formControlName="discount" class="form-control" />
     </div>
 
-    <!-- 3D Images -->
-    <div class="form-group">
-      <label for="threeDImages">3D Images (comma-separated URLs)</label>
-      <input type="text" id="threeDImages" formControlName="threeDImages" class="form-control" />
-    </div>
-
     <!-- Feature -->
     <div class="form-group">
       <label for="feature">Feature</label>
@@ -158,8 +145,8 @@
 
     <!-- Trending -->
     <div class="form-group">
-      <label for="trending">Trending</label>
-      <input type="checkbox" id="trending" formControlName="trending" />
+      <label for="trend">Trending</label>
+      <input type="checkbox" id="trend" formControlName="trend" />
     </div>
 
     <!-- Special -->
@@ -168,12 +155,38 @@
       <input type="checkbox" id="special" formControlName="special" />
     </div>
 
+    <!-- Special Line -->
+    <div class="form-group">
+      <label for="specialLine">Special Line</label>
+      <input type="text" id="specialLine" formControlName="specialLine" class="form-control" />
+    </div>
+
+    <!-- Color -->
+    <div class="form-group">
+      <label for="color">Color</label>
+      <input type="text" id="color" formControlName="color" class="form-control" />
+    </div>
+    <!-- Cards Template -->
+    <div formArrayName="cards">
+      <div *ngFor="let card of cards.controls; let i = index" [formGroupName]="i" class="form-group">
+        <label for="cardText-{{i}}">Card Text</label>
+        <input type="text" id="cardText-{{i}}" formControlName="text" class="form-control" />
+    
+        <label for="cardTitle-{{i}}">Card Title</label>
+        <input type="text" id="cardTitle-{{i}}" formControlName="title" class="form-control" />
+    
+        <label for="cardImage-{{i}}">Card Image</label>
+        <input type="file" id="cardImage-{{i}}" formControlName="image" class="form-control" />
+      </div>
+    </div>
+
     <!-- Submit Button -->
     <div class="form-group">
       <button type="submit" [disabled]="productForm.invalid" class="btn btn-primary">Submit</button>
     </div>
   </form>
 </div>
+
 
 <div class="admin-products-container">
   <!-- Table to display product details -->
@@ -194,7 +207,7 @@
       <!-- Loop through each product and display its details -->
       <tr *ngFor="let product of products">
         <td>
-          <img [src]="product.mainImage" alt="{{ product.name }}" class="product-table-image">
+          <img [src]="product.thumbnail" alt="{{ product.name }}" class="product-table-image">
         </td>
         <td>{{ product.name }}</td>
         <td>{{ product.category }}</td>
@@ -204,7 +217,9 @@
         <td>{{ product.discount }}%</td>
         <td>
           <button class="edit-button" (click)="editProduct(product)">Edit</button>
-          <button class="delete-button" (click)="deleteProduct(product.id)">Delete</button>
+        <button class="delete-button" (click)="deleteProduct(product.id)" *ngIf="product.id !== undefined">
+          Delete
+        </button>
         </td>
       </tr>
     </tbody>

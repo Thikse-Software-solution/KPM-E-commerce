@@ -11,7 +11,8 @@ import { ProductService, Product} from '../../sheshine/services/product.service'
   styleUrls: ['./shine-product-view.component.scss']
 })
 export class ShineProductViewComponent implements OnInit, OnDestroy {
-  @Input() product: any;
+  // @Input() product: any;
+    product: any;  
   isFavorite: boolean = false;
   productDetails: any;
   quantity: number = 1;
@@ -70,7 +71,14 @@ export class ShineProductViewComponent implements OnInit, OnDestroy {
     //     }
     //   });
     // });
-    
+     // Retrieve the product details from navigation state
+    const navigation = this.router.getCurrentNavigation();
+    if (navigation && navigation.extras.state) {
+      this.product = navigation.extras.state['product'];
+    } else {
+      console.error('Product details not found in navigation state');
+      // Handle the case where product details are not available (e.g., redirect or show an error message)
+    }
 
 
     this.route.params.subscribe(params => {
@@ -91,6 +99,7 @@ export class ShineProductViewComponent implements OnInit, OnDestroy {
         this.productService.getProductById(id).subscribe(product => {
           if (product) {
             this.product = product;
+             console.log('Product from shineProductService:', this.product);
             this.threeDImages = product.threeDImages || [];
           }
         });
@@ -187,15 +196,21 @@ export class ShineProductViewComponent implements OnInit, OnDestroy {
     }
   }
 
+   // Increase quantity
   increaseQuantity() {
-    if (this.product) {
-      this.product.quantity++;
-    }
+    this.quantity++;
+    this.product.quantity = this.quantity;
+    console.log('Quantity increased:', this.quantity);
   }
 
+  // Decrease quantity, ensuring it does not go below 1
   decreaseQuantity() {
-    if (this.product && this.product.quantity > 1) {
-      this.product.quantity--;
+    if (this.quantity > 1) {
+      this.quantity--;
+      this.product.quantity = this.quantity;
+      console.log('Quantity decreased:', this.quantity);
+    } else {
+      console.log('Quantity is already at the minimum value:', this.quantity);
     }
   }
 
@@ -234,11 +249,27 @@ export class ShineProductViewComponent implements OnInit, OnDestroy {
     }
   }
 
-  addToCart(product: any) {
-    if (this.product) {
-      this.cartService.addToCart(this.product);
+ addToCart(product: any): void {
+    const userId = localStorage.getItem('userId');
+    
+    if (!userId) {
+      console.error('User ID is not available in local storage');
+      // Handle the case where userId is not available
+      return;
     }
-  }
+
+    const parsedUserId = parseInt(userId, 10);
+    
+    this.cartService.addOrUpdateCartItem(parsedUserId, product.id, product.quantity)
+      .subscribe({
+        next: (response) => {
+          console.log('Product added to cart successfully:', response);
+        },
+        error: (error) => {
+          console.error('Error adding product to cart:', error);
+        }
+      });
+  }
 
   toggleContent(index: number): void {
     this.activeSections[index] = !this.activeSections[index];

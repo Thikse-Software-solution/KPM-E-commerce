@@ -21,7 +21,7 @@
                   <small class="text-muted"><b>MRP: </b> <del>{{ product.mrp | currency:'INR' }}</del></small>
               </p>
               <p class="card-price">₹{{ product.price }}</p>
-              <div class="pick-btn">
+              <div>
                   <button class="card-btn"  (click)="addToCart(product)">
                       Add to Cart
                   </button>

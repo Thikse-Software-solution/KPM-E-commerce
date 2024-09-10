@@ -2,27 +2,33 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject, Observable, forkJoin } from 'rxjs';
 import { map } from 'rxjs/operators';
-
 export interface Product {
+  shine: boolean;
+  sheShine: boolean;
   id: number;
+  userId: number;       // ID of the user who owns the cart
+  productId: number; 
   name: string;
   description: string;
-  keybenefit: string;
-  color:string,
+  keybenefits: string;
+  benefit: string;
+  color: string;
   size: string;
   mrp: number;
   discount: number;
   price: number;
   image: string;
-  thumbnail:string;
+  thumbnail: string;
   image1: string;
   category?: string;
-  subcategory?: string;
-  quantity?: number; 
+  suitable: string;
+  subCategory?: string;
+  quantity?: number;
   cards?: Array<{ image: string; title: string; text: string }>;
-  images?: string[]; 
-  threeDImages?: string[]; // Array for storing 360° images
+  images?: string[];
+  threeDImages?: string[];
 }
+
 
 @Injectable({
   providedIn: 'root'
@@ -31,8 +37,8 @@ export class ProductService {
   private productSubject: BehaviorSubject<Product | null> = new BehaviorSubject<Product | null>(null);
   public product$: Observable<Product | null> = this.productSubject.asObservable();
 
-  private productsUrl ='assets/data/products.json';
-  private shineProductsUrl = 'assets/data/shineproduct.json';
+  private productsUrl ='http://localhost:8080/api/products/json';
+  private shineProductsUrl = 'http://localhost:8080/api/products/json';
 
   constructor(private http: HttpClient) {
     this.loadProduct();
@@ -57,14 +63,20 @@ export class ProductService {
     return this.product$;
   }
 
-  getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.productsUrl);
-  }
+getProducts(): Observable<Product[]> {
+  return this.http.get<Product[]>(this.productsUrl).pipe(
+    map(products => products.filter(product => product.sheShine === true))
+  );
+}
+
   
 
-  getShineProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.shineProductsUrl);
-  }
+ getShineProducts(): Observable<Product[]> {
+  return this.http.get<Product[]>(this.shineProductsUrl).pipe(
+    map(products => products.filter(product => product.shine === true))
+  );
+}
+
   
 
   // Method to get products from both sources combined

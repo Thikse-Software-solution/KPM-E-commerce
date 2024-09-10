@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import Swal from 'sweetalert2';
+import { ContactService } from '../services/contact.service'; // Adjust the import path based on your file structure
 
 @Component({
   selector: 'app-contact',
@@ -8,8 +8,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./contact.component.scss']
 })
 export class ContactComponent {
-
-  constructor() { }
+  constructor(private contactService: ContactService) {}
 
   // Function to handle form submission
   onSubmit(form: NgForm) {
@@ -21,26 +20,23 @@ export class ContactComponent {
         message: form.value.message
       };
 
-      console.log('Form Submitted!', contactData);
-
-      // Show success popup
-      Swal.fire({
-        icon: 'success',
-        title: 'Success',
-        text: 'Your message has been sent successfully!',
-        confirmButtonText: 'OK'
-      }).then(() => {
-        // Reset the form after the popup is closed
-        form.reset();
-      });
+      // Call the service to send the contact form data
+      this.contactService.submitContactForm(contactData).subscribe(
+        response => {
+          console.log('Form submitted successfully!', response);
+          // Handle success response
+        },
+        error => {
+          console.error('Error submitting form', error);
+          
+        console.log('Error status:', error.status);
+        console.log('Error message:', error.message);
+        console.log('Error details:', error.error);
+          // Handle error response
+        }
+      );
     } else {
-      // Show error popup if form is invalid
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: 'Please fill out the form correctly.',
-        confirmButtonText: 'OK'
-      });
+      console.log('Form is not valid');
     }
   }
 }
