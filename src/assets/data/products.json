@@ -58,7 +58,7 @@
    "mrp":"500",
     "price": 400,
    "discount": "10",
-   "rating": 4.5,
+   "rating": 5,
    "favorited": false
  },
   {
@@ -89,7 +89,7 @@
    "mrp":"5000",
     "price": 4500,
    "discount": "10",
-   "rating": 4.5,
+   "rating": 5,
    "favorited": false
  },
   {
@@ -119,7 +119,7 @@
    "mrp":"600",
    "price": 1210,
    "discount": "10",
-   "rating": 4.5,
+   "rating": 5,
    "favorited": false
  },
   {
@@ -149,7 +149,7 @@
    "mrp":"500",
    "price": 980,
    "discount": "10",
-   "rating": 4.5,
+   "rating": 5,
    "favorited": false
  },
   {
@@ -177,7 +177,7 @@
    "mrp":"500",
     "price": 980,
    "discount": "10",
-   "rating": 4.5,
+   "rating": 5,
    "favorited": false
  },
 
@@ -206,7 +206,7 @@
    "mrp":"500",
    "price": 3000,
    "discount": "10",
-   "rating": 4.5,
+   "rating": 5,
    "favorited": false
  },
   {
@@ -234,7 +234,7 @@
    "mrp":"500",
    "price": 450,
    "discount": "10",
-   "rating": 4.5,
+   "rating": 5,
    "favorited": false
  },
   {
@@ -261,7 +261,7 @@
    "mrp":"500",
   "price": "7600",
    "discount": "10",
-   "rating": 4.5,
+   "rating": 5,
    "favorited": false
  },
   {
@@ -288,7 +288,7 @@
    "mrp":"500",
    "price": "9000",
    "discount": "10",
-   "rating": 4.5,
+   "rating": 5,
    "favorited": false
  },
   {
@@ -315,7 +315,7 @@
    "mrp":"500",
    "price": "9760",
    "discount": "10",
-   "rating": 4.5,
+   "rating": 5,
    "favorited": false
  },
   {
@@ -342,7 +342,7 @@
    "mrp":"500",
     "price": "4560",
    "discount": "10",
-   "rating": 4.5,
+   "rating": 5,
    "favorited": false
  },
   {
@@ -369,7 +369,7 @@
    "mrp":"500",
    "price": "8770",
    "discount": "10",
-   "rating": 4.5,
+   "rating": 5,
    "favorited": false
  },
  {
@@ -397,7 +397,7 @@
    "mrp":"1330",
    "price":"1199",
    "discount":"10",
-   "rating": 4.5,
+   "rating": 5,
    "favorited": false
  },
   {
@@ -425,7 +425,7 @@
    "mrp":"1330",
    "price":"1199",
    "discount":"10",
-   "rating": 4.5,
+   "rating": 5,
    "favorited": false
  },
  {
@@ -450,7 +450,7 @@
    "mrp":"1330",
    "price":"1199",
    "discount":"10",
-   "rating": 4.5,
+   "rating": 5,
    "favorited": false
  },
  {
@@ -475,7 +475,7 @@
    "mrp":"1330",
    "price":"1199",
    "discount":"10",
-   "rating": 4.5,
+   "rating": 5,
    "favorited": false
  },
  {
@@ -500,7 +500,7 @@
    "mrp":"1330",
    "price":"1199",
    "discount":"10",
-   "rating": 4.5,
+   "rating": 5,
    "favorited": false
  }
 
@@ -520,5 +520,5 @@
 
 
 
- 
+
 
