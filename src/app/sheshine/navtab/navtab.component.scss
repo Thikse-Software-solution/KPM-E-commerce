@@ -35,7 +35,7 @@
       background-color: transparent;
       border-left: 0;
     }
-
+  
     .bi-search {
       font-size: 1.2rem;
       /* Adjust the icon size if necessary */
@@ -130,19 +130,13 @@
     }
         .cart-count {
           position: absolute;
-          top: -6px;
-          right: 0px;
-          color: #fff;
-          padding: 5px;
-          font-size: 10px;
-          border: 1px solid #99015B;
-          background: #99015B;
-          border-radius: 50px;
-          width: 20px;
-          height: 20px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
+          top: 0px;
+          right: -10px;
+          // background-color:rgb(222, 169, 10);
+          color: rgb(0, 0, 0);
+          border-radius: 200%;
+          padding: 2px 6px;
+          font-size: 20px;
         }
 
     .nav {
@@ -159,8 +153,8 @@
           padding: 0.5rem;
 
           img {
-            height: 25px;
-            width: 25px;
+            height: 30px;
+            width: 30px;
           }
         }
       }

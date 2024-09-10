@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './product-order.component.html',
   styleUrls: ['./product-order.component.scss']
 })
-export class ProductOrderComponent implements OnInit {
+export class ProductOrderComponent  {
   product: any;
 
   isFavorite = false;
@@ -31,15 +31,15 @@ export class ProductOrderComponent implements OnInit {
   addToCart(product: any)
     {
 
-      this.cartService.addToCart(product);
-    }
+  //     this.cartService.addToCart(product);
+  //   }
 
  
-  ngOnInit(): void {
-    const id = +this.route.snapshot.paramMap.get('id')!;
-    this.productService.getProducts().subscribe(products => {
-      this.product = products.find(p => p.id === id);
-    });
+  // ngOnInit(): void {
+  //   const id = +this.route.snapshot.paramMap.get('id')!;
+  //   this.productService.getProducts().subscribe(products => {
+  //     this.product = products.find(p => p.id === id);
+  //   });
 
 
 

@@ -102,38 +102,3 @@
   font-weight: 400;
   font-size: 20px;
 }
-
-
-@media (max-width:500px){
-  .customer-block{
-    padding-bottom: 20px;
-    .customer-main{
-      .customer-title{
-        .header-3{
-          font-size: 20px;
-          padding-bottom: 15px;
-        }
-      }
-    }
-    .carousel{
-      .carousel-item{
-        max-width: 280px;
-        p{
-          font-size: 14px;
-        }
-        &.active{
-          row-gap: 5px;
-        }
-        .user-info{
-          img{
-            width: 40px;
-            height: 40px;
-          }
-          .font-style{
-            font-size: 14px;
-          }
-        }
-      }
-    }
-  }
-}

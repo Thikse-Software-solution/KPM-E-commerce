@@ -1,69 +1,69 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
-
-
-export interface Address {
-  id?: number;
-  name: string;
-  type: string;
-  phone: string;
-  addressLine1: string;
-  addressLine2?: string;
-  city: string;
-  state: string;
-  zip: string;
-}
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable, BehaviorSubject, throwError, catchError } from 'rxjs';
+import { Address } from './address.model'; // Adjust the import path according to your project structure
 
 @Injectable({
   providedIn: 'root'
 })
 export class AddressService {
+  private apiUrl = 'http://localhost:8080/api/addresses'; // Update with your Spring Boot API URL
 
-   private addresses: Address[] = [
-    // Your address data here
-  ];
-  private addressesSubject: BehaviorSubject<Address[]> = new BehaviorSubject<Address[]>([]);
-  public addresses$: Observable<Address[]> = this.addressesSubject.asObservable();
-  
-  private selectedAddressSubject: BehaviorSubject<Address | null> = new BehaviorSubject<Address | null>(null);
-  public selectedAddress$: Observable<Address | null> = this.selectedAddressSubject.asObservable();
+  // BehaviorSubject to manage the selected address
+  private selectedAddressSubject = new BehaviorSubject<Address | null>(null);
 
-  constructor() {
-    const initialAddresses: Address[] = [
-      { id: 1, name: 'Poovarasan S', type: 'HOME', phone: '9597258671', addressLine1: 'Throwpathi amman kovil st', addressLine2: 'Kalijikuppam', city: 'Viluppuram District', state: 'Tamil Nadu', zip: '607104' },
-      { id: 2, name: 'Gokul M', type: 'HOME', phone: '8681907138', addressLine1: 'Throw pathy amman kovil street', addressLine2: 'Kalijikuppam', city: 'Viluppuram District', state: 'Tamil Nadu', zip: '607104' }
-     
-    ];
-    this.addressesSubject.next(initialAddresses);
+  constructor(private http: HttpClient) { }
+
+  // Method to add address by user ID
+  addAddressByUserId(userId: number, address: Address): Observable<Address> {
+    const url = `${this.apiUrl}/add/user/${userId}`;
+    return this.http.post<Address>(url, address);
   }
 
-  addAddress(address: Address) {
-    const currentAddresses = this.addressesSubject.value;
-    address.id = currentAddresses.length ? Math.max(...currentAddresses.map(a => a.id || 0)) + 1 : 1;
-    this.addressesSubject.next([...currentAddresses, address]);
+  // Method to get addresses by user ID
+  getAddressesByUserId(userId: number): Observable<Address[]> {
+    const url = `${this.apiUrl}/user/${userId}`;
+    return this.http.get<Address[]>(url);
   }
 
-  selectAddress(address: Address) {
+  // Method to get address by ID
+  getAddressById(id: number): Observable<Address> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<Address>(url);
+  }
+
+  // Method to update address
+  updateAddress(address: Address): Observable<Address> {
+    const url = `${this.apiUrl}/update`;
+    return this.http.put<Address>(url, address);
+  }
+
+  // Method to delete address by ID
+  deleteAddress(id: number): Observable<void> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.delete<void>(url);
+  }
+
+  // Method to select an address and notify subscribers
+  selectAddress(address: Address): void {
     this.selectedAddressSubject.next(address);
   }
 
-  getAddresses(): Observable<Address[]> {
-    return this.addresses$;
+  // Method to get the selected address as an Observable
+  getSelectedAddressObservable(): Observable<Address | null> {
+    return this.selectedAddressSubject.asObservable();
   }
 
-  getSelectedAddress(): Observable<Address | null> {
-    return this.selectedAddress$;
-  }
-
-  //  getSelectedAddress(): Observable<Address | null> {
-  //   return of(this.addresses.find(address => address.isSelected) || null);
-  // }
-
-  // selectAddress(address: Address): void {
-  //   this.addresses.forEach(addr => addr.isSelected = addr.id === address.id);
-  // }
-
-  // getAddressById(id: number): Observable<Address> {
-  //   return of(this.addresses.find(address => address.id === id) as Address);
-  // }
+  // Method to get the selected address by user ID
+  getSelectedAddress(userId: number): Observable<Address> {
+  const url = `${this.apiUrl}/select/${userId}`;
+  return this.http.get<Address>(url).pipe(
+    catchError(error => {
+      console.error('Error fetching selected address:', error);
+      return throwError(error);
+    })
+  );
 }
+}
+export { Address };
+

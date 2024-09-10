@@ -100,22 +100,6 @@
     }
   }
 }
-@media (max-width: 500px) {
-.cardBlock{
-  padding-bottom: 10px;
-  .product-head{
-    .header-3{
-      padding: 20px;
-      font-size: 20px;
-    }
-  }
-  .product-list{
-     .product-card{
-      width: 200px;
-     }
-  }
-}
-}
 @media (max-width: 767px) {
   .card-container {
     display: flex;
