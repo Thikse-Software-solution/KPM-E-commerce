@@ -75,8 +75,17 @@ nav {
   transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
 }
 
+
 .navbar-hidden {
   transform: translateY(-100%); // Hide by moving up
+.close-icon {
+  font-size: 1.5rem;
+  color: #000;
+  line-height: 1;
+  &:hover{
+    color: red;
+  }
+
 }
 
 .navbar-show-top {
