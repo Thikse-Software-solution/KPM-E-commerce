@@ -17,15 +17,19 @@ export class BestSelleerComponent implements OnInit, OnDestroy {
     'assets/images/shine/slide/slide2.webp',
     'assets/images/shine/slide/slide1.webp',
     'assets/images/shine/slide/slide2.webp',
-    // 'assets/image2.jpg',
-    // 'assets/image3.jpg',
-    // 'assets/image4.jpg',
-    // 'assets/image5.jpg',
-    // 'assets/image6.jpg',
-    // 'assets/image7.jpg',
-    // 'assets/image8.jpg',
-    // 'assets/image9.jpg',
-    // 'assets/image10.jpg',
+  ];
+
+  imageLinks = [
+    'https://example.com/page1',
+    'https://example.com/page2',
+    'https://example.com/page3',
+    'https://example.com/page4',
+    'https://example.com/page5',
+    'https://example.com/page6',
+    'https://example.com/page7',
+    'https://example.com/page8',
+    'https://example.com/page9',
+    'https://example.com/page10',
   ];
 
   currentIndex = 0;
@@ -55,5 +59,3 @@ export class BestSelleerComponent implements OnInit, OnDestroy {
     this.startAutoSlide(); // Restart auto-slide
   }
 }
-
-

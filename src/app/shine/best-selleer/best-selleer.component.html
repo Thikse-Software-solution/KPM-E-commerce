@@ -1,4 +1,3 @@
-
 <div class="best-seller">
   <div class="best-header">
     <p>Best Seller</p>
@@ -10,7 +9,10 @@
         *ngFor="let image of images; let i = index"
         [class.active]="i === currentIndex"
       >
-        <img [src]="image" alt="Slide {{ i + 1 }}" class="image-fluid"/>
+        <!-- Add link around the image -->
+        <a [href]="imageLinks[i]" target="_blank">
+          <img [src]="image" alt="Slide {{ i + 1 }}" class="image-fluid" />
+        </a>
       </div>
     </div>
 
@@ -25,4 +27,3 @@
     </div>
   </div>
 </div>
-
