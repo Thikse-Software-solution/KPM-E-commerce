@@ -9,6 +9,7 @@
       .card-title{
         margin-bottom:15px;
         text-align: center;
+        text-transform: capitalize;
         .header-1{
           font-size: 20px;
           font-family: "Gabriela", serif;
@@ -279,9 +280,21 @@
 
 
 @media (max-width:500px){
+  .container{
+    padding: 10px !important;
+  .card-block{
+    padding: 10px !important;
+    .card-Overall{
+      padding: 0px !important;
+    }
+    .row{
+      row-gap: 10px;
+    }
+  }
+}
   .card-split{
     flex-direction: column;
-    gap: 10px;
+    gap: 5px;
     justify-content: center;
     align-items: center;
     .card-right{
@@ -289,14 +302,14 @@
       border-left:unset !important;
       margin-left:0 !important;
       padding-left: 0 !important;
-      padding-top: 10px;
+      padding-top: 5px;
     }
     .catdProduct-img{
       width: 200px !important;
     height: 200px !important;
     }
     .card-product{
-      gap: 10px !important;
+      gap: 5px !important;
     }
   }
 }

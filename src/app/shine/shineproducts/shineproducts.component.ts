@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ShineProductService } from '../services/shine-product.service';
-import { CartItem, CartService } from '../../services/cart.service';
+import { CartService } from '../../services/cart.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { SharedService } from '../../services/shared.service';
 
@@ -13,25 +13,25 @@ export class ShineproductsComponent implements OnInit {
 
   products: any[] = [];  // Array to hold all products
   filteredProducts: any[] = [];  // Array to hold the filtered products
-  userId: number = 0; // Define a variable to store userId
+   // Search query for filtering
 
-  constructor(
-    private productService: ShineProductService,
-    private cartService: CartService,
+  constructor(private productService: ShineProductService,  private cartService: CartService,
     private router: Router,
-    private route: ActivatedRoute,
-    private sharedService: SharedService
-  ) { }
+    private route: ActivatedRoute, private sharedService: SharedService) { }
 
   ngOnInit() {
     this.getAllProducts();
-    this.loadUserId();
-
-    // Subscribe to search query changes
+    
+        // Subscribe to search query changes
     this.sharedService.currentSearchQuery.subscribe(query => {
       this.applyFilters(query);
     });
+// Fetch all products on component initialization
   }
+
+
+  
+  
 
   // Method to fetch all products
   getAllProducts() {
@@ -61,45 +61,27 @@ export class ShineproductsComponent implements OnInit {
   }
 
   // Example methods for product interactions
- buyNow(product: any) {
-  // Navigate to the product details page with the entire product object in navigation state
-  this.router.navigate(['/shine/view', product.id], {
-    state: { product: product }
-  });
-}
-addToCart(product: any): void {
-  // Ensure the quantity is set
+  buyNow(product: any) {
+     this.router.navigate(['/shine/view', product.id]);
+  }
+
+ addToCart(product: any): void {
+ 
   product.quantity = 1;
 
-  // Retrieve userId from local storage
-  const userId = localStorage.getItem('userId');
-  
-  if (userId) {
-    const parsedUserId = parseInt(userId, 10);
+  this.cartService.addToCart(product);
 
-    // Call the addOrUpdateCartItem method from CartService
-    this.cartService.addOrUpdateCartItem(parsedUserId, product.id, product.quantity)
-      .subscribe({
-        next: () => {
-          console.log('Product added to cart:', product);
-          
-          // Navigate to the cart page with the product ID and quantity in the query parameters
-          this.router.navigate(['/cart'], {
-            queryParams: { 
-              id: product.id, 
-              quantity: product.quantity 
-            }
-          });
-        },
-        error: (error) => {
-          console.error('Error adding product to cart:', error);
-        }
-      });
-  } else {
-    console.error('User ID is not available.');
-    // Handle the case where userId is not available (e.g., prompt user to log in)
-  }
+  // Navigate to the desired route with the quantity in the URL
+  this.router.navigate(['/your-route-path'], {
+    queryParams: { 
+      id: product.id, 
+      quantity: product.quantity 
+    }
+  });
+
+ 
 }
+
   getStarClass(index: number, rating: number): string {
     return index < rating ? 'fa fa-star fas' : 'fa fa-star far';
   }
@@ -107,20 +89,5 @@ addToCart(product: any): void {
   setRating(product: any, rating: number) {
     product.rating = rating;
   }
-
-  // Load userId from local storage
-  private loadUserId() {
-    const storedUser = localStorage.getItem('user');
-    if (storedUser) {
-      try {
-        const user = JSON.parse(storedUser);
-        this.userId = user.id; // Extract userId from the parsed object
-        console.log('User ID loaded from local storage:', this.userId);
-      } catch (error) {
-        console.error('Error parsing user data from local storage:', error);
-      }
-    } else {
-      console.error('User ID not found in local storage.');
-    }
-  }
 }
+

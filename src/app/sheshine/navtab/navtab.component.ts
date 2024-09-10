@@ -70,9 +70,9 @@ export class NavtabComponent {
       }
     });
 
-    // this.cartService.cartItems$.subscribe((items) => {
-    //   this.cartItemCount = items.length;
-    // });
+    this.cartService.cartItems$.subscribe((items) => {
+      this.cartItemCount = items.length;
+    });
   }
 
 

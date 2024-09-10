@@ -7,27 +7,27 @@ import { Component } from '@angular/core';
 })
 export class Image360ViewComponent {
   images: string[] = [
-    '../../assets/images/360 images/Screenshot 2024-08-19 141759.png', '../../assets/images/360 images/Screenshot 2024-08-19 141811.png', 
-    '../../assets/images/360 images/Screenshot 2024-08-19 141827.png', '../../assets/images/360 images/Screenshot 2024-08-19 141827.png',
-    '../../assets/images/360 images/Screenshot 2024-08-19 141838.png', '../../assets/images/360 images/Screenshot 2024-08-19 141838.png',
-    '../../assets/images/360 images/Screenshot 2024-08-19 141905.png', '../../assets/images/360 images/Screenshot 2024-08-19 141916.png'
+    'assets/images/360 images/Screenshot 2024-08-19 141759.png', 'assets/images/360 images/Screenshot 2024-08-19 141811.png',
+    'assets/images/360 images/Screenshot 2024-08-19 141827.png', 'assets/images/360 images/Screenshot 2024-08-19 141827.png',
+    'assets/images/360 images/Screenshot 2024-08-19 141838.png', 'assets/images/360 images/Screenshot 2024-08-19 141838.png',
+    'assets/images/360 images/Screenshot 2024-08-19 141905.png', 'assets/images/360 images/Screenshot 2024-08-19 141916.png'
   ];
-  
+
   currentIndex = 0;
   isDragging = false;
   startX: number = 0;
-  
+
   startRotation(event: MouseEvent | TouchEvent) {
     this.isDragging = true;
     this.startX = this.isTouchEvent(event) ? event.touches[0].clientX : (event as MouseEvent).clientX;
   }
-  
+
   rotateImage(event: MouseEvent | TouchEvent) {
     if (!this.isDragging) return;
 
     const currentX = this.isTouchEvent(event) ? event.touches[0].clientX : (event as MouseEvent).clientX;
     const deltaX = this.startX - currentX;
-    
+
     if (Math.abs(deltaX) > 10) {  // Adjust sensitivity
       if (deltaX > 0) {
         this.nextImage();
@@ -37,11 +37,11 @@ export class Image360ViewComponent {
       this.startX = currentX;
     }
   }
-  
+
   stopRotation() {
     this.isDragging = false;
   }
-  
+
   prevImage() {
     this.currentIndex = (this.currentIndex > 0) ? this.currentIndex - 1 : this.images.length - 1;
   }

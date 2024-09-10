@@ -45,6 +45,7 @@
             // line-height: 115%;
             // height: 40px;
             margin-bottom: 0;
+            text-transform: capitalize;
         }
     }
 
@@ -106,6 +107,70 @@
     border: 1px solid;
 }
 
+@media (max-width:500px){
+  .product-overview-Block{
+    .col-sm-6{
+      flex: 0 0 auto;
+      width: 50%;
+      padding: 0 5px 0px 8px;
+    }
+    .card{
+      .product-rating{
+        .fa-star{
+          &.far{
+            font-size: 12px;
+          }
+          &.fas{
+            font-size: 12px;
+          }
+        }
+        span{
+            font-size: 14px;
+          }
+        }
+        .card-body{
+          .card-title{
+            font-size: 14px;
+          }
+          .card-benefit{
+            font-size: 13px;
+          }
+          .text-muted{
+            font-size: 13px;
+          }
+          .card-price{
+            font-size: 13px;
+          }
+        }
+    }
+  }
+}
+@media (max-width:400px){
+  .product-overview-Block{
+    .col-sm-6{
+      flex: 0 0 auto;
+      width: 50%;
+      padding: 0 5px 0px 8px;
+    }
+    .card{
+      .product-rating{
+        display: none;
+        }
+        .benefit-reg{
+          display: none;
+        }
+        .card-text{
+          display: none;
+        }
+        .card-price{
+          display: none;
+        }
+        .pick-btn{
+          display: none;
+        }
+    }
+  }
+}
 
 /* Media Queries for Responsive Design */
 @media (max-width: 768px) {

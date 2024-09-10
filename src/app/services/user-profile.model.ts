@@ -17,18 +17,4 @@ export interface Order {
   date: string;
   amount: number;
 }
-const userData = {
-  id: 1,
-  name: 's.poovarasan',
-  email: 's.poovarasanpoov@gmail.com',
-  mobileNumber: null,
-  password: '123456',
-  gender: null,
-  dob: null,
-  addresses: [],
-  selectedAddress: null,
-  orders: []
-};
 
-
-localStorage.setItem('userData', JSON.stringify(userData));

@@ -6,7 +6,7 @@ section{
     width: 100%;
     min-height: 45vh;
     position: relative;
-    
+
     display: flex;
     align-items: center;
     color: #fff !important;
@@ -31,6 +31,7 @@ section{
     font-size: 22px;
     line-height: 1.3;
     font-weight: 600;
+    font-family: "Montserrat", sans-serif;
     }
   }
   &.section {
@@ -44,6 +45,25 @@ section{
 
 .second-line{
   max-width: 700px;
+}
+
+@media(max-width:500px){
+  .hero{
+    .container-flu{
+      .second-line{
+        h1{
+          font-size: 25px;
+          margin-bottom: 5px;
+        }
+        p{
+          margin-bottom: 5px;
+          font-size: 18px;
+          font-family: "Montserrat", sans-serif;
+          font-weight: unset
+        }
+      }
+    }
+  }
 }
 
 @media(max-width:992px){

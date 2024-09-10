@@ -65,38 +65,21 @@ export class BabyCareComponent implements OnInit {
     product.rating = rating;
   }
 
- addToCart(product: any): void {
-  // Ensure the quantity is set
+  addToCart(product: any): void {
+ 
   product.quantity = 1;
 
-  // Retrieve userId from local storage
-  const userId = localStorage.getItem('userId');
-  
-  if (userId) {
-    const parsedUserId = parseInt(userId, 10);
+  this.cartService.addToCart(product);
 
-    // Call the addOrUpdateCartItem method from CartService
-    this.cartService.addOrUpdateCartItem(parsedUserId, product.id, product.quantity)
-      .subscribe({
-        next: () => {
-          console.log('Product added to cart:', product);
-          
-          // Navigate to the cart page with the product ID and quantity in the query parameters
-          this.router.navigate(['/cart'], {
-            queryParams: { 
-              id: product.id, 
-              quantity: product.quantity 
-            }
-          });
-        },
-        error: (error) => {
-          console.error('Error adding product to cart:', error);
-        }
-      });
-  } else {
-    console.error('User ID is not available.');
-    // Handle the case where userId is not available (e.g., prompt user to log in)
-  }
+  // Navigate to the desired route with the quantity in the URL
+  this.router.navigate(['/your-route-path'], {
+    queryParams: { 
+      id: product.id, 
+      quantity: product.quantity 
+    }
+  });
+
+ 
 }
 
  buyNow(product: any): void {

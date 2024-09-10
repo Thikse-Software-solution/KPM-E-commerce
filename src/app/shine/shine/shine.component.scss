@@ -43,12 +43,25 @@ nav {
   .navbar-toggler {
     border: none;
     outline: none;
+    box-shadow: none;
   }
 
   // Removing !important from this rule
   .collapse {
     // Allow Bootstrap's default behavior to handle collapsibility
   }
+}
+
+.close-icon {
+  font-size: 1.5rem;
+  color: #000;
+  line-height: 1;
+}
+
+.close-icon {
+  font-size: 1.5rem;
+  color: #000;
+  line-height: 1;
 }
 
 // Adjustments for smaller screens
@@ -70,19 +83,4 @@ nav {
       }
     }
   }
-}
-.navbar {
-  transition: transform 0.3s ease-in-out, top 0.3s ease-in-out;
-}
-
-.navbar-hidden {
-  transform: translateY(-100%); // Hide by moving up
-}
-
-.navbar-show-top {
-  position: fixed; // Fix the navbar to the top
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1030; // To make sure it stays above other content
 }

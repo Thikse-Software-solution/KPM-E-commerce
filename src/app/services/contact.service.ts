@@ -7,12 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class ContactService {
 
-  private apiUrl = 'http://localhost:8080/api/contact/submit'; // Replace with your actual backend API endpoint
+  private apiUrl = 'https://your-backend-api.com/contact'; // Replace with your actual backend API endpoint
 
   constructor(private http: HttpClient) {}
 
   // Method to send contact form data to the server
-  submitContactForm(contactData: any): Observable<any> {
+  sendContactForm(contactData: any): Observable<any> {
     return this.http.post(this.apiUrl, contactData);
-  }
+  }
 }

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 export interface Product {
   id: number;
@@ -27,16 +27,14 @@ export interface Product {
 })
 export class ShineProductService {
 
-  private baseUrl: string = 'http://localhost:8080/api/products/json'; // Path to your JSON file
+  private baseUrl: string = 'assets/data/shineproduct.json'; // Path to your JSON file
 
   constructor(private http: HttpClient) {}
 
-getAllProducts(): Observable<Product[]> {
-  return this.http.get<Product[]>(this.baseUrl).pipe(
-    map((products: any[]) => products.filter(product => product.shine === true))
-  );
-}
-
+  // Fetch all products
+  getAllProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>(this.baseUrl);
+  }
 
   // Fetch products by subcategory
   getProductsBySubcategory(subcategory: string): Observable<Product[]> {

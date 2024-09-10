@@ -19,7 +19,6 @@
     cursor: pointer;
   }
 }
-
 .img-thumbnail {
   max-width: 100px;
   /* Adjust size as needed */
@@ -60,11 +59,10 @@
 .product-rating {
   margin-top: 1em;
   color: #f3c012;
-  margin-top: 0;
+  margin-top:0;
   font-size: 12px;
-
-  .txt-rate {
-    color: #8a8a8a;
+  .txt-rate{
+    color:#8a8a8a;
   }
 }
 
@@ -112,6 +110,15 @@ button {
   border-radius: 5px;
   margin-bottom: 10px;
 }
+.btn-cart{
+  background: rgb(244, 245, 247);
+  background: linear-gradient(111deg, rgb(244, 245, 247) 0%, rgb(217, 220, 228) 57%);
+  border: unset;
+  &:hover{
+    background: #99015B;
+    color: #fff;
+  }
+}
 
 @media (max-width: 768px) {
   .main_image {
@@ -148,9 +155,8 @@ button {
   padding: 0;
   display: none;
   overflow: hidden;
-  background-color: white;
-
-  .card-text {
+  background-color:white;
+  .card-text{
     font-size: 12px !important;
   }
 }
@@ -159,11 +165,9 @@ button {
 
 
 .collapsible:after {
-  content: '+';
-  /* Unicode character for "plus" sign (+) */
+  content: '+'; /* Unicode character for "plus" sign (+) */
   font-size: 25px;
-  color: black;
-  /* Change color to black */
+  color: black; /* Change color to black */
   float: right;
   margin-left: 5px;
 }
@@ -177,91 +181,86 @@ button {
 
 
 
-.right-0 {
+.right-0
+{
   right: 0;
 }
 
-.product-detail {
-  .product-details {
-    .details-content {
+.product-detail{
+  .product-details{
+    .details-content{
       padding-top: 0;
-
-      .card-title {
+      .card-title{
         margin-bottom: 0;
         font-size: 28px;
         font-family: lora;
         font-weight: 500;
       }
-
-      .card-text {
+      .card-text{
         font-family: lora;
-        color: #8a8a8a;
+        color:#8a8a8a;
         font-size: 15px;
 
-        span {
+        span{
           font-weight: 500;
         }
       }
-
-      .content {
-        .card-text {
+      .content{
+        .card-text{
           border-bottom: 1px solid #e2dfdf;
         }
       }
-
-      .card-text-special {
+      .card-text-special{
         font-size: 12px;
         margin-bottom: 0;
         font-family: lora;
       }
     }
   }
-
-  .collapsible {
+  .collapsible{
     margin-top: 0;
     font-family: Lora, serif;
   }
 }
 
-.product-mrpPrize {
-  .card-text {
-    margin: 5px 0;
+.product-mrpPrize{
+  .card-text{
+    margin:5px 0;
 
   }
-
-  .prize {
+  .prize{
     font-weight: 700 !important;
     // margin-left: 5px;
     font-size: 20px;
     color: #202020;
 
   }
-
-  .prize-detail {
-    .spec-prize {
+  .prize-detail{
+    .spec-prize{
       color: #0caf12;
       font-weight: 700;
       font-family: lora;
       font-size: 14px;
     }
-
-    del {
+    del{
       margin-left: 5px;
     }
   }
-
-  .card-text-off {
+  .card-text-off{
     margin: 0;
 
-    small {
+    small{
       color: #0caf12 !important;
       font-weight: 700;
     }
   }
 }
 
-.product-buy-add {
-  button {
+.product-buy-add{
+  display: flex;
+  gap: 10px;
+  margin: 10px 0 0 0;
+  button{
     margin-top: 10px;
   }
 }

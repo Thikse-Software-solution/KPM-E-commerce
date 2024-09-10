@@ -47,7 +47,6 @@ import { PendingOrderComponent } from './admin/admin/pending-order/pending-order
 import { ProductListComponent } from './admin/admin/product-list/product-list.component';
 import { ShippingDetailComponent } from './admin/admin/shipping-detail/shipping-detail.component';
 import { SummaryCardComponent } from './admin/admin/summary-card/summary-card.component';
-import { ResetPasswordComponent } from './reset-password/reset-password.component';
 
 
 
@@ -135,8 +134,7 @@ const routes: Routes = [
   { path: 'user', component: UserProfileComponent, canActivate: [AuthGuard] },
   { path: 'image360', component: Image360ViewComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'forgotpassword', component: ForgotPasswordComponent },
-  { path: 'resetpassword', component: ResetPasswordComponent }
+  { path: 'forgotpassword', component: ForgotPasswordComponent }
 
 
 ];

@@ -14,32 +14,33 @@ export class ProductsComponent implements OnInit {
   filteredProducts: any[] = [];
   category: string | null = null;
   searchQuery: string = '';
-  userId: number | null = null; // Ensure userId is available
 
   constructor(
     private cartService: CartService,
     private router: Router,
     private route: ActivatedRoute,
     private productService: ProductService,
-    private sharedService: SharedService
+     private sharedService: SharedService
   ) { }
 
   ngOnInit(): void {
     this.loadProducts();
-    this.loadUserIdFromLocalStorage(); // Load userId from local storage
 
+    // Subscribing to route parameters to handle category filtering
     this.route.paramMap.subscribe(params => {
       this.category = params.get('category');
       console.log('Received category:', this.category); // Debug log
       this.applyFilters();
     });
 
+     // Subscribe to the search query changes from the shared service
     this.sharedService.currentSearchQuery.subscribe(query => {
       this.searchQuery = query;
       this.applyFilters();
     });
   }
 
+  // Fetch products from service
   loadProducts(): void {
     this.productService.getProducts().subscribe(products => {
       this.products = products;
@@ -47,6 +48,7 @@ export class ProductsComponent implements OnInit {
     });
   }
 
+  // Apply search and category filters
   applyFilters(): void {
     const query = this.searchQuery.toLowerCase().trim();
     const price = parseFloat(query);
@@ -62,56 +64,24 @@ export class ProductsComponent implements OnInit {
     console.log('Filtered products:', this.filteredProducts); // Debug log
   }
 
+  // Toggle favorite status for the specific product
   toggleFavorite(product: any) {
     product.isFavorite = !product.isFavorite;
   }
 
+  // Navigate to product details for buying
   buyNow(product: any) {
     this.router.navigate(['/sheshine/view', product.id]);
   }
 
-
-    addToCart(product: any): void {
-    const userId = localStorage.getItem('userId');
-    
-    if (!userId) {
-      console.error('User ID is not available in local storage');
-      // Handle the case where userId is not available
-      return;
-    }
-
-    const parsedUserId = parseInt(userId, 10);
-    
-    this.cartService.addOrUpdateCartItem(parsedUserId, product.id, product.quantity)
-      .subscribe({
-        next: (response) => {
-          console.log('Product added to cart successfully:', response);
-        },
-        error: (error) => {
-          console.error('Error adding product to cart:', error);
-        }
-      });
-  }
- getStarClass(index: number, rating: number): string {
-    return index < rating ? 'fa fa-star fas' : 'fa fa-star far';
+  // Add the product to the cart
+  addToCart(product: any) {
+    this.cartService.addToCart(product);
   }
 
-  setRating(product: any, rating: number) {
-    product.rating = rating;
-  }
-  // Load userId from local storage
-  loadUserIdFromLocalStorage() {
-    const userData = localStorage.getItem('user');
-    if (userData) {
-      try {
-        const user = JSON.parse(userData);
-        this.userId = user.id;
-        console.log('User ID loaded from local storage:', this.userId);
-      } catch (error) {
-        console.error('Error parsing user data from local storage:', error);
-      }
-    } else {
-      console.error('No user data found in local storage.');
-    }
-  }
+  // // Method to trigger filtering when the search query changes
+  // onSearchQueryChange(query: string): void {
+  //   this.searchQuery = query;
+  //   this.applyFilters();
+  // }
 }

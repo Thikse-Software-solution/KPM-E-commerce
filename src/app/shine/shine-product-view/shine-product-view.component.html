@@ -1,151 +1,183 @@
 <section>
-<div class="product-detail" *ngIf="product">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-6">
-        <!-- Main Image Section -->
-        <div class="main_image position-relative">
-          <img [src]="product.mainImage || 'default-image-path.jpg'" alt="Main Image" class="img-fluid slide" />
-          <i class="fa-heart position-absolute top-0 right-0 m-3" [ngClass]="{ fas: isFavorite, far: !isFavorite }"
-            [class.text-danger]="isFavorite" (click)="toggleFavorite(product)">
-          </i>
+  <div class="product-detail" *ngIf="product">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+
+          <!-- <div class="main_image position-relative">
+            <img [src]="product.thumbnail" alt="" class="img-fluid slide" />
+            <i class="fa-heart position-absolute top-0 right-0 m-3" [ngClass]="{ fas: isFavorite, far: !isFavorite }"
+              [class.text-danger]="isFavorite" (click)="toggleFavorite(product)">
+            </i>
+          </div>
+        <div class="image-container" (mousedown)="startRotation($event)" (mousemove)="rotateImage($event)"
+  (mouseup)="stopRotation()" (mouseleave)="stopRotation()" (touchstart)="startRotation($event)"
+  (touchmove)="rotateImage($event)" (touchend)="stopRotation()">
+
+          <img [src]="threeDImages[imageIndex]" alt="360 view image" id="product-image" >
         </div>
 
-        <!-- Additional Images Section -->
-        <div class="option d-flex justify-content-center mt-3" [ngClass]="{'mobile-scroll': isMobileView()}">
-          <img *ngFor="let image of product.additionalImages?.slice(0, 6)" [src]="image" alt="Additional Image"
-            class="img-thumbnail" (click)="changeImage(image)" />
+          <div class="option d-flex justify-content-center mt-3" [ngClass]="{'mobile-scroll': isMobileView()}">
+            <img *ngFor="let image of product.images.slice(0, 6)" [src]="image" alt="" class="img-thumbnail"
+              (click)="changeImage(image)" />
+          </div>
+
+
+          <div *ngIf="threeDImages?.length" class="image-container" (mousedown)="startRotation($event)"
+            (mousemove)="rotateImage($event)" (mouseup)="stopRotation()" (mouseleave)="stopRotation()"
+            (touchstart)="startRotation($event)" (touchmove)="rotateImage($event)" (touchend)="stopRotation()">
+
+            <img [src]="threeDImages[imageIndex]" alt="360 view image" id="product-image">
+          </div> -->
+
+  <!-- Main Product Image -->
+  <div class="main_image position-relative">
+    <img [src]="product.thumbnail" alt="Main product image" class="img-fluid slide" />
+  </div>
+
+  <!-- 360-Degree Rotational Image Container -->
+  <div class="image-container"
+       (mousedown)="startRotation($event)"
+       (mousemove)="rotateImage($event)"
+       (mouseup)="stopRotation()"
+       (mouseleave)="stopRotation()"
+       (touchstart)="startRotation($event)"
+       (touchmove)="rotateImage($event)"
+       (touchend)="stopRotation()">
+    <img [src]="threeDImages[imageIndex]" alt="360 view image" id="product-image" class="img-fluid">
+  </div>
+
+  <!-- Thumbnail Images -->
+  <div class="option d-flex justify-content-center mt-3" [ngClass]="{'mobile-scroll': isMobileView()}">
+    <img *ngFor="let image of product.images.slice(0, 6)"
+         [src]="image"
+         alt="Thumbnail image"
+         class="img-thumbnail"
+         (click)="changeImage(image)" />
+  </div>
+
         </div>
-
-        <!-- 3D Images Section -->
-        <div *ngIf="threeDImages?.length" class="image-container" (mousedown)="startRotation($event)"
-          (mousemove)="rotateImage($event)" (mouseup)="stopRotation()" (mouseleave)="stopRotation()"
-          (touchstart)="startRotation($event)" (touchmove)="rotateImage($event)" (touchend)="stopRotation()">
-          <img [src]="threeDImages[imageIndex]" alt="360 view image" id="product-image">
-        </div>
-      </div>
-
-      <div class="col-md-6 product-details">
-        <div class="details-content">
-          <!-- Product Title and Rating -->
-          <div class="d-flex justify-content-between align-items-center">
-            <div>
-              <h5 class="card-title">{{ product.name }}</h5>
-            </div>
-            <div class="product-rating d-flex flex-column">
-              <span>
-                <i *ngFor="let star of [1, 2, 3, 4, 5]; let i = index" [class]="getStarClass(i, product.rating)"
-                  (click)="setRating(product, i + 1)"></i>
-              </span>
-              <span class="txt-rate">(Rating: {{ product.rating || 'N/A' }} / 5)</span>
-            </div>
-          </div>
-
-          <!-- Suitable For and Color (if applicable) -->
-          <div>
-            <p class="card-text">
-              <span>Suitable for : </span>{{ product.suitable || 'N/A' }}
-            </p>
-            <p *ngIf="product.subCategory === 'Lipstick'" class="card-text">
-              <span>Color: </span>{{ product.color || 'N/A' }}
-            </p>
-          </div>
-
-          <!-- Special Line (if available) -->
-          <div *ngIf="product.specialLine">
-            <p class="card-text-special">
-              {{ product.specialLine }}
-            </p>
-          </div>
-
-          <!-- Price and Discount Details -->
-          <div class="product-mrpPrize">
-            <div class="prize-detail">
-              <p class="spec-prize mb-0">Special Prize</p>
-              <p class="card-text">
-                <small class="text-muted">
-                  <span class="prize">{{ product.price | currency : "INR" }}</span>
-                  <del>{{ product.mrp | currency : "INR" }}</del> </small>
-              </p>
-            </div>
-            <p class="card-text-off">
-              <small class="text-muted">{{ product.discount }}% Off</small>
-            </p>
-          </div>
-
-          <!-- Quantity Controls -->
-          <div class="num-item">
-            <div class="add d-flex align-items-center">
-            <span class="quantity-btn" (click)="decreaseQuantity()">-</span>
-            <label class="mx-2">{{ product.quantity }}</label>
-            <span class="quantity-btn" (click)="increaseQuantity()">+</span>
-            </div>
-            <div class="d-flex">
-              <div class="product-buy-add">
-                <button routerLink="/cart" class="btn btn-primary me-2" (click)="addToCart(product)">
-                  Add to Cart
-                </button>
-                <button class="btn btn-success" (click)="buyNow(product.id)">
-                  Buy Now
-                </button>
+        <div class="col-md-6 product-details">
+          <div class="details-content">
+            <div class="d-flex justify-content-between align-items-center">
+              <div>
+                <h5 class="card-title">{{ product.name }}</h5>
+              </div>
+              <div class="product-rating d-flex flex-column">
+                <span>
+                  <i *ngFor="let star of [1, 2, 3, 4, 5]; let i = index" [class]="getStarClass(i, product.rating)"
+                    (click)="setRating(product, i + 1)"></i>
+                </span>
+                <span class="txt-rate">(Rating: {{ product.rating }} / 5)</span>
               </div>
             </div>
-          </div>
+            <div>
+              <p class="card-text">
+                <span>Suitable for : </span>{{ product.suitable }}
+              </p>
+<p *ngIf="product.subcategory === 'Lipstick'" class="card-text">
+  <span>Color: </span>{{ product.color }}
+</p>
+            </div>
+            <div>
+              <p class="card-text-special">
+                {{ product.specialLine}}
+              </p>
+            </div>
+            <div class="product-mrpPrize">
+              <div class="prize-detail">
+                <p class="spec-prize mb-0">Special Prize</p>
+                <p class="card-text">
+                  <small class="text-muted">
+                    <span class="prize">{{ product.price | currency : "INR" }}</span>
+                    <del>{{ product.mrp | currency : "INR" }}</del> </small>
+                </p>
+              </div>
 
-          <!-- Collapsible Sections for Additional Information -->
-          <button type="button" [class]="getClass(1)" class="collapsible" (click)="toggleContent(1)">
-            Description
-          </button>
-          <div class="content" [style.display]="isActive(1) ? 'block' : 'none'">
-            <p class="card-text">{{ product.description }}</p>
-          </div>
+              <p class="card-text-off">
+                <small class="text-muted">{{ product.discount }}% Off</small>
+              </p>
+              <p class="card-text">
 
-          <button type="button" [class]="getClass(2)" class="collapsible" (click)="toggleContent(2)">
-            Key Benefits
-          </button>
-          <div class="content" [style.display]="isActive(2) ? 'block' : 'none'">
-            <p class="card-text">{{ product.keybenefits }}</p>
-          </div>
+              </p>
+            </div>
+            <div class="num-item">
+            <div class="add d-flex align-items-center">
+              <span class="quantity-btn" (click)="decreaseQuantity()">-</span>
+              <label class="mx-2">{{ product.quantity }}</label>
+              <span class="quantity-btn" (click)="increaseQuantity()">+</span>
+            </div>
+              <div class="d-flex">
+                <div class="product-buy-add">
+                  <button routerLink="/cart" class="btn btn-cart mt-0" (click)="addToCart(product)">
+                    Add to Cart
+                  </button>
+                  <button class="btn btn-success mt-0" (click)="buyNow(product.id)">
+                    Buy Now
+                  </button>
+                </div>
+              </div>
 
-          <button type="button" [class]="getClass(3)" class="collapsible" (click)="toggleContent(3)">
-            Know Our Ingredients
-          </button>
-          <div class="content" [style.display]="isActive(3) ? 'block' : 'none'">
-            <p class="card-text">{{ product.ingredients }}</p>
-          </div>
+            </div>
 
-          <button type="button" [class]="getClass(4)" class="collapsible" (click)="toggleContent(4)">
-            How to Use
-          </button>
-          <div class="content" [style.display]="isActive(4) ? 'block' : 'none'">
-            <p class="card-text">{{ product.howToUse }}</p>
-          </div>
 
-          <!-- Review Section -->
-          <div class="review-section">
-            <h6>Write a review</h6>
-            <textarea [(ngModel)]="reviewText" class="form-control" rows="3"
-              placeholder="Write your review here..."></textarea>
-            <button class="btn btn-primary mt-2" (click)="submitReview()">
-              Submit Review
+            <button type="button" [class]="getClass(1)" class="collapsible" (click)="toggleContent(1)">
+              Description
             </button>
+            <div class="content" [style.display]="isActive(1) ? 'block' : 'none'">
+              <p class="card-text">{{ product.description }}</p>
+            </div>
+            <button type="button" [class]="getClass(2)" class="collapsible" (click)="toggleContent(2)">
+              Key Benefits
+            </button>
+            <div class="content" [style.display]="isActive(2) ? 'block' : 'none'">
+              <p class="card-text">{{ product.keybenefit }}</p>
+            </div>
+              <button type="button" [class]="getClass(3)" class="collapsible" (click)="toggleContent(3)">
+                know our ingredients
+              </button>
+              <div class="content" [style.display]="isActive(3) ? 'block' : 'none'">
+                <p class="card-text">{{ product.ingredients }}</p>
+              </div>
+                <button type="button" [class]="getClass(4)" class="collapsible" (click)="toggleContent(4)">
+                  How to Use
+                </button>
+                <div class="content" [style.display]="isActive(4) ? 'block' : 'none'">
+                  <p class="card-text">{{ product.howtouse }}</p>
+                </div>
+
+            <!-- <p class="card-text"><b>Size: </b>{{ product.size }}</p> -->
+
+
+            <!-- <div class="color d-flex mt-3">
+              <span *ngFor="let color of colors" [style.background]="color" class="color-circle"></span>
+            </div> -->
+
+
+            <div class="review-section">
+              <h6>Write a review</h6>
+              <textarea [(ngModel)]="reviewText" class="form-control" rows="3"
+                placeholder="Write your review here..."></textarea>
+              <button class="btn btn-primary mt-2" (click)="submitReview()">
+                Submit Review
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>
+    </div>
+
+
 
 </section>
 
 <!-- product ingredients -->
-<div *ngIf="duplicatedCards && duplicatedCards.length > 0" class="container-fluid py-5 text-center">
-  <div class="row justify-content-center">
-    <div class="col-7 justify-content-center position-relative">
-      <h2 class="display-4">Our go-to starting point? Asking Why!</h2>
-      <p class="lead">We’re extremely curious people. We can only assume you too are curious when it comes to the world
-        of personal care, and rightfully so. That’s why we insist on addressing the ‘Whys’ you’d need to know before you
-        buy.</p>
+<div *ngIf="duplicatedCards && duplicatedCards.length > 0" class="container-fluid py-5 text-center overAll-view">
+  <div class="d-flex justify-content-center ingredient-block">
+    <div class="col-lg-12 justify-content-center position-relative">
+      <h2 class="display-4">Why are these ingredients important in my personal care routine?</h2>
+      <p class="lead">Each ingredient we select is carefully chosen for its specific benefits. Whether it’s nourishing oils, hydrating extracts, or protective vitamins, we make sure that every component works in harmony to promote healthier, glowing skin. Natural, effective, and safe—that’s what we stand for.</p>
     </div>
   </div>
 
@@ -159,6 +191,7 @@
       </div>
     </div>
   </div>
+</div>
 
 
 
@@ -174,40 +207,42 @@
     </div>
   </div>
    -->
-</div>
+
 
 
 
 <!-- similier product  -->
 <div class="container mt-5 product-overview-Block">
+  <div class="similar-head">
+    <p>Similar Products</p>
+  </div>
   <div class="row">
-    <div class="col-lg-3 col-sm-6 col-md-6 mb-4" *ngFor="let subcategoryProduct of subcategoryProducts">
-      <div class="card">
-        <img src="{{ subcategoryProduct.thumbnail }}" class="card-img-top" alt="Product Image"
-          (click)=" viewProduct(subcategoryProduct)">
-        <div class="card-body">
-          <p class="card-title">{{ subcategoryProduct.name }}</p>
-          <!-- <p class="card-text">{{ product.description }}</p> -->
-          <div class="product-rating">
-            <i *ngFor="let star of [1, 2, 3, 4, 5]; let i = index" [class]="getStarClass(i, subcategoryProduct.rating)"
-              (click)="setRating(product, i + 1)"></i>
-            <span>( {{ product.rating}}/5 Reviews) </span>
-          </div>
-          <p class="card-benefit benefit-reg" style="height: 36px;">{{ subcategoryProduct.benefit }}</p>
-          <!-- <p class="card-size">{{ product.size }}</p> -->
-          <p class="card-text">
-            <small class="text-muted"><b>MRP: </b> <del>{{ subcategoryProduct.mrp | currency:'INR' }}</del></small>
-          </p>
-          <p class="card-price">₹{{ subcategoryProduct.price }}</p>
-          <div>
-            <button class="card-btn" (click)="addToCart(product)">
-              Add to Cart
-            </button>
-          </div>
-        </div>
+<div class="col-lg-3 col-sm-6 col-md-6 mb-4" *ngFor="let subcategoryProduct of subcategoryProducts">
+  <div class="card">
+    <img src="{{ subcategoryProduct.thumbnail }}" class="card-img-top" alt="Product Image" (click)=" viewProduct(subcategoryProduct)">
+    <div class="card-body">
+      <p class="card-title">{{ subcategoryProduct.name }}</p>
+      <!-- <p class="card-text">{{ product.description }}</p> -->
+      <div class="product-rating">
+        <i *ngFor="let star of [1, 2, 3, 4, 5]; let i = index" [class]="getStarClass(i, subcategoryProduct.rating)"
+          (click)="setRating(product, i + 1)"></i>
+        <span>( {{ product.rating}}/5 Reviews) </span>
+      </div>
+      <p class="card-benefit benefit-reg" style="height: 36px;">{{ subcategoryProduct.benefit }}</p>
+      <!-- <p class="card-size">{{ product.size }}</p> -->
+      <p class="card-text">
+        <small class="text-muted"><b>MRP: </b> <del>{{ subcategoryProduct.mrp | currency:'INR' }}</del></small>
+      </p>
+      <p class="card-price">₹{{ subcategoryProduct.price }}</p>
+      <div>
+        <button class="card-btn" (click)="addToCart(product)">
+          Add to Cart
+        </button>
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>
 
 <div class="over-allreview-update">

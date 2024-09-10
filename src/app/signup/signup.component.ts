@@ -29,36 +29,20 @@ export class SignupComponent implements OnInit {
     });
   }
 
-onSubmit() {
-  if (this.signupForm.valid) {
-    this.signupService.signup(this.signupForm.value).subscribe({
-      next: (response) => {
-        console.log('Signup successful', response);
-        this.isEmailVerificationStep = true; // Move to email verification step
-        // You can also provide feedback to the user, like a success message
-        alert('Signup successful! Please verify your email to complete the registration.');
-      },
-      error: (error) => {
-        console.error('Signup failed', error);
-
-        // Check the status code or error message for specific handling
-        if (error.status === 409) {  // Example: 409 Conflict for duplicate email
-          alert('This email is already registered. Please use another email or log in.');
-        } else if (error.error?.message === 'Email already registered') {
-          // Handle specific error message from backend
-          alert('This email is already registered. Please use another email or log in.');
-        } else {
-          // Handle other errors, potentially including validation issues
-          alert('Signup failed. Please check your details and try again.');
+  onSubmit() {
+    if (this.signupForm.valid) {
+      this.signupService.signup(this.signupForm.value).subscribe(
+        response => {
+          console.log('Signup successful', response);
+          this.isEmailVerificationStep = true; // Move to email verification step
+        },
+        error => {
+          console.error('Signup failed', error);
+          // Handle error response
         }
-      }
-    });
-  } else {
-    // Handle form validation errors (e.g., highlight missing or incorrect fields)
-    alert('Please fill in all required fields correctly.');
+      );
+    }
   }
-}
-
 
   verifyEmail() {
     if (this.signupForm.get('verificationCode')?.valid) {

@@ -4,8 +4,6 @@ import { AuthService } from '../services/auth.service';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { userInfo } from 'os';
-
 
 @Component({
   selector: 'app-login',
@@ -37,13 +35,9 @@ email: string = '';
       this.authService.login(email, password).subscribe({
         next: (user) => {
           console.log('Login successful:', user);
-          
           // Handle successful login (e.g., redirect to dashboard)
           localStorage.setItem('user', JSON.stringify(user));
-           
-          
           this.router.navigate(['/shine/shinehome']);
-          
         },
         error: (error) => {
           console.error('Login error:', error);
