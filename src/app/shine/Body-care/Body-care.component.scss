@@ -116,6 +116,14 @@
     }
     .card{
       .product-rating{
+        .fa-star{
+          &.far{
+            font-size: 12px;
+          }
+          &.fas{
+            font-size: 12px;
+          }
+        }
         span{
             font-size: 14px;
           }
